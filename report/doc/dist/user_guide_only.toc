@@ -1,0 +1,23 @@
+\select@language {american}
+\contentsline {section}{\numberline {1}User Guide}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}Installing Checksims}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Running Checksims}{2}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}Arguments}{2}{subsubsection.1.2.1}
+\contentsline {paragraph}{\numberline {1.2.1.1}Optional Arguments}{3}{paragraph.1.2.1.1}
+\contentsline {paragraph}{\numberline {1.2.1.2}JVM Arguments}{4}{paragraph.1.2.1.2}
+\contentsline {paragraph}{\numberline {1.2.1.3}Sample Command Line}{4}{paragraph.1.2.1.3}
+\contentsline {subsubsection}{\numberline {1.2.2}Common Errors and Solutions}{5}{subsubsection.1.2.2}
+\contentsline {paragraph}{\numberline {1.2.2.1}Out of Memory Errors}{5}{paragraph.1.2.2.1}
+\contentsline {paragraph}{\numberline {1.2.2.2}No Submissions Detected}{5}{paragraph.1.2.2.2}
+\contentsline {subsection}{\numberline {1.3}Description of Tokenizations}{5}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Character Tokenization}{6}{subsubsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.2}Whitespace Tokenization}{6}{subsubsection.1.3.2}
+\contentsline {subsubsection}{\numberline {1.3.3}Line Tokenization}{6}{subsubsection.1.3.3}
+\contentsline {subsection}{\numberline {1.4}Description of Preprocessors}{6}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Description of Algorithms}{6}{subsection.1.5}
+\contentsline {subsubsection}{\numberline {1.5.1}Smith-Waterman}{7}{subsubsection.1.5.1}
+\contentsline {subsubsection}{\numberline {1.5.2}Line Comparison}{7}{subsubsection.1.5.2}
+\contentsline {subsection}{\numberline {1.6}Description of Output Strategies}{7}{subsection.1.6}
+\contentsline {subsubsection}{\numberline {1.6.1}CSV}{8}{subsubsection.1.6.1}
+\contentsline {subsubsection}{\numberline {1.6.2}HTML}{8}{subsubsection.1.6.2}
+\contentsline {subsubsection}{\numberline {1.6.3}Threshold}{8}{subsubsection.1.6.3}

@@ -1,0 +1,797 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.4 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist{nty}{nty}
+    \entry{ahtiainen06}{inproceedings}{}
+      \name{labelname}{3}{}{%
+        {{hash=942ed1d154f7c86018cbd33d94cd598b}{Ahtiainen}{A\bibinitperiod}{Aleksi}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=0e2f9989f50d4719a4b03c3359f4d5a6}{Surakka}{S\bibinitperiod}{Sami}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=b26badea519607ec8fa2699e72285c16}{Rahikainen}{R\bibinitperiod}{Mikko}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=942ed1d154f7c86018cbd33d94cd598b}{Ahtiainen}{A\bibinitperiod}{Aleksi}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=0e2f9989f50d4719a4b03c3359f4d5a6}{Surakka}{S\bibinitperiod}{Sami}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=b26badea519607ec8fa2699e72285c16}{Rahikainen}{R\bibinitperiod}{Mikko}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{38b9bce0fdb554aeac7d27fa314dd204}
+      \strng{fullhash}{38b9bce0fdb554aeac7d27fa314dd204}
+      \field{sortinit}{A}
+      \field{sortinithash}{c8a29dea43e9d2645817723335a4dbe8}
+      \field{labeltitle}{Plaggie: GNU-licensed source code plagiarism detection engine for Java exercises}
+      \field{annotation}{\setlength{\parskip}{1.5ex} GNU GPL licensed Java 1.5 source code plagiarism detection software dating to 2006. No evidence of active development after this point.}
+      \field{booktitle}{Proceedings of the 6th Baltic Sea conference on Computing education research: Koli Calling 2006}
+      \field{title}{Plaggie: GNU-licensed source code plagiarism detection engine for Java exercises}
+      \field{year}{2006}
+      \field{pages}{141\bibrangedash 142}
+    \endentry
+    \entry{arwin2006plagiarism}{inproceedings}{}
+      \name{labelname}{2}{}{%
+        {{hash=43285c9ac80e6d82fa6024437d5ed032}{Arwin}{A\bibinitperiod}{Christian}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=dc1539be0d0727c4b4af63be1ef848a3}{Tahaghoghi}{T\bibinitperiod}{Seyed\bibnamedelima M.M.}{S\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=43285c9ac80e6d82fa6024437d5ed032}{Arwin}{A\bibinitperiod}{Christian}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=dc1539be0d0727c4b4af63be1ef848a3}{Tahaghoghi}{T\bibinitperiod}{Seyed\bibnamedelima M.M.}{S\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {Australian Computer Society, Inc.}%
+      }
+      \strng{namehash}{36a13ae408c8c1db63062264438f2e9b}
+      \strng{fullhash}{36a13ae408c8c1db63062264438f2e9b}
+      \field{sortinit}{A}
+      \field{sortinithash}{c8a29dea43e9d2645817723335a4dbe8}
+      \field{labeltitle}{Plagiarism detection across programming languages}
+      \field{annotation}{Introduces \textit{XPlag}, a tool designed to detect instances of code copied from one programming language into another. \textit{XPlag} functions by comparing the intermediate representation of two programs written in different languages but built by the same compiler suite.}
+      \field{booktitle}{Proceedings of the 29th Australasian Computer Science Conference-Volume 48}
+      \field{title}{Plagiarism detection across programming languages}
+      \field{year}{2006}
+      \field{pages}{277\bibrangedash 286}
+    \endentry
+    \entry{baker95}{inproceedings}{}
+      \name{labelname}{1}{}{%
+        {{hash=72c2ebaf7a2efb2a08823e883c8e39da}{Baker}{B\bibinitperiod}{Brenda\bibnamedelima S.}{B\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=72c2ebaf7a2efb2a08823e883c8e39da}{Baker}{B\bibinitperiod}{Brenda\bibnamedelima S.}{B\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{72c2ebaf7a2efb2a08823e883c8e39da}
+      \strng{fullhash}{72c2ebaf7a2efb2a08823e883c8e39da}
+      \field{sortinit}{B}
+      \field{sortinithash}{1a3a21dbed09540af12d49a0b14f4751}
+      \field{labeltitle}{On finding duplication and near-duplication in large software systems}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Presents \textit{Dup}, a tool for locating instances of duplication or near-duplication in a large software system.}
+      \field{booktitle}{Reverse Engineering, 1995., Proceedings of 2nd Working Conference on}
+      \field{title}{On finding duplication and near-duplication in large software systems}
+      \field{year}{1995}
+      \field{pages}{86\bibrangedash 95}
+    \endentry
+    \entry{belkhouche04}{inproceedings}{}
+      \name{labelname}{3}{}{%
+        {{hash=d9640e12c8ec2be17a0f032b35afc87d}{Belkhouche}{B\bibinitperiod}{Boumediene}{B\bibinitperiod}{}{}{}{}}%
+        {{hash=c69b5bac62f8735804fc9520e9e77406}{Nix}{N\bibinitperiod}{Anastasia}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=e715bc12f053bece7e2f388f2e5fc398}{Hassell}{H\bibinitperiod}{Johnette}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=d9640e12c8ec2be17a0f032b35afc87d}{Belkhouche}{B\bibinitperiod}{Boumediene}{B\bibinitperiod}{}{}{}{}}%
+        {{hash=c69b5bac62f8735804fc9520e9e77406}{Nix}{N\bibinitperiod}{Anastasia}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=e715bc12f053bece7e2f388f2e5fc398}{Hassell}{H\bibinitperiod}{Johnette}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{bcc7e048621a8cbca6740c8fee061060}
+      \strng{fullhash}{bcc7e048621a8cbca6740c8fee061060}
+      \field{sortinit}{B}
+      \field{sortinithash}{1a3a21dbed09540af12d49a0b14f4751}
+      \field{labeltitle}{Plagiarism detection in software designs}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Focuses on very high-level comparison, analyzing design (code structure, data structures) of two programs for similarity. Performs progressively higher-level analysis on C programs at five levels of abstraction. Very language-specific approach.}
+      \field{booktitle}{Proceedings of the 42nd annual Southeast regional conference}
+      \field{title}{Plagiarism detection in software designs}
+      \field{year}{2004}
+      \field{pages}{207\bibrangedash 211}
+    \endentry
+    \entry{beth14}{article}{}
+      \name{labelname}{1}{}{%
+        {{hash=4fa3c3de7d7693d347f5489cbb2dac03}{Beth}{B\bibinitperiod}{Bradley}{B\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=4fa3c3de7d7693d347f5489cbb2dac03}{Beth}{B\bibinitperiod}{Bradley}{B\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{4fa3c3de7d7693d347f5489cbb2dac03}
+      \strng{fullhash}{4fa3c3de7d7693d347f5489cbb2dac03}
+      \field{sortinit}{B}
+      \field{sortinithash}{1a3a21dbed09540af12d49a0b14f4751}
+      \field{labeltitle}{A Comparison of Similarity Techniques for Detecting Source Code Plagiarism}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Beth measures the performance of four approaches to plagiarism detection against a simulated corpus of plagiarized C programs using five distinct obfuscation techniques: comment alteration, whitespace padding, identifier renaming, code reordering, and refactoring algebraic expressions. The project measures the effectiveness of Levenshtein edit distance (in source and in the LLVM intermediate representation bitcode), tree edit distance in the abstract syntax tree, graph edit distance in the control flow graphs, and $w$-shingling, both in the source and in the IR bitcode. The algorithms are also checked against an unrelated piece of source code to check for false positives, and their performance was also compared with the performance of MOSS. \par The author limited the corpus to C programs, but believes the results will be similar for any compiler that uses the LLVM toolchain. The corpus is, however, very small, and perhaps not very realistic. The results are certainly not conclusive, but they provide a decent starting point. \par It seems that most approaches detect some attacks well, but not others. The author had comments and whitespace removed before running the checks, so both of those approaches did poorly. It seems that changes to order and nomenclature are best detected when checking compiler-generated structures rather than the source itself. $w$-shingling against the LLVM Intermediate Result performed ``the best.'' \par ``$w$-shingling measures the proportion of $n$-gram sequences two documents have in common to the total number of $n$-gram sequences that occur in either document.'' Beth speculates that MOSS uses a similar $n$-gram fingerprinting retrieval system called winnowing.}
+      \field{title}{A Comparison of Similarity Techniques for Detecting Source Code Plagiarism}
+      \field{year}{2014}
+    \endentry
+    \entry{bowyer99}{inproceedings}{}
+      \name{labelname}{2}{}{%
+        {{hash=625ed929cd6f2177be8dd25486734eba}{Bowyer}{B\bibinitperiod}{Kevin\bibnamedelima W.}{K\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{hash=5678b667fe08f0a3a4d80206e9198872}{Hall}{H\bibinitperiod}{Lawrence\bibnamedelima O.}{L\bibinitperiod\bibinitdelim O\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=625ed929cd6f2177be8dd25486734eba}{Bowyer}{B\bibinitperiod}{Kevin\bibnamedelima W.}{K\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{hash=5678b667fe08f0a3a4d80206e9198872}{Hall}{H\bibinitperiod}{Lawrence\bibnamedelima O.}{L\bibinitperiod\bibinitdelim O\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{c8b40b82459da8bc537a3c8f3c6b8376}
+      \strng{fullhash}{c8b40b82459da8bc537a3c8f3c6b8376}
+      \field{sortinit}{B}
+      \field{sortinithash}{1a3a21dbed09540af12d49a0b14f4751}
+      \field{labeltitle}{Experience using `MOSS' to detect cheating on programming assignments}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Old paper (1999) but very relevant as it directly discusses plagiarism in a programming class setting. Describes MOSS, a web-based plagiarism detection service still made available by Stanford (upwards of a decade after initial inception). MOSS does not provide details of algorithms used internally, does not provide source code, but does provide a useful benchmark for usability given its popularity.}
+      \field{booktitle}{Frontiers in Education Conference, 1999. FIE'99. 29th Annual}
+      \field{title}{Experience using `MOSS' to detect cheating on programming assignments}
+      \field{volume}{3}
+      \field{year}{1999}
+      \field{pages}{13B3\bibrangedash 18}
+    \endentry
+    \entry{brin95}{inproceedings}{}
+      \name{labelname}{3}{}{%
+        {{hash=ade8269d287e9c1531e4a1cbad0b4b82}{Brin}{B\bibinitperiod}{Sergey}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=55844b5e6e88aae765588dd1d8e21c8d}{Davis}{D\bibinitperiod}{James}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=7b6f78bee4d74fb4edb7a42ad7e3c2ad}{Garcia-Molina}{G\bibinithyphendelim M\bibinitperiod}{Hector}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=ade8269d287e9c1531e4a1cbad0b4b82}{Brin}{B\bibinitperiod}{Sergey}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=55844b5e6e88aae765588dd1d8e21c8d}{Davis}{D\bibinitperiod}{James}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=7b6f78bee4d74fb4edb7a42ad7e3c2ad}{Garcia-Molina}{G\bibinithyphendelim M\bibinitperiod}{Hector}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{e725f5162bb65c1eb2ea0c0177f86f79}
+      \strng{fullhash}{e725f5162bb65c1eb2ea0c0177f86f79}
+      \field{sortinit}{B}
+      \field{sortinithash}{1a3a21dbed09540af12d49a0b14f4751}
+      \field{labeltitle}{Copy detection mechanisms for digital documents}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Presents COPS, a fingerprinting copy detection approach based on chunking. Brin, et al., note that chunking approaches cannot make use of the underlying structure of the document. A chunk is simply a group of units that do have some structural meaning (units are remarkably similar to ``tokens'' as we describe them in other parts of the literature). \par Brin et al. present four chunking strategies: \begin{enumerate} \item One unit equals one chunk \item Non-overlapping chunks of multiple units \item Multiple-unit chunks with maximum overrlap \item Using the smallest chunk whose hash is divisible by some number $p$. \end{enumerate} One unit equals one chunk was rejected for its high space requirement. Non-overlapping chunks were rejected because of their phase dependence. All-overlapping chunks were rejected for having the same space requirement as one-unit chunks, and because an attacker could defeat it by changing one unit in each chunk. Expanding chunks until the chunk hash is divisible by some number $p$; note the similarity to document fingerprinting approaches. The authors choose the last strategy.}
+      \field{booktitle}{ACM SIGMOD Record}
+      \field{number}{2}
+      \field{title}{Copy detection mechanisms for digital documents}
+      \field{volume}{24}
+      \field{year}{1995}
+      \field{pages}{398\bibrangedash 409}
+    \endentry
+    \entry{burrows07}{article}{}
+      \name{labelname}{3}{}{%
+        {{hash=98f6b66260d7c145fff925be722a70c3}{Burrows}{B\bibinitperiod}{Steven}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=dc1539be0d0727c4b4af63be1ef848a3}{Tahaghoghi}{T\bibinitperiod}{Seyed\bibnamedelima M.M.}{S\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{hash=fec3a08fc98ee9b65f31e424408ed08f}{Zobel}{Z\bibinitperiod}{Justin}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=98f6b66260d7c145fff925be722a70c3}{Burrows}{B\bibinitperiod}{Steven}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=dc1539be0d0727c4b4af63be1ef848a3}{Tahaghoghi}{T\bibinitperiod}{Seyed\bibnamedelima M.M.}{S\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{hash=fec3a08fc98ee9b65f31e424408ed08f}{Zobel}{Z\bibinitperiod}{Justin}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{8e340fe2d45e963cd9994feae430f898}
+      \strng{fullhash}{8e340fe2d45e963cd9994feae430f898}
+      \field{sortinit}{B}
+      \field{sortinithash}{1a3a21dbed09540af12d49a0b14f4751}
+      \field{labeltitle}{Efficient plagiarism detection for large code repositories}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Focuses on efficiency over large data sets. Details indexing algorithms adapted from genomic information retrieval for maintaining a database of source code that new submissions can be compared against, in a very efficient manner (so as to scale to many thousands or tens of thousands of submissions).}
+      \field{journaltitle}{Software: Practice and Experience}
+      \field{number}{2}
+      \field{title}{Efficient plagiarism detection for large code repositories}
+      \field{volume}{37}
+      \field{year}{2007}
+      \field{pages}{151\bibrangedash 175}
+    \endentry
+    \entry{buss94}{article}{}
+      \true{morelabelname}
+      \name{labelname}{10}{}{%
+        {{hash=633b1ca07810bfdd3bff802e849d5aa7}{Buss}{B\bibinitperiod}{E.}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=540a9ffff590bb5a89f8fa8db96232fd}{De\bibnamedelima Mori}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{Renato}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=2578c15dc789f23930f4793542568f08}{Gentleman}{G\bibinitperiod}{W.\bibnamedelimi Morven}{W\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{hash=0647f4f62fd19b4788ce7e74f9bdda71}{Henshaw}{H\bibinitperiod}{John}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=cc5403a14cad1460ab3c3c6d41fb5112}{Johnson}{J\bibinitperiod}{Howard}{H\bibinitperiod}{}{}{}{}}%
+        {{hash=f71a8d97fc0d544bb2378c26ff2024e5}{Kontogiannis}{K\bibinitperiod}{Kostas}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=45ff357e505b1c2ac1370b1d66b0012c}{Merlo}{M\bibinitperiod}{Ettore}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=863fad664a40ec1a55a741e24636e95c}{Muller}{M\bibinitperiod}{HA}{H\bibinitperiod}{}{}{}{}}%
+        {{hash=9ce82dcbbd1b7f4f2625e6301a68ccf6}{Mylopoulos}{M\bibinitperiod}{John}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=8bd859e2b8eb8155c9871b23698805c2}{Paul}{P\bibinitperiod}{Santanu}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \true{moreauthor}
+      \name{author}{10}{}{%
+        {{hash=633b1ca07810bfdd3bff802e849d5aa7}{Buss}{B\bibinitperiod}{E.}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=540a9ffff590bb5a89f8fa8db96232fd}{De\bibnamedelima Mori}{D\bibinitperiod\bibinitdelim M\bibinitperiod}{Renato}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=2578c15dc789f23930f4793542568f08}{Gentleman}{G\bibinitperiod}{W.\bibnamedelimi Morven}{W\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{hash=0647f4f62fd19b4788ce7e74f9bdda71}{Henshaw}{H\bibinitperiod}{John}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=cc5403a14cad1460ab3c3c6d41fb5112}{Johnson}{J\bibinitperiod}{Howard}{H\bibinitperiod}{}{}{}{}}%
+        {{hash=f71a8d97fc0d544bb2378c26ff2024e5}{Kontogiannis}{K\bibinitperiod}{Kostas}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=45ff357e505b1c2ac1370b1d66b0012c}{Merlo}{M\bibinitperiod}{Ettore}{E\bibinitperiod}{}{}{}{}}%
+        {{hash=863fad664a40ec1a55a741e24636e95c}{Muller}{M\bibinitperiod}{HA}{H\bibinitperiod}{}{}{}{}}%
+        {{hash=9ce82dcbbd1b7f4f2625e6301a68ccf6}{Mylopoulos}{M\bibinitperiod}{John}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=8bd859e2b8eb8155c9871b23698805c2}{Paul}{P\bibinitperiod}{Santanu}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {IBM}%
+      }
+      \strng{namehash}{96c32e3efbc4bbef410896cc2ae0acad}
+      \strng{fullhash}{cabf8001897e609e672133b55a86dbbe}
+      \field{sortinit}{B}
+      \field{sortinithash}{1a3a21dbed09540af12d49a0b14f4751}
+      \field{labeltitle}{Investigating reverse engineering technologies for the CAS program understanding project}
+      \field{annotation}{\setlength{\parskip}{1.5ex} \setlength{\parskip}{1.5ex} Presents various reverse engineering assistance techniques designed to assist with program understanding. Used IBM SQL/DS, a large tool written in the proprietary PL/AS language, as a reference system. The program undertook seven top-level goals: \begin{enumerate} \item Detect uninitialized data, pointer errors, and memory leaks \item Detect data type mismatches \item Find incomplete uses of record fields \item Find similar code fragments \item Localize algorithmic plans \item Recognize inefficient or high-complexity code \item Predict the impact of change. \end{enumerate} \par The heading ``Pattern Matching'' in the background was fairly useful. They mention a few methods: \begin{itemize} \item Text analysis: The huge advantage of text analysis, of course, is that it is language-independent. Interesting quote: ``For some understanding purposes, less analysis is better; syntactic and semantic analysis can actually information content in the code, such as formatting, identifier choices, white space, and commentary. Evidence to identify instances of cut-and-paste is lost as a result of syntactic analysis.'' The text analysis research occurred at IBM and was done by Johnson, who coauthored this paper as well as others in this bibliography. \item Syntactic analysis: This research occurred at the University of Michigan and did not seem to be interested in detecting cloned code. However, the results might be at least somewhat applicable. The authors complain about existing (mostly text-based and graph-based) search tools, and then present SCRUPLE, a pattern-based query system with a powerful pattern language that allows the programmer to search, for instance, for three nested loops in order to find a matrix multiplication. \item Semantic analysis: This research occurred at McGill University, and clone detection was just one of their goals. The McGill research focuses on representing code as a vector of complexity metrics; close vectors are more likely to be similar (this is a classic vector distance algorithm). The McGill research uses five metrics: \begin{enumerate} \item Number of functions called \item Ratio of input-output variables to fanout \item McCabe's cyclomatic complexity \item Albrecht's function-point quality metric \item Henry-Kafura's information flow quality metric \end{enumerate} The researchers measure distance in two ways: by Euclidean distance, and by clustering thresholds on each axis. Needless to say, this approach is language-dependent. \end{itemize} \par Text analysis found \num{727} copied lines out of a \num{51655} line sample of source code from SQL/DS. The processing took two hours. They say that subgroup's research is now focused on finding approximate matches, implying to me that their findings include only exact matches. Syntactic analysis was not used to detect program similarity, and no quantitative results were presented for semantic analysis. The authors present a few qualitative takeaways: \par \begin{enumerate} \item Domain-specific knowledge is critical in easing the interpretation of large software systems \item Program representations for efficient queries are essential \item Many kinds of approaches are needed in a comprehensive reverse engineering approach \item An extensible approach is needed to consolidate these diverse approaches into a unified framework \end{enumerate} \par They closed with a discussion of how they integrated their tool into SQL/DS, which is not relevant to this project.}
+      \field{journaltitle}{IBM Systems Journal}
+      \field{number}{3}
+      \field{title}{Investigating reverse engineering technologies for the CAS program understanding project}
+      \field{volume}{33}
+      \field{year}{1994}
+      \field{pages}{477\bibrangedash 500}
+    \endentry
+    \entry{chen04}{article}{}
+      \name{labelname}{5}{}{%
+        {{hash=c6b0b16d268b7266380aa15c23031fcf}{Chen}{C\bibinitperiod}{Xin}{X\bibinitperiod}{}{}{}{}}%
+        {{hash=9375c9f8622811959a22cf3c11ee7834}{Francia}{F\bibinitperiod}{Brent}{B\bibinitperiod}{}{}{}{}}%
+        {{hash=dbe83fd8da75338203d4e8dd0e20be17}{Li}{L\bibinitperiod}{Ming}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=474bce76de38deb0b7e91c3e63fe3814}{Mckinnon}{M\bibinitperiod}{Brian}{B\bibinitperiod}{}{}{}{}}%
+        {{hash=f206d3eca14f0899e98dad636ecbd94f}{Seker}{S\bibinitperiod}{Amit}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{5}{}{%
+        {{hash=c6b0b16d268b7266380aa15c23031fcf}{Chen}{C\bibinitperiod}{Xin}{X\bibinitperiod}{}{}{}{}}%
+        {{hash=9375c9f8622811959a22cf3c11ee7834}{Francia}{F\bibinitperiod}{Brent}{B\bibinitperiod}{}{}{}{}}%
+        {{hash=dbe83fd8da75338203d4e8dd0e20be17}{Li}{L\bibinitperiod}{Ming}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=474bce76de38deb0b7e91c3e63fe3814}{Mckinnon}{M\bibinitperiod}{Brian}{B\bibinitperiod}{}{}{}{}}%
+        {{hash=f206d3eca14f0899e98dad636ecbd94f}{Seker}{S\bibinitperiod}{Amit}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{085cfce00b750fcaacd150ed73f7a77a}
+      \strng{fullhash}{78713a582ff9ec6c5db0846a343b1a86}
+      \field{sortinit}{C}
+      \field{sortinithash}{dd0e4ddd17488a6ebf12cd6de2f2c237}
+      \field{labeltitle}{Shared information and program plagiarism detection}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Attempts to ``take a step back'' and develop a universal measure for the amount of information shared between two sequences, be they DNA, text, or source code, which can then be used to make a determination on plagiarism. However, to make use of this algorithm, the program must be parsed into tokens to remove whitespace issues (amongst other reasons). Solution is named SID --- Software Integrity Diagnosis.}
+      \field{journaltitle}{Information Theory, IEEE Transactions on}
+      \field{number}{7}
+      \field{title}{Shared information and program plagiarism detection}
+      \field{volume}{50}
+      \field{year}{2004}
+      \field{pages}{1545\bibrangedash 1551}
+    \endentry
+    \entry{ciesielski08}{inproceedings}{}
+      \name{labelname}{3}{}{%
+        {{hash=e0ff8820648b78559f60de87329acb70}{Ciesielski}{C\bibinitperiod}{Vic}{V\bibinitperiod}{}{}{}{}}%
+        {{hash=5bb91d01e2f9e63152873c21191694b3}{Wu}{W\bibinitperiod}{Nelson}{N\bibinitperiod}{}{}{}{}}%
+        {{hash=ce5460912d6cf65e8f56c527d02fc9cb}{Tahaghoghi}{T\bibinitperiod}{Seyed}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=e0ff8820648b78559f60de87329acb70}{Ciesielski}{C\bibinitperiod}{Vic}{V\bibinitperiod}{}{}{}{}}%
+        {{hash=5bb91d01e2f9e63152873c21191694b3}{Wu}{W\bibinitperiod}{Nelson}{N\bibinitperiod}{}{}{}{}}%
+        {{hash=ce5460912d6cf65e8f56c527d02fc9cb}{Tahaghoghi}{T\bibinitperiod}{Seyed}{S\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{4facaa7f4e0092752fb1ed196c52c2dd}
+      \strng{fullhash}{4facaa7f4e0092752fb1ed196c52c2dd}
+      \field{sortinit}{C}
+      \field{sortinithash}{dd0e4ddd17488a6ebf12cd6de2f2c237}
+      \field{labeltitle}{Evolving similarity functions for code plagiarism detection}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Discusses the use of genetic algorithms to tune an existing algorithm for similarity evaluation (Okapi) for optimum accuracy, and furthermore uses particle swarm genetic optimization to devise novel formulas for plagiarism detection.}
+      \field{booktitle}{Proceedings of the 10th annual conference on Genetic and evolutionary computation}
+      \field{title}{Evolving similarity functions for code plagiarism detection}
+      \field{year}{2008}
+      \field{pages}{1453\bibrangedash 1460}
+    \endentry
+    \entry{clough03}{inproceedings}{}
+      \true{morelabelname}
+      \name{labelname}{1}{}{%
+        {{hash=68bc1c78ace346afda4e538627776d5d}{Clough}{C\bibinitperiod}{Paul}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \true{moreauthor}
+      \name{author}{1}{}{%
+        {{hash=68bc1c78ace346afda4e538627776d5d}{Clough}{C\bibinitperiod}{Paul}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {Citeseer}%
+      }
+      \strng{namehash}{036e414c9d08db9892ada7f7c72ca235}
+      \strng{fullhash}{036e414c9d08db9892ada7f7c72ca235}
+      \field{sortinit}{C}
+      \field{sortinithash}{dd0e4ddd17488a6ebf12cd6de2f2c237}
+      \field{labeltitle}{Old and new challenges in automatic plagiarism detection}
+      \field{annotation}{\setlength{\parskip}{1.5ex} TODO}
+      \field{booktitle}{National Plagiarism Advisory Service, 2003; \url{http://ir.shef.ac.uk/cloughie/index.html}}
+      \field{title}{Old and new challenges in automatic plagiarism detection}
+      \field{year}{2003}
+    \endentry
+    \entry{cosma06}{article}{}
+      \name{labelname}{2}{}{%
+        {{hash=d67ce1fe611bb618a84dbeda452969e0}{Cosma}{C\bibinitperiod}{Georgina}{G\bibinitperiod}{}{}{}{}}%
+        {{hash=c2c10b173830922a486522a6558983da}{Joy}{J\bibinitperiod}{M.S.}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=d67ce1fe611bb618a84dbeda452969e0}{Cosma}{C\bibinitperiod}{Georgina}{G\bibinitperiod}{}{}{}{}}%
+        {{hash=c2c10b173830922a486522a6558983da}{Joy}{J\bibinitperiod}{M.S.}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {University of Warwick}%
+      }
+      \strng{namehash}{2a7c777a2df173af5f2d2c8ea5cd43e6}
+      \strng{fullhash}{2a7c777a2df173af5f2d2c8ea5cd43e6}
+      \field{sortinit}{C}
+      \field{sortinithash}{dd0e4ddd17488a6ebf12cd6de2f2c237}
+      \field{labeltitle}{Source-code plagiarism: A UK academic perspective}
+      \field{annotation}{\setlength{\parskip}{1.5ex} A survey of UK academics focused not on how to detect plagiarism, but what it is in the context of source code and programming classes.}
+      \field{title}{Source-code plagiarism: A UK academic perspective}
+      \field{year}{2006}
+    \endentry
+    \entry{crochemore01}{article}{}
+      \name{labelname}{4}{}{%
+        {{hash=691bbb7bb0e4c5997730f28150e1d6d5}{Crochemore}{C\bibinitperiod}{Maxime}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=fbd8248829cfa9c143017256250f1cbc}{Iliopoulos}{I\bibinitperiod}{Costas\bibnamedelima S}{C\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{hash=bb1f8aaf1eb0240cc862025ff97009ba}{Pinzon}{P\bibinitperiod}{Yoan\bibnamedelima J}{Y\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{hash=e27230bd3a6a385621e3d539fd5383f2}{Reid}{R\bibinitperiod}{James\bibnamedelima F}{J\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{4}{}{%
+        {{hash=691bbb7bb0e4c5997730f28150e1d6d5}{Crochemore}{C\bibinitperiod}{Maxime}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=fbd8248829cfa9c143017256250f1cbc}{Iliopoulos}{I\bibinitperiod}{Costas\bibnamedelima S}{C\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{hash=bb1f8aaf1eb0240cc862025ff97009ba}{Pinzon}{P\bibinitperiod}{Yoan\bibnamedelima J}{Y\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{hash=e27230bd3a6a385621e3d539fd5383f2}{Reid}{R\bibinitperiod}{James\bibnamedelima F}{J\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{8603b556f4d1546941c75ba17f3ed4e5}
+      \strng{fullhash}{1c6f1e049e5fa97b148677e90837490f}
+      \field{sortinit}{C}
+      \field{sortinithash}{dd0e4ddd17488a6ebf12cd6de2f2c237}
+      \field{labeltitle}{A fast and practical bit-vector algorithm for the longest common subsequence problem}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Efficient solution to Longest Common Subsequence problem, which has important implications for plagiarism detection (though it cannot cope with comments, whitespace, etc on its own).}
+      \field{journaltitle}{Information Processing Letters}
+      \field{number}{6}
+      \field{title}{A fast and practical bit-vector algorithm for the longest common subsequence problem}
+      \field{volume}{80}
+      \field{year}{2001}
+      \field{pages}{279\bibrangedash 285}
+    \endentry
+    \entry{gabel08}{inproceedings}{}
+      \name{labelname}{3}{}{%
+        {{hash=89a1af51de562c381b3aebd30f5227e1}{Gabel}{G\bibinitperiod}{Mark}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=56b79e7a72cea50726c3f0b30ae40861}{Jiang}{J\bibinitperiod}{Lingxiao}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=3995a0c731177d2aa23cbb3a6126be27}{Su}{S\bibinitperiod}{Zhendong}{Z\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=89a1af51de562c381b3aebd30f5227e1}{Gabel}{G\bibinitperiod}{Mark}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=56b79e7a72cea50726c3f0b30ae40861}{Jiang}{J\bibinitperiod}{Lingxiao}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=3995a0c731177d2aa23cbb3a6126be27}{Su}{S\bibinitperiod}{Zhendong}{Z\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{5212c03925beefb0c31d1f1855b0dcf9}
+      \strng{fullhash}{5212c03925beefb0c31d1f1855b0dcf9}
+      \field{sortinit}{G}
+      \field{sortinithash}{480ee01f9ffd559b3258d822f54a8ac2}
+      \field{labeltitle}{Scalable detection of semantic clones}
+      \field{annotation}{\setlength{\parskip}{1.5ex} This presents a scalable approach to identifying ``semantic codes''--- semantically equivalent source code blocks (here presented in the context of the detection of dead/redundant code, but plagiarism applications are obvious). Reports that fingerprinting is not as good as some other methods --- the conclusion mentions the existing ``identity algorithm'' is more accurate in their testing.}
+      \field{booktitle}{Software Engineering, 2008. ICSE'08. ACM/IEEE 30th International Conference on}
+      \field{title}{Scalable detection of semantic clones}
+      \field{year}{2008}
+      \field{pages}{321\bibrangedash 330}
+    \endentry
+    \entry{irving04}{article}{}
+      \name{labelname}{1}{}{%
+        {{hash=df9277a89005e133a6f3bf94d1c709e7}{Irving}{I\bibinitperiod}{Robert\bibnamedelima W.}{R\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=df9277a89005e133a6f3bf94d1c709e7}{Irving}{I\bibinitperiod}{Robert\bibnamedelima W.}{R\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{df9277a89005e133a6f3bf94d1c709e7}
+      \strng{fullhash}{df9277a89005e133a6f3bf94d1c709e7}
+      \field{sortinit}{I}
+      \field{sortinithash}{b2e302e575c74beffcc96ef7059003aa}
+      \field{labeltitle}{Plagiarism and Collusion Detection using the Smith-Waterman Algorithm}
+      \field{annotation}{\setlength{\parskip}{1.5ex} A similarity detection algorithm for plaintexts intended for plagiarism detection. According to conclusion, very accurate, but slow --- perhaps too slow for anything but very small batches of files.}
+      \field{journaltitle}{University of Glasgow}
+      \field{title}{Plagiarism and Collusion Detection using the Smith-Waterman Algorithm}
+      \field{year}{2004}
+    \endentry
+    \entry{johnson94}{inproceedings}{}
+      \name{labelname}{1}{}{%
+        {{hash=1879e587c472851184da59bb2c48edd1}{Johnson}{J\bibinitperiod}{J.\bibnamedelimi Howard}{J\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=1879e587c472851184da59bb2c48edd1}{Johnson}{J\bibinitperiod}{J.\bibnamedelimi Howard}{J\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {ieee}%
+      }
+      \strng{namehash}{1879e587c472851184da59bb2c48edd1}
+      \strng{fullhash}{1879e587c472851184da59bb2c48edd1}
+      \field{sortinit}{J}
+      \field{sortinithash}{f75b22df8c340a961dce37019e29107f}
+      \field{labeltitle}{Substring Matching for Clone Detection and Change Tracking}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Presents a tool for locating similarities in text, including source code. The tool works in six steps: \begin{enumerate} \item \label{itm:txt} Perform text-to-text transformations on each file \item \label{itm:substrings} Break the text into potentially overlapping substrings \item \label{itm:rawmatch} Generate a database of ``raw matches'' by finding the substrings that match \item \label{itm:iterate} Iterate to describe the matches more concisely \item \label{itm:correct} Perform task-specific data reduction \item \label{itm:summarize} Summarize high-level matches \end{enumerate} \par Steps \ref{itm:substrings}, \ref{itm:rawmatch}, and \ref{itm:iterate} work only on exact matches, so any partial matching must be done via normalization in step \ref{itm:txt}. Common transformations include white space removal, comment removal, and identifier renaming. Steps \ref{itm:substrings}-\ref{itm:iterate} have the advantage of being language-agnostic. Note that this approach is reminiscent of the document fingerprinting approaches to plagiarism detection. Step \ref{itm:rawmatch} is done by karp-rabin string matching \cite{karp87}. In step \ref{itm:iterate}, they perform tasks such as merging consecutive matches and other ``lossless'' compression strategies. Step \ref{itm:correct} is where one might perform ``lossy'' compression, such as eliminating certain text (like, for instance, a copyright notice) that is expected to be cloned. \par The authors tested their prototype on gcc, versions 2.5.8 and 2.3.3; both releases together total \num{1440} files with a combined size of \num{40} megabytes. They found a total of \num{988} ``clusters,'' or matched substrings. \num{315} of these clusters were of type ``abx'' (contained in one file from each release) or type ``ab='' (contained in one file from each release with the same name). These represent code that was not changed between releases, or that was moved to a different location. There were a very large number of abx clusters as a result of a large naming convention change done by the gcc team between the two releases. They identified some software cloning, and areas of massive changes. The authors reported very few nonsense matches.}
+      \field{booktitle}{Software Maintenance, 1994. Proceedings, International Conference on}
+      \field{title}{Substring Matching for Clone Detection and Change Tracking}
+      \field{year}{1994}
+      \field{pages}{120\bibrangedash 126}
+    \endentry
+    \entry{jones01}{inproceedings}{}
+      \name{labelname}{1}{}{%
+        {{hash=e287946d1719b371460be30010abf7c5}{Jones}{J\bibinitperiod}{Edward\bibnamedelima L.}{E\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=e287946d1719b371460be30010abf7c5}{Jones}{J\bibinitperiod}{Edward\bibnamedelima L.}{E\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {consortium for computing sciences in colleges}%
+      }
+      \strng{namehash}{e287946d1719b371460be30010abf7c5}
+      \strng{fullhash}{e287946d1719b371460be30010abf7c5}
+      \field{sortinit}{J}
+      \field{sortinithash}{f75b22df8c340a961dce37019e29107f}
+      \field{labeltitle}{Metrics Based Plagarism Monitoring}
+      \field{annotation}{\setlength{\parskip}{1.5ex} A developed example of ``feature comparison'' --- creates and examines ``profiles'' of program features (line count, number of unique tokens, average line length, number of spaces, that sort of thing). No evidence is presented that it is actually effective, and indeed they do not test on real-world data (only note that they intend to use it in their own courses)}
+      \field{booktitle}{Journal of Computing Sciences in colleges}
+      \field{number}{4}
+      \field{title}{Metrics Based Plagarism Monitoring}
+      \field{volume}{16}
+      \field{year}{2001}
+      \field{pages}{253\bibrangedash 261}
+    \endentry
+    \entry{joy1999}{article}{}
+      \name{labelname}{2}{}{%
+        {{hash=6a2417d386b2b098a49a5eb6e62edf64}{Joy}{J\bibinitperiod}{Mike}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=919342a44c13a98d5f72bdf3bcad6d11}{Luck}{L\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=6a2417d386b2b098a49a5eb6e62edf64}{Joy}{J\bibinitperiod}{Mike}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=919342a44c13a98d5f72bdf3bcad6d11}{Luck}{L\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {ieee}%
+      }
+      \strng{namehash}{2c03f61cab5e1b61207a34d1a08c187e}
+      \strng{fullhash}{2c03f61cab5e1b61207a34d1a08c187e}
+      \field{sortinit}{J}
+      \field{sortinithash}{f75b22df8c340a961dce37019e29107f}
+      \field{labeltitle}{Plagiarism in Programming Assignments}
+      \field{annotation}{\setlength{\parskip}{1.5ex} \par Joy and Luck provide a definition of plagiarism, ``unacknowledged copying of documents or programs,'' and name several potential causes of plagiarism. \par Joy and Luck describe two obfuscation techniques: lexical changes (comment changes, formatting, changing identifier names, etc.) and structural changes (loop replacement, ifs to cases, statement ordering, refactoring, etc.) \par They describe two pair comparison techniques: comparing attribute counts, and comparing structure. \par They present an algorithm called sherlock, with the following requirements: \begin{itemize} \item must be reliable \item must be simple to change for a new language \item must have an ``efficient interface'' \item output must be clear to somene unfamiliar with the programs \end{itemize} \par incremental comparison compares five times: in original form, with whitespace removed, with comments removed, with both removed, and tokenized. looks for ``runs'' with a maximum allowed size and density of ``anomalies.'' looks for and reports maximum length runs. \par Presents a very interesting visualization with a point for each submission and similarities connected by lines; shorter lines correspond to closer matches.}
+      \field{journaltitle}{Education, IEEE transactions on}
+      \field{number}{2}
+      \field{title}{Plagiarism in Programming Assignments}
+      \field{volume}{42}
+      \field{year}{1999}
+      \field{pages}{129\bibrangedash 133}
+    \endentry
+    \entry{karp87}{article}{}
+      \name{labelname}{2}{}{%
+        {{hash=5d77d3cf25d2ee3ce64732bb77de0b0f}{Karp}{K\bibinitperiod}{Richard\bibnamedelima M.}{R\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{hash=755f719073b9032722550536facb7dcd}{Rabin}{R\bibinitperiod}{Michael\bibnamedelima O.}{M\bibinitperiod\bibinitdelim O\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=5d77d3cf25d2ee3ce64732bb77de0b0f}{Karp}{K\bibinitperiod}{Richard\bibnamedelima M.}{R\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+        {{hash=755f719073b9032722550536facb7dcd}{Rabin}{R\bibinitperiod}{Michael\bibnamedelima O.}{M\bibinitperiod\bibinitdelim O\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {ibm}%
+      }
+      \strng{namehash}{f9abb7c45d7cfb3b5517cda1e47e9fd5}
+      \strng{fullhash}{f9abb7c45d7cfb3b5517cda1e47e9fd5}
+      \field{sortinit}{K}
+      \field{sortinithash}{33bf4c961fa093ee6a297ccbd88eacc0}
+      \field{labeltitle}{Efficient Randomized Pattern-Matching Algorithms}
+      \field{annotation}{\setlength{\parskip}{1.5ex} \par This is a seminal paper that is cited by almost every article in this bibliography. It seems that almost all program similarity detection tools use karp-rabin string matching to search for and verify matches. \par Presents a generalized string-matching algorithm that works in ``real time'' (each bit of input can be processed as soon as it comes in and requires constant time) and in a constant number of registers. It requires keeping a substring in memory of the same length as the one you are searching for. Authors claim that it seems to be competitive on classical strings only for larger substring sizes, but it has a huge advantage in being able to search two-dimensional arrays, higher dimensional arrays, and even irregular shapes with the same mathematical background. \par ``The idea of using fingerprinting techniques for string-matching problems is not new. Many such techniques based on check sums and hash functions can be found in the literature. What is new is the particular way of choosing the fingerprinting functions at run time. This randomization technique permits us to establish very strong properties of our algorithms, even if the input data are chosen by an intelligent adversary who knows the nature of the algorithm.'' \par First presents a generalization of all string matching problems, and explains how the simple pattern-matching problem fits that framework. \par Karp and Rabin present three algorithms for deciding whether there is a match given an input string $X$ of length $n$, an output string $Y$, a finite set of fingerprinting functions $S$, and a set of valid indices $R$. Brief descriptions follow: \begin{itemize} \item Computes $k$ fingerprinting functions on each substring of length $n$ in $Y$. If they all report a match, halts immediately. This algorithm can report a false match, but only if all $k$ fingerprint functions collide. \item Computes only one fingerprint function on each substring of length $n$ in $Y$, but goes back and verifies the string after a match; false matches are caught and discarded. \item Same as above, but changes to a different fingerprinting function after a false match. \end{itemize} \par The rest of the paper introduces and thoroughly explores the properties of several fingerprinting functions. The details are outside the scope of this project.}
+      \field{journaltitle}{IBM journal of research and development}
+      \field{number}{2}
+      \field{title}{Efficient Randomized Pattern-Matching Algorithms}
+      \field{volume}{31}
+      \field{year}{1987}
+      \field{pages}{249\bibrangedash 260}
+    \endentry
+    \entry{khanna07}{incollection}{}
+      \name{labelname}{3}{}{%
+        {{hash=1892633f2f52be776bcfd32f9967a0f0}{Khanna}{K\bibinitperiod}{Sanjeev}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=00494b30ef9e0d30d3e3dd87d7d6ce1c}{Kunal}{K\bibinitperiod}{Keshav}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=8eb1c0a7778a466aa612ab3259d489ec}{Pierce}{P\bibinitperiod}{Benjamin\bibnamedelima C.}{B\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=1892633f2f52be776bcfd32f9967a0f0}{Khanna}{K\bibinitperiod}{Sanjeev}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=00494b30ef9e0d30d3e3dd87d7d6ce1c}{Kunal}{K\bibinitperiod}{Keshav}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=8eb1c0a7778a466aa612ab3259d489ec}{Pierce}{P\bibinitperiod}{Benjamin\bibnamedelima C.}{B\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{02a3daf70ab6e5906966ea03340697ba}
+      \strng{fullhash}{02a3daf70ab6e5906966ea03340697ba}
+      \field{sortinit}{K}
+      \field{sortinithash}{33bf4c961fa093ee6a297ccbd88eacc0}
+      \field{labeltitle}{A Formal Investigation of \textit{diff3}}
+      \field{annotation}{\setlength{\parskip}{1.5ex} A discussion of diff3, a three-way version of the conventional diff algorithm. This could be used for plagiarism detection (detect similarities between two files that are not shared by a third, given reference code shared by all students).}
+      \field{booktitle}{FSTTCS 2007: Foundations of Software Technology and Theoretical Computer Science}
+      \field{title}{A Formal Investigation of \textit{diff3}}
+      \field{year}{2007}
+      \field{pages}{485\bibrangedash 496}
+    \endentry
+    \entry{krinke10}{inproceedings}{}
+      \name{labelname}{4}{}{%
+        {{hash=598986fc05064bd024889e504c2c9b02}{Krinke}{K\bibinitperiod}{Jens}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=06b0f8659410e1a89fb2a4cb594e86f9}{Gold}{G\bibinitperiod}{Nicolas}{N\bibinitperiod}{}{}{}{}}%
+        {{hash=ada8c1a2ac1b685250a486673ec46638}{Jia}{J\bibinitperiod}{Yue}{Y\bibinitperiod}{}{}{}{}}%
+        {{hash=6f84944b7ab9eb162b426941ee61bbdb}{Binkley}{B\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{4}{}{%
+        {{hash=598986fc05064bd024889e504c2c9b02}{Krinke}{K\bibinitperiod}{Jens}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=06b0f8659410e1a89fb2a4cb594e86f9}{Gold}{G\bibinitperiod}{Nicolas}{N\bibinitperiod}{}{}{}{}}%
+        {{hash=ada8c1a2ac1b685250a486673ec46638}{Jia}{J\bibinitperiod}{Yue}{Y\bibinitperiod}{}{}{}{}}%
+        {{hash=6f84944b7ab9eb162b426941ee61bbdb}{Binkley}{B\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{7fd5ee2deaa51693af157a2175a2ec4b}
+      \strng{fullhash}{7ed5050b6acea1bf00b7811ecc9d5504}
+      \field{sortinit}{K}
+      \field{sortinithash}{33bf4c961fa093ee6a297ccbd88eacc0}
+      \field{labeltitle}{Distinguishing Copies from Originals in Software Clones}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Another paper that doesn't really solve the plagiarism problem, and instead attempts to find duplicate/dead code. This one is interesting because of its categorization metrics, though --- it attempts to classify code as either a straight duplicate, close copy, or unclassifiable (some duplicated code, but not enough to conclusively classify).}
+      \field{booktitle}{Proceedings of the 4th international workshop on software clones}
+      \field{title}{Distinguishing Copies from Originals in Software Clones}
+      \field{year}{2010}
+      \field{pages}{41\bibrangedash 48}
+    \endentry
+    \entry{lancaster05}{article}{}
+      \name{labelname}{2}{}{%
+        {{hash=7a2b0bb118487ea7088f4b8dce0f9f05}{Lancaster}{L\bibinitperiod}{Thomas}{T\bibinitperiod}{}{}{}{}}%
+        {{hash=5318f84287f9af1760072d34f5444b54}{Culwin}{C\bibinitperiod}{Fintan}{F\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=7a2b0bb118487ea7088f4b8dce0f9f05}{Lancaster}{L\bibinitperiod}{Thomas}{T\bibinitperiod}{}{}{}{}}%
+        {{hash=5318f84287f9af1760072d34f5444b54}{Culwin}{C\bibinitperiod}{Fintan}{F\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {The Higher Education Academy Innovation Way, York Science Park, Heslington, York YO10 5BR}%
+      }
+      \strng{namehash}{f01b4e6589ba93a8c677d7f127d5580b}
+      \strng{fullhash}{f01b4e6589ba93a8c677d7f127d5580b}
+      \field{sortinit}{L}
+      \field{sortinithash}{c41a2b5886eeae464e75d1a9df4cd13e}
+      \field{labeltitle}{Classifications of Plagiarism Detection Engines}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Lancaster provides a detailed taxonomy of plagiarism detection tools, and describes all (then) commonly-known examples in terms of that taxonomy.}
+      \field{journaltitle}{Innovation in Teaching and Learning in Information and Computer Sciences}
+      \field{number}{2}
+      \field{title}{Classifications of Plagiarism Detection Engines}
+      \field{volume}{4}
+      \field{year}{2005}
+    \endentry
+    \entry{murugesan10}{article}{}
+      \name{labelname}{5}{}{%
+        {{hash=3ada86e8d8b06e2ec9291c4804e7c12b}{Murugesan}{M\bibinitperiod}{Mummoorthy}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=e3dafe978a62db8ea9fec63a537b07dc}{Jiang}{J\bibinitperiod}{Wei}{W\bibinitperiod}{}{}{}{}}%
+        {{hash=6c364d3ef3451e996d2b301024fa8ee5}{Clifton}{C\bibinitperiod}{Chris}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=b7c083cd88ad385d770eef8158c4104d}{Si}{S\bibinitperiod}{Luo}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=de662f2772215553fddc5e97a97f8130}{Vaidya}{V\bibinitperiod}{Jaideep}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{5}{}{%
+        {{hash=3ada86e8d8b06e2ec9291c4804e7c12b}{Murugesan}{M\bibinitperiod}{Mummoorthy}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=e3dafe978a62db8ea9fec63a537b07dc}{Jiang}{J\bibinitperiod}{Wei}{W\bibinitperiod}{}{}{}{}}%
+        {{hash=6c364d3ef3451e996d2b301024fa8ee5}{Clifton}{C\bibinitperiod}{Chris}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=b7c083cd88ad385d770eef8158c4104d}{Si}{S\bibinitperiod}{Luo}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=de662f2772215553fddc5e97a97f8130}{Vaidya}{V\bibinitperiod}{Jaideep}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag New York, Inc.}%
+      }
+      \strng{namehash}{51bd8ff3d006e0f02b27db5122d5655f}
+      \strng{fullhash}{c6512add9da615c266a91e0a1e19e98e}
+      \field{sortinit}{M}
+      \field{sortinithash}{4203d16473bc940d4ac780773cb7c5dd}
+      \field{labeltitle}{Efficient Privacy-Preserving Similar Document Detection}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Attempts to detect similar documents when the text of the document is not available, for instance, when checking for plagiarism between conferences with confidential systems.}
+      \field{journaltitle}{The VLDB Journal; The International Journal on Very Large Data Bases}
+      \field{number}{4}
+      \field{title}{Efficient Privacy-Preserving Similar Document Detection}
+      \field{volume}{19}
+      \field{year}{2010}
+      \field{pages}{457\bibrangedash 475}
+    \endentry
+    \entry{parker89}{article}{}
+      \true{morelabelname}
+      \name{labelname}{1}{}{%
+        {{hash=c3c0ba21d298a8fdf2da40d79f9eddde}{Parker}{P\bibinitperiod}{Alan}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \true{moreauthor}
+      \name{author}{1}{}{%
+        {{hash=c3c0ba21d298a8fdf2da40d79f9eddde}{Parker}{P\bibinitperiod}{Alan}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Citeseer}%
+      }
+      \strng{namehash}{60cf951dbcaad20be8f9d52df8a64867}
+      \strng{fullhash}{60cf951dbcaad20be8f9d52df8a64867}
+      \field{sortinit}{P}
+      \field{sortinithash}{b8af9282ac256b81613dc9012a0ac921}
+      \field{labeltitle}{Computer Algorithms for Plagiarism Detection}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Defines a five-level plagiarism ``spectrum'' to categorize the different types of obfuscations that are commonly used in duplicated student assignments, then provides an overview of some then-advanced similarity detection algorithms. All seven algorithms examined are feature-extraction algorithms that analyze similarities in software metrics.}
+      \field{title}{Computer Algorithms for Plagiarism Detection}
+      \field{year}{1989}
+    \endentry
+    \entry{potthast10}{inproceedings}{}
+      \name{labelname}{4}{}{%
+        {{hash=c239bbb9437f221987397e74fbc81634}{Potthast}{P\bibinitperiod}{Martin}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=1ead8f029ff27a7eeedb027e8c7aaeb9}{Stein}{S\bibinitperiod}{Benno}{B\bibinitperiod}{}{}{}{}}%
+        {{hash=0744f6d6138f5b2e6f3c0cf613c1aff8}{Barr'{o}n-Cedeño}{B\bibinithyphendelim C\bibinitperiod}{Alberto}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=11e1a66b6389aa20a1f5baddeaea8d42}{Rosso}{R\bibinitperiod}{Paolo}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{4}{}{%
+        {{hash=c239bbb9437f221987397e74fbc81634}{Potthast}{P\bibinitperiod}{Martin}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=1ead8f029ff27a7eeedb027e8c7aaeb9}{Stein}{S\bibinitperiod}{Benno}{B\bibinitperiod}{}{}{}{}}%
+        {{hash=0744f6d6138f5b2e6f3c0cf613c1aff8}{Barr'{o}n-Cedeño}{B\bibinithyphendelim C\bibinitperiod}{Alberto}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=11e1a66b6389aa20a1f5baddeaea8d42}{Rosso}{R\bibinitperiod}{Paolo}{P\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Beijing, China}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
+      \strng{namehash}{86a08358ed2e51b9497bfc08a59b4d13}
+      \strng{fullhash}{df7cec8b8c0ddc8043e0879d3f4d9a91}
+      \field{sortinit}{P}
+      \field{sortinithash}{b8af9282ac256b81613dc9012a0ac921}
+      \field{labeltitle}{An Evaluation Framework for Plagiarism Detection}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Potthast et al. formalize a plagiarism as a 4-tuple consisting of the plagiarizing document, the copied document, and the plagiarized and original passages within each. They then explain that it is impossible to find an adequate source of ``true'' plagiarized material for a number of valid reasons, and describe three ways of generating a corpus: pay humans to plagiarize, use sources of legitimately copied material such as wire stories, or use an algorithm to mutate the document. \par They present PAN-PC-10, a plagiarism corpus created with Mechanical Turk and an algorithmic approach. They compare the corpus with existing corpora Clough09 and METER, but stop short of claiming that any one database is the best.}
+      \field{booktitle}{Proceedings of the 23rd International Conference on Computational Linguistics: Posters}
+      \field{series}{COLING '10}
+      \field{title}{An Evaluation Framework for Plagiarism Detection}
+      \field{year}{2010}
+      \field{pages}{997\bibrangedash 1005}
+      \verb{url}
+      \verb http://dl.acm.org/citation.cfm?id=1944566.1944681
+      \endverb
+    \endentry
+    \entry{prechelt00}{report}{}
+      \name{labelname}{3}{}{%
+        {{hash=c33e375f7c45363931f7e4ffe01192cc}{Prechelt}{P\bibinitperiod}{Lutz}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=675c7f269b542d4f4dbff726ca542c41}{Malpohl}{M\bibinitperiod}{Guido}{G\bibinitperiod}{}{}{}{}}%
+        {{hash=b92d5a1e9d253482fa25bb14f5faa78f}{Philippsen}{P\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=c33e375f7c45363931f7e4ffe01192cc}{Prechelt}{P\bibinitperiod}{Lutz}{L\bibinitperiod}{}{}{}{}}%
+        {{hash=675c7f269b542d4f4dbff726ca542c41}{Malpohl}{M\bibinitperiod}{Guido}{G\bibinitperiod}{}{}{}{}}%
+        {{hash=b92d5a1e9d253482fa25bb14f5faa78f}{Philippsen}{P\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{institution}{1}{%
+        {Technical Report 2000-1, Fakultat fur Informatik, Universitat Karlsruhe, D-76128 Karlsruhe, Germany}%
+      }
+      \strng{namehash}{b6b18b6e923d1c0af6161edaffe549e4}
+      \strng{fullhash}{b6b18b6e923d1c0af6161edaffe549e4}
+      \field{sortinit}{P}
+      \field{sortinithash}{b8af9282ac256b81613dc9012a0ac921}
+      \field{labeltitle}{JPlag: Finding plagiarism among a set of programs}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Presents JPlag, a similarity detection tool based on greedy string tiling, but with optimizations to decrease the average runtime from $O(n^2)$ to $O(n)$. Jplag achieves results comparable to MOSS, but provides a web interface rather than an email-based one.}
+      \field{title}{JPlag: Finding plagiarism among a set of programs}
+      \field{type}{techreport}
+      \field{year}{2000}
+    \endentry
+    \entry{schleimer03}{inproceedings}{}
+      \name{labelname}{3}{}{%
+        {{hash=dc19561c02665936c71b20ec4e875592}{Schleimer}{S\bibinitperiod}{Saul}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=e2d9aa5d7cf1950dfc738ba19c1b09a8}{Wilkerson}{W\bibinitperiod}{Daniel\bibnamedelima S.}{D\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{hash=7b4be770da7d4fe41717b6d75f1fa596}{Aiken}{A\bibinitperiod}{Alex}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=dc19561c02665936c71b20ec4e875592}{Schleimer}{S\bibinitperiod}{Saul}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=e2d9aa5d7cf1950dfc738ba19c1b09a8}{Wilkerson}{W\bibinitperiod}{Daniel\bibnamedelima S.}{D\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+        {{hash=7b4be770da7d4fe41717b6d75f1fa596}{Aiken}{A\bibinitperiod}{Alex}{A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{92f0ba3466b5ab89c2dece29701d6466}
+      \strng{fullhash}{92f0ba3466b5ab89c2dece29701d6466}
+      \field{sortinit}{S}
+      \field{sortinithash}{4125bb4c3a0eb3eaee3ea6da32eb70c8}
+      \field{labeltitle}{Winnowing: local algorithms for document fingerprinting}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Schleimer et al. present a document fingerprinting algorithm called winnowing, and describe its use in Stanford's MOSS service. They describe the concept of ``$k$-gram filtering,'' where a document of n tokens is described as a sequence of $(n-k+1)$ overlapping $k$-grams, with a $k$-gram being a sequence of $k$ tokens. In $k$-gram filtering, each $k$-gram is hashed, and stored, with its document ID and location, in a lookup table. The $k$-grams are reduced to a smaller list using a filtering algorithm, and future documents can be checked against this corpus of document ``fingerprints.'' \par Our current LineCompare code, described in \ref{sec:linecompare} is an implementation of $k$-gram filtering; in LineCompare, each line is a token, a document is represented as a sequence of 1-grams, and the 1-grams are filtered using the identity function. \par According to the paper, current (at publication) $k$-gram filters suffer from a number of disadvantages. The biggest one is that the filter used is typically a mod-$p$ filter; a mod-$p$ filter accepts a $k$-gram $x$ if $H(x)$ is congruent to zero mod $p$. Mod-$p$ filters are weak because the fingerprints selected from the document are uneven --- there could be huge runs of $n$-grams that do not hash to zero mod $p$. In principle, the maximum ``gap width'' in a document is unbounded, and in practice it is often longer than most web pages. Mod-$p$ especially chokes on low-entropy data --- a long string of zeroes, for instance, will either go completely unfingerprinted, or fingerprinted every single time. \par The paper's contribution is winnowing, a $k$-gram filter that guarantees an upper bound on the distance between fingerprints in a document. That means that a copy that is longer than the maximum gap width is guaranteed to be detected. Winnowing has achieved widespread adoption, including by MOSS, and its merit has caused this paper to accumulate \num{711} citations on Google Scholar. \par Schleimer, et al. introduce the concept of a ``local algorithm,'' an algorithm that selects a document fingerprint from a ``window'' of consecutive $k$-grams with length $w$. An algorithm is local if it meets two conditions: \begin{enumerate} \item For each possible window, the algorithm selects at least one fingerprint from within that window, and \item The choice depends only on the contents of that window, not on any other. \end{enumerate} \par The authors demonstrate that if two documents are compared with a $k$-gram filter using a local algorithm with window size w, the comparison will detect at least one $k$-gram from each shared substring of length $w+k-1$. The minimum density (asymptotic proportion of fingerprinted $k$-grams to total $k$-grams) of a local fingerprint selection algorithm is $1.5 (w+1)$. Winnowing has an asymptotic density of $2/(w+1)$, leading the authors to claim it is ``within 33\% of optimal.'' \par The related work describes the Karp-Rabin algorithm, which finds occurrences of a substring in a larger string \cite{karp87}. SCAM \cite{shivakumar95} uses vector distance between documents to find copies. Baker \cite{baker95} presents a concept called ``parameterized matches,'' which can rename parameters to be equal and more easily detect copies that way. \par They ran winnowing ($w=100$) and mod-50, an implementation of mod-$p$ with $p=50$, on random data and found that both selected approximately the same number of fingerprints per unit of data. Against a corpus of a half million web pages, they found that both came close to their expected fingerprint density, but that mod-50 was highly non-uniform: mod-50 scanned a run of \num{29900} non-whitespace, non-tag characters without selecting a fingerprint. Any duplication within those characters would be completely undetected by mod-50. \par Winnowing ended up fingerprinting extremely densely in low-entropy data, so the authors presented a very minor adjustment called ``robust winnowing'' to correct.}
+      \field{booktitle}{Proceedings of the 2003 ACM SIGMOD international conference on Management of data}
+      \field{title}{Winnowing: local algorithms for document fingerprinting}
+      \field{year}{2003}
+      \field{pages}{76\bibrangedash 85}
+    \endentry
+    \entry{shivakumar95}{article}{}
+      \name{labelname}{2}{}{%
+        {{hash=c26c1a6ca2aac6538fadd38326ab6810}{Shivakumar}{S\bibinitperiod}{Narayanan}{N\bibinitperiod}{}{}{}{}}%
+        {{hash=7b6f78bee4d74fb4edb7a42ad7e3c2ad}{Garcia-Molina}{G\bibinithyphendelim M\bibinitperiod}{Hector}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=c26c1a6ca2aac6538fadd38326ab6810}{Shivakumar}{S\bibinitperiod}{Narayanan}{N\bibinitperiod}{}{}{}{}}%
+        {{hash=7b6f78bee4d74fb4edb7a42ad7e3c2ad}{Garcia-Molina}{G\bibinithyphendelim M\bibinitperiod}{Hector}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{da09d0c84d7bd9ed501e496a7cd15adb}
+      \strng{fullhash}{da09d0c84d7bd9ed501e496a7cd15adb}
+      \field{sortinit}{S}
+      \field{sortinithash}{4125bb4c3a0eb3eaee3ea6da32eb70c8}
+      \field{labeltitle}{SCAM: A copy detection mechanism for digital documents}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Presents SCAM, a vector distance approach to copy detection. Like previous work, SCAM breaks documents into chunks and then compares the chunks for overlap; but instead of chunking into sentences or paragraphs like previous work, SCAM chunks by words. Most previous work in this area simply compared the size of the overlap against the size of the document, but that doesn't work if you are chunking by words; so the authors propose a new similarity approach based on vector distances between word counts.}
+      \field{title}{SCAM: A copy detection mechanism for digital documents}
+      \field{year}{1995}
+    \endentry
+    \entry{smith1981identification}{article}{}
+      \name{labelname}{2}{}{%
+        {{hash=48a176879fcabad1c7fcef78289c1041}{Smith}{S\bibinitperiod}{Temple\bibnamedelima F.}{T\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{hash=47a4be0c18696e84f55aa54920d3225b}{Waterman}{W\bibinitperiod}{Michael\bibnamedelima S.}{M\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=48a176879fcabad1c7fcef78289c1041}{Smith}{S\bibinitperiod}{Temple\bibnamedelima F.}{T\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{hash=47a4be0c18696e84f55aa54920d3225b}{Waterman}{W\bibinitperiod}{Michael\bibnamedelima S.}{M\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{68ea57436080b6dd26181e8d1d3315a1}
+      \strng{fullhash}{68ea57436080b6dd26181e8d1d3315a1}
+      \field{sortinit}{S}
+      \field{sortinithash}{4125bb4c3a0eb3eaee3ea6da32eb70c8}
+      \field{labeltitle}{Identification of common molecular subsequences}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Describes the Smith-Waterman algorithm for comparing genetic sequences. This algorithm produces an optimal global overlay between two strings drawn from any alphabet. This original paper is very focused on genetics research but the algorithm itself is a crucial part of Irving's paper on similarity detection.}
+      \field{journaltitle}{Journal of molecular biology}
+      \field{number}{1}
+      \field{title}{Identification of common molecular subsequences}
+      \field{volume}{147}
+      \field{year}{1981}
+      \field{pages}{195\bibrangedash 197}
+    \endentry
+    \entry{whale1990identification}{article}{}
+      \name{labelname}{1}{}{%
+        {{hash=0227d9477d23bb397c8d839e3ebe7304}{Whale}{W\bibinitperiod}{Geoff}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=0227d9477d23bb397c8d839e3ebe7304}{Whale}{W\bibinitperiod}{Geoff}{G\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Br Computer Soc}%
+      }
+      \strng{namehash}{0227d9477d23bb397c8d839e3ebe7304}
+      \strng{fullhash}{0227d9477d23bb397c8d839e3ebe7304}
+      \field{sortinit}{W}
+      \field{sortinithash}{e560dae78a85a037c3da51c61467873a}
+      \field{labeltitle}{Identification of program similarity in large populations}
+      \field{annotation}{\setlength{\parskip}{1.5ex} Whale provides an overview of the state of similarity detection in the year 1990. The document contains a discussion of the prevalence and motivation for students to copy others' assignments, common techniques for obscuring unauthorized copying, the various metrics to evaluate similarity detectors and the poor state of evaluation methodologies, and a broad overview of the most common approaches at the time. The paper closes with a comparison of the effectiveness of the most popular approaches.}
+      \field{journaltitle}{The Computer Journal}
+      \field{number}{2}
+      \field{title}{Identification of program similarity in large populations}
+      \field{volume}{33}
+      \field{year}{1990}
+      \field{pages}{140\bibrangedash 146}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+
