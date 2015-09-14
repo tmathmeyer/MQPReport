@@ -6,8 +6,8 @@
 % Use hyperlinks when outputting to PDF
 \hypersetup{
 	colorlinks=false,
-	pdftitle={Software Similarity Detection},
-	pdfauthor={Matthew Heon and Dolan Murvihill}
+	pdftitle={Software Similarity Detection Integration and Improvement},
+	pdfauthor={Theodore Meyer and Michael Andrews}
 }
 
 % Number paragraphs and subparagraphs
@@ -49,8 +49,8 @@
 % Load current version of Checksims
 \input{version.ltx}
 
-\author{Matthew Heon \and Dolan Murvihill}
-\title{Software Similarity Detection}
+\author{Theodore Meyer \and Michael Andrews}
+\title{Software Similarity Detection Integration and Improvement}
 
 \begin{document}
 
@@ -87,19 +87,19 @@ more information about the projects program at WPI, please see
 \input{intro.ltx}
 
 % Include lit review
-\input{litreview.ltx}
+% \input{literature_review.ltx}
 
 % Our Approach
-\input{approach.ltx}
+% \input{approach.ltx}
 
 % Experimental Verification
-\input{methodology.ltx}
+% \input{methodology.ltx}
 
 % Include results
-\input{results.ltx}
+% \input{results.ltx}
 
 % Include conclusion
-\input{conclusion.ltx}
+% \input{conclusion.ltx}
 
 % Bibliography
 \clearpage
@@ -110,24 +110,8 @@ more information about the projects program at WPI, please see
 \begin{appendices}
 
 % Restart figure numbering for each appendix
+% thanks for this macro matt!
 \renewcommand\thefigure{\thesection.\arabic{figure}}
-
-% User Guide
-\setcounter{figure}{0}
-\input{user_guide.ltx}
-
-% Ensure each appendix starts on a new page
-\clearpage
-
-% Developer's Guide
-\setcounter{figure}{0}
-\input{developer_guide.ltx}
-
-\clearpage
-
-% Anonymization Script
-\setcounter{figure}{0}
-\input{anonscript.ltx}
 
 \end{appendices}
 

@@ -32,5 +32,4 @@ $(LATEX_DIST)/developer_guide_only.pdf: $(LATEX_SRC)/developer_guide_only.ltx $(
 
 clean:
 	rm -rf $(LATEX_ROOT)/dist
-	mvn clean
 
