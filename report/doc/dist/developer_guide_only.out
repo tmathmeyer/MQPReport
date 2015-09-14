@@ -1,9 +1,0 @@
-\BOOKMARK [1][-]{section.1}{Developer Guide}{}% 1
-\BOOKMARK [2][-]{subsection.1.1}{Obtaining the Source}{section.1}% 2
-\BOOKMARK [2][-]{subsection.1.2}{Building Checksims}{section.1}% 3
-\BOOKMARK [2][-]{subsection.1.3}{Contributing: Modifying the Source}{section.1}% 4
-\BOOKMARK [3][-]{subsubsection.1.3.1}{Directory Structure}{subsection.1.3}% 5
-\BOOKMARK [3][-]{subsubsection.1.3.2}{Source Structure}{subsection.1.3}% 6
-\BOOKMARK [4][-]{paragraph.1.3.2.1}{Package Structure}{subsubsection.1.3.2}% 7
-\BOOKMARK [4][-]{paragraph.1.3.2.2}{Code Structure}{subsubsection.1.3.2}% 8
-\BOOKMARK [3][-]{subsubsection.1.3.3}{Adding an Algorithm}{subsection.1.3}% 9
