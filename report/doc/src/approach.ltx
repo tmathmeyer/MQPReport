@@ -14,14 +14,16 @@ interface to replace the command line. With our new goals in mind, we have
 created a few requirements that we must meet:
 \begin{itemize}
 \item The program should be usable by course staff with very little
- or no training, and should produce output in a form that can be easily
- interpreted. This was a previous goal of the project which we wish to finish
- by creating a user interface.
-\item Checksims should have the ability to run structure analysis on at least
- Java, C, C++, and Python. Racket is also a possibility, though not likely.
+    or no training, and should produce output in a form that can be easily
+    interpreted. This was a previous goal of the project which we wish to
+    finish by creating a user interface.
+\item \textit{Checksims} should have the ability to run structure analysis on
+    at least Java, C, C++, and Python. Racket is also a possibility, though not
+    likely.
 \item There should be a simple way to run checksims either remotely or on a 
- users own machine. Ideally, there should be no more than a few button presses
- for a member of the course staff to run checksims agains a closed submission.
+    users own machine. Ideally, there should be no more than a few button
+    presses for a member of the course staff to run checksims agains a closed
+    submission.
 \end{itemize}
 
 \section{Approach}
@@ -30,7 +32,7 @@ The additions to checksims required some rearchitecture. The previous checksims
 algorithm abstraction only allowed for tokenization based algorithms. Since
 the code structure comparison based algorithms are based on trees rather than
 lists, the structure of assignments required a redesign. The redesign uses
-an abstraction called a ''Percentable''. Submission text can be transformed into
+an abstraction called a ``Percentable''. Submission text can be transformed into
 different types of percentables and memoized by their type. Algorithms are now
 based on the percentable type on which they operate as well, and are
 responsible for informing the checksims runner which type of percentable
@@ -58,3 +60,60 @@ is as follows:
  \item The similarity matrix is then passed to a user-selected \textit{output
     strategy}, which produces a human-readable form of the output for parsing.
 \end{enumerate}
+
+\subsection{Parsing}
+\label{sec:parsing}
+Parsing is the process of taking raw, unstructured data, usually in the form
+of plain text, and converting it into a structure that can be operated on more
+easily. This is key to performing AST analysis, because it is the process by
+which we transform student submissions into ASTs. Parsing is a very difficult
+task however, and writing an objectively and provably correct parser from
+scratch is not a feasable task. Considerin the restrictions we have on this
+project, we decided to use \textit{ANTLR}, a parser-generator created by
+Professor Terrence Parr of the University of San Francisco. Parser generators
+work by allowing us to specify a grammar --- a file which specifies the constructs
+which are valid in the target language. ANTLR then takes our grammar and
+converts it into a parser written in either C\# or Java. As checksims is written
+in java, it was the obvious and logical choice. While not as difficult to
+write as a parser itself, creating a correct grammar for a language is a
+dificult task. A grammar file for Java8 alone is upwards of 1500 lines long and
+is highly complex. For AST analysis to be useful on the original target
+languages of Java, C, and Python, grammars for each of these languages must be
+created. To complicate matters further, language specs are fluent; in 2014
+there was an update to the C and Java language specifications, and Java is set
+to have another on September 22, 2016. Python is in somewhat of a cival war
+between versions 2.7 and 3.4 (soon to be 3.5!). Changes to a language spec require
+significant overhauling of a grammar, parser, and parser-AST interop. With this
+concern in mind, the grammar and parser-AST interop layers are being designed
+to be as modular as possible. It is unavoidable therefore that there will need
+to be future work done on checksims to keep the parsers and interop layers up
+to date with the language spec.
+
+\subsection{AST Interop Layer}
+\label{sec:interopLayer}
+The parser generator creates structures called \textit{Parser Rule Contexts}
+\textit{(PRCs)} While these structs exist in a tree based form, they are hard
+to work with and contain extra metadata that must be removed in order to quickly
+and accurately perform some of our comparison techniques. To solve this problem,
+\textit{Checksims} uses a consistent and language independant AST
+representation with support for tagging and fingerprinting. To convert between
+a \textit{PRC} and a \textit{Checksims} AST, every parser must also come with
+a \textit{Treewalker} --- an object designed to examine every node of a
+\textit{PRC} tree and convert it to an AST\@. Like the grammar files mentioned
+earlier, Treewalkers are complicated and large objects. They compose a
+significant amount of the work that is required to implement AST comparison
+for a given language.
+
+\subsection{Comparison Techniques}
+\label{sec:comparisonTechniques}
+Once student submissions have been converted from source files into ASTs,
+they must be compared. Several algorithms have been developed for comparing
+trees, the results of which will be discussed further on. Each algorithm
+will convert a pair of ASTs into an instance of the previously mentioned
+\textit{Percentable}, which the checksims core will handle as it currently
+does.
+\subsubsection{AST Fingerprinting}
+MIKE WRITE THIS PART!!!!!!!
+
+\subsubsection{Recursive Structure Percentage Comparison}
+TED WRITE THIS PART!!!!!
