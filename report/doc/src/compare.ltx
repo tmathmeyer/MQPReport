@@ -1,0 +1,12 @@
+\section{Comparison to Smith-Watermann}
+\label{sec:discussComparison}
+By creating an effective AST comparison tool, we hope to be able to fill
+theoretical gaps that may exist in the Smith-Watermann algorithm for code
+comparison. We would like to see what the strengths and weaknesses of each
+algorithm are, especially in the realms of false negatives and false positives.
+There are other factors that affect the feasability of different algorithms,
+including execution speed and memory performance. Preliminary tests show that
+AST analysis is significantly slower than simple line, space, or character
+tokenization, but is also more memory efficient and would scale better over
+sample sizes in the thousands. Results of the comparisons between the two
+algorithms will be discussed further on in the report. 
