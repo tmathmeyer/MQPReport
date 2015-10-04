@@ -1,6 +1,23 @@
 \section{Introduction}
 \label{sec:intro}
-Checksims is a tool developed at WPI to help teaching staff combat academic dishonesty in the scope of programming assignments. Currently, Checksims uses the Smith-Waterman Sequence Alignment algorithm to compare pairs of assignments within a given pool of assignments, generally one class’ worth. This algorithm assigns a percent score for how much overlap there is between any two assignments, and flags pairs (or triplets, etc), that have a matching percentage above a certain threshold. There also exists a feature to remove staff provided common code, to accommodate the assignments given in certain classes. Despite the success of Checksims so far, it is possible to subvert its functionality given knowledge of the Smith-Waterman algorithm. There are certain techniques, such as renaming variables, reordering order-independant statements, and generally shuffling parts of code within or between files. Smith-Waterman was originally designed to compare sequences of genomes, which are just one dimensional sequences of data. Code is not a one dimensional sequence however; It can be represented as a tree which is tagged with names and identifiers. This sequence-tree duality of code allows us to compare two individual submissions not only as a linear sequence analysis problem, but also as a two dimensional structure, and to compare and contrast these two methods against one another. 
+Checksims is a tool developed at WPI to help teaching staff combat academic
+dishonesty in the scope of programming assignments. Currently, Checksims uses
+the Smith-Waterman Sequence Alignment algorithm to compare pairs of assignments
+within a given pool of assignments, generally one class’ worth. This algorithm
+assigns a percent score for how much overlap there is between any two
+assignments, and flags pairs, that have a matching percentage above a certain
+threshold. There also exists a feature to remove staff provided common code, to
+accommodate the assignments given in certain classes. Despite the success of
+Checksims so far, it is possible to subvert its functionality given knowledge
+of the Smith-Waterman algorithm. There are certain techniques, such as renaming
+variables, reordering order-independant statements, and generally shuffling
+parts of code within or between files. Smith-Waterman was originally designed
+to compare sequences of genomes, which are just one dimensional sequences of
+data. Code is not a one dimensional sequence however; It can be represented as
+a tree which is tagged with names and identifiers. This sequence-tree duality
+of code allows us to compare two individual submissions not only as a linear
+sequence analysis problem, but also as a two dimensional structure, and to
+compare and contrast these two methods against one another. 
 
 
 
@@ -8,22 +25,56 @@ Checksims is a tool developed at WPI to help teaching staff combat academic dish
 \subsection{Original Goals}
 \label{sec:mattdolangoals}
 \begin{itemize}
-  \item The program should be usable by course staff with very little or no training, and should produce output in a form that can be easily interpreted.
-  \item The output itself should not be a definitive accusation of academic wrongdoing; instead, it should simply flag suspicious submissions for further review by course staff.
-  \item The detector should to be complete and usable within seven weeks; this requirement placed a severe time limit on implementation and encouraged the implementation of a relatively small set of features.
-  \item The detector should not attempt to perform language-specific analysis of the source code, but instead only interpret submissions as plaintext. The language-agnosticism requirement came from the time constraint and the potential that the detector would be used for a number of classes using various languages.
-  \item The algorithm should be run locally and preferably be easy to invoke once student submissions are closed.
-  \item The detector should be made to match Professor Lauer’s specific definition of similarity and academic dishonesty, which is very permissive of relatively similar code so long as it was typed separately.\ldots
+  \item The program should be usable by course staff with very little or no
+      training, and should produce output in a form that can be easily
+      interpreted.
+  \item The output itself should not be a definitive accusation of academic
+      wrongdoing; instead, it should simply flag suspicious submissions for
+      further review by course staff.
+  \item The detector should to be complete and usable within seven weeks; this
+      requirement placed a severe time limit on implementation and encouraged
+      the implementation of a relatively small set of features.
+  \item The detector should not attempt to perform language-specific analysis of
+      the source code, but instead only interpret submissions as plaintext. The
+      language-agnosticism requirement came from the time constraint and the
+      potential that the detector would be used for a number of classes using
+      various languages.
+  \item The algorithm should be run locally and preferably be easy to invoke
+      once student submissions are closed.
+  \item The detector should be made to match Professor Lauer’s specific
+      definition of similarity and academic dishonesty, which is very permissive
+      of relatively similar code so long as it was typed separately.\ldots
 \end{itemize}
 
 
 \subsection{Project Goals}
 \label{sec:goals}
-In our project, we intent to modify some of these goals slightly and to finish the implementation of some other goals. The first priority of our project is a research goal, which is to compare a syntax tree based approach to the current SW algorithm approach. This requires that we disregard rule 4 for the purposes of our research, as every language will require it’s own parser from source to AST. We intend to focus on the languages that are used most commonly at our school, including C, Python, Racket, and Java. The second priority for us is to move the checksims project towards a more complete implementation with respect to original goal five. Currently, checksims is a command line tool, and requires many arguments to work correctly. We intend to integrate checksims with the online assignment submission system used by the CS department called [Turnin](turnin.cs.wpi.edu). This integration should be able to compare submissions within one class, but also compare submissions against submissions in previous offerings of the class. Finally, our stretch goal for this project is to allow parameterization for individual classes in order to accommodate teaching styles which have a different standard of academic dishonesty. In short, our new, modified goals are as follows:
+In our project, we intent to modify some of these goals slightly and to finish
+the implementation of some other goals. The first priority of our project is a
+research goal, which is to compare a syntax tree based approach to the current
+SW algorithm approach. This requires that we disregard rule 4 for the purposes
+of our research, as every language will require it’s own parser from source to
+AST\@. We intend to focus on the languages that are used most commonly at our
+school, including C, Python, Racket, and Java. The second priority for us is to
+move the checksims project towards a more complete implementation with respect
+to original goal five. Currently, checksims is a command line tool, and requires
+many arguments to work correctly. We intend to integrate checksims with the
+online assignment submission system used by the CS department called
+[Turnin] (turnin.cs.wpi.edu). This integration should be able to compare
+submissions within one class, but also compare submissions against submissions
+in previous offerings of the class. Finally, our stretch goal for this project
+is to allow parameterization for individual classes in order to accommodate
+teaching styles which have a different standard of academic dishonesty. In shor
+, our new, modified goals are as follows:
 \begin{itemize}
-  \item Research Goal: Design, implement, and compare an Abstract Syntax Tree similarity detection algorithm to the Smith-Waterman Algorithm.
-  \item Practicality Goal [1]: Design a format and archiving system for comparing submissions not only to one another, but to previous classes submissions as well.
-  \item Practicality Goal [2]: Integrate checksims with turnin.cs.wpi.edu, the most commonly used tool for assignment submissions at WPI.
-  \item Practicality Goal [3]: Create a standalone user interface for checksims (Currently it requires use of a terminal) (UIs make me sad)
-  \item Practicality Goal [4]: Allow tweaking of checksims to accommodate different standards of academic dishonesty. \ldots
+  \item Design, implement, and compare an Abstract Syntax Tree similarity
+      detection algorithm to the Smith-Waterman Algorithm.
+  \item Design a format and archiving system for comparing submissions not only
+      to one another, but to previous classes submissions as well.
+  \item Integrate checksims with turnin.cs.wpi.edu, the most commonly used tool
+      for assignment submissions at WPI\@.
+  \item Create a standalone user interface for checksims, as currently it
+      requires use of a terminal
+  \item Allow tweaking of checksims to accommodate different standards of
+      academic dishonesty. \ldots
 \end{itemize}
