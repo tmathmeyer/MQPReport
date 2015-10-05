@@ -1,25 +1,26 @@
 \section{Existing Literature}
 A large portion of the work done is based on the work put forth in the
 original \textit{Checksims} paper. This includes not only the code that was
-produced in that project, but also the definitions and literature review that was
-conducted. Many of the definitions and terms discussed from here on can be
+produced in that project, but also the definitions and literature review that
+was conducted. Many of the definitions and terms discussed from here on can be
 directly attributed to their work.
 
 \subsection{Academic Dishonesty}
 The original \textit{Checksims} authors provided a comprehensive set of
-examples and scenarios where academic dishonesty is the hardest to distinguish. As
-they noted, an instance of ``100\% similarity was almost certainly indicitive of
-unauthorized copying''\cite{checksims1}, but there are many scenarios where
-determining whether a submission constitutes dishonest behavior is not as simple.
+examples and scenarios where academic dishonesty is the hardest to
+distinguish. As they noted, an instance of ``100\% similarity was almost
+certainly indicitive of unauthorized copying''\cite{checksims1}, but there are
+many scenarios where determining whether a submission constitutes dishonest
+behavior is not as simple.
 
 \subsubsection{Detection of Dishonesty using Syntax Trees}
 As was again mentioned in the original \textit{Checksims} paper, detecting
 academic dishonesty in programming assignments is significantly easier than
 detecting dishonesty in natural language due to the fact that programming
 languages follow grammars which are significantly simpler than natural written
-language. Consider the grammar for the LISP family of programming languages; in
-the grammar definition syntax of ANTLR, a lisp program would be defined as the
-following:
+language. Consider the grammar for the LISP family of programming languages;
+in the grammar definition syntax of ANTLR, a lisp program would be defined as
+the following:
 
 \begin{lstlisting}
 COMMENT : \;.*\n -> skip
@@ -30,10 +31,10 @@ sExpr :
 \end{lstlisting}
 
 Written long hand, this grammar states that any block of text between a
-semicolon (;) character and a newline (\textbackslash n) character is considered a comment
-and can be skipped for the purpose of parsing. An ``ID'' consists of any
-arrangement of the characters a-z, A-Z, and 0-9, and than an ``sExpr'' consists
-of at least 1 child, where each child is either an ID or an sExpr.
+semicolon (;) character and a newline (\textbackslash n) character is
+considered a comment and can be skipped for the purpose of parsing. An ``ID''
+consists of any arrangement of the characters a--z, A--Z, and 0--9, and than an ``sExpr'' consists of at least 1 child, where each child is either an ID or
+an sExpr.
 
 This grammar definition shows that LISP languages are just textual
 representations of an N-dimensional tree, with IDs as leaf nodes and sExprs as
