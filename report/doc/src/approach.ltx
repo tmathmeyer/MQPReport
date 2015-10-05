@@ -69,12 +69,13 @@ easily. This is key to performing AST analysis, because it is the process by
 which student submissions are transformed into ASTs. Parsing is a very difficult
 task however, and writing an objectively and provably correct parser from
 scratch is not a feasable task. Considerin the restrictions on this
-project, the decision was made to use \textit{ANTLR}, a parser-generator created by Professor Terrence Parr of the University of San Francisco. Parser generators
-work by allowing us to specify a grammar --- a file which specifies the constructs
-which are valid in the target language. ANTLR then takes our grammar and
-converts it into a parser written in either C\# or Java. As checksims is written
-in java, it was the obvious and logical choice. While not as difficult to
-write as a parser itself, creating a correct grammar for a language is a
+project, the decision was made to use \textit{ANTLR}, a parser-generator created
+by Professor Terrence Parr of the University of San Francisco. Parser generators
+work by allowing a grammar to be specified in the form of a file which specifies
+the constructs which are valid in the target language. ANTLR then takes our
+grammar and converts it into a parser written in either C\# or Java. As checksims
+is written in java, it was the obvious and logical choice. While not as difficult
+to write as a parser itself, creating a correct grammar for a language is a
 dificult task. A grammar file for Java8 alone is upwards of 1500 lines long and
 is highly complex. For AST analysis to be useful on the original target
 languages of Java, C, and Python, grammars for each of these languages must be
