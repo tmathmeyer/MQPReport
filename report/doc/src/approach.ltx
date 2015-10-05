@@ -120,7 +120,7 @@ new location on the tree. In order to search all nodes for structural
 similarities, we use a fingerprinting method. To efficiently compare nodes on an
 AST, while still catching changes in structure, we must only only compare
 similar nodes. To do this, we traverse one tree and a build a dictionary. This
-dictionary maps from a heuristic 'fingerprint', such as child count, node type,
+dictionary maps from a heuristic ''fingerprint'', such as child count, node type,
 or some description of the local AST structure, to a list of nodes in the
 document with the same fingerprint.
 
@@ -137,12 +137,13 @@ node from one document to every node in the next.
 Fingerprinting presents a number of decisions. Deciding on a good fingerprint,
 such as node type and child count, is important for the performance of the
 method. We use only the type of the AST; whether it is a multiplication
-operator, a class, a method, or other.
+operator, a class, a method, or other. After identifying potential matches,
+you must still decide on a comparison method.
 
 \subsubsection{Recursive Structure Percentage Comparison}
 Recursively comparing nodes of the AST is another effective algorithm for
 similarity detection. In this method, each node in the AST is marked as
-'ordered' or 'unordered'. The similarity of two ordered nodes is a direct
+``ordered'' or ``unordered''. The similarity of two ordered nodes is a direct
 average of their children, and the similarity of unordered is a function of
 each pair of similarity scores. This method compares each child to child pair
 to detect similarity when order is uncertain. This detects most instances of
