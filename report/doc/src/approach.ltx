@@ -114,16 +114,34 @@ will convert a pair of ASTs into an instance of the previously mentioned
 does.
 
 \subsubsection{AST Fingerprinting}
-To efficiently compare nodes on an AST, while still catching changes in
-structure, only similar nodes should be compared. To do this, one tree is
-traversed, building a dictionary. This dictionary maps from a heuristic
-``fingerprint'', such as child count, node type, or some description of the
-local AST structure, to a list of nodes in the document with the same
-fingerprint. This allows all similar nodes to be compared, eliminating the need
-to compare conceptually different nodes and nodes that are otherwise dissimilar.
-This provides a more robust method of detecting similarities, ignoring changes
-in document structure, such as moving a method to subclass, without comparing
+ASTs are a tree structure. Similar sections of the AST may be placed anywhere.
+An expression can be moved inside of a conditional block, and it will have a
+new location on the tree. In searching all nodes for structural similarities,
+fingerprinting methods are effective. To efficiently compare nodes on an
+AST, while still catching changes in structure, the computer must only only compare
+similar nodes. To do this, traverse one tree and a build a dictionary. This
+dictionary maps from a heuristic ''fingerprint'', such as child count, node type,
+or some description of the local AST structure, to a list of nodes in the
+document with the same fingerprint.
+
+
+Using this dictionary, it is possible to traverse any other AST, and search all
+nodes for similar counterparts extremely efficiently. With this, only compare
+similar nodes, eliminating the need to compare conceptually different nodes,
+such as classes and control blocks. The system also ignores nodes that are
+otherwise dissimilar, such as functions with different argument counts. This
+provides a more robust method of detecting similarities, ignoring changes in
+document structure, such as moving a method to a subclass, without comparing
 every single node from one document to every node in the next.
+
+Fingerprinting presents a number of decisions. Deciding on a good fingerprint,
+such as node type and child count, is important for the performance of the
+method. The current approach only uses the type of the AST; whether it is a
+multiplication operator, a class, a method, or other. After identifying
+potential matches, a separate comparison method must be used. The current
+approach uses the recursive structure percentage comparison. In the future,
+a local comparison method will be used, and a final walk of the tree will
+decide the similarity.
 
 \subsubsection{Recursive Structure Percentage Comparison}
 Recursively comparing nodes of the AST is another effective algorithm for
