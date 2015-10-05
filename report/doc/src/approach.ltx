@@ -5,18 +5,18 @@ for checksims should be. There is concern with checksims that certain types
 of cheating may go undetected by the smith waterman algorithm. The solution
 to this is to look not at the content of code submissions, but at their
 structure. Creating Parsers for structured data for multiple languages is
-significantly more time consuming than tokenization, but we do not have as
-tight a time constraint as the previous team working on checksims. We have
-also undertaken the design and implementation of more features for chechsims
-in order to make it as usable as possible for course staff, including an
+significantly more time consuming than tokenization, but there is not as
+tight a time constraint as the previous team working on checksims.
+There will also be significant work towards the goal of making 
+checksime as usable as possible for course staff, including an
 archiving system for comparing previous year's submissions and a user
-interface to replace the command line. With our new goals in mind, we have
-created a few requirements that we must meet:
+interface to replace the command line. With these new goals in mind, a
+comprehensive set of goals has been created:
 \begin{itemize}
 \item The program should be usable by course staff with very little
     or no training, and should produce output in a form that can be easily
-    interpreted. This was a previous goal of the project which we wish to
-    finish by creating a user interface.
+    interpreted. This was a previous goal of the project which will be realized
+    by creating a user interface.
 \item \textit{Checksims} should have the ability to run structure analysis on
     at least Java, C, C++, and Python. Racket is also a possibility, though not
     likely.
@@ -66,11 +66,10 @@ is as follows:
 Parsing is the process of taking raw, unstructured data, usually in the form
 of plain text, and converting it into a structure that can be operated on more
 easily. This is key to performing AST analysis, because it is the process by
-which we transform student submissions into ASTs. Parsing is a very difficult
+which student submissions are transformed into ASTs. Parsing is a very difficult
 task however, and writing an objectively and provably correct parser from
-scratch is not a feasable task. Considerin the restrictions we have on this
-project, we decided to use \textit{ANTLR}, a parser-generator created by
-Professor Terrence Parr of the University of San Francisco. Parser generators
+scratch is not a feasable task. Considerin the restrictions on this
+project, the decision was made to use \textit{ANTLR}, a parser-generator created by Professor Terrence Parr of the University of San Francisco. Parser generators
 work by allowing us to specify a grammar --- a file which specifies the constructs
 which are valid in the target language. ANTLR then takes our grammar and
 converts it into a parser written in either C\# or Java. As checksims is written
@@ -115,11 +114,11 @@ does.
 
 \subsubsection{AST Fingerprinting}
 To efficiently compare nodes on an AST, while still catching changes in
-structure, we want to only compare similar nodes. To do this, we traverse one
-tree, a build a dictionary. This dictionary maps from a heuristic
+structure, only similar nodes should be compared. To do this, one tree is
+traversed, building a dictionary. This dictionary maps from a heuristic
 ``fingerprint'', such as child count, node type, or some description of the
 local AST structure, to a list of nodes in the document with the same
-fingerprint. This allows us to compare all similar nodes, eliminating the need
+fingerprint. This allows all similar nodes to be compared, eliminating the need
 to compare conceptually different nodes and nodes that are otherwise dissimilar.
 This provides a more robust method of detecting similarities, ignoring changes
 in document structure, such as moving a method to subclass, without comparing
