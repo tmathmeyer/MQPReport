@@ -8,7 +8,7 @@ structure. Creating Parsers for structured data for multiple languages is
 significantly more time consuming than tokenization, but there is not as
 tight a time constraint as the previous team working on checksims.
 There will also be significant work towards the goal of making 
-checksime as usable as possible for course staff, including an
+checksims as usable as possible for course staff, including an
 archiving system for comparing previous year's submissions and a user
 interface to replace the command line. With these new goals in mind, a
 comprehensive set of goals has been created:
@@ -32,14 +32,15 @@ The additions to checksims required some rearchitecture. The previous checksims
 algorithm abstraction only allowed for tokenization based algorithms. Since
 the code structure comparison based algorithms are based on trees rather than
 lists, the structure of assignments required a redesign. The redesign uses
-an abstraction called a ``Percentable''. Submission text can be transformed into
-different types of percentables and memoized by their type. Algorithms are now
-based on the percentable type on which they operate as well, and are
-responsible for informing the checksims runner which type of percentable
-generator they would like to have used. The new architecture should allow a
-significantly broader range of algorithms to be implemented against the
-underlying comparson mechanism. A description of the updated checksims pipeline
-is as follows:
+an abstraction called a ``Percentable''. This name comes directly from the
+code, and means any structure from which a percentage can be calculated.
+Submission text can be transformed into different types of percentables and
+memoized by their type. Algorithms are now based on the percentable type on
+which they operate as well, and are responsible for informing the checksims
+runner which type of percentable generator they would like to have used. The new
+architecture should allow a significantly broader range of algorithms to be
+implemented against the underlying comparson mechanism. A description of the
+updated checksims pipeline is as follows:
 
 \begin{enumerate}
  \item Student submissions are read from the filesystem and multi-file
@@ -50,13 +51,15 @@ is as follows:
     the smith-waterman algorithm, which performs superbly for exact matching
     scenarios.
  \item The percentable generator provided by the selected algorithm then
-     consumes a submission and stores the parsed or tonenized form back into
+     consumes a submission and stores the parsed or tokenized form back into
      the submission for the purposes of memoization. This occurs on all
      submissions, but due to memoization, it does not happen twice.
  \item Submissions are then grouped into pairs. The selected algorithm, or
     \textit{similarity detector}, which implements a \textit{similarity
     detection algorithm}, is then run on all possible pairs of submissions, and
-    the results are recorded in a \textit{similarity matrix}.
+    the results are recorded in a \textit{similarity matrix}. This also includes
+    comparing the current submissions to archived submissions, though not
+    comparing the archived submissions between eachother.
  \item The similarity matrix is then passed to a user-selected \textit{output
     strategy}, which produces a human-readable form of the output for parsing.
 \end{enumerate}
@@ -68,12 +71,12 @@ of plain text, and converting it into a structure that can be operated on more
 easily. This is key to performing AST analysis, because it is the process by
 which student submissions are transformed into ASTs. Parsing is a very difficult
 task however, and writing an objectively and provably correct parser from
-scratch is not a feasable task. Considerin the restrictions on this
-project, the decision was made to use \textit{ANTLR}, a parser-generator created
-by Professor Terrence Parr of the University of San Francisco. Parser generators
-work by allowing a grammar to be specified in the form of a file which specifies
-the constructs which are valid in the target language. ANTLR then takes our
-grammar and converts it into a parser written in either C\# or Java. As
+scratch is not a feasable task for this project. Considerin the restrictions on
+this project, the decision was made to use \textit{ANTLR}, a parser-generator
+created by Professor Terrence Parr of the University of San Francisco. Parser
+generators work by allowing a grammar to be specified in the form of a file that
+specifies the constructs that are valid in the target language. ANTLR then takes
+our grammar and converts it into a parser written in either C\# or Java. As
 checksims is written in java, it was the obvious and logical choice. While not
 as difficult to write as a parser itself, creating a correct grammar for a
 language is a dificult task. A grammar file for Java8 alone is upwards of 1500
@@ -81,7 +84,7 @@ lines long and is highly complex. For AST analysis to be useful on the original
 target languages of Java, C, and Python, grammars for each of these languages
 must be created. To complicate matters further, language specs are fluent; in
 2014 there was an update to the C and Java language specifications, and Java is
-set to have another on September 22, 2016. Python is in somewhat of a cival war
+set to have another on September 22, 2016. Python is in somewhat of a civil war
 between versions 2.7 and 3.4 (soon to be 3.5!). Changes to a language spec
 require significant overhauling of a grammar, parser, and parser-AST interop.
 With this concern in mind, the grammar and parser-AST interop layers are being
@@ -95,12 +98,12 @@ The parser generator creates structures called \textit{Parser Rule Contexts}
 \textit{(PRCs)} While these structs exist in a tree based form, they are hard
 to work with and contain extra metadata that must be removed in order to quickly
 and accurately perform some of our comparison techniques. To solve this problem,
-\textit{Checksims} uses a consistent and language independant AST
+\textit{Checksims} uses a consistent and language independent AST
 representation with support for tagging and fingerprinting. To convert between
 a \textit{PRC} and a \textit{Checksims} AST, every parser must also come with
 a \textit{Treewalker} --- an object designed to examine every node of a
 \textit{PRC} tree and convert it to an AST\@. Like the grammar files mentioned
-earlier, Treewalkers are complicated and large objects. They compose a
+earlier, Treewalkers are complicated and large objects. They comprise a
 significant amount of the work that is required to implement AST comparison
 for a given language.
 
@@ -108,7 +111,7 @@ for a given language.
 \label{sec:comparisonTechniques}
 Once student submissions have been converted from source files into ASTs,
 they must be compared. Several algorithms have been developed for comparing
-trees, the results of which will be discussed further on. Each algorithm
+trees, the results of which will be discussed below. Each algorithm
 will convert a pair of ASTs into an instance of the previously mentioned
 \textit{Percentable}, which the checksims core will handle as it currently
 does.
