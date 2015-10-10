@@ -12,6 +12,22 @@ distinguish. As they noted, an instance of ``100\% similarity was almost
 certainly indicitive of unauthorized copying''\cite{checksims1}, but there are
 many scenarios where determining whether a submission constitutes dishonest
 behavior is not as simple.
+% Throw in a few papers here, discuss various standards.
+
+\subsection{Detecting Academic Dishonesty}
+There have been numerous approaches to detecting duplicate code. Primarily,
+researchers attempt to identify academic dishonesty, duplicated code in
+codebases, or copyright infringement in various contexts. While different
+goals, these methods share the same task: to identify duplicated code while
+handling minor obfuscation tactics. This section discusses the types of
+identification methods and particular methods discovered while reviewing
+existing literature.
+
+\subsubsection{Detection of Dishonesty using Body Text}
+The original \textit{Checksims} paper thoroughly reviews a number of existing
+methods of identifying duplicate code. As \textit{Checksims} was dedicated
+to language independent identification, it did not discuss syntax tree based
+methods.
 
 \subsubsection{Detection of Dishonesty using Syntax Trees}
 As was again mentioned in the original \textit{Checksims} paper, detecting
@@ -44,3 +60,5 @@ grammar, a tree cannot be generated and comparison cannot happen. This is
 surprisingly common in student submissions for a class --- real world examples
 used for testing show that about 2 to 4 percent of code submissions are not
 valid for the language in which they are written.
+
+% Throw in methods here from various papers.
