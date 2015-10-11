@@ -21,10 +21,9 @@ behavior is not as simple.
 There have been numerous approaches to detecting duplicate code. Primarily,
 researchers attempt to identify academic dishonesty, duplicated code in
 codebases, or copyright infringement in various contexts. While different
-goals, these methods share the same task: to identify duplicated code while
-handling minor obfuscation tactics. This section discusses the types of
-identification methods and particular methods discovered while reviewing
-existing literature.
+goals, these methods share the same task: to identify duplicated despite
+obfuscation tactics. This section discusses the types of identification 
+methods and particular methods developed while reviewing existing literature.
 
 \subsubsection{Detection of Dishonesty using Body Text}
 The original \textit{Checksims} paper thoroughly reviews a number of existing
@@ -50,9 +49,10 @@ sExpr :
 \end{lstlisting}
 
 Written long hand, this grammar states that any block of text between a
-semicolon (;) character and a newline (\textbackslash n) character is
+semicolon (;) character and a newline (\textbackslash{} n) character is
 considered a comment and can be skipped for the purpose of parsing. An ``ID''
-consists of any arrangement of the characters a--z, A--Z, and 0--9, and than an ``sExpr'' consists of at least 1 child, where each child is either an ID or
+consists of any arrangement of the characters a---z, A---Z, and 0--9, and than an
+``sExpr'' consists of at least 1 child, where each child is either an ID or
 an sExpr.
 
 This grammar definition shows that LISP languages are just textual
