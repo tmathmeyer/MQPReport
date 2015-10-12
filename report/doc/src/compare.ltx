@@ -105,11 +105,14 @@ following submissions were found to have errors:
 The results of the algorithms show that each caught in some way a similar set
 of assignments. AST Fingerprinting missed catching students 195 and 80, and 
 56 and 158. Smith Waterman missed 219 and 196, and 191 and 211. Upon manual
-inspection of these assignments, it seems that students 195 and 80, as well
-as students 56 and 158, did not engage in plagerism. However, the pairs of
-students missed by Smith-Waterman: students 219 and 196, and 191 and 211, 
-Seem to be extreemly similar; they only differ slightly in test cases, and
-would certainly be flagged my manual inspection by a member of course staff.
-These results are also significantly promising, because it shows that AST
-Fingerprinting is finding false negatives that Smith-Waterman missed, and
-not flagging some of the false positives.
+inspection of these assignments, the following conclusions were made:
+\begin{itemize}
+    \item students 195 and 80 copied code
+    \item students 56 and 158 did not copy code
+    \item students 219 and 196 copied code
+    \item student 191 and 211 copied code
+\end{itemize}
+These results were signiifcant because they show that neither algorithm
+catches all instances of plagerism, and that the AST Comparison method
+is credible by itself, but also in tandem with Smith Waterman.
+
