@@ -51,8 +51,8 @@ sExpr :
 Written long hand, this grammar states that any block of text between a
 semicolon (;) character and a newline (\textbackslash{} n) character is
 considered a comment and can be skipped for the purpose of parsing. An ``ID''
-consists of any arrangement of the characters a---z, A---Z, and 0--9, and than an
-``sExpr'' consists of at least 1 child, where each child is either an ID or
+consists of any arrangement of the characters a---z, A---Z, and 0--9, and than
+an ``sExpr'' consists of at least 1 child, where each child is either an ID or
 an sExpr.
 
 This grammar definition shows that LISP languages are just textual
@@ -66,11 +66,39 @@ valid for the language in which they are written.
 
 % Throw in methods here from various papers.
 \subsubsection{Using the Vector Space Model on Syntax Trees}
-
+The STVsm paper posed an interesting syntax tree based approach to similarity detection.
+STVsm generated an appropriate AST for the C language. It then generates the
+lisp equivalent for the tree, in text. To compare two documents, it explores
+applying Levenshtein Distance, Greedy String Tiling, and the Vector Space Model
+methods to this text. This idea is novel for a number of reasons. It is based
+on the syntax tree of the associated language, but it does not directly rely
+on comparing the structure of the syntax trees. Instead, it generates a
+''sanitized''  version of the document, and uses generic text comparison
+methods to detect similarities. This allows the methods to ignore plaintext
+obfuscation that would not appear on the AST, and had improved results over
+plaintext comparison methods.
 %STVsm: Similar Structural Code Detection Based on AST and VSM
 %http://download.springer.com/static/pdf/963/chp%253A10.1007%252F978-3-642-35267-6_3.pdf?originUrl=http%3A%2F%2Flink.springer.com%2Fchapter%2F10.1007%2F978-3-642-35267-6_3&token2=exp=1444506960~acl=%2Fstatic%2Fpdf%2F963%2Fchp%25253A10.1007%25252F978-3-642-35267-6_3.pdf%3ForiginUrl%3Dhttp%253A%252F%252Flink.springer.com%252Fchapter%252F10.1007%252F978-3-642-35267-6_3*~hmac=121b59496e4d1e62e2cc3e7031f4bd7bb7000b391b69e0d88e1efdbd7d58e0f9
 
 \subsubsection{Syntax Tree Fingerprinting}
+Syntax Tree Fingerprinting presents an efficient method of locating
+structurally similar portions of two syntax trees. To efficiently compare two
+documents in tree form, it creates a database that maps from a node's
+''fingerprint'' to any ''similar'' node in each document. For any particular
+node in the document, you can find structurally similar nodes in the opposing
+document by calculating the fingerprint and searching the database. From there,
+a more comprehensive comparison can be made. The paper discussed a number of
+fingerprint calculation methods, including the use of cryptographic hashes,
+rolling checksums, and more. The primary purpose of the fingerprinting database
+is to reduce the number of nodes in the target document each node in the source
+document must be compared to. Rather than comparing every node to every other
+node, by using a fingerprint database, the algorithm efficiently compares only
+relevant nodes to find matching structures. While this can be used more
+generally, the fingerprinting database was used to locate complete matches, or
+completely identical subsections of the syntax tree. By recursively searching
+the source document for complete matching subtrees, weighing each match based
+on its size, and averaging up the syntax tree, a total similarity score can be
+calculated.
 
 %Syntax tree fingerprinting: a foundation for source code similarity detection
 
