@@ -125,7 +125,10 @@ AST to build a ``dictionary'', or mapping, from every node to a fingerprint of
 that node. This allows fast lookup and comparison of every node in the AST\@.
 The fingerprint of each node may be calculated using heuristics and based on
 such features as child count, specialized type tags on tree nodes, and even
-the hash values of children. 
+the hash values of children. Our technique involved xoring a cryptgraphic hash
+of the type of tree node together with the fingerprint of every child AST\@.
+This technique is called a ``rolling checksum'' as each fingerprint / checksum
+is calculated by recursing down the tree.
 
 Using this dictionary, it is possible to traverse any other AST, and search all
 nodes for similar counterparts efficiently. This method eliminates the need to
@@ -136,14 +139,21 @@ similarities, ignoring changes in document structure, such as moving a method
 to a subclass, without comparing every single node from one document to every
 node in the next.
 
-Fingerprinting presents a number of decisions. Deciding on a good fingerprint,
-as mentioned before, is important for the performance of the comparison. The 
-current approach only uses a type tag on the AST\@; whether it is a
-multiplication operator, a class, a method, etc. After identifying
-potential matches, a separate comparison method must be used. The current
-approach uses the recursive structure percentage comparison. In the future,
-a local comparison method will be used, and a final walk of the tree will
-decide the similarity.
+During the implentation and testing of the fingerprinting method, it was
+discovered that if two nodes in the AST had the same fingerprint, one of
+them would be lost when stored in the mapping from fingerprint to tree
+node. An attempt at fixing this problem was made, until it was discovered that
+accounding for collisions caused the runtime to increase by more than 100 fold.
+More testing was then done on the first corpus of sample data, where it was
+discovered that the only cases where collision was happeneing was with leaf
+nodes which were completly identical. This was considerable proof that there
+is no need to worry about collisions. Mathematically, for any given tree
+with 10000 nodes, the chance of collision is 1.16 percent\. for a tree with
+20000 nodes, the chance is 4.55 percent. The average number of nodes per
+submission in the the first corpus of data was 7952. The chance of a collision
+in samples of this size is 0.669 percent. These calculations provide final
+proof that there there is no need to account for collisions.
+
 
 \subsubsection{Recursive Structure Percentage Comparison}
 Recursively comparing nodes of the AST is another effective algorithm for
