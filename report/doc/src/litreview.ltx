@@ -73,7 +73,7 @@ applying Levenshtein Distance, Greedy String Tiling, and the Vector Space Model
 methods to this text. This idea is novel for a number of reasons. It is based
 on the syntax tree of the associated language, but it does not directly rely
 on comparing the structure of the syntax trees. Instead, it generates a
-''sanitized''  version of the document, and uses generic text comparison
+``sanitized''  version of the document, and uses generic text comparison
 methods to detect similarities. This allows the methods to ignore plaintext
 obfuscation that would not appear on the AST, and had improved results over
 plaintext comparison methods.
@@ -84,7 +84,7 @@ plaintext comparison methods.
 Syntax Tree Fingerprinting presents an efficient method of locating
 structurally similar portions of two syntax trees. To efficiently compare two
 documents in tree form, it creates a database that maps from a node's
-''fingerprint'' to any ''similar'' node in each document. For any particular
+``fingerprint'' to any ``similar'' node in each document. For any particular
 node in the document, you can find structurally similar nodes in the opposing
 document by calculating the fingerprint and searching the database. From there,
 a more comprehensive comparison can be made. The paper discussed a number of
