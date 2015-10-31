@@ -20,6 +20,10 @@ $(LATEX_DIST)/main.pdf: $(LXSRC)/main.ltx \
 						$(LXSRC)/methodology.ltx \
 						$(LXSRC)/litreview.ltx
 	$(LATEX) $(LATEX_BUILD_ARGS) $(LXSRC)/main.ltx
+	cp $(LATEX_DIST)/main.bcf $(LXSRC)/main.ltx.bcf
+	biber $(LXSRC)/main.ltx
+	$(LATEX) $(LATEX_BUILD_ARGS) $(LXSRC)/main.ltx
+	rm $(LXSRC)/main.ltx.*
 
 clean:
 	rm -rf $(LATEX_ROOT)/dist
