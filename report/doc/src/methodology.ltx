@@ -8,6 +8,8 @@ sample of student submissions is also a difficult process, though the
 challenges are more in the realm of ethics than technical difficulties. To
 mitigate the issues of testing \textit{Checksims} on a real corpus of data,
 such a corpus must be altered such that each assignment becomes anonymous.
+
+\subsection{Anonymization}
 Three scripts were created to process assignments and strip from them all
 indication of student identity; each language, Python, C, and Java, requires
 their own method of stripping comments and names. Java and C share a common
@@ -22,7 +24,21 @@ symbol and the end of a line is considered a comment, and any multi-line string
 comment, and called a ``Docstring''. The three scripts used for making
 assignments anonymous can be found in appendicies B, C, and D.
 
-\subsection{Testing Corpora}
+\subsection{Output of checksims}
+Between any two assignments A and B, there are two percents generated --- the
+percent of A that is matched in B, and the percent of B that is matched in A.
+These are referred to as the matching value and inverse matching value. There
+are two forms of output most commonly used by checksims: the HTML view and the
+threshold printer view. The HTML view is an HTML file displaying a matrix with
+the comparison percentages for every pair of assignments, excluding assignments
+compared with themselves. Each space in the matrix is also color coded from a
+faint yellow for low matching percents to a bright red for highly matching
+percentages. The threshold printer sorts each pair by the maximum of \{matching
+value, inverse matching value\}. Any pairs over a specified percentage will be
+reported, with the default percentage being 70.
+
+\subsection{Environments and Corpora}
+\subsubsection{Testing Corpora}
 Listed below is the set of corpora used for testing \textit{Checksim}. Each
 corpus will be referenced in the results section by the name provided here.
 \\
@@ -36,11 +52,11 @@ corpus will be referenced in the results section by the name provided here.
     2.b14.2 & Java     & The second assignment in the 2014 OOP (2102) class            \\
             &          &             \\ \bottomrule
 \end{tabular}
-
-\subsection{Testing Environment}
-Checksims has been tested on many systems, in order to measure the effectiveness in the runtime
-and memory usage for each corpus of data. The machines listed below have been used to test every
-corpus of data previously mentioned. They may be referenced by name in the results section.
+\subsubsection{Testing Environment}
+Checksims has been tested on many systems, in order to measure the
+effectiveness in the runtime and memory usage for each corpus of data. The
+machines listed below have been used to test every corpus of data previously
+mentioned. They may be referenced by name in the results section.
 \\
 \\
 \begin{tabular}{@{}llll@{}}

@@ -1,71 +1,18 @@
-\section{Results --- NEEDS TO BE REWRITTEN}
-\label{sec:discussComparison}
-By creating an effective AST comparison tool, it is hoped to be able to fill
-theoretical gaps that may exist in the Smith-Watermann algorithm for code
-comparison. We would like to see what the strengths and weaknesses of each
-algorithm are, especially in the realms of false negatives and false positives.
-There are other factors that affect the feasability of different algorithms,
-including execution speed and memory performance. Preliminary tests show that
-AST analysis is significantly slower than simple line, space, or character
-tokenization, but is also more memory efficient and would scale better over
-sample sizes in the thousands. Results of the comparisons between the two
-algorithms will be discussed further on in the report.  In these comparisons,
-one sample set was used: % Change to however many samples
-\begin{enumerate}
-    \item An anonymized set of submissions from the introduction to Object
-        Oriented Programming class in 2014. This sample contains 233 student
-        submissions, and no historical submissions
-\end{enumerate}
-
+\section{Results --- talk about other corpora!!}
 \subsection{Time Complexity}
-\label{sec:comparison-timecomplex}
-\subsubsection{Big-O Notation}
-The Checksims pipeline works by first reading in and concatinating every file
-in each student's assignment. The next step, and first in the comparison
-process, is to parse that text. This is a linear process; the amount of time
-taken to parse every assignment corresponds linearly to the number of
-assignments. The second step is to compare each current assignment to every
-other current assignment, and each current assignment to each historical
-assignment. This process corresponds quadradically to the number of assignments
-present and the size of those assignments. In Mathematics and Computer Science,
-these relationships are referred to as $O(n)$ and $O(n^{2})$ respectively. 
-
 \subsubsection{Smith-Waterman}
-The Smith-Waterman algorithm consists of two parts, each run separately by
-\textit{Checksims}. The first step is to split the submission text by any of
-three delimiters: Newlines, Spaces, or Characters. As discussed previously,
-this step runs in $O(n)$ time, so it does not have a great effect on the
-overall runtime.  The second step is to run the lines through a comparison
-matrix and compute similar sequences. This is a time consuming process, and
-because this step runs in $O(n^{2})$ time, it has a significant impact on the
-overall runtime of the \textit{Checksims} program. When running Checksims with
-the Smith-Waterman algorithm on the first sample set, the process takes 7
-minutes, 36.55 seconds. 
+When running \textit{Checksims} with the Smith-Waterman algorithm on corpus 2.b14.2 and machine S1 the
+process takes 7 minutes and 36.55 seconds.
 
 \subsubsection{AST Fingerprinting}
-The simple implementation of AST fingerprinting also consists of two parts,
-much like Smith-Waterman. The first step however is incredibly time consuming,
-as a tree must be constructed from the submitted source code. As discussed
-previously, this is very time consuming process. This result is also cached
-however, so each assignment needs only to be parsed once, and because it is part of
-the $O(n)$ step of the process, it has a relatively small impact on the overall
-performance. Where AST Fingerprinting excels is in the comparison, which is
-simply a sequence of hashmap lookups and some arithmetic. As this step is run
-$O(n^{2})$ times, its runtime is significant to the overall runtime.  Running
-the AST Fingerprinting algorithm on the first sample set finishes in 41.78
-seconds on the same machine that tested Smith-Waterman. This result is
-promising, as it shows that the AST comparison can compete with, and even
-excede Smith-Waterman at scale.
+Running the AST Fingerprinting algorithm on corpus 2.b14.2 and machine S1 takes 41.78 seconds.
 
 \subsection{Flagged Submissions}
 \subsubsection{Smith-Waterman}
-Between any two assignments A and B, there are two percents generated --- the
-percent of A that is matched in B, and the percent of B that is matched in A.
-These are referred to as the matching value and inverse matching value. On the
-first sample set, Smith-Waterman detected 31 instances of plagerism.  On closer
+On corpus 2.b14.2, Smith-Waterman detected 31 instances of plagerism. Upon manual
 inspection, many of these instances involved student 33, who only submitted a
 single file with only 78 lines of code, many of which were short and contained
-the specific names students were instructed to use. The inverse matching value
+the specific keywords students were instructed to use. The inverse matching value
 for 26 of these 31 instances were less than 20 percent, and can be considered
 false positives. After these were removed, the pairs still flagged for
 similarity are:
@@ -78,12 +25,9 @@ similarity are:
 \end{itemize}
 
 \subsubsection{AST Fingerprinting}
-On the first sample set, AST Fingerprinting detected 15 instances of plagerism.
-On closer inspection, 4 pairs were found to have a high percentage match in
-both directions and 2 pairs were found to have a moderate percentage match. A
-high percentage match means that both directions had a match of over 70
-percent, and a moderate match is one in which one direction is over 70 percent
-and the other is over 50 percent.. The high percentage matched pairs are:
+On corpus 2.b14.2, AST Fingerprinting detected 15 instances of plagerism.  On
+closer inspection, 4 pairs were found to have a match value and inverse match
+value greater than 70 percent:
 \begin{itemize}
     \item students 219 and 196
     \item students 191 and 211
@@ -91,7 +35,7 @@ and the other is over 50 percent.. The high percentage matched pairs are:
     \item students 176 and 179
 \end{itemize}
 As mentioned earlier, AST parsing is impossible for students who submit invalid
-code. When running the AST Fingerprinting algorithm agains sample set 1, the
+code. When running the AST Fingerprinting algorithm on corpus 2.b14.2, the
 following submissions were found to have errors:
 \begin{itemize}
     \item student 186
