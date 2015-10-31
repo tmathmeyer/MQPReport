@@ -1,17 +1,14 @@
 \section{Requirements}
 \label{sec:requirements}
-The set of goals discussed earlier form the basis of what the requirements
-for checksims should be. There is concern with checksims that certain types
-of cheating may go undetected by the smith waterman algorithm. The solution
-to this is to look not at the content of code submissions, but at their
-structure. Creating Parsers for structured data for multiple languages is
-significantly more time consuming than tokenization, but there is not as
-tight a time constraint as the previous team working on checksims.
-There will also be significant work towards the goal of making 
-checksims as usable as possible for course staff, including an
-archiving system for comparing previous year's submissions and a user
-interface to replace the command line. With these new goals in mind, a
-comprehensive set of goals has been created:
+The set of goals discussed earlier form the basis of what the requirements for
+checksims should be. There is concern with checksims that certain types of
+unethical copying may go undetected by the Smith-Waterman algorithm.  The
+proposed solution to this issue is to compare assignments based on structure
+rather than on content. There will also be significant work towards the goal of
+making checksims as usable as possible for course staff, including an archiving
+system for comparing previous year's submissions and a user interface to
+replace the command line. With these new goals in mind, a comprehensive set of
+goals has been created:
 \begin{itemize}
     \item \textit{Checksims} should be usable by course staff with very little
         or no training, and should produce output in a form that can be easily
@@ -30,17 +27,17 @@ comprehensive set of goals has been created:
 \label{sec:approach}
 The additions to checksims required some rearchitecture. The previous checksims
 algorithm abstraction only allowed for tokenization---based algorithms. Since
-the code structure comparison based algorithms are based on trees rather than
-lists, the structure of assignments required a redesign. The redesign uses an
-abstraction that we call a ``Percentable''. This name comes directly from the
-code, and means any structure from which a percentage can be calculated.
-Submission text can be transformed into different types of percentables and
-memoized by their type. Algorithms are now based on the percentable type on
-which they operate as well, and are responsible for informing the checksims
-runner which type of percentable generator they would like to have used. The
-new architecture should allow a significantly broader range of algorithms to be
-implemented against the underlying comparson mechanism. A description of the
-updated checksims pipeline is as follows:
+the structure comparison algorithms are based on trees rather than lists, the
+\textit{Checksims} architecture had to be slightly redesigned.  In this
+redesign, an abstraction that we call a ``Percentable'' was used. This name
+comes directly from the code, and means any structure from which a percentage
+can be calculated.  Submission text can be transformed into different types of
+percentables and memoized by their type. Algorithms are now based on the
+percentable type on which they operate as well, and are responsible for
+informing the checksims runner which type of percentable generator they would
+like to use. The new architecture should allow a significantly broader
+range of algorithms to be implemented against the underlying comparson
+mechanism. A description of the updated checksims pipeline is as follows:
 
 \begin{enumerate}
  \item Student submissions are read from the filesystem, and multi-file
@@ -87,7 +84,7 @@ must be created. To complicate matters further, language specs are fluid; in
 set to have another on September 22, 2016. Python is in somewhat of a civil war
 between versions 2.7 and 3.4 (soon to be 3.5!). Changes to a language spec
 require significant overhauling of a grammar, parser, and parser-AST interop
-layer.  With this concern in mind, the grammar and parser-AST interop layers
+layer. With this concern in mind, the grammar and parser-AST interop layers
 are being designed to be as modular as possible. It is unavoidable therefore
 that there will need to be future work done on checksims to keep the parsers
 and interop layers up to date with the language spec.
@@ -123,12 +120,13 @@ have the same or similar meanings. A comprehensive way to compare all nodes in
 an AST is through a method called fingerprinting. This method involves using
 one AST to build a ``dictionary'', or mapping, from every node to a fingerprint
 of that node. This allows fast lookup and comparison of every node in the
-AST\@.  The fingerprint of each node may be calculated using heuristics and
+AST\@. The fingerprint of each node may be calculated using heuristics and
 based on such features as child count, specialized type tags on tree nodes, and
 even the hash values of children. Our technique involved XORing a cryptgraphic
 hash of the type of tree node together with the fingerprint of every child
-AST\@.  This technique is called a ``rolling checksum'' as each fingerprint /
-checksum is calculated by recursing down the tree.
+AST\@. This technique is called a ``rolling checksum'' as each fingerprint /
+checksum is calculated by recursing down the tree. The exact code used for
+generating fingerprints can be seen in Appendix A.
 
 Using this dictionary, it is possible to traverse any other AST, and search all
 nodes for similar counterparts efficiently. This method eliminates the need to

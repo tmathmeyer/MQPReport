@@ -47,6 +47,9 @@
 \renewcommand{\finentrypunct}{}
 
 
+\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
+\lstset{framextopmargin=5pt,frame=tb}
+
 \newcommand{\code}[1]{\texttt{#1}}
 
 % Load current version of Checksims
@@ -96,10 +99,11 @@ more information about the projects program at WPI, please see
 \input{compare.ltx}
 
 % Experimental Verification
-% \input{methodology.ltx}
+\input{methodology.ltx}
+
 
 % Include results
-% \input{results.ltx}
+\input{results.ltx}
 
 % Include conclusion
 % \input{conclusion.ltx}
@@ -115,6 +119,10 @@ more information about the projects program at WPI, please see
 % Restart figure numbering for each appendix
 % thanks for this macro matt!
 \renewcommand\thefigure{\thesection.\arabic{figure}}
+\section{Fingerprinting Code}
+\lstset{basicstyle=\tiny\ttfamily,breaklines=true}
+\lstinputlisting{code/ast.java} % SExpression (lisp) grammar file
+
 
 \end{appendices}
 

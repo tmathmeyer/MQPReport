@@ -8,14 +8,8 @@ There are other factors that affect the feasability of different algorithms,
 including execution speed and memory performance. Preliminary tests show that
 AST analysis is significantly slower than simple line, space, or character
 tokenization, but is also more memory efficient and would scale better over
-sample sizes in the thousands. Results of the comparisons between the two
-algorithms will be discussed further on in the report.  In these comparisons,
-one sample set was used: % Change to however many samples
-\begin{enumerate}
-    \item An anonymized set of submissions from the introduction to Object
-        Oriented Programming class in 2014. This sample contains 233 student
-        submissions, and no historical submissions
-\end{enumerate}
+sample sizes in the hundreds. Results of the comparisons between the two
+algorithms will be discussed further on in the report.
 
 \subsection{Time Complexity}
 \label{sec:comparison-timecomplex}
@@ -33,90 +27,39 @@ these relationships are referred to as $O(n)$ and $O(n^{2})$ respectively.
 \subsubsection{Smith-Waterman}
 The Smith-Waterman algorithm consists of two parts, each run separately by
 \textit{Checksims}. The first step is to split the submission text by any of
-three delimiters: Newlines, Spaces, or Characters. As discussed previously,
-this step runs in $O(n)$ time, so it does not have a great effect on the
-overall runtime.  The second step is to run the lines through a comparison
-matrix and compute similar sequences. This is a time consuming process, and
-because this step runs in $O(n^{2})$ time, it has a significant impact on the
-overall runtime of the \textit{Checksims} program. When running Checksims with
-the Smith-Waterman algorithm on the first sample set, the process takes 7
-minutes, 36.55 seconds. 
+three delimiters: newlines, space characters (such as space and tab), or at
+every character. As discussed previously, this step runs in $O(n)$ time, so it
+does not have a great effect on the overall runtime. The second step is to run
+the lines through a comparison matrix and compute similar sequences. This is a
+time consuming process, and because this step runs in $O(n^{2})$ time, it has a
+significant impact on the overall runtime of the \textit{Checksims} program.
 
 \subsubsection{AST Fingerprinting}
 The simple implementation of AST fingerprinting also consists of two parts,
 much like Smith-Waterman. The first step however is incredibly time consuming,
 as a tree must be constructed from the submitted source code. As discussed
 previously, this is very time consuming process. This result is also cached
-however, so each assignment needs only to be parsed once, and because it is part of
-the $O(n)$ step of the process, it has a relatively small impact on the overall
-performance. Where AST Fingerprinting excels is in the comparison, which is
-simply a sequence of hashmap lookups and some arithmetic. As this step is run
-$O(n^{2})$ times, its runtime is significant to the overall runtime.  Running
-the AST Fingerprinting algorithm on the first sample set finishes in 41.78
-seconds on the same machine that tested Smith-Waterman. This result is
-promising, as it shows that the AST comparison can compete with, and even
-excede Smith-Waterman at scale.
+however, so each assignment needs only to be parsed once, and because it is
+part of the $O(n)$ step of the process, it has a relatively small impact on the
+overall performance. Where AST Fingerprinting excels is in the comparison,
+which is simply a sequence of hashmap lookups and some arithmetic. As this step
+is run $O(n^{2})$ times, its runtime is significant to the overall runtime.
+Because the AST fingerprinting process does not do expensive calculations
+during the $O(n^{2})$ part of the process, we can expect it to scale better
+than the Smith-Waterman algorithm; that is, for large assignments, we expect
+AST fingerprinting to be significantly faster than Smith-Waterman.
 
-\subsection{Flagged Submissions}
-\subsubsection{Smith-Waterman}
-Between any two assignments A and B, there are two percents generated --- the
-percent of A that is matched in B, and the percent of B that is matched in A.
-These are referred to as the matching value and inverse matching value. On the
-first sample set, Smith-Waterman detected 31 instances of plagerism.  On closer
-inspection, many of these instances involved student 33, who only submitted a
-single file with only 78 lines of code, many of which were short and contained
-the specific names students were instructed to use. The inverse matching value
-for 26 of these 31 instances were less than 20 percent, and can be considered
-false positives. After these were removed, the pairs still flagged for
-similarity are:
-\begin{itemize}
-    \item students 9 and 45
-    \item students 229 and 21
-    \item students 195 and 80
-    \item students 56 and 148
-    \item students 176 and 179
-\end{itemize}
-
-\subsubsection{AST Fingerprinting}
-On the first sample set, AST Fingerprinting detected 15 instances of plagerism.
-On closer inspection, 4 pairs were found to have a high percentage match in
-both directions and 2 pairs were found to have a moderate percentage match. A
-high percentage match means that both directions had a match of over 70
-percent, and a moderate match is one in which one direction is over 70 percent
-and the other is over 50 percent.. The high percentage matched pairs are:
-\begin{itemize}
-    \item students 219 and 196
-    \item students 191 and 211
-    \item students 21 and 229
-    \item students 176 and 179
-\end{itemize}
-As mentioned earlier, AST parsing is impossible for students who submit invalid
-code. When running the AST Fingerprinting algorithm agains sample set 1, the
-following submissions were found to have errors:
-\begin{itemize}
-    \item student 186
-    \item student 71
-    \item student 65
-    \item student 33
-    \item student 133
-    \item student 9
-    \item student 184
-    \item student 240
-    \item student 59
-\end{itemize}
-
-\subsubsection{Comparing the methods}
-The results of the algorithms show that each caught in some way a similar set
-of assignments. AST Fingerprinting missed catching students 195 and 80, and 56
-and 158. Smith Waterman missed 219 and 196, and 191 and 211. Upon manual
-inspection of these assignments, the following conclusions were made:
-\begin{itemize}
-    \item students 195 and 80 copied code
-    \item students 56 and 158 did not copy code
-    \item students 219 and 196 copied code
-    \item student 191 and 211 copied code
-\end{itemize}
-These results were signiifcant because they show that neither algorithm catches
-all instances of plagerism, and that the AST Comparison method is credible by
-itself, but also in tandem with Smith Waterman.
-
+\subsection{Relationship to Manual inspection}
+Based on previous experience as course staff and having manually inspected
+assignemnts for many classes, The two main things that signal unauthorized
+copying are structual similarities and obvious and repeated typographical
+errors. Structual errors include such visual details such as indentation and
+spacing between lines of code, as well as the organisation of control-flow
+withing the program. AST Fingerprinting is designed to detect similarities in
+control-flow organisation, but may not pick up typographical errors, as it has
+no way of comparing the spelling of keywords or symbols. Smith-Waterman does
+exactly the opposite of this, detecting only similiarities in spelling and
+using tokenisation to completely ignore structural differences. Prior
+experience as teaching staff have shown that manually comparing structure
+yields a more accurate indication of unauthorized copying when compared to
+typographical comparisons. 

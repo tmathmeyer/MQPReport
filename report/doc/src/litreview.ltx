@@ -1,12 +1,9 @@
-\lstset{basicstyle=\footnotesize\ttfamily,breaklines=true}
-\lstset{framextopmargin=5pt,frame=tb}
-
 \section{Existing Literature}
-A large portion of the work done is based on the work put forth in the
-original \textit{Checksims} paper. This includes not only the code that was
-produced in that project, but also the definitions and literature review that
-was conducted. Many of the definitions and terms discussed from here on can be
-directly attributed to their work.
+A large portion of the work done is based on the work put forth in the original
+\textit{Checksims} paper\cite{checksims1}. This includes not only the code that
+was produced in that project, but also the definitions and literature review
+that was conducted. Many of the definitions and terms discussed from here on
+can be directly attributed to their work.
 
 \subsection{Academic Dishonesty}
 The original \textit{Checksims} authors provided a comprehensive set of
@@ -17,28 +14,31 @@ many scenarios where determining whether a submission constitutes dishonest
 behavior is not as simple.
 % Throw in a few papers here, discuss various standards.
 
-\subsection{Detecting Academic Dishonesty}
-There have been numerous approaches to detecting duplicate code. Primarily,
-researchers attempt to identify academic dishonesty, duplicated code in
-codebases, or copyright infringement in various contexts. While different
-goals, these methods share the same task: to identify duplicated despite
-obfuscation tactics. This section discusses the types of identification 
-methods and particular methods developed while reviewing existing literature.
+\subsection{Detecting Academic Dishonesty} There have been numerous approaches
+to detecting duplicate code. Researchers primarily attempt to identify academic
+dishonesty, duplicated code in codebases, and / or copyright infringement in
+various samples of code. While different goals, these methods share the same
+task: to identify duplication despite obfuscation tactics. This section
+discusses the types of identification methods and particular methods developed
+while reviewing existing literature.
 
-\subsubsection{Detection of Dishonesty using Body Text}
-The original \textit{Checksims} paper thoroughly reviews a number of existing
-methods of identifying duplicate code. As \textit{Checksims} was dedicated
-to language independent identification, it did not discuss syntax tree based
-methods.
+\subsubsection{Detection of Dishonesty using Textual Comparison Techniques} The
+original \textit{Checksims} paper thoroughly reviews a number of existing
+methods of identifying duplicate code. As \textit{Checksims} was dedicated to
+language independent identification, it did discussed, but did not heavily
+focus on syntax tree based methods. The original \textit{Checksims} team
+evaluated many methods for textual comparison and decided that the
+Smith-Waterman algorithm would be the best option.
 
 \subsubsection{Detection of Dishonesty using Syntax Trees}
-As was again mentioned in the original \textit{Checksims} paper, detecting
-academic dishonesty in programming assignments is significantly easier than
-detecting dishonesty in natural language due to the fact that programming
-languages follow grammars which are significantly simpler than natural written
-language. Consider the grammar for the LISP family of programming languages;
-in the grammar definition syntax of ANTLR, a lisp program would be defined as
-the following:
+The original \textit{Checksims} paper also mentioned that  detecting academic
+dishonesty in programming assignments is significantly easier than detecting
+dishonesty in natural language. This is due to the fact that programming
+languages follow highly specific grammars that are designed to be understood by
+a computer program, and are significantly simpler than a grammar for natural
+written language. Consider the grammar for the LISP family of programming
+languages; in the grammar definition syntax of ANTLR, a lisp program would be
+defined as the following:
 
 \lstinputlisting{S-expr.g4} % SExpression (lisp) grammar file
 
@@ -51,7 +51,7 @@ an sExpr.
 
 This grammar definition shows that LISP languages are just textual
 representations of an N-dimensional tree, with IDs as leaf nodes and sExprs as
-branch nodes. The difficulty of detecting dishonesty by transforming text into
+branches. The difficulty of detecting dishonesty by transforming text into
 an AST is that if the submitted text does not correctly implement the expected
 grammar, a tree cannot be generated and comparison cannot happen. This is
 surprisingly common in student submissions for a class --- real world examples
@@ -65,26 +65,22 @@ detection. In the STVsm paper, an AST is generated from C code. This AST is
 then transformed back into a sring of s-expressions. To compare any two
 documents, multiple string similarity techniques could be applied, including
 \textit{Levenshtein Distance}, \textit{Greedy String Tiling}, and the
-\textit{Vector Space Model} method.  This idea is novel for a number of
-reasons. It is based on the syntax tree of the associated language, but it does
-not directly rely on comparing the structure of the syntax trees. Instead, it
-generates a ``sanitized''  version of the document, and uses generic text
-comparison methods to detect similarities. This allows the methods to ignore
-plaintext obfuscation that would not appear on the AST, and had improved
-results over plaintext comparison methods.
-%STVsm: Similar Structural Code Detection Based on AST and VSM
-%http://download.springer.com/static/pdf/963/chp%253A10.1007%252F978-3-642-35267-6_3.pdf?originUrl=http%3A%2F%2Flink.springer.com%2Fchapter%2F10.1007%2F978-3-642-35267-6_3&token2=exp=1444506960~acl=%2Fstatic%2Fpdf%2F963%2Fchp%25253A10.1007%25252F978-3-642-35267-6_3.pdf%3ForiginUrl%3Dhttp%253A%252F%252Flink.springer.com%252Fchapter%252F10.1007%252F978-3-642-35267-6_3*~hmac=121b59496e4d1e62e2cc3e7031f4bd7bb7000b391b69e0d88e1efdbd7d58e0f9
+\textit{Vector Space Model} method\cite{STVsm}.  This idea is novel for a
+number of reasons. It is based on the syntax tree of the associated language,
+but it does not directly rely on comparing the structure of the syntax trees.
+Instead, it generates a ``sanitized''  version of the document, and uses
+generic text comparison methods to detect similarities. This allows the methods
+to ignore plaintext obfuscation that would not appear on the AST, and had
+improved results over plaintext comparison methods.
 
 \paragraph{Syntax Tree Fingerprinting}
 Syntax Tree Fingerprinting presents an efficient method of locating
-structurally similar portions of two syntax trees. The fingerprinting technique
-stores each tree in two forms: an original AST structure, but also as a mapping
-from ``fingerprint'' to a node of the tree. A fingerprint is another name for a
-hash or checksum, and one example would be a cryptographic hash of String tags
-on each node. This mapping needs only to be generated once, as it is not
-modified during the comparison process. There are many ways to generate a
-fingerprint of an AST, including cryptographic hashes and rolling checksums, as
-well as techniques in weighting the scores for each node.
-%Syntax tree fingerprinting: a foundation for source code similarity detection
-
-%http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=99955C2F6108740C9101091A51AB51A7?doi=10.1.1.393.2183&rep=rep1&type=pdf
+structurally similar portions of two syntax trees\cite{STFingerprinting}. The
+fingerprinting technique stores each tree in two forms: an original AST
+structure, but also as a mapping from ``fingerprint'' to a node of the tree. A
+fingerprint is another name for a hash or checksum, and one example would be a
+cryptographic hash of String tags on each node. This mapping needs only to be
+generated once, as it is not modified during the comparison process. There are
+many ways to generate a fingerprint of an AST, including cryptographic hashes
+and rolling checksums, as well as techniques in weighting the scores for each
+node. This method for comparison was chosen for use in \textit{Checksims}.

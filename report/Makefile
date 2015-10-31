@@ -16,9 +16,12 @@ builddir:
 main: builddir $(LATEX_DIST)/main.pdf
 
 $(LATEX_DIST)/main.pdf: $(LXSRC)/main.ltx \
+	                    $(LXSRC)/intro.ltx \
+						$(LXSRC)/litreview.ltx \
 	                    $(LXSRC)/approach.ltx \
+						$(LXSRC)/compare.ltx \
 						$(LXSRC)/methodology.ltx \
-						$(LXSRC)/litreview.ltx
+						$(LXSRC)/results.ltx
 	$(LATEX) $(LATEX_BUILD_ARGS) $(LXSRC)/main.ltx
 	cp $(LATEX_DIST)/main.bcf $(LXSRC)/main.ltx.bcf
 	biber $(LXSRC)/main.ltx
