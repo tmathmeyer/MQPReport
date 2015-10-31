@@ -9,7 +9,7 @@
 \titleformat{\paragraph}
 {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
 \titlespacing*{\paragraph}
-{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+{0pt}{3.25ex plus 1ex minus 0.2ex}{1.5ex plus 0.2ex}
 
 % Use hyperlinks when outputting to PDF
 \hypersetup{colorlinks=false,
@@ -34,8 +34,7 @@
 	\begin{hyphenrules}{american}%
 	\begin{adjustwidth}{2.5em}{0pt}
 	\small
-	#1\addperiod
-	\normalsize
+	#1\addperiod\normalsize
 	\end{adjustwidth}
 	\end{hyphenrules}}
 \defbibheading{bibliography}{%
@@ -61,10 +60,8 @@
 \begin{document}
 
 % Center the title page
-\null
-\nointerlineskip
-\vfill
-\let\snewpage \newpage
+\null\nointerlineskip\vfill
+\let\snewpage\newpage
 \let\newpage \relax
 \maketitle
 \textit{This report represents the work of WPI undergraduate students submitted
@@ -72,8 +69,7 @@ to the faculty as evidence of completion of a degree requirement. WPI routinely
 publishes these reports on its website without editorial or peer review. For
 more information about the projects program at WPI, please see
 \url{http://www.wpi.edu/academics/ugradstudies/project-learning.html}}
-\let \newpage \snewpage
-\vfill 
+\let\newpage \snewpage\vfill 
 \newpage
 
 % Center the abstract
