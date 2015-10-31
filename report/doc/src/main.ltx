@@ -101,7 +101,6 @@ more information about the projects program at WPI, please see
 % Experimental Verification
 \input{methodology.ltx}
 
-
 % Include results
 \input{results.ltx}
 
@@ -119,9 +118,14 @@ more information about the projects program at WPI, please see
 % Restart figure numbering for each appendix
 % thanks for this macro matt!
 \renewcommand\thefigure{\thesection.\arabic{figure}}
-\section{Fingerprinting Code}
 \lstset{basicstyle=\tiny\ttfamily,breaklines=true}
-\lstinputlisting{code/ast.java} % SExpression (lisp) grammar file
+\section{Fingerprinting Code}
+\lstinputlisting{code/ast.java}
+\section{Anonymization Script for C and Java}
+\subsection{Runner file}
+\lstinputlisting{code/anon.sh}
+\subsection{Sed based comment matcher}
+\lstinputlisting{code/strip_comments.sed}
 
 
 \end{appendices}
