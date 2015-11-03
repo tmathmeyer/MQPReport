@@ -62,4 +62,19 @@ exactly the opposite of this, detecting only similiarities in spelling and
 using tokenisation to completely ignore structural differences. Prior
 experience as teaching staff have shown that manually comparing structure
 yields a more accurate indication of unauthorized copying when compared to
-typographical comparisons. 
+typographical comparisons.
+
+\section{Comparison to MOSS}
+The Measure of Software Similarity, often referred to as MOSS, is the gold
+standard for similarity detection. MOSS is developed by Professor Alex Aiken
+from Stanford University. It is provided as a webservice, and is a closed
+source tool. Due to the closed nature of MOSS, it is hard to effectively
+compare the AST comparison algorithm to it; it is only possible to compare
+results and runtime. The standard way of interfacing with MOSS is through a
+perl script, provided to a user apon registering for the service. We feel that
+the checksims model and command line tools are superior in the field of
+usability. MOSS often had problems with network timeouts and simply failing to
+report any results at all.  As checksims is run locally, it is not subject
+failed or slow network connections.  Perhaps most importantly, The ability to
+run checksims locally removes any ethical question of uploading named student
+assignments to a remote machine that is not under the control of course staff.
