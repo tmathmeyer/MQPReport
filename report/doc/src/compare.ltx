@@ -1,15 +1,18 @@
 \section{Comparison to Smith-Watermann}
 \label{sec:discussComparison}
-By creating an effective AST comparison tool, it is hoped to be able to fill
-theoretical gaps that may exist in the Smith-Watermann algorithm for code
-comparison. We would like to see what the strengths and weaknesses of each
-algorithm are, especially in the realms of false negatives and false positives.
-There are other factors that affect the feasability of different algorithms,
-including execution speed and memory performance. Preliminary tests show that
-AST analysis is significantly slower than simple line, space, or character
-tokenization, but is also more memory efficient and would scale better over
-sample sizes in the hundreds. Results of the comparisons between the two
-algorithms will be discussed further on in the report.
+The need to create an AST comparison tool was realized when it was shown that
+certain obfuscation techniques could be applied to blatantly plagerized code in
+order to defeat the Smith-Waterman algorithm. An example scenario was created
+in which a medium sized java file was created by copying a source file and
+renaming every variable and class type. It was shown that this type of simple
+obfuscation was enough to cause \textit{Checksims} to fail to recognize
+plagerism which would be fairly obvious to a human. By creating an effective
+AST comparison tool, it is hoped that theoretical gaps in the Smith-Watermann
+algorithm are brought to light. The goal of comparing Smith-Waterman to an AST
+comparison algorithm is to show the strengths and weaknesses of each in real
+world examples.  This includes metrics like runtime and memory consumption, in
+addition to false positive and missed instances of plagerism. The results
+measured from both of these algorithms are discussed later in the report.
 
 \subsection{Time Complexity}
 \label{sec:comparison-timecomplex}
@@ -36,26 +39,26 @@ significant impact on the overall runtime of the \textit{Checksims} program.
 
 \subsubsection{AST Fingerprinting}
 The simple implementation of AST fingerprinting also consists of two parts,
-much like Smith-Waterman. The first step however is incredibly time consuming,
-as a tree must be constructed from the submitted source code. As discussed
-previously, this is very time consuming process. This result is also cached
-however, so each assignment needs only to be parsed once, and because it is
-part of the $O(n)$ step of the process, it has a relatively small impact on the
-overall performance. Where AST Fingerprinting excels is in the comparison,
-which is simply a sequence of hashmap lookups and some arithmetic. As this step
-is run $O(n^{2})$ times, its runtime is significant to the overall runtime.
-Because the AST fingerprinting process does not do expensive calculations
-during the $O(n^{2})$ part of the process, we can expect it to scale better
-than the Smith-Waterman algorithm; that is, for large assignments, we expect
-AST fingerprinting to be significantly faster than Smith-Waterman.
+much like Smith-Waterman. The first step however is reletively time consuming,
+as a tree must be constructed from the submitted source code. This result is
+cached so that each assignment needs only to be parsed once. This overall has a
+reletively small impact on the overall performance because it is part of the
+$O(n)$ step of the process. Where AST Fingerprinting excels is in the
+comparison, which is simply a sequence of hashmap lookups and some arithmetic.
+As this step is run $O(n^{2})$ times, its runtime is significant to the overall
+runtime.  Because the AST fingerprinting algorithm does not do expensive
+calculations during the $O(n^{2})$ step, we can expect it to scale better than
+the Smith-Waterman algorithm; that is, for large assignments, we expect AST
+fingerprinting to be significantly faster than Smith-Waterman.  This is shown
+to be true, as is discussed in the results section.
 
 \subsection{Relationship to Manual inspection}
 Based on previous experience as course staff and having manually inspected
-assignemnts for many classes, The two main things that signal unauthorized
+assignments for many classes, the two main things that signal unauthorized
 copying are structual similarities and obvious and repeated typographical
-errors. Structual errors include such visual details such as indentation and
+errors. Structual similarities include such visual details such as indentation and
 spacing between lines of code, as well as the organisation of control-flow
-withing the program. AST Fingerprinting is designed to detect similarities in
+within the program. AST Fingerprinting is designed to detect similarities in
 control-flow organisation, but may not pick up typographical errors, as it has
 no way of comparing the spelling of keywords or symbols. Smith-Waterman does
 exactly the opposite of this, detecting only similiarities in spelling and
@@ -67,14 +70,15 @@ typographical comparisons.
 \section{Comparison to MOSS}
 The Measure of Software Similarity, often referred to as MOSS, is the gold
 standard for similarity detection. MOSS is developed by Professor Alex Aiken
-from Stanford University. It is provided as a webservice, and is a closed
-source tool. Due to the closed nature of MOSS, it is hard to effectively
-compare the AST comparison algorithm to it; it is only possible to compare
-results and runtime. The standard way of interfacing with MOSS is through a
-perl script, provided to a user apon registering for the service. We feel that
-the checksims model and command line tools are superior in the field of
-usability. MOSS often had problems with network timeouts and simply failing to
-report any results at all.  As checksims is run locally, it is not subject
-failed or slow network connections.  Perhaps most importantly, The ability to
-run checksims locally removes any ethical question of uploading named student
-assignments to a remote machine that is not under the control of course staff.
+from Stanford University\cite{moss-url}. It is provided as a webservice, and is
+a closed source tool. Due to the closed nature of MOSS, it is hard to
+effectively compare the AST comparison algorithm to it; only comparing results
+and runtime is possible. The standard way of interfacing with MOSS is through a
+Perl script, provided to a user apon registering for the service. We feel that
+the \textit{Checksims} model and command line tools are superior in the field
+of usability. MOSS often had problems with network timeouts and simply failing
+to report any results at all.  As \textit{Checksims} is run locally, it is not
+subject failed or slow network connections.  Perhaps most importantly, The
+ability to run \textit{Checksims} locally removes any ethical question of
+uploading named student assignments to a remote machine that is not under the
+control of course staff.

@@ -1,13 +1,17 @@
 \section{Methodology}
-Testing a project like \textit{Checksims} is a difficult process, as determinig
-success is dependant on a corpus of data in which one or more pairs of
+Testing a system like \textit{Checksims} is a difficult process, as determining
+success is dependent on a corpus of data in which one or more pairs of
 assignments have made an attempt to conceal their unauthorized copying. While
 it would be possible to use artifical copora, they are extremly difficult to
-create in such a way that they mimic a real life scenario.  Acquiring a real
+create in such a way that they mimic real life scenarios. Acquiring a real
 sample of student submissions is also a difficult process, though the
-challenges are more in the realm of ethics than technical difficulties. To
-mitigate the issues of testing \textit{Checksims} on a real corpus of data,
-such a corpus must be altered such that each assignment becomes anonymous.
+challenges are more in the realm of ethics than technical difficulties.
+Allowing developers access to student assignments may not only be considered
+immoral for reasons of privacy, but are almost certainly in violation of
+university regulations. To mitigate the issues of testing \textit{Checksims}
+on a real corpus of data, such a corpus must be altered such that each
+assignment becomes anonymous, or testing must be done by course staff who are
+informed and capable of submitting bug reports and debug information.
 
 \subsection{Anonymization}
 Three scripts were created to process assignments and strip from them all
@@ -18,61 +22,69 @@ comments without comment notation:
 
 \lstinputlisting{code/C-if-0.c} % C #if 0 comment
 
-The python language supports two types of comments. Everything between a \#
-symbol and the end of a line is considered a comment, and any multi-line string
-(denoted by three double quotes) at the beginning of a function is considered
-comment, and called a ``Docstring''. The three scripts used for making
-assignments anonymous can be found in appendicies B, C, and D.
+The Python language specification specifies two types of comments. A \# which
+is not inside a string literal is the beginning of the first type of comment.
+All text following such an expression until the end of that line is considered
+a comment. The second type of comment is created by placing a multi-line
+string literal (denoted by text surrounded by pairs of three quotes, double or
+single) at the beginning of a function or class definition. The scripts used
+for making assignments anonymous can be found in appendicies B and C
 
-\subsection{Output of checksims}
-Between any two assignments A and B, there are two percents generated --- the
-percent of A that is matched in B, and the percent of B that is matched in A.
-These are referred to as the matching value and inverse matching value. There
-are two forms of output most commonly used by checksims: the HTML view and the
-threshold printer view. The HTML view is an HTML file displaying a matrix with
-the comparison percentages for every pair of assignments, excluding assignments
-compared with themselves. Each space in the matrix is also color coded from a
-faint yellow for low matching percents to a bright red for highly matching
-percentages. The threshold printer sorts each pair by the maximum of \{matching
-value, inverse matching value\}. Any pairs over a specified percentage will be
-reported, with the default percentage being 70.
+\subsection{Output of \textit{Checksims}}
+Between any two assignments A and B, there are two percentages generated ---
+the percentage of A that is matched in B, and the percentage of B that is
+matched in A. These are referred to as the matching value and inverse matching
+value. There are two forms of output most commonly used by \textit{Checksims}:
+the HTML view and the threshold printer view. The HTML view depicts a matrix
+with the comparison percentages for every pair of assignments, excluding
+assignments compared with themselves. Each space in the matrix is also color
+coded from a faint yellow for low matching percentages to a bright red for high
+matching percentages. The threshold printer sorts each pair by the maximum of
+\{matching value, inverse matching value\}. Any pairs over a specified
+percentage will be reported, with the default limit being 70 percent.
 
 \subsection{Environments and Corpora}
 \subsubsection{Testing Corpora}
 Listed below is the set of corpora used for testing \textit{Checksim}. Each
 corpus will be referenced in the results section by the name provided here.
 \\
-\\
-\begin{tabular}{@{}lll@{}}
-    \toprule
-    Name    & Language & Description \\ \midrule
-    3.a13.1 & C        & The first assignment in the 2013 Systems (2303) class    \\
-    3.a13.2 & C        & The second assignment in the 2013 Systems (2303) class   \\
-    3.a13.3 & C        & The third assignment in the 2013 System (2303) class     \\
-    3.a12.1 & C        & The first assignment in the 2013 System (2303) class     \\
-    3.a12.2 & C        & The second assignment in the 2013 System (2303) class    \\
-    3.a12.3 & C        & The third assignment in the 2013 System (2303) class     \\
-    2.b14.2 & Java     & The second assignment in the 2014 OOP (2102) class       \\
-    4.a15.5 & Python   & The fifth assignment in the 2015 nonmajors intro (1004) class  \\
-    4.a15.6 & Python   & The sixth assignment in the 2015 nonmajors intro (1004) class  \\
-    4.c15.4 & Python   & The fourth assignment in the 2015 nonmajors intro (1004) class  \\
-    4.c15.5 & Python   & The fifth assignment in the 2015 nonmajors intro (1004) class  \\
-    4.c15.6 & Python   & The sixth assignment in the 2015 nonmajors intro (1004) class  \\
-            &          &             \\ \bottomrule
-\end{tabular}
+\begin{minipage}{\linewidth}
+    \centering
+    \captionof{table}{Testing Corpora}
+    \begin{tabular}{@{}lll@{}}
+        \toprule
+        Name    & Language & Description \\ \midrule
+        3.a13.1 & C        & Assignment 1, 2013 Systems (2303) class    \\
+        3.a13.2 & C        & Assignment 2, 2013 Systems (2303) class   \\
+        3.a13.3 & C        & Assignment 3, 2013 Systems (2303) class     \\
+        3.a12.1 & C        & Assignment 1, 2013 Systems (2303) class     \\
+        3.a12.2 & C        & Assignment 2, 2013 Systems (2303) class    \\
+        3.a12.3 & C        & Assignment 3, 2013 Systems (2303) class     \\
+        2.b14.2 & Java     & Assignment 2, 2014 Object Oriented (2102) class  \\
+        4.a15.5 & Python   & Assignment 5, 2015 nonmajors intro (1004) class   \\
+        4.a15.6 & Python   & Assignment 6, 2015 nonmajors intro (1004) class   \\
+        4.c15.4 & Python   & Assignment 7, 2015 nonmajors intro (1004) class  \\
+        4.c15.5 & Python   & Assignment 8, 2015 nonmajors intro (1004) class   \\
+        4.c15.6 & Python   & Assignment 9, 2015 nonmajors intro (1004) class   \\
+        \bottomrule
+    \end{tabular}
+\end{minipage}
+\newpage
 \subsubsection{Testing Environment}
-Checksims has been tested on many systems, in order to measure the
+Checksims has been tested on many systems in order to measure the
 effectiveness in the runtime and memory usage for each corpus of data. The
 machines listed below have been used to test every corpus of data previously
 mentioned. They may be referenced by name in the results section.
 \\
-\\
-\begin{tabular}{@{}llll@{}}
-    \toprule
-    Name & Processor Threads & Processor Speed & Ram     \\ \midrule
-    L1   & 4                 & 2600 MHz        & 4 GB    \\
-    L2   & 4                 & 2600 MHz        & 6 GB    \\
-    S1   & 8                 & 3900 MHz        & 32 GB   \\
-    S2   & 12                & 2600 MHz        & 128 GB  \\
-         &                   &                 &         \\ \bottomrule
-\end{tabular}
+\begin{minipage}{\linewidth}
+    \centering
+    \captionof{table}{Testing Hardware}
+    \begin{tabular}{@{}llll@{}}
+        \toprule
+        Name & Processor Threads & Processor Speed & RAM     \\ \midrule
+        L1   & 4                 & 2600 MHz        & 4 GB    \\
+        L2   & 4                 & 2600 MHz        & 6 GB    \\
+        S1   & 8                 & 3900 MHz        & 32 GB   \\
+        S2   & 12                & 2600 MHz        & 128 GB  \\ \bottomrule
+    \end{tabular}
+\end{minipage}

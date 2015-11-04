@@ -1,43 +1,46 @@
 \section{Results}
 \subsection{AST Compare vs Smith Waterman}
 \subsubsection{Runtime}
-\begin{tabular}{@{}lll@{}}
-    \toprule
-    Name    & Smith-Waternan & AST Compare \\ \midrule
-    3.a13.1 & 2640           & 2566 \\
-    3.a13.2 & 8657           & 3103 \\
-    3.a13.3 & 2640           & 2566 \\
-    3.a12.1 & 2406           & 1718 \\
-    3.a12.2 & 11978          & 3951 \\
-    3.a12.3 & 6070           & 3640 \\
-    4.a15.5 & 1034           & 2912 \\
-    4.a15.6 & 39587          & 4300 \\
-    4.c15.4 & 2315           & 3371 \\
-    4.c15.5 & 1211           & 2360 \\
-    4.c15.6 & 35008          & 7324 \\
-            &                &      \\ \bottomrule
-\end{tabular}
+\begin{minipage}{\linewidth}
+    \centering
+    \captionof{table}{Algorithm Runtimes on S1, Milliseconds}\label{runtimes1} 
+    \begin{tabular}{@{}lll@{}}
+        \toprule
+        Name    & Smith-Waternan & AST Comparison \\ \midrule
+        3.a13.1 & 2640           & 2566 \\
+        3.a13.2 & 8657           & 3103 \\
+        3.a13.3 & 2640           & 2566 \\
+        3.a12.1 & 2406           & 1718 \\
+        3.a12.2 & 11978          & 3951 \\
+        3.a12.3 & 6070           & 3640 \\
+        4.a15.5 & 1034           & 2912 \\
+        4.a15.6 & 39587          & 4300 \\
+        4.c15.4 & 2315           & 3371 \\
+        4.c15.5 & 1211           & 2360 \\
+        4.c15.6 & 35008          & 7324 \\ \bottomrule
+    \end{tabular}
+\end{minipage}
 \\
 \\
-These results show the number of miliseconds that it took for checksims took to
-run on many corpora. The results show that while the AST Comparison algorithm
-is slower than Smith Waterman for small assignments, on larger assignments, AST
-comparison can be 5 times faster than Smith Waterman. It is expected that this
-difference in runtime will be even greater in favour of AST Comparison on even
-larger assignments.
+These results show the number of miliseconds that it took for
+\textit{Checksims} took to run on many corpora on machine S1. The results show
+that while the AST Comparison algorithm is slower than Smith Waterman for small
+assignments, on larger assignments, AST comparison can be five times faster
+than Smith Waterman. It is expected that this difference in runtime will be
+even greater in favour of AST Comparison on even larger assignments.
 \subsubsection{Identified Instances of Similarity}
 TODO
 
 \subsection{AST Compare vs MOSS}
 \subsubsection{Runtime}
 MOSS takes on average 14.5 seconds longer to run than the AST Comparison
-algorithm.  Closer inspection of runtime shows that this is almost entirely due
-to the process of uploading sometimes hundreds of files to the Stanford
-University server where MOSS is run.  Subtracting the runtime of the upload
-step, the average runtime actually changes to 0.8 seconds in favor of MOSS\@.
-MAKE A GRAPH
+algorithm on machine S1. Closer inspection of runtime shows that this is almost
+entirely due to the process of uploading sometimes hundreds of files to the
+Stanford University server where MOSS is run. Subtracting the runtime of the
+upload step, the average runtime actually changes to 0.8 seconds in favor of
+MOSS\@.  MAKE A GRAPH AND PUT IT HERE!!!
 
-\subsubsection{Results}
+\subsubsection{Identified Instances of Similarity}
 for corpora 3.a13.1, 3.a13.2, 3.a13.3, 3.a12.1, 3.a12.2, and 3.a12.3, MOSS and
 AST Compare reported the same set of pairs as being likely matches. When corpus
 2.b14.2 was provided to the AST Compare algorithm, 4 pairs of assignments were
@@ -46,24 +49,45 @@ the matching value and inverse matching value between both assignments were
 greater than 70 percent. MOSS only managed to catch a single pair of
 assignments however. The significant pairs, in which either assignment matches
 another greater than 69 percent are shown:
-\begin{tabular}{@{}lll@{}}
-    \toprule
-    Assignments          & AST Compare percentages & MOSS percentages  \\ \midrule
-    students 229 and 21  & 81 and 83 percent       & 60 and 60 percent \\
-    students 179 and 176 & 74 and 79 percent       & 17 and 17 percent \\
-    students 196 and 219 & 73 and 71 percent       & 23 and 17 percent \\
-    students 211 and 191 & 72 and 69 percent       & nothing reported  \\
-            &                &      \\ \bottomrule
-\end{tabular}
+\\
+\begin{minipage}{\linewidth}
+    \centering
+    \captionof{table}{MOSS vs AST Compare, Corpus 2.b14.2}\label{mossvast} 
+    \begin{tabular}{@{}lll@{}}
+        \toprule
+        Assignments          & AST Compare percentages & MOSS percentages  \\ \midrule
+        students 229 and 21  & 81 and 83 percent       & 60 and 60 percent \\
+        students 179 and 176 & 74 and 79 percent       & 17 and 17 percent \\
+        students 196 and 219 & 73 and 71 percent       & 23 and 17 percent \\
+        students 211 and 191 & 72 and 69 percent       & nothing reported  \\
+                             &                &      \\ \bottomrule
+    \end{tabular}
+\end{minipage}
 \\
 \\
 While Checksims with AST Comparison reports a significantly higher average
 percentage maxed for assignments, the values reported by MOSS are reletively
 low. All four assignments have been manually reviewed as well and it was
 determined that theese students would have been called in to discuss academic
-dishonesty with the source staff. That MOSS missed these assignments proves to
-be a huge positive for the effectiveness of AST Compare and Checksims versus
-competing tools.
+dishonesty with the course staff. That MOSS missed these assignments provides
+significant evidence to show that AST Comparison is at least as good, if not
+better, than the closed source algorithm that powers MOSS\@.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \section{Old Results --- here for temp reference}
@@ -94,7 +118,7 @@ still flagged for similarity are:
 \end{itemize}
 
 \subsubsection{AST Fingerprinting}
-On corpus 2.b14.2, AST Fingerprinting detected 15 instances of plagerism.  On
+On corpus 2.b14.2, AST Fingerprinting detected 15 instances of plagerism. On
 closer inspection, 4 pairs were found to have a match value and inverse match
 value greater than 70 percent:
 \begin{itemize}

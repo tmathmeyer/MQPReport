@@ -1,14 +1,14 @@
 \section{Requirements}
 \label{sec:requirements}
 The set of goals discussed earlier form the basis of what the requirements for
-checksims should be. There is concern with checksims that certain types of
-unethical copying may go undetected by the Smith-Waterman algorithm.  The
-proposed solution to this issue is to compare assignments based on structure
-rather than on content. There will also be significant work towards the goal of
-making checksims as usable as possible for course staff, including an archiving
-system for comparing previous year's submissions and a user interface to
-replace the command line. With these new goals in mind, a comprehensive set of
-goals has been created:
+\textit{Checksims} should be. There is concern with \textit{Checksims} that
+certain types of unethical copying may go undetected by the Smith-Waterman
+algorithm.  The proposed solution to this issue is to compare assignments based
+on structure rather than on content. There will also be significant work
+towards the goal of making \textit{Checksims} as usable as possible for course
+staff, including an archiving system for comparing previous year's submissions
+and a user interface to replace the command line. With these new goals in mind,
+a comprehensive set of goals has been created:
 \begin{itemize}
     \item \textit{Checksims} should be usable by course staff with very little
         or no training, and should produce output in a form that can be easily
@@ -18,30 +18,31 @@ goals has been created:
         on at least Java, C, C++, and Python. Racket is also a possibility,
         though not likely.
     \item \textit{Checksims} should be simple to run either remotely or on a
-        users own machine. Ideally, there should be no more than a few button
-        presses for a member of the course staff to run checksims agains a
-        closed submission.
+        user's own machine. Ideally, there should be no more than a few button
+        presses for a member of the course staff to run \textit{\textit{Checksims}}
+        agains a closed submission.
 \end{itemize}
 
 \section{Approach}
 \label{sec:approach}
-The additions to checksims required some rearchitecture. The previous checksims
-algorithm abstraction only allowed for tokenization---based algorithms. Since
-the structure comparison algorithms are based on trees rather than lists, the
-\textit{Checksims} architecture had to be slightly redesigned.  In this
-redesign, an abstraction that we call a ``Percentable'' was used. This name
-comes directly from the code, and means any structure from which a percentage
-can be calculated.  Submission text can be transformed into different types of
-percentables and memoized by their type. Algorithms are now based on the
-percentable type on which they operate as well, and are responsible for
-informing the checksims runner which type of percentable generator they would
-like to use. The new architecture should allow a significantly broader
-range of algorithms to be implemented against the underlying comparson
-mechanism. A description of the updated checksims pipeline is as follows:
+The additions to \textit{Checksims} required some rearchitecture. The previous
+\textit{Checksims} algorithm abstraction only allowed for tokenization -- based
+algorithms. Since the structure comparison algorithms are based on trees rather
+than lists, the \textit{Checksims} architecture had to be slightly redesigned.
+In this redesign, an abstraction that we call a ``Percentable'' was used. This
+name comes directly from the code, and means any structure from which a
+percentage can be calculated.  Submission text can be transformed into
+different types of percentables and memoized by their type. Algorithms are now
+based on the percentable type on which they operate, and are responsible for
+informing the \textit{Checksims} runner which type of percentable generator
+they would like to use. The new architecture should allow a significantly
+broader range of algorithms to be implemented against the underlying comparson
+mechanism. A description of the updated \textit{Checksims} pipeline is as
+follows:
 
 \begin{enumerate}
  \item Student submissions are read from the filesystem, and multi-file
-     submissions are concatinated into a single string of submission;
+     submissions are concatenated into a single string of submission;
  \item Submissions are then passed into a \textit{common code remover}, which
      removes code designated as ``common'' from all tokenized submissions to
      ensure it is not matched. The \textit{common code remover} is based on the
@@ -57,7 +58,7 @@ mechanism. A description of the updated checksims pipeline is as follows:
      and the results are recorded in a \textit{similarity matrix}. This also
      includes comparing the current submissions to archived submissions, though
      not comparing the archived submissions between each other.
- \item The similarity matrix is then passed to a user-selected \textit{output
+ \item The similarity matrix is passed to a user-selected \textit{output
      strategy}, which produces a human-readable form of the output for parsing.
 \end{enumerate}
 
@@ -65,53 +66,51 @@ mechanism. A description of the updated checksims pipeline is as follows:
 \label{sec:parsing}
 Parsing is the process of taking raw data, usually in the form of plain text,
 and converting it into a structure that can be operated on more easily. This is
-key to performing AST analysis, because it is the process by which student
+key to performing AST analysis because it is the process by which student
 submissions are transformed into ASTs. Parsing is a very difficult task
-however, and writing an objectively and provably correct parser from scratch is
-not a feasable task for this project. Considering the restrictions on this
-project, the decision was made to use \textit{ANTLR}, a parser-generator
-created by Professor Terrence Parr of the University of San Francisco. Parser
-generators work by allowing a grammar to be specified in the form of a file
-that specifies the constructs that are valid in the target language. ANTLR then
-takes our grammar and converts it into a parser written in either C\# or Java.
-As checksims is written in Java, it was the obvious and logical choice. While
-not as difficult to write as a parser itself, creating a correct grammar for a
-language is a dificult task. A grammar file for Java8 alone is upwards of 1500
-lines long and is highly complex. For AST analysis to be useful on the original
-target languages of Java, C, and Python, grammars for each of these languages
-must be created. To complicate matters further, language specs are fluid; in
-2014 there was an update to the C and Java language specifications, and Java is
-set to have another on September 22, 2016. Python is in somewhat of a civil war
-between versions 2.7 and 3.4 (soon to be 3.5!). Changes to a language spec
-require significant overhauling of a grammar, parser, and parser-AST interop
-layer. With this concern in mind, the grammar and parser-AST interop layers
-are being designed to be as modular as possible. It is unavoidable therefore
-that there will need to be future work done on checksims to keep the parsers
-and interop layers up to date with the language spec.
+however, and writing an objectively and provably correct parser from scratch
+was not a feasable task for this project. Considering this restriction, the
+decision was made to use \textit{ANTLR}, a parser-generator created by
+Professor Terrence Parr of the University of San Francisco\cite{antlr-lang}.
+Parser generators work by allowing a grammar to be specified in the form of a
+file that specifies the constructs that are valid in the target language. ANTLR
+then takes a grammar and converts it into a parser written in either C\# or
+Java.  As \textit{Checksims} is written in Java, it was the obvious and logical
+choice. While not as difficult to write as a parser itself, creating a correct
+grammar for a language is a difficult task. A grammar file for Java8 alone is
+upwards of 1500 lines long and is highly complex. For AST analysis to be useful
+on the original target languages of Java, C, and Python, grammars for each of
+these languages must be created. To complicate matters further, language
+specifications are fluid; in 2014 the C and Java language specifications were
+updated, and Java is set to have another in September, 2016. Python is in
+somewhat of a civil war between versions 2.7 and 3.4 (soon to be 3.5!), and the
+decision was made to target the newest version. Changes to a language
+specification require significant overhauling of a grammar, parser, and
+parser-AST interop layer. With this concern in mind, the grammar and parser-AST
+interop layers are being designed to be as modular as possible. It is
+unavoidable therefore that there will need to be future work done on
+\textit{Checksims} to keep the parsers and interop layers up to date with the
+language specifications.
 
 \subsection{AST Interop Layer}
 \label{sec:interopLayer}
-The parser generator creates structures called \textit{Parser Rule Contexts}
-\textit{(PRCs)} While these structs exist in a tree based form, they are hard
-to work with and contain extra metadata that must be removed in order to quickly
-and accurately perform some of our comparison techniques. To solve this problem,
-\textit{Checksims} uses a consistent and language independent AST
-representation with support for tagging and fingerprinting. To convert between
-a \textit{PRC} and a \textit{Checksims} AST, every parser must also come with
-a \textit{Treewalker} --- an object designed to examine every node of a
-\textit{PRC} tree and convert it to an AST\@. Like the grammar files mentioned
-earlier, Treewalkers are complicated and large objects. They comprise a
-significant amount of the work that is required to implement AST comparison
-for a given language.
+The ANTLR parser generator creates structures called \textit{Parser Rule
+Contexts} \textit{(PRCs)} While these structures exist in a tree based form,
+they are hard to work with and contain extra metadata that must be removed in
+order to quickly and accurately perform some of our comparison techniques. To
+solve this problem, \textit{Checksims} uses a consistent and language
+independent AST representation with support for tagging and fingerprinting. To
+convert between a \textit{PRC} and a \textit{Checksims} AST, every parser must
+also come with a \textit{Treewalker} --- an object designed to examine every
+node of a \textit{PRC} tree and convert it to a \textit{Checksims} AST\@.
 
 \subsection{Comparison Techniques}
 \label{sec:comparisonTechniques}
-Once student submissions have been converted from source files into ASTs,
-they must be compared. Several algorithms have been developed for comparing
-trees, the results of which will be discussed below. Each algorithm
-will convert a pair of ASTs into an instance of the previously mentioned
-\textit{Percentable}, which the checksims core will handle as it currently
-does.
+Once student submissions have been converted from source files into ASTs, they
+must be compared. Several algorithms have been developed for comparing trees,
+the results of which will be discussed below. Each algorithm will convert a
+pair of ASTs into an instance of the previously mentioned \textit{Percentable},
+which the \textit{Checksims} core will handle as it currently does.
 
 \subsubsection{AST Fingerprinting}
 ASTs are by definition Abstract --- in their raw form they have very little
@@ -126,7 +125,10 @@ even the hash values of children. Our technique involved XORing a cryptgraphic
 hash of the type of tree node together with the fingerprint of every child
 AST\@. This technique is called a ``rolling checksum'' as each fingerprint /
 checksum is calculated by recursing down the tree. The exact code used for
-generating fingerprints can be seen in Appendix A.
+generating fingerprints can be seen in Appendix A. An Example of fingerprinted
+AST is shown:
+
+IMGIMGIMG
 
 Using this dictionary, it is possible to traverse any other AST, and search all
 nodes for similar counterparts efficiently. This method eliminates the need to
@@ -137,14 +139,14 @@ similarities, ignoring changes in document structure, such as moving a method
 to a subclass, without comparing every single node from one document to every
 node in the next.
 
-During the implentation and testing of the fingerprinting method, it was
+During the implementation and testing of the fingerprinting method, it was
 discovered that if two nodes in the AST had the same fingerprint (referred to
 as a collision), one of them would be lost when stored in the mapping from
 fingerprint to tree node. An attempt at fixing this problem was made, until it
-was discovered that accounding for collisions caused the runtime to increase by
+was discovered that accounting for collisions caused the runtime to increase by
 more than one hundred fold.  More testing was then done on the first corpus of
 sample data, where it was discovered that the only cases where collision was
-happeneing was with leaf nodes which were completly identical. This was
+happeneing was with leaf nodes that were completly identical. This was
 considerable evidence that there is no need to worry about collisions.
 Mathematically, for any given tree with 10000 nodes, the chance of collision is
 1.16 percent.\ For a tree with 20000 nodes, the chance is 4.55 percent. The
@@ -157,7 +159,10 @@ collisions.
 Recursively comparing nodes of the AST is another effective algorithm for
 similarity detection. In this method, each node in the AST is marked as
 ``ordered'' or ``unordered''. The similarity of two ordered nodes is a direct
-average of their children, and the similarity of unordered is a function of
-each pair of similarity scores. This method compares each child to child pair
-to detect similarity when order is uncertain. This detects most instances of
-reordering and is fairly robust, but it does fail in many situations.
+average of their children. The similarity of two unordered nodes would be
+computed as a function of the intersection of their child nodes. The similarity
+of an ordered and unordered node would be calculated through applying scoring
+heuristics to a sorted intersection of the child nodes. Recursive comparison
+techniques are significantly slower than fingerprinting methods and generally
+provided no additional benefits, making them far less practical in a real world
+example.

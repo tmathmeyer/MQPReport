@@ -1,68 +1,63 @@
 \section{Existing Literature}
-A large portion of the work done is based on the work put forth in the original
-\textit{Checksims} paper\cite{checksims1}. This includes not only the code that
-was produced in that project, but also the definitions and literature review
-that was conducted. Many of the definitions and terms discussed from here on
-can be directly attributed to their work.
+Heon and Murvihill put together a large and comprehensive review of existing
+literature on similarity detection in their original \textit{Checksims}
+paper\cite{checksims1}. Many of the definitions and terms used herein are based
+on their work.  The original codebase they created has also been extended as
+part of this project.
 
 \subsection{Academic Dishonesty}
-The original \textit{Checksims} authors provided a comprehensive set of
-examples and scenarios where academic dishonesty is the hardest to
-distinguish. As they noted, an instance of ``100\% similarity was almost
-certainly indicitive of unauthorized copying''\cite{checksims1}, but there are
-many scenarios where determining whether a submission constitutes dishonest
-behavior is not as simple.
-% Throw in a few papers here, discuss various standards.
+The Heon and Murvihill provided a comprehensive set of examples and scenarios
+where academic dishonesty is the hardest to distinguish. As they noted, an
+instance of ``100\% similarity was almost certainly indicitive of unauthorized
+copying''\cite{checksims1}, but there are many scenarios where determining
+whether a submission constitutes dishonest behavior is not as simple.
 
-\subsection{Detecting Academic Dishonesty} There have been numerous approaches
-to detecting duplicate code. Researchers primarily attempt to identify academic
-dishonesty, duplicated code in codebases, and / or copyright infringement in
-various samples of code. While different goals, these methods share the same
-task: to identify duplication despite obfuscation tactics. This section
+\subsection{Detecting Academic Dishonesty}
+Code similarity detection is a practice that is used for identifying academic
+dishonesty, duplicate code in large code bases for the purpose of optomisation
+and cleaning, and for itentifying instances of copyright infringement.  While
+different goals, these methods share the same task: to identify duplication
+despite intentional obfuscation, or accidental duplication. This section
 discusses the types of identification methods and particular methods developed
 while reviewing existing literature.
 
-\subsubsection{Detection of Dishonesty using Textual Comparison Techniques} The
-original \textit{Checksims} paper thoroughly reviews a number of existing
-methods of identifying duplicate code. As \textit{Checksims} was dedicated to
-language independent identification, it did discussed, but did not heavily
-focus on syntax tree based methods. The original \textit{Checksims} team
-evaluated many methods for textual comparison and decided that the
-Smith-Waterman algorithm would be the best option.
+\subsubsection{Detection of Dishonesty using Textual Comparison Techniques}
+Heon and Murvihill thoroughly reviewed a number of existing methods of
+identifying duplicate code. As \textit{Checksims} was originally intended to
+perform language independent identification, it did not use syntax tree based
+methods. Heon and Murvihill evaluated many methods for textual comparison and
+decided that the Smith-Waterman algorithm would be the best option.
 
 \subsubsection{Detection of Dishonesty using Syntax Trees}
 The original \textit{Checksims} paper also mentioned that  detecting academic
 dishonesty in programming assignments is significantly easier than detecting
 dishonesty in natural language. This is due to the fact that programming
 languages follow highly specific grammars that are designed to be understood by
-a computer program, and are significantly simpler than a grammar for natural
-written language. Consider the grammar for the LISP family of programming
-languages; in the grammar definition syntax of ANTLR, a lisp program would be
-defined as the following:
+computer programs called compilers, and are significantly simpler than grammars
+for natural written languages.  LISP programming languages such as Guile,
+Scheme, and CommonLISP are all fairly popular in academic settings and in niche
+industrial settings. LISP was developed by John McCarthy at the Massachusetts
+Institute of Technology in 1958\cite{original-lisp}. Despite its continued use
+and popularity for over 50 years, the grammar for lisp is incredibly simple.
+The following is an example grammar for the lisp language, expressed as an
+ANTLR\cite{antlr-lang} grammr. 
 
 \lstinputlisting{S-expr.g4} % SExpression (lisp) grammar file
 
-Written long hand, this grammar states that any block of text between a
-semicolon (;) character and a newline (\textbackslash{} n) character is
-considered a comment and can be skipped for the purpose of parsing. An ``ID''
-consists of any arrangement of the characters a---z, A---Z, and 0--9, and than
-an ``sExpr'' consists of at least 1 child, where each child is either an ID or
-an sExpr.
-
 This grammar definition shows that LISP languages are just textual
 representations of an N-dimensional tree, with IDs as leaf nodes and sExprs as
-branches. The difficulty of detecting dishonesty by transforming text into
-an AST is that if the submitted text does not correctly implement the expected
+branches. The difficulty of detecting dishonesty by transforming text into an
+AST is that if the submitted text does not correctly implement the expected
 grammar, a tree cannot be generated and comparison cannot happen. This is
-surprisingly common in student submissions for a class --- real world examples
+surprisingly common in student submissions for a course --- real world examples
 used for testing show that about 2 to 4 percent of code submissions are not
 valid for the language in which they are written.
 
 % Throw in methods here from various papers.
 \paragraph{Using the Vector Space Model on Syntax Trees}
-The STVsm paper posed an interesting syntax tree based approach to similarity
-detection. In the STVsm paper, an AST is generated from C code. This AST is
-then transformed back into a sring of s-expressions. To compare any two
+The STVsm\cite{STVsm} paper posed an interesting syntax tree based approach to
+similarity detection. In the STVsm paper, an AST is generated from C code. This
+AST is then transformed back into a sring of s-expressions. To compare any two
 documents, multiple string similarity techniques could be applied, including
 \textit{Levenshtein Distance}, \textit{Greedy String Tiling}, and the
 \textit{Vector Space Model} method\cite{STVsm}.  This idea is novel for a
@@ -83,4 +78,5 @@ cryptographic hash of String tags on each node. This mapping needs only to be
 generated once, as it is not modified during the comparison process. There are
 many ways to generate a fingerprint of an AST, including cryptographic hashes
 and rolling checksums, as well as techniques in weighting the scores for each
-node. This method for comparison was chosen for use in \textit{Checksims}.
+node. The Syntax Tree Fingerprinting method for comparison was chosen for use
+in \textit{Checksims}.
