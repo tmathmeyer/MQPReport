@@ -21,6 +21,7 @@ $(LATEX_DIST)/main.pdf: $(LXSRC)/main.ltx \
 	                    $(LXSRC)/approach.ltx \
 						$(LXSRC)/compare.ltx \
 						$(LXSRC)/methodology.ltx \
+						$(LXSRC)/runtime_plot.ltx \
 						$(LXSRC)/results.ltx
 	$(LATEX) $(LATEX_BUILD_ARGS) $(LXSRC)/main.ltx
 	cp $(LATEX_DIST)/main.bcf $(LXSRC)/main.ltx.bcf
