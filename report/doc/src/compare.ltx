@@ -6,7 +6,7 @@ order to defeat the Smith-Waterman algorithm. An example scenario was created
 in which a medium sized java file was created by copying a source file and
 renaming every variable and class type. It was shown that this type of simple
 obfuscation was enough to cause \textit{Checksims} to fail to recognize
-plagerism which would be fairly obvious to a human. By creating an effective
+plagerism that would be fairly obvious to a human. By creating an effective
 AST comparison tool, it is hoped that theoretical gaps in the Smith-Watermann
 algorithm are brought to light. The goal of comparing Smith-Waterman to an AST
 comparison algorithm is to show the strengths and weaknesses of each in real
@@ -53,19 +53,19 @@ fingerprinting to be significantly faster than Smith-Waterman.  This is shown
 to be true, as is discussed in the results section.
 
 \subsection{Relationship to Manual inspection}
-Based on previous experience as course staff and having manually inspected
-assignments for many classes, the two main things that signal unauthorized
-copying are structual similarities and obvious and repeated typographical
-errors. Structual similarities include such visual details such as indentation and
-spacing between lines of code, as well as the organisation of control-flow
-within the program. AST Fingerprinting is designed to detect similarities in
-control-flow organisation, but may not pick up typographical errors, as it has
-no way of comparing the spelling of keywords or symbols. Smith-Waterman does
-exactly the opposite of this, detecting only similiarities in spelling and
-using tokenisation to completely ignore structural differences. Prior
-experience as teaching staff have shown that manually comparing structure
-yields a more accurate indication of unauthorized copying when compared to
-typographical comparisons.
+Based on the previous experience of TJM as a member ofcourse staff, and his
+having manually inspected assignments for many classes, two main things that
+signal unauthorized copying can be identified. Structual similarities are one
+such signal, and include such visual details such as indentation and spacing
+between lines of code, as well as the organisation of control-flow within the
+program. AST Fingerprinting is designed to detect similarities in control-flow
+organisation, but may not pick up typographical similarities such as the
+spelling of words and variable named, as the algorithm has no way of comparing
+the tokens by content. Smith-Waterman does exactly the opposite of this,
+detecting only similiarities in spelling and using tokenisation to completely
+ignore structural differences. Prior experience as teaching staff have shown
+that manually comparing structure yields a more accurate indication of
+unauthorized copying when compared to typographical comparisons.
 
 \section{Comparison to MOSS}
 The Measure of Software Similarity, often referred to as MOSS, is the gold
@@ -81,4 +81,4 @@ to report any results at all.  As \textit{Checksims} is run locally, it is not
 subject failed or slow network connections.  Perhaps most importantly, The
 ability to run \textit{Checksims} locally removes any ethical question of
 uploading named student assignments to a remote machine that is not under the
-control of course staff.
+control of the student's own academic institution.
