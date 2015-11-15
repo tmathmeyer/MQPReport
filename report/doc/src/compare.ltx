@@ -6,13 +6,14 @@ order to defeat the Smith-Waterman algorithm. An example scenario was created
 in which a medium sized java file was created by copying a source file and
 renaming every variable and class type. It was shown that this type of simple
 obfuscation was enough to cause \textit{Checksims} to fail to recognize
-plagerism that would be fairly obvious to a human. By creating an effective
-AST comparison tool, it is hoped that theoretical gaps in the Smith-Watermann
+plagerism that would be fairly obvious to a human. By creating an effective AST
+comparison tool, it is hoped that theoretical gaps in the Smith-Watermann
 algorithm are brought to light. The goal of comparing Smith-Waterman to an AST
-comparison algorithm is to show the strengths and weaknesses of each in real
-world examples.  This includes metrics like runtime and memory consumption, in
-addition to false positive and missed instances of plagerism. The results
-measured from both of these algorithms are discussed later in the report.
+comparison algorithm is to show the strengths and weaknesses of each when
+applied to real world examples. This includes metrics like runtime and memory
+consumption, in addition to false positive and missed instances of plagerism.
+The results measured from both of these algorithms are discussed later in the
+report.
 
 \subsection{Time Complexity}
 \label{sec:comparison-timecomplex}
@@ -53,7 +54,7 @@ fingerprinting to be significantly faster than Smith-Waterman.  This is shown
 to be true, as is discussed in the results section.
 
 \subsection{Relationship to Manual inspection}
-Based on the previous experience of TJM as a member ofcourse staff, and his
+Based on the previous experience of TJM as a member of course staff, and his
 having manually inspected assignments for many classes, two main things that
 signal unauthorized copying can be identified. Structual similarities are one
 such signal, and include such visual details such as indentation and spacing
@@ -74,7 +75,7 @@ from Stanford University\cite{moss-url}. It is provided as a webservice, and is
 a closed source tool. Due to the closed nature of MOSS, it is hard to
 effectively compare the AST comparison algorithm to it; only comparing results
 and runtime is possible. The standard way of interfacing with MOSS is through a
-Perl script, provided to a user apon registering for the service. We feel that
+Perl script, provided to a user upon registering for the service. We feel that
 the \textit{Checksims} model and command line tools are superior in the field
 of usability. MOSS often had problems with network timeouts and simply failing
 to report any results at all.  As \textit{Checksims} is run locally, it is not

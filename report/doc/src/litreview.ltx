@@ -15,11 +15,11 @@ whether a submission constitutes dishonest behavior is not as simple.
 \subsection{Detecting Academic Dishonesty}
 Code similarity detection is a practice that is used for identifying academic
 dishonesty, duplicate code in large code bases for the purpose of optomisation
-and cleaning, and for itentifying instances of copyright infringement.  While
-different goals, these methods share the same task: to identify duplication
-despite intentional obfuscation, or accidental duplication. This section
-discusses the types of identification methods and particular methods developed
-while reviewing existing literature.
+and cleaning, and for identifying instances of copyright infringement. While
+these goals differ in minor ways, they generally share the same base goal: to
+identify duplication despite intentional obfuscation or accidental duplication.
+This section discusses the types of identification methods and particular
+methods developed while reviewing existing literature.
 
 \subsubsection{Detection of Dishonesty using Textual Comparison Techniques}
 Heon and Murvihill thoroughly reviewed a number of existing methods of
@@ -57,26 +57,26 @@ valid for the language in which they are written.
 \paragraph{Using the Vector Space Model on Syntax Trees}
 The STVsm\cite{STVsm} paper posed an interesting syntax tree based approach to
 similarity detection. In the STVsm paper, an AST is generated from C code. This
-AST is then transformed back into a sring of s-expressions. To compare any two
-documents, multiple string similarity techniques could be applied, including
-\textit{Levenshtein Distance}, \textit{Greedy String Tiling}, and the
-\textit{Vector Space Model} method\cite{STVsm}.  This idea is novel for a
-number of reasons. It is based on the syntax tree of the associated language,
-but it does not directly rely on comparing the structure of the syntax trees.
-Instead, it generates a ``sanitized''  version of the document, and uses
-generic text comparison methods to detect similarities. This allows the methods
-to ignore plaintext obfuscation that would not appear on the AST, and had
-improved results over plaintext comparison methods.
+AST is then transformed into a string in the form of s-expressions. To compare
+any two documents in this way, multiple string similarity techniques may be
+applied, including \textit{Levenshtein Distance}, \textit{Greedy String
+Tiling}, and the \textit{Vector Space Model Method}\cite{STVsm}.  This idea is
+novel for a number of reasons. It is based on the syntax tree of the associated
+language, but it does not directly rely on comparing the structure of the
+syntax trees.  Instead, it generates a ``sanitized''  version of the document,
+and uses generic text comparison methods to detect similarities. This allows
+the methods to ignore plaintext obfuscation that would not appear on the AST,
+and had improved results over plaintext comparison methods.
 
 \paragraph{Syntax Tree Fingerprinting}
 Syntax Tree Fingerprinting presents an efficient method of locating
 structurally similar portions of two syntax trees\cite{STFingerprinting}. The
 fingerprinting technique stores each tree in two forms: an original AST
-structure, but also as a mapping from ``fingerprint'' to a node of the tree. A
+structure and as a mapping from ``fingerprint'' to a node of the tree. A
 fingerprint is another name for a hash or checksum, and one example would be a
-cryptographic hash of String tags on each node. This mapping needs only to be
+cryptographic hash of string tags on each node. This mapping needs only to be
 generated once, as it is not modified during the comparison process. There are
-many ways to generate a fingerprint of an AST, including cryptographic hashes
-and rolling checksums, as well as techniques in weighting the scores for each
-node. The Syntax Tree Fingerprinting method for comparison was chosen for use
+many ways to generate a fingerprint for an AST, including cryptographic hashes
+and rolling checksums. The Syntax Tree Fingerprinting method for comparison was
+chosen for use
 in \textit{Checksims}.

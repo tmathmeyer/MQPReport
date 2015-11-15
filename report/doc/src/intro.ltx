@@ -2,23 +2,24 @@
 \label{sec:intro}
 \textit{Checksims} is a tool developed at WPI to help teaching staff combat
 academic dishonesty in the scope of programming assignments. The current
-implementation of, \textit{Checksims} uses the Smith-Waterman Sequence
-Alignment algorithm\cite{checksims1} to compare pairs of assignments within a
-given pool of assignments, generally one class’s worth. This algorithm assigns
-a percent score for how much overlap there is between any two assignments, and
-it flags pairs that have a matching percentage above a certain threshold. There
-also exists a feature to remove course provided common code, to accommodate the
-assignments given in certain classes. Despite the success of \textit{Checksims}
-so far, it is possible to subvert its functionality given knowledge of the
-Smith-Waterman algorithm. There are certain techniques, such as renaming
-variables, reordering order-independent statements, and generally shuffling
-parts of code within or between files.  Smith-Waterman was originally designed
-to compare sequences of genomes, which are one dimensional sequences of data.
-Code is not a one dimensional sequence however; It can be represented as a tree
-that is tagged with names and identifiers. This sequence-tree duality of code
-allows individual submissions to be compared not only as a linear sequence
-analysis problem, but also as a two dimensional structure, and to compare and
-contrast these two methods against one another. 
+implementation of \textit{Checksims} uses the Smith-Waterman sequence alignment
+algorithm\cite{checksims1} to compare pairs of assignments within a corpora of
+assignments, usually one class’s worth. This algorithm assigns a percent score
+for how much overlap there is between any two assignments, and it flags pairs
+that have a matching percentage above a certain threshold. There also exists a
+feature to remove course provided common code, to accommodate the assignments
+given in certain classes. Despite the success of \textit{Checksims} so far, it
+is possible to subvert its functionality given knowledge of the Smith-Waterman
+algorithm. There are certain techniques, such as renaming variables, reordering
+order-independent statements, and generally shuffling parts of code within or
+between files, which the authors believe are sufficient enough to fool the
+Smith Waterman algorithm.  Smith-Waterman was originally designed to compare
+sequences of genomes, which are one dimensional sequences of data.  Code is not
+a one dimensional sequence however; It can be represented as a tree that is
+tagged with names and identifiers. This sequence-tree duality of code allows
+individual submissions to be compared not only as a linear sequence analysis
+problem, but also as a two dimensional structure, and affords the us a research
+project to compare and contrast these two methods against one another. 
 
 \subsection{Original Goals}
 \label{sec:mattdolangoals}
@@ -64,21 +65,15 @@ Institute (WPI): C, Python, and Java. The second priority is to make
 correctly.  One of the new goals for this project is to integrate
 \textit{Checksims} with the online assignment submission system used by the CS
 department called turnin\cite{turninurl}. This integration should be able to
-compare submissions within one class, but also compare submissions against
-submissions in previous offerings of the class. Finally, a stretch goal for
-this project is to allow parameterization for individual classes in order to
-accommodate teaching styles that have different standards of academic
-dishonesty.  In short, the new, modified goals are as follows:
+compare submissions not only within one class, but also compare current
+submissions against submissions in previous offerings of the class.
 \begin{itemize}
-  \item Design and implement an AST similarity
-      detection algorithm, and then compare this algorithm
-      to the Smith-Waterman algorithm.
+  \item Design and implement an AST similarity detection algorithm, and then
+      compare it to the Smith-Waterman in both accuracy and performance.
   \item Design a format and archiving system for comparing submissions not only
       to one another, but to previous course submissions as well.
   \item Integrate \textit{Checksims} with turnin.cs.wpi.edu, the most commonly
       used tool for computer science assignment submissions at WPI\@.
   \item Create a graphical user interface for \textit{Checksims}, as currently it
       requires use of a command line interface.
-  \item Allow tweaking of \textit{Checksims} to accommodate different standards
-      of academic dishonesty.
 \end{itemize}

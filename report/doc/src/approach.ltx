@@ -7,7 +7,8 @@ algorithm.  The proposed solution to this issue is to compare assignments based
 on structure rather than on content. There will also be significant work
 towards the goal of making \textit{Checksims} as usable as possible for course
 staff, including an archiving system for comparing previous year's submissions
-and a user interface to replace the command line. With these new goals in mind,
+and a user interface to complement the command line. With these new goals in
+mind,
 a comprehensive set of goals has been created:
 \begin{itemize}
     \item \textit{Checksims} should be usable by course staff with very little
@@ -26,7 +27,7 @@ a comprehensive set of goals has been created:
 \section{Approach}
 \label{sec:approach}
 The additions to \textit{Checksims} required some rearchitecture. The previous
-\textit{Checksims} algorithm abstraction only allowed for tokenization -- based
+\textit{Checksims} algorithm abstraction only allowed for tokenization based
 algorithms. Since the structure comparison algorithms are based on trees rather
 than lists, the \textit{Checksims} architecture had to be slightly redesigned.
 In this redesign, an abstraction that we call a ``Percentable'' was used. This
@@ -42,24 +43,25 @@ follows:
 
 \begin{enumerate}
  \item Student submissions are read from the filesystem, and multi-file
-     submissions are concatenated into a single string of submission;
- \item Submissions are then passed into a \textit{common code remover}, which
-     removes code designated as ``common'' from all tokenized submissions to
-     ensure it is not matched. The \textit{common code remover} is based on the
-     Smith-Waterman algorithm, which performs superbly for exact matching
-     scenarios.
- \item The percentable generator provided by the selected algorithm then
-     consumes a submission and stores the parsed or tokenized form back into
-     the submission for the purposes of memoization. This occurs on all
-     submissions, but due to memoization, it does not happen twice.
- \item Submissions are then grouped into pairs. The selected algorithm, or
+     submissions are concatenated into a single string.
+ \item Submissions are passed into a \textit{common code remover}, which
+     removes code designated as ``common'' from all submissions to ensure it is
+     not factored into the comparison process. The \textit{common code remover}
+     is based on the Smith-Waterman algorithm, which performs superbly for
+     exact matching scenarios.
+ \item The percentable generator provided by the selected algorithm consumes a
+     submission and stores the parsed or tokenized form back into the
+     submission for the purposes of memoization. This occurs on all
+     submissions, but due to memoization, it will not happen more than once per
+     submission.
+ \item Submissions are grouped into pairs. The selected algorithm, or
      \textit{similarity detector}, which implements a \textit{similarity
      detection algorithm}, is then run on all possible pairs of submissions,
      and the results are recorded in a \textit{similarity matrix}. This also
      includes comparing the current submissions to archived submissions, though
      not comparing the archived submissions between each other.
  \item The similarity matrix is passed to a user-selected \textit{output
-     strategy}, which produces a human-readable form of the output for parsing.
+     strategy}, which produces a human-readable form of the output.
 \end{enumerate}
 
 \subsection{Parsing}
@@ -121,32 +123,29 @@ one AST to build a ``dictionary'', or mapping, from every node to a fingerprint
 of that node. This allows fast lookup and comparison of every node in the
 AST\@. The fingerprint of each node may be calculated using heuristics and
 based on such features as child count, specialized type tags on tree nodes, and
-even the hash values of children. Our technique involved XORing a cryptgraphic
-hash of the type of tree node together with the fingerprint of every child
-AST\@. This technique is called a ``rolling checksum'' as each fingerprint /
-checksum is calculated by recursing down the tree. The exact code used for
-generating fingerprints can be seen in Appendix A. An Example of fingerprinted
-AST is shown:
+even the hash values of children. The selected technique involved XORing a
+cryptgraphic hash of the type of tree node together with the fingerprint of
+every child AST\@. This technique is called a ``rolling checksum'' as each
+fingerprint / checksum is calculated by recursing down the tree. The exact code
+used for generating fingerprints can be seen in Appendix A. An example of how
+rolling checksums work on a tree is shown:
 
 IMGIMGIMG
 
-Using this dictionary, it is possible to traverse any other AST, and search all
-nodes for similar counterparts efficiently. This method eliminates the need to
-compare conceptually different nodes, such as classes and control blocks. This
-method also ignores nodes that are otherwise dissimilar, such as functions with
-different argument counts. This provides a more robust method of detecting
-similarities, ignoring changes in document structure, such as moving a method
-to a subclass, without comparing every single node from one document to every
-node in the next.
+Using the generated dictionary, it is possible to traverse any other AST, and
+search all nodes for similar counterparts efficiently. This method eliminates
+the need to compare conceptually different nodes, such as classes and control
+blocks. This method also ignores nodes that are otherwise dissimilar, such as
+functions with different argument counts. 
 
 During the implementation and testing of the fingerprinting method, it was
 discovered that if two nodes in the AST had the same fingerprint (referred to
-as a collision), one of them would be lost when stored in the mapping from
-fingerprint to tree node. An attempt at fixing this problem was made, until it
-was discovered that accounting for collisions caused the runtime to increase by
-more than one hundred fold.  More testing was then done on the first corpus of
-sample data, where it was discovered that the only cases where collision was
-happeneing was with leaf nodes that were completly identical. This was
+as a hash collision), one of the mappings would be lost when stored in the
+fingerpring dictionary. An attempt at fixing this problem was made, however
+this caused the runtime to increase by more than one hundred fold. 
+
+After more extensive testing, it was discovered that almost all instances of
+hash collisions occured on truely identical nodes in the AST\@. This was
 considerable evidence that there is no need to worry about collisions.
 Mathematically, for any given tree with 10000 nodes, the chance of collision is
 1.16 percent.\ For a tree with 20000 nodes, the chance is 4.55 percent. The
@@ -159,10 +158,10 @@ collisions.
 Recursively comparing nodes of the AST is another effective algorithm for
 similarity detection. In this method, each node in the AST is marked as
 ``ordered'' or ``unordered''. The similarity of two ordered nodes is a direct
-average of their children. The similarity of two unordered nodes would be
-computed as a function of the intersection of their child nodes. The similarity
-of an ordered and unordered node would be calculated through applying scoring
+average of their children. The similarity of two unordered nodes is computed by
+a function of the intersection of their child nodes. The similarity of an
+ordered and unordered node would be calculated through applying scoring
 heuristics to a sorted intersection of the child nodes. Recursive comparison
 techniques are significantly slower than fingerprinting methods and generally
-provided no additional benefits, making them far less practical in a real world
-example.
+provided no additional benefits, making them far less practical for use on real
+world data.
