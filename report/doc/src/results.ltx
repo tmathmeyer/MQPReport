@@ -1,40 +1,102 @@
 \section{Results}
 \subsection{AST Compare vs Smith Waterman}
 \subsubsection{Runtime}
-\begin{minipage}{\linewidth}
-    \centering
-    \captionof{table}{Algorithm Runtimes on S1, Milliseconds}\label{runtimes1} 
-    \begin{tabular}{@{}lll@{}}
-        \toprule
-        Name    & Smith-Waternan & AST Comparison \\ \midrule
-        3.a13.1 & 2640           & 2566 \\
-        3.a13.2 & 8657           & 3103 \\
-        3.a13.3 & 2640           & 2566 \\
-        3.a12.1 & 2406           & 1718 \\
-        3.a12.2 & 11978          & 3951 \\
-        3.a12.3 & 6070           & 3640 \\
-        4.a15.5 & 1034           & 2912 \\
-        4.a15.6 & 39587          & 4300 \\
-        4.c15.4 & 2315           & 3371 \\
-        4.c15.5 & 1211           & 2360 \\
-        4.c15.6 & 35008          & 7324 \\ \bottomrule
-    \end{tabular}
-\end{minipage}
+\input{runtime_plot_small.ltx}
 \\
 \\
-\input{runtime_plot.ltx}
+This graph shows the number of miliseconds taken by both Smith Waterman and AST
+Comparison to compute a similarity matrix for corpora with fewer than 100
+assignments. A best fit line was constructed for each set of points, showing
+that AST Fingerprinting ranges anywhere from 33 percent to 75 faster than the
+Smith Waterman Algorithm. The raw data for this graph can be found in appendix
+E.
 \\
 \\
-These results show the number of miliseconds that it took for
-\textit{Checksims} took to run on many corpora on machine S1. The results show
-that while the AST Comparison algorithm is slower than Smith Waterman for small
-assignments, on larger assignments, AST comparison can be five times faster
-than Smith Waterman. It is expected that this difference in runtime will be
-even greater in favour of AST Comparison on even larger assignments.
+\input{runtime_plot_large.ltx}
+\\
+\\
+This graph shows the number of miliseconds taken by both Smith Waterman and AST
+Comparison to compute a similarity matrix for corpora with more than 100
+assignments. A best fit line was constructed for each set of points, showing
+that AST Fingerprinting ranges from 75 percent to 95 percent faster than
+Smith Waterman. Raw data for this graph can be found in appendix E.
+\clearpage
 \subsubsection{Identified Instances of Similarity}
-TODO
+\paragraph{In Python 3}
+The five Python 3 corpora were each tested with both Smith Waterman and AST
+Comparison. In corpus 4.a15.6 and 4.c15.6, neither Smith Waterman nor AST
+Comparison identified any instances of similarity.
 
-\subsection{AST Compare vs MOSS}
+In corpus 4.a15.5, AST Comparison idetified similarities between students 14
+and 64, which were verified to be similar by hand; Smith Waterman did not
+detect any similarity in this corpus.
+
+In corpus 4.c15.5, AST Comparison identified similarities between
+\begin{itemize}
+    \item students 12 and 12
+    \item students 18 and 34
+    \item students 42 and 69
+\end{itemize}
+Smith Waterman identified similarities between
+\begin{itemize}
+    \item students 12 and 12
+    \item students 10 and 53
+\end{itemize}
+All four of these pairs were found to have been most likely involved in unauthorized copying after manual inspection of their submissions.
+
+In corpus 4.c15.4, Smith Waterman
+detected similarity between four pairs of students: 
+\begin{itemize}
+    \item students 54 and 8
+    \item students 54 and 4
+    \item students 71 and 20
+    \item students 41 and 18
+\end{itemize}
+On this same corpus, AST Comparison detected similarities between the
+following pairs of students:
+\begin{itemize}
+    \item students 54 and 8
+    \item students 54 and 4
+    \item students 41 and 18
+    \item students 4 and 8
+    \item students 84 and 42
+    \item students 0 and 17
+    \item students 83 and 79
+\end{itemize}
+Assignments 71 and 20 did not compile due to syntax errors created during the
+anonymization process, as student names were included in parts of the code. AST
+Analasys was therefor not able to have been run on this pair. It is interesting
+that while Smith Waterman detected similarities between the pair (54 and 8) and
+the pair (54 and 4), it did not detect similarity between the pair (4 and 8),
+while AST Comparison did. Manual verification of these assignments shows that
+all of them were likely instances of unauthorized copying, though this was
+disputed for the pair of students 84 and 42.
+\paragraph{In Java}
+The single Java corpus (!!TODO!!) was tested with both Smith Waterman and AST
+Comparison. Smith Waterman detected similarities between the following:
+\begin{itemize}
+    \item students 229 and 21
+    \item students 9 and 45
+    \item students 195 and 80
+\end{itemize}
+AST Comparison detected similarities between:
+\begin{itemize}
+    \item students 229 and 21
+    \item students 179 and 176
+    \item students 196 and 219
+    \item students 191 and 244
+\end{itemize}
+Manual inspection of these six pairs of assignments shows that student 9 did
+not submit valid code, and could not be processed by AST Comparison, but was
+most likely involved in a case of unauthorized copying with student 45.
+Students 195 and 80 appeard to be very similar, but there were enough
+differences to conclude that these two students did not engage in unauthorized
+copying. All other four pairs were inspected and were found to have almost
+certainly engaged in unauthorized copying.
+\paragraph{In C89}
+\paragraph{In C++11}
+
+\subsection{AST Comparison vs MOSS}
 \subsubsection{Runtime}
 MOSS takes on average 14.5 seconds longer to run than the AST Comparison
 algorithm on machine S1. Closer inspection of runtime shows that this is almost
@@ -68,95 +130,8 @@ another greater than 69 percent are shown:
 \end{minipage}
 \\
 \\
-While Checksims with AST Comparison reports a significantly higher average
-percentage maxed for assignments, the values reported by MOSS are reletively
-low. All four assignments have been manually reviewed as well and it was
-determined that theese students would have been called in to discuss academic
-dishonesty with the course staff. That MOSS missed these assignments provides
-significant evidence to show that AST Comparison is at least as good, if not
-better, than the closed source algorithm that powers MOSS\@.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Old Results --- here for temp reference}
-\subsection{Time Complexity}
-\subsubsection{Smith-Waterman}
-When running \textit{Checksims} with the Smith-Waterman algorithm on corpus
-2.b14.2 and machine S1 the process takes 7 minutes and 36.55 seconds.
-
-\subsubsection{AST Fingerprinting}
-Running the AST Fingerprinting algorithm on corpus 2.b14.2 and machine S1 takes
-41.78 seconds.
-
-\subsection{Flagged Submissions}
-\subsubsection{Smith-Waterman}
-On corpus 2.b14.2, Smith-Waterman detected 31 instances of plagerism. Upon
-manual inspection, many of these instances involved student 33, who only
-submitted a single file with only 78 lines of code, many of which were short
-and contained the specific keywords students were instructed to use. The
-inverse matching value for 26 of these 31 instances were less than 20 percent,
-and can be considered false positives. After these were removed, the pairs
-still flagged for similarity are:
-\begin{itemize}
-    \item students 9 and 45
-    \item students 229 and 21
-    \item students 195 and 80
-    \item students 56 and 148
-    \item students 176 and 179
-\end{itemize}
-
-\subsubsection{AST Fingerprinting}
-On corpus 2.b14.2, AST Fingerprinting detected 15 instances of plagerism. On
-closer inspection, 4 pairs were found to have a match value and inverse match
-value greater than 70 percent:
-\begin{itemize}
-    \item students 219 and 196
-    \item students 191 and 211
-    \item students 21 and 229
-    \item students 176 and 179
-\end{itemize}
-As mentioned earlier, AST parsing is impossible for students who submit invalid
-code. When running the AST Fingerprinting algorithm on corpus 2.b14.2, the
-following submissions were found to have errors:
-\begin{itemize}
-    \item student 186
-    \item student 71
-    \item student 65
-    \item student 33
-    \item student 133
-    \item student 9
-    \item student 184
-    \item student 240
-    \item student 59
-\end{itemize}
-
-\subsubsection{Comparing the methods}
-The results of the algorithms show that each caught in some way a similar set
-of assignments. AST Fingerprinting missed catching students 195 and 80, and 56
-and 158. Smith Waterman missed 219 and 196, and 191 and 211. Upon manual
-inspection of these assignments, the following conclusions were made:
-\begin{itemize}
-    \item students 195 and 80 copied code
-    \item students 56 and 158 did not copy code
-    \item students 219 and 196 copied code
-    \item student 191 and 211 copied code
-\end{itemize}
-These results were signiifcant because they show that neither algorithm catches
-all instances of plagerism, and that the AST Comparison method is credible by
-itself, but also in tandem with Smith Waterman.
-
+All four assignments have been manually reviewed as well and it was determined
+that theese students would have been called in to discuss academic dishonesty
+with the course staff. That MOSS missed these assignments provides significant
+evidence to show that AST Comparison is at least as good, if not better, than
+the closed source algorithm that powers MOSS\@.

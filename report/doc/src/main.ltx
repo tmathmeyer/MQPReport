@@ -59,6 +59,8 @@
 \author{Theodore Meyer \and Michael Andrews}
 \title{Software Similarity Detection Integration and Improvement}
 
+\input{csv_contents.ltx}
+
 \begin{document}
 
 % Center the title page
@@ -67,9 +69,9 @@
 \let\newpage \relax
 \maketitle
 \textit{This report represents the work of WPI undergraduate students submitted
-to the faculty as evidence of completion of a degree requirement. WPI routinely
-publishes these reports on its website without editorial or peer review. For
-more information about the projects program at WPI, please see
+    to the faculty as evidence of completion of a degree requirement. WPI
+    routinely publishes these reports on its website without editorial or peer
+    review. For more information about the projects program at WPI, please see
 \url{http://www.wpi.edu/academics/ugradstudies/project-learning.html}}
 \let\newpage \snewpage\vfill 
 \newpage
@@ -121,14 +123,14 @@ more information about the projects program at WPI, please see
 \renewcommand\thefigure{\thesection.\arabic{figure}}
 \lstset{basicstyle=\tiny\ttfamily,breaklines=true}
 \section{Fingerprinting Code}
-\lstinputlisting{code/ast.java}
+\lstinputlisting[language=java]{code/ast.java}
 \clearpage
 \section{Anonymization Script for C and Java}
 \subsection{Runner file}
-\lstinputlisting{code/anon.sh}
+\lstinputlisting[language=bash]{code/anon.sh}
 \clearpage
 \subsection{Sed based comment matcher}
-\lstinputlisting{code/strip_comments.sed}
+\lstinputlisting[language=bash]{code/strip_comments.sed}
 
 
 \end{appendices}

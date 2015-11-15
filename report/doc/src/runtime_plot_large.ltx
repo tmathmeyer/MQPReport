@@ -1,0 +1,18 @@
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[domain=0:3]
+    \begin{axis}[ylabel={$Runtime_{\text{ms}}$},
+                 xlabel={$Size_{\text{corpus}}$},
+                 title=Runtime of large Corpora]
+        \addplot[scatter, only marks, scatter src=\thisrow{class}]
+        table {ast_large.csv};
+        \addplot[scatter, only marks, scatter src=\thisrow{class}]
+        table {smithwaterman_large.csv};
+        \addplot [thick, red] table[
+            y={create col/linear regression={y=y}}
+        ]{smithwaterman_large.csv};
+        \addplot [thick, blue] table[
+            y={create col/linear regression={y=y}}
+        ]{ast_large.csv};
+        \legend{AST, SW}
+    \end{axis}
+\end{tikzpicture}}

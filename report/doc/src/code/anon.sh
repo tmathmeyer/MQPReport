@@ -1,6 +1,6 @@
-#!/bin/bash
-# This script has ABSOLUTELY NO ERROR CHECKING
-# But it shouldn't overwrite anything in typical case
+\#!/bin/bash
+\# This script has ABSOLUTELY NO ERROR CHECKING
+\# But it shouldn't overwrite anything in typical case
 
 student=0
 srcdir="$1"
