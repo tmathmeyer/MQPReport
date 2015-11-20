@@ -20,8 +20,8 @@ a comprehensive set of goals has been created:
         though not likely.
     \item \textit{Checksims} should be simple to run either remotely or on a
         user's own machine. Ideally, there should be no more than a few button
-        presses for a member of the course staff to run \textit{\textit{Checksims}}
-        agains a closed submission.
+        presses for a member of the course staff to run
+        \textit{\textit{Checksims}} agains a closed submission.
 \end{itemize}
 
 \section{Approach}
@@ -165,3 +165,32 @@ heuristics to a sorted intersection of the child nodes. Recursive comparison
 techniques are significantly slower than fingerprinting methods and generally
 provided no additional benefits, making them far less practical for use on real
 world data.
+
+\section{User Interface}
+\textit{Checksims} version 1.2 operates exclusively as a command line utility;
+it is usable only by those who have a strong grasp of the commandline. While
+this is not a serious issue for most Professors and teaching assistants, it is
+forseeable that less technical people may want to use \textit{Checksims}.
+
+\subsection{Mapping the CLI to a GUI}
+\textit{Checksims} has both optional and required flags, some of which take
+multiple arguments. To transform this into a user interface, the required flags
+will be central to the view of the user. Optional flags may be hidden under an
+``Advanced'' or other menu. In the current state, \textit{Checksims} requires
+only three flags:
+\begin{itemize}
+    \item -s, --submissiondir [source,[sources]]: a list of directories
+    \item -a, --algorithm [name]: a \textit{Checksims} algorithm
+    \item -o, --output [name]: an output type
+\end{itemize}
+Since the GUI will be capturing the output, only the other two flags must be
+provided. Submission directories must be a valid file path, therefore, users
+will be promped in the form of a file selection dialog. Algorithms may only be
+selected from a set of valid algorithms implemented by \textit{Checksims},
+therefore, users will be promped in the form of a populated dropdown menu. A mockup of the \textit{Checksims} launcher GUI is shown below.
+INSERT IMAGE HERE, TAG IT AS A FIGURE, ETC
+
+\subsection{Displaying Output in a GUI}
+After \textit{Checksims} has finished calculations, it must render the results
+in a human readable form. Traditionally, this has been done through either the
+threshold printer, or the HTML printer.
