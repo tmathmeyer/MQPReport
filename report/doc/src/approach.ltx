@@ -27,7 +27,7 @@ a comprehensive set of goals has been created:
 \section{Approach}
 \label{sec:approach}
 The additions to \textit{Checksims} required some rearchitecture. The previous
-\textit{Checksims} algorithm abstraction only allowed for tokenization based
+\textit{Checksims} algorithm abstraction only allowed for tokenization---based
 algorithms. Since the structure comparison algorithms are based on trees rather
 than lists, the \textit{Checksims} architecture had to be slightly redesigned.
 In this redesign, an abstraction that we call a ``Percentable'' was used. This
@@ -45,15 +45,17 @@ follows:
  \item Student submissions are read from the filesystem, and multi-file
      submissions are concatenated into a single string.
  \item Submissions are passed into a \textit{common code remover}, which
-     removes code designated as ``common'' from all submissions to ensure it is
-     not factored into the comparison process. The \textit{common code remover}
-     is based on the Smith-Waterman algorithm, which performs superbly for
-     exact matching scenarios.
+     removes code designated as ``common'' from all submissions to ensure that
+     it is not factored into the comparison process. The \textit{common code
+     remover} is based on the Smith-Waterman algorithm, which performs superbly
+     for exact matching scenarios.
  \item The percentable generator provided by the selected algorithm consumes a
      submission and stores the parsed or tokenized form back into the
-     submission for the purposes of memoization. This occurs on all
-     submissions, but due to memoization, it will not happen more than once per
-     submission.
+     submission for the purposes of memoization\footnote{Memoization is a
+         technique in programming where results of previous computations are
+     cached so that they must not be calcualted multiple times}. This occurs on
+     all submissions, but due to memoization, it will not happen more than once
+     per submission.
  \item Submissions are grouped into pairs. The selected algorithm, or
      \textit{similarity detector}, which implements a \textit{similarity
      detection algorithm}, is then run on all possible pairs of submissions,
@@ -130,7 +132,7 @@ fingerprint / checksum is calculated by recursing down the tree. The exact code
 used for generating fingerprints can be seen in Appendix A. An example of how
 rolling checksums work on a tree is shown:
 
-IMGIMGIMG
+AN IMAGE WILL BE PLACED HERE ONCE WE MAKE ONE
 
 Using the generated dictionary, it is possible to traverse any other AST, and
 search all nodes for similar counterparts efficiently. This method eliminates
@@ -148,11 +150,14 @@ After more extensive testing, it was discovered that almost all instances of
 hash collisions occured on truely identical nodes in the AST\@. This was
 considerable evidence that there is no need to worry about collisions.
 Mathematically, for any given tree with 10000 nodes, the chance of collision is
-1.16 percent.\ For a tree with 20000 nodes, the chance is 4.55 percent. The
-average number of nodes per submission in the the first corpus of data was
-7952. The chance of a collision in samples of this size is 0.669 percent. These
-calculations provide final evidence that there there is no need to account for
-collisions.
+1.16 percent\footnote{This is a variation on the Birthday Problem. The
+    probability of collision for n nodes can be found by
+    $p(n)=1-\frac{I!}{I^n*(I-n)!}$ where $I$ is the number of values that a
+hash could be, in our case, this is $2^{32} -1$}.\ For a tree with 20000 nodes,
+the chance is 4.55 percent. The average number of nodes per submission in the
+the first corpus of data was 7952. The chance of a collision in samples of this
+size is 0.669 percent. These calculations provide final evidence that there
+there is no need to account for collisions.
 
 \subsubsection{Recursive Structure Percentage Comparison}
 Recursively comparing nodes of the AST is another effective algorithm for
@@ -170,7 +175,7 @@ world data.
 \textit{Checksims} version 1.2 operates exclusively as a command line utility;
 it is usable only by those who have a strong grasp of the commandline. While
 this is not a serious issue for most Professors and teaching assistants, it is
-forseeable that less technical people may want to use \textit{Checksims}.
+foreseeable that less technical people may want to use \textit{Checksims}.
 
 \subsection{Mapping the CLI to a GUI}
 \textit{Checksims} has both optional and required flags, some of which take

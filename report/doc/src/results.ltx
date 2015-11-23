@@ -4,7 +4,7 @@
 \input{runtime_plot_small.ltx}
 \\
 \\
-This graph shows the number of miliseconds taken by both Smith Waterman and AST
+This graph shows the number of seconds taken by both Smith Waterman and AST
 Comparison to compute a similarity matrix for corpora with fewer than 100
 assignments. A best fit line was constructed for each set of points, showing
 that AST Fingerprinting ranges anywhere from 33 percent to 75 faster than the
@@ -15,7 +15,7 @@ E.
 \input{runtime_plot_large.ltx}
 \\
 \\
-This graph shows the number of miliseconds taken by both Smith Waterman and AST
+This graph shows the number of seconds taken by both Smith Waterman and AST
 Comparison to compute a similarity matrix for corpora with more than 100
 assignments. A best fit line was constructed for each set of points, showing
 that AST Fingerprinting ranges from 75 percent to 95 percent faster than
@@ -65,7 +65,7 @@ following pairs of students:
 \end{itemize}
 Assignments 71 and 20 did not compile due to syntax errors created during the
 anonymization process, as student names were included in parts of the code. AST
-Analasys was therefor not able to have been run on this pair. It is interesting
+Analysis was therefor not able to have been run on this pair. It is interesting
 that while Smith Waterman detected similarities between the pair (54 and 8) and
 the pair (54 and 4), it did not detect similarity between the pair (4 and 8),
 while AST Comparison did. Manual verification of these assignments shows that
@@ -106,7 +106,7 @@ upload step, the average runtime actually changes to 0.8 seconds in favor of
 MOSS\@.  MAKE A GRAPH AND PUT IT HERE!!!
 
 \subsubsection{Identified Instances of Similarity}
-for corpora 3.a13.1, 3.a13.2, 3.a13.3, 3.a12.1, 3.a12.2, and 3.a12.3, MOSS and
+For corpora 3.a13.1, 3.a13.2, 3.a13.3, 3.a12.1, 3.a12.2, and 3.a12.3, MOSS and
 AST Compare reported the same set of pairs as being likely matches. When corpus
 2.b14.2 was provided to the AST Compare algorithm, 4 pairs of assignments were
 marked as being highly likely to contain instances of copying; that is, both
@@ -114,6 +114,7 @@ the matching value and inverse matching value between both assignments were
 greater than 70 percent. MOSS only managed to catch a single pair of
 assignments however. The significant pairs, in which either assignment matches
 another greater than 69 percent are shown:
+\\
 \\
 \begin{minipage}{\linewidth}
     \centering

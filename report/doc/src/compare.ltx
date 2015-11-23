@@ -47,39 +47,39 @@ reletively small impact on the overall performance because it is part of the
 $O(n)$ step of the process. Where AST Fingerprinting excels is in the
 comparison, which is simply a sequence of hashmap lookups and some arithmetic.
 As this step is run $O(n^{2})$ times, its runtime is significant to the overall
-runtime.  Because the AST fingerprinting algorithm does not do expensive
+runtime. Because the AST fingerprinting algorithm does not do expensive
 calculations during the $O(n^{2})$ step, we can expect it to scale better than
 the Smith-Waterman algorithm; that is, for large assignments, we expect AST
-fingerprinting to be significantly faster than Smith-Waterman.  This is shown
+fingerprinting to be significantly faster than Smith-Waterman. This is shown
 to be true, as is discussed in the results section.
 
 \subsection{Relationship to Manual inspection}
-Based on the previous experience of TJM as a member of course staff, and his
-having manually inspected assignments for many classes, two main things that
-signal unauthorized copying can be identified. Structual similarities are one
-such signal, and include such visual details such as indentation and spacing
-between lines of code, as well as the organisation of control-flow within the
-program. AST Fingerprinting is designed to detect similarities in control-flow
-organisation, but may not pick up typographical similarities such as the
-spelling of words and variable named, as the algorithm has no way of comparing
-the tokens by content. Smith-Waterman does exactly the opposite of this,
-detecting only similiarities in spelling and using tokenisation to completely
+Based on the previous experience of one of the authors (TJM) as a member of
+course staff, and his having manually inspected assignments for many classes,
+two main things that signal unauthorized copying can be identified. Structual
+similarities are one such signal, and include such visual details such as
+indentation and spacing between lines of code, as well as the organisation of
+control-flow within the program. AST Fingerprinting is designed to detect
+similarities in control-flow organisation, but may not pick up the other main
+signal of unauthorized copying: typographical similarities such as the spelling
+of words and variable named. Smith-Waterman does exactly the opposite; it
+detects only similiarities in spelling and using tokenisation to completely
 ignore structural differences. Prior experience as teaching staff have shown
 that manually comparing structure yields a more accurate indication of
 unauthorized copying when compared to typographical comparisons.
 
 \section{Comparison to MOSS}
-The Measure of Software Similarity, often referred to as MOSS, is the gold
-standard for similarity detection. MOSS is developed by Professor Alex Aiken
-from Stanford University\cite{moss-url}. It is provided as a webservice, and is
-a closed source tool. Due to the closed nature of MOSS, it is hard to
+The \textit{Measure of Software Similarity}, often referred to as MOSS, is the
+gold standard for similarity detection. MOSS is developed by Professor Alex
+Aiken from Stanford University\cite{moss-url}. It is provided as a webservice,
+and is a closed source tool. Due to the closed nature of MOSS, it is hard to
 effectively compare the AST comparison algorithm to it; only comparing results
 and runtime is possible. The standard way of interfacing with MOSS is through a
 Perl script, provided to a user upon registering for the service. We feel that
 the \textit{Checksims} model and command line tools are superior in the field
-of usability. MOSS often had problems with network timeouts and simply failing
-to report any results at all.  As \textit{Checksims} is run locally, it is not
-subject failed or slow network connections.  Perhaps most importantly, The
-ability to run \textit{Checksims} locally removes any ethical question of
-uploading named student assignments to a remote machine that is not under the
-control of the student's own academic institution.
+of usability. In the authors experience, MOSS often had problems with network
+timeouts and simply failing to report any results at all. As \textit{Checksims}
+is run locally, it is not subject failed or slow network connections. Perhaps
+most importantly, The ability to run \textit{Checksims} locally removes any
+ethical question of uploading named student assignments to remote machines that
+are not under the control of the student's own academic institution.

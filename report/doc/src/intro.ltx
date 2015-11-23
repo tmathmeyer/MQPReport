@@ -12,7 +12,7 @@ given in certain classes. Despite the success of \textit{Checksims} so far, it
 is possible to subvert its functionality given knowledge of the Smith-Waterman
 algorithm. There are certain techniques, such as renaming variables, reordering
 order-independent statements, and generally shuffling parts of code within or
-between files, which the authors believe are sufficient enough to fool the
+between files, that the authors believe are sufficient enough to fool the
 Smith Waterman algorithm.  Smith-Waterman was originally designed to compare
 sequences of genomes, which are one dimensional sequences of data.  Code is not
 a one dimensional sequence however; It can be represented as a tree that is
@@ -56,7 +56,7 @@ This project is intended to slightly modify some of these goals and to finish
 the implementation of some others. The first priority of this project is a
 research goal, which is to compare a syntax tree based approach to the current
 Smith-Waterman algorithm approach. This requires that the original goal to be
-language independant be disregarded, as every language will require it’s own
+language independent be disregarded, as every language will require it’s own
 parser from source to Abstract Syntax Tree, or AST\@. This project will focus
 first on the languages that are most commonly used at Worcester Polytechnic
 Institute (WPI): C, Python, and Java. The second priority is to make
@@ -64,9 +64,10 @@ Institute (WPI): C, Python, and Java. The second priority is to make
 \textit{Checksims} is a command line tool, requiring many arguments to work
 correctly.  One of the new goals for this project is to integrate
 \textit{Checksims} with the online assignment submission system used by the CS
-department called turnin\cite{turninurl}. This integration should be able to
-compare submissions not only within one class, but also compare current
-submissions against submissions in previous offerings of the class.
+department called \textit{turnin}\cite{turninurl}. This integration should be
+able to compare submissions not only within one class, but also compare current
+submissions against submissions in previous offerings of the class. In short,
+the goals of this project are as follows:
 \begin{itemize}
   \item Design and implement an AST similarity detection algorithm, and then
       compare it to the Smith-Waterman in both accuracy and performance.
