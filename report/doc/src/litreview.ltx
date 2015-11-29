@@ -1,9 +1,9 @@
 \section{Existing Literature}
 Heon and Murvihill put together a large and comprehensive review of existing
 literature on similarity detection in their original \textit{Checksims}
-paper\cite{checksims1}. Many of the definitions and terms used herein are based
-on their work.  The original codebase they created has also been extended as
-part of this project.
+\cite{checksims1} paper. Many of the definitions and terms used herein are
+based on their work.  The original codebase they created has also been extended
+as part of this project.
 
 \subsection{Academic Dishonesty}
 The Heon and Murvihill provided a comprehensive set of examples and scenarios
@@ -14,7 +14,7 @@ whether a submission constitutes dishonest behavior is not as simple.
 
 \subsection{Detecting Academic Dishonesty}
 Code similarity detection is a practice that is used for identifying academic
-dishonesty, duplicate code in large code bases for the purpose of optomisation
+dishonesty, duplicate code in large code bases for the purpose of optimisation
 and cleaning, and for identifying instances of copyright infringement. While
 these goals differ in minor ways, they generally share the same base goal: to
 identify duplication despite intentional obfuscation or accidental duplication.
@@ -55,12 +55,12 @@ valid for the language in which they are written.
 
 % Throw in methods here from various papers.
 \paragraph{Using the Vector Space Model on Syntax Trees}
-The STVsm\cite{STVsm} paper, Li, Shen, Li, Zhang, and Li posed an interesting
-syntax tree based approach to similarity detection. In this paper, an AST is
-generated from C code. This AST is then transformed into a string in the form
-of s-expressions. To compare any two documents in this way, multiple string
-similarity techniques may be applied, including \textit{Levenshtein Distance},
-\textit{Greedy String Tiling}, and the \textit{Vector Space Model
+The \textit{STVsm}\cite{STVsm} paper, Li, Shen, Li, Zhang, and Li posed an
+interesting syntax tree based approach to similarity detection. In this paper,
+an AST is generated from C code. This AST is then transformed into a string in
+the form of s-expressions. To compare any two documents in this way, multiple
+string similarity techniques may be applied, including \textit{Levenshtein
+Distance}, \textit{Greedy String Tiling}, and the \textit{Vector Space Model
 Method}\cite{STVsm}.  This idea is novel for a number of reasons. It is based
 on the syntax tree of the associated language, but it does not directly rely on
 comparing the structure of the syntax trees.  Instead, it generates a

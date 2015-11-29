@@ -16,7 +16,7 @@ who are informed and capable of submitting bug reports and debug information.
 \subsection{Anonymization}
 Three scripts were created to process assignments and strip from them all
 indication of student identity; each language, Python, C, and Java, requires
-their own method of stripping comments and names. Professors were asked to run
+its own method of stripping comments and names. Professors were asked to run
 these scripts on archived student submissions before making the anonymized
 version availible to the research team. A verification script was also provided
 in order to ensure that student names and usernames were correctly removed from
@@ -25,14 +25,14 @@ programs can also use the preprocessor to denote comments:
 
 \lstinputlisting{code/C-if-0.c} % C #if 0 comment
 
-The Python language specification specifies two types of comments. A \# which
-is not inside a string literal is the beginning of the first type of comment.
-All text following such an expression until the end of that line is considered
-a comment. The second type of comment is created by placing a multi-line string
-literal (denoted by text surrounded by pairs of three quotes, double or single)
-at the beginning of a function or class definition. The scripts used for making
-assignments anonymous can be found in appendicies B and C. The validation
-script for checking anonymity can be found in appendix D.
+The Python language specification specifies two types of comments. A ``\#''
+which is not inside a string literal is the beginning of the first type of
+comment.  All text following such an expression until the end of that line is
+considered a comment. The second type of comment is created by placing a
+multi-line string literal (denoted by text surrounded by pairs of three quotes,
+double or single) at the beginning of a function or class definition. The
+scripts used for making assignments anonymous can be found in appendicies B and
+C. The validation script for checking anonymity can be found in appendix D.
 
 \subsection{Output of \textit{Checksims}}
 Between any two assignments A and B, there are two percentages generated ---
@@ -59,18 +59,18 @@ corpus will be referenced in the results section by the name provided here.
     \begin{tabular}{@{}lll@{}}
         \toprule
         Name    & Language & Description \\ \midrule
-        3.a13.1 & C        & Assignment 1, 2013 Systems (2303) class    \\
-        3.a13.2 & C        & Assignment 2, 2013 Systems (2303) class   \\
-        3.a13.3 & C        & Assignment 3, 2013 Systems (2303) class     \\
-        3.a12.1 & C        & Assignment 1, 2012 Systems (2303) class     \\
-        3.a12.2 & C        & Assignment 2, 2012 Systems (2303) class    \\
-        3.a12.3 & C        & Assignment 3, 2012 Systems (2303) class     \\
-        2.b14.2 & Java     & Assignment 2, 2014 Object Oriented (2102) class  \\
-        4.a15.5 & Python   & Assignment 5, 2015 nonmajors intro (1004) class   \\
-        4.a15.6 & Python   & Assignment 6, 2015 nonmajors intro (1004) class   \\
-        4.c15.4 & Python   & Assignment 7, 2015 nonmajors intro (1004) class  \\
-        4.c15.5 & Python   & Assignment 8, 2015 nonmajors intro (1004) class   \\
-        4.c15.6 & Python   & Assignment 9, 2015 nonmajors intro (1004) class   \\
+        3.a13.1 & C        & Assignment 1, 2013 Systems (2303) class \\
+        3.a13.2 & C        & Assignment 2, 2013 Systems (2303) class \\
+        3.a13.3 & C        & Assignment 3, 2013 Systems (2303) class \\
+        3.a12.1 & C        & Assignment 1, 2012 Systems (2303) class \\
+        3.a12.2 & C        & Assignment 2, 2012 Systems (2303) class \\
+        3.a12.3 & C        & Assignment 3, 2012 Systems (2303) class \\
+        2.b14.2 & Java     & Assignment 2, 2014 Object Oriented (2102) class \\
+        4.a15.5 & Python   & Assignment 5, a.2015 nonmajors intro (1004) class \\
+        4.a15.6 & Python   & Assignment 6, a.2015 nonmajors intro (1004) class \\
+        4.c15.4 & Python   & Assignment 4, c.2015 nonmajors intro (1004) class \\
+        4.c15.5 & Python   & Assignment 5, c.2015 nonmajors intro (1004) class \\
+        4.c15.6 & Python   & Assignment 6, c.2015 nonmajors intro (1004) class \\
         \bottomrule
     \end{tabular}
 \end{minipage}

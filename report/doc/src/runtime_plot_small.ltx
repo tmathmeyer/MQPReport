@@ -1,5 +1,4 @@
-\resizebox{\textwidth}{!}{
-\begin{tikzpicture}[domain=0:3]
+\resizebox{\textwidth}{!}{\begin{tikzpicture}[domain=0:3]
     \begin{axis}[ylabel={$Runtime_{\text{S}}$},
                  xlabel={$Size_{\text{corpus}}$},
                  title=Runtime of small Corpora]
@@ -15,4 +14,5 @@
             y={create col/linear regression={y=y}}
         ]{ast_small.csv};
     \end{axis}
-\end{tikzpicture}}
+\end{tikzpicture}
+}

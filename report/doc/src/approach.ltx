@@ -21,25 +21,26 @@ a comprehensive set of goals has been created:
     \item \textit{Checksims} should be simple to run either remotely or on a
         user's own machine. Ideally, there should be no more than a few button
         presses for a member of the course staff to run
-        \textit{\textit{Checksims}} agains a closed submission.
+        \textit{\textit{Checksims}} against a closed submission.
 \end{itemize}
 
 \section{Approach}
 \label{sec:approach}
 The additions to \textit{Checksims} required some rearchitecture. The previous
-\textit{Checksims} algorithm abstraction only allowed for tokenization---based
+\textit{Checksims} algorithm abstraction only allowed for tokenization-based
 algorithms. Since the structure comparison algorithms are based on trees rather
-than lists, the \textit{Checksims} architecture had to be slightly redesigned.
-In this redesign, an abstraction that we call a ``Percentable'' was used. This
-name comes directly from the code, and means any structure from which a
-percentage can be calculated.  Submission text can be transformed into
-different types of percentables and memoized by their type. Algorithms are now
-based on the percentable type on which they operate, and are responsible for
-informing the \textit{Checksims} runner which type of percentable generator
-they would like to use. The new architecture should allow a significantly
-broader range of algorithms to be implemented against the underlying comparson
-mechanism. A description of the updated \textit{Checksims} pipeline is as
-follows:
+than lists, the \textit{Checksims} architecture had to be redesigned.  In this
+redesign, an abstraction that we call a ``Percentable'' was used. This name
+comes directly from the code, and means any structure from which a percentage
+can be calculated.  Submission text can be transformed into different types of
+percentables and memoized\footnote{Memoization is a technique in programming
+where results of previous computations are cached so that they must not be
+calcualted multiple times} by their type. Algorithms are now based on the
+percentable type on which they operate, and are responsible for informing the
+\textit{Checksims} runner which type of percentable generator they would like
+to use. The new architecture should allow a significantly broader range of
+algorithms to be implemented against the underlying comparson mechanism. A
+description of the updated \textit{Checksims} pipeline is as follows:
 
 \begin{enumerate}
  \item Student submissions are read from the filesystem, and multi-file
@@ -51,11 +52,9 @@ follows:
      for exact matching scenarios.
  \item The percentable generator provided by the selected algorithm consumes a
      submission and stores the parsed or tokenized form back into the
-     submission for the purposes of memoization\footnote{Memoization is a
-         technique in programming where results of previous computations are
-     cached so that they must not be calcualted multiple times}. This occurs on
-     all submissions, but due to memoization, it will not happen more than once
-     per submission.
+     submission for the purposes of memoization. This occurs on all
+     submissions, but due to memoization, it will not happen more than once per
+     submission.
  \item Submissions are grouped into pairs. The selected algorithm, or
      \textit{similarity detector}, which implements a \textit{similarity
      detection algorithm}, is then run on all possible pairs of submissions,
@@ -82,17 +81,17 @@ then takes a grammar and converts it into a parser written in either C\# or
 Java.  As \textit{Checksims} is written in Java, it was the obvious and logical
 choice. While not as difficult to write as a parser itself, creating a correct
 grammar for a language is a difficult task. A grammar file for Java8 alone is
-upwards of 1500 lines long and is highly complex. For AST analysis to be useful
-on the original target languages of Java, C, and Python, grammars for each of
-these languages must be created. To complicate matters further, language
-specifications are fluid; in 2014 the C and Java language specifications were
-updated, and Java is set to have another in September, 2016. Python is in
-somewhat of a civil war between versions 2.7 and 3.4 (soon to be 3.5!), and the
-decision was made to target the newest version. Changes to a language
-specification require significant overhauling of a grammar, parser, and
-parser-AST interop layer. With this concern in mind, the grammar and parser-AST
-interop layers are being designed to be as modular as possible. It is
-unavoidable therefore that there will need to be future work done on
+upwards of 1500 lines long and is highly complex. So that AST analysis may be
+useful on the original target languages of Java, C, and Python, grammars for
+each of these languages must be created. To complicate matters further,
+language specifications are fluid; in 2014 the C and Java language
+specifications were updated, and Java is set to have another in September 2016.
+Python is in somewhat of a civil war between versions 2.7 and 3.4 (soon to be
+3.5!), and the decision was made to target the newest version: 3.4. Changes to
+a language specification require significant overhauling of a grammar, parser,
+and parser-AST interop layer. With this concern in mind, the grammar and
+parser-AST interop layers are being designed to be as modular as possible. It
+is unavoidable therefore that there will need to be future work done on
 \textit{Checksims} to keep the parsers and interop layers up to date with the
 language specifications.
 
@@ -117,9 +116,9 @@ pair of ASTs into an instance of the previously mentioned \textit{Percentable},
 which the \textit{Checksims} core will handle as it currently does.
 
 \subsubsection{AST Fingerprinting}
-ASTs are by definition Abstract --- in their raw form they have very little
+ASTs are by definition abstract --- in their raw form they have very little
 contextual information, and as such many re-orderings and recombinations may
-have the same or similar meanings. A comprehensive way to compare all nodes in
+have the same or similar meanings. A comprehensive way to compare nodes in
 an AST is through a method called fingerprinting. This method involves using
 one AST to build a ``dictionary'', or mapping, from every node to a fingerprint
 of that node. This allows fast lookup and comparison of every node in the
@@ -187,15 +186,16 @@ only three flags:
     \item -s, --submissiondir [source,[sources]]: a list of directories
     \item -a, --algorithm [name]: a \textit{Checksims} algorithm
     \item -o, --output [name]: an output type
-\end{itemize}
-Since the GUI will be capturing the output, only the other two flags must be
-provided. Submission directories must be a valid file path, therefore, users
+\end{itemize} Since the GUI will be capturing the output, only the submissions
+and algorithm will have to be configurable through the interface. Submission
+directories must be a valid directory on a users computer, therefore, users
 will be promped in the form of a file selection dialog. Algorithms may only be
 selected from a set of valid algorithms implemented by \textit{Checksims},
-therefore, users will be promped in the form of a populated dropdown menu. A mockup of the \textit{Checksims} launcher GUI is shown below.
-INSERT IMAGE HERE, TAG IT AS A FIGURE, ETC
+therefore, users will be promped in the form of a populated dropdown menu. A
+mockup of the \textit{Checksims} launcher GUI is shown below.  INSERT IMAGE
+HERE, TAG IT AS A FIGURE, ETC
 
 \subsection{Displaying Output in a GUI}
 After \textit{Checksims} has finished calculations, it must render the results
 in a human readable form. Traditionally, this has been done through either the
-threshold printer, or the HTML printer.
+threshold printer or the HTML printer.
