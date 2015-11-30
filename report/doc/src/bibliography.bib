@@ -12,14 +12,27 @@
     author={Michel Chilowicz, Etienne Duris and Gilles Roussel},
     title={Syntax tree fingerprinting: a foundation for source code similarity detection},
     school={Université Paris-Est},
-    year={2011}
+    year={2011},
+    annote={
+        Chilowicz, Duris, and Roussel use Abstract Syntax Tree fingerprinting
+        methods to index code and efficiently search for code duplication.
+        Various fingerprinting methods are outlined and explored. Their methods
+        are used to analyze a well known codebase and the results are discussed.
+    }
 }
 
 @mastersthesis{STVsm,
     author={Ning Li, Mingda Shen, Sinan Li, Lijun Zhang, and Zhanhuai Li},
     title={STVsm: Similar Structural Code Detection Based on AST and VSM},
     school={Northwestern Polytechnical University, Xi’an},
-    year={2012}
+    year={2012},
+    annote={
+        Li, Li, Li, Shen, and Zhang outline the use of Asbtract Syntax Trees.
+        The groups outlines various methods of comparing text similarity.
+        Rather than using text comparison directly on the source, the source is
+        first parsed using \textit{ANTLR}\cite{antlr-lang}, and a
+        LISP\cite{original-lisp} representation of the tree is compared.
+    }
 }
 
 @unpublished{antlr-lang,
