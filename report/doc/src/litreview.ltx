@@ -9,7 +9,7 @@ as part of this project.
 The Heon and Murvihill provided a comprehensive set of examples and scenarios
 where academic dishonesty is the hardest to distinguish. As they noted, an
 instance of ``100\% similarity was almost certainly indicitive of unauthorized
-copying''\cite{checksims1}, but there are many scenarios where determining
+copying''~\cite{checksims1}, but there are many scenarios where determining
 whether a submission constitutes dishonest behavior is not as simple.
 
 \subsection{Detecting Academic Dishonesty}
@@ -55,19 +55,19 @@ valid for the language in which they are written.
 
 % Throw in methods here from various papers.
 \paragraph{Using the Vector Space Model on Syntax Trees}
-The \textit{STVsm}\cite{STVsm} paper, Li, Shen, Li, Zhang, and Li posed an
-interesting syntax tree based approach to similarity detection. In this paper,
-an AST is generated from C code. This AST is then transformed into a string in
-the form of s-expressions. To compare any two documents in this way, multiple
-string similarity techniques may be applied, including \textit{Levenshtein
-Distance}, \textit{Greedy String Tiling}, and the \textit{Vector Space Model
-Method}\cite{STVsm}.  This idea is novel for a number of reasons. It is based
-on the syntax tree of the associated language, but it does not directly rely on
-comparing the structure of the syntax trees.  Instead, it generates a
-``sanitized''  version of the document, and uses generic text comparison
-methods to detect similarities. This allows the methods to ignore plaintext
-obfuscation that would not appear on the AST, and had improved results over
-plaintext comparison methods.
+In the \textit{STVsm}\cite{STVsm} paper, Li, Shen, Li, Zhang, and Li posed an
+interesting syntax tree based approach to similarity detection. The process
+begins by generating an AST from C code. This AST is then transformed into a
+string in the form of \textit{s-expressions}. To compare any two documents in
+this way, multiple string similarity techniques may be applied, including
+\textit{Levenshtein Distance}, \textit{Greedy String Tiling}, and the
+\textit{Vector Space Model Method}\cite{STVsm}.  This idea is novel for a
+number of reasons. It is based on the syntax tree of the associated language,
+but it does not directly rely on comparing the structure of the syntax trees.
+Instead, it generates a ``sanitized''  version of the document, and uses
+generic text comparison methods to detect similarities. This allows the methods
+to ignore plaintext obfuscation that would not appear on the AST, and had
+improved results over plaintext comparison methods.
 
 \paragraph{Syntax Tree Fingerprinting}
 Syntax Tree Fingerprinting presents an efficient method of locating

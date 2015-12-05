@@ -1,0 +1,92 @@
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{
+    backgroundcolor=\color{white},   % choose the background color
+    basicstyle=\footnotesize,        % size of fonts used for the code
+    breaklines=true,                 % automatic line breaking only at whitespace
+    captionpos=b,                    % sets the caption-position to bottom
+    commentstyle=\color{mygreen},    % comment style
+    keywordstyle=\color{blue},       % keyword style
+    stringstyle=\color{mymauve},     % string literal style
+}
+\begin{center}
+\leftskip-3cm
+\rightskip-3cm
+\noindent\begin{minipage}{.44\paperwidth}
+    \begin{lstlisting}[caption=Student 14,frame=tlrb,language=python]
+from Module1 import *
+import string
+
+def Sort(List):
+    LL = []
+    for i in range(len(List)):
+        LL.append(List[i].lower())
+    LL.sort()
+    return LL
+
+def Null(List):
+    L = Sort(List)
+    LL = []
+    for i in L:
+        if i != '':
+            LL.append(i)
+    return LL
+
+def Count(List):
+    LL = Null(List)
+    L = []
+    X = []
+    for i in range(len(LL)):
+        if i == 0:
+            x = LL.count(LL[i])
+            L.append(LL[i])
+            X.append(x)
+        else:
+            if LL[i] != LL[i-1]:
+                x = LL.count(LL[i])
+                L.append(LL[i])
+                X.append(x)
+    TotalDistinctWords = len(L)        
+    return X, L, TotalDistinctWords
+    \end{lstlisting}
+\end{minipage}
+\begin{minipage}{.44\paperwidth}
+    \begin{lstlisting}[caption=Student 64,frame=tlrb,language=python]
+
+
+import string
+from AKModule1 import *
+
+def Categorize(List):
+    TK = []
+    for z in range(len(List)):
+        TK.append(List[z].lower())
+    TK.sort()
+    return TK
+def Empty(List):
+    AK = Categorize(List)
+    TK = []
+    for z in AK:
+        if z != '':
+            TK.append(z)
+    return TK
+def Count(List):
+    TK = Empty(List)
+    Words = []
+    Counts = []
+    for z in range(len(TK)):
+        if z == 0:
+            p = TK.count(TK[z])
+            Words.append(TK[z])
+            Counts.append(p)
+        else:
+            if TK[z] != TK[z-1]:
+                p = TK.count(TK[z])
+                Words.append(TK[z])
+                Counts.append(p)
+    UniqueWords = len(Words)        
+    return Counts, Words, UniqueWords
+	\end{lstlisting}
+\end{minipage}
+\end{center}

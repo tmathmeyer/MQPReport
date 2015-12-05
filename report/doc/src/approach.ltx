@@ -60,7 +60,7 @@ description of the updated \textit{Checksims} pipeline is as follows:
      detection algorithm}, is then run on all possible pairs of submissions,
      and the results are recorded in a \textit{similarity matrix}. This also
      includes comparing the current submissions to archived submissions, though
-     not comparing the archived submissions between each other.
+     not comparing the archived submissions amongst each other.
  \item The similarity matrix is passed to a user-selected \textit{output
      strategy}, which produces a human-readable form of the output.
 \end{enumerate}
@@ -81,19 +81,20 @@ then takes a grammar and converts it into a parser written in either C\# or
 Java.  As \textit{Checksims} is written in Java, it was the obvious and logical
 choice. While not as difficult to write as a parser itself, creating a correct
 grammar for a language is a difficult task. A grammar file for Java8 alone is
-upwards of 1500 lines long and is highly complex. So that AST analysis may be
-useful on the original target languages of Java, C, and Python, grammars for
-each of these languages must be created. To complicate matters further,
-language specifications are fluid; in 2014 the C and Java language
-specifications were updated, and Java is set to have another in September 2016.
-Python is in somewhat of a civil war between versions 2.7 and 3.4 (soon to be
-3.5!), and the decision was made to target the newest version: 3.4. Changes to
-a language specification require significant overhauling of a grammar, parser,
-and parser-AST interop layer. With this concern in mind, the grammar and
-parser-AST interop layers are being designed to be as modular as possible. It
-is unavoidable therefore that there will need to be future work done on
-\textit{Checksims} to keep the parsers and interop layers up to date with the
-language specifications.
+upwards of 1500 lines long and is highly complex.
+
+So that AST analysis may be usable on the original target languages of Java, C,
+and Python, grammars for each of these languages must be created. To complicate
+matters further, language specifications are fluid; in 2014 the C and Java
+language specifications were updated, and Java is set to have another in
+September 2016.  Python is in somewhat of a civil war between versions 2.7 and
+3.4 (soon to be 3.5!), and the decision was made to target the newest version,
+as it is the version taught at WPI@. Changes to a language specification
+require significant overhauling of a grammar, parser, and parser-AST interop
+layer. With this concern in mind, the grammar and parser-AST interop layers are
+being designed to be as modular as possible. It is unavoidable therefore that
+there will need to be future work done on \textit{Checksims} to keep the
+parsers and interop layers up to date with the language specifications.
 
 \subsection{AST Interop Layer}
 \label{sec:interopLayer}
@@ -152,7 +153,7 @@ Mathematically, for any given tree with 10000 nodes, the chance of collision is
 1.16 percent\footnote{This is a variation on the Birthday Problem. The
     probability of collision for n nodes can be found by
     $p(n)=1-\frac{I!}{I^n*(I-n)!}$ where $I$ is the number of values that a
-hash could be, in our case, this is $2^{32} -1$}.\ For a tree with 20000 nodes,
+hash could be, in this case, $I = 2^{32} -1$}.\ For a tree with 20000 nodes,
 the chance is 4.55 percent. The average number of nodes per submission in the
 the first corpus of data was 7952. The chance of a collision in samples of this
 size is 0.669 percent. These calculations provide final evidence that there
@@ -172,7 +173,7 @@ world data.
 
 \section{User Interface}
 \textit{Checksims} version 1.2 operates exclusively as a command line utility;
-it is usable only by those who have a strong grasp of the commandline. While
+it is usable only by those who have a strong grasp of the command line. While
 this is not a serious issue for most Professors and teaching assistants, it is
 foreseeable that less technical people may want to use \textit{Checksims}.
 
@@ -186,10 +187,11 @@ only three flags:
     \item -s, --submissiondir [source,[sources]]: a list of directories
     \item -a, --algorithm [name]: a \textit{Checksims} algorithm
     \item -o, --output [name]: an output type
-\end{itemize} Since the GUI will be capturing the output, only the submissions
-and algorithm will have to be configurable through the interface. Submission
-directories must be a valid directory on a users computer, therefore, users
-will be promped in the form of a file selection dialog. Algorithms may only be
+\end{itemize}
+Since the GUI will be capturing the output, only the submissions and algorithm
+will have to be configurable through the interface. Submission directories must
+be valid directories or zip files on a users computer, therefore, users will be
+promped in the form of a file selection dialog.  Algorithms may only be
 selected from a set of valid algorithms implemented by \textit{Checksims},
 therefore, users will be promped in the form of a populated dropdown menu. A
 mockup of the \textit{Checksims} launcher GUI is shown below.  INSERT IMAGE
@@ -198,4 +200,6 @@ HERE, TAG IT AS A FIGURE, ETC
 \subsection{Displaying Output in a GUI}
 After \textit{Checksims} has finished calculations, it must render the results
 in a human readable form. Traditionally, this has been done through either the
-threshold printer or the HTML printer.
+threshold or HTML displays. The \textit{Checksims} GUI should have an option to
+switch between these two types of displays, while providing a more rich user
+experience beyond what the command line output interfaces provide.

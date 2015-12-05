@@ -15,13 +15,13 @@ who are informed and capable of submitting bug reports and debug information.
 
 \subsection{Anonymization}
 Three scripts were created to process assignments and strip from them all
-indication of student identity; each language, Python, C, and Java, requires
-its own method of stripping comments and names. Professors were asked to run
-these scripts on archived student submissions before making the anonymized
-version availible to the research team. A verification script was also provided
-in order to ensure that student names and usernames were correctly removed from
-the submissions.  Java and C share a common style of commenting, though C
-programs can also use the preprocessor to denote comments:
+indication of student identity; each language requires its own method of
+stripping comments and names. Professors were asked to run these scripts on
+archived student submissions before making the anonymized version availible to
+the research team. A verification script was also provided in order to ensure
+that no student names or usernames remained after the anonymization script was
+run. Java and C share a common style of commenting, though C programs can also
+use the preprocessor to denote comments:
 
 \lstinputlisting{code/C-if-0.c} % C #if 0 comment
 
@@ -37,15 +37,18 @@ C. The validation script for checking anonymity can be found in appendix D.
 \subsection{Output of \textit{Checksims}}
 Between any two assignments A and B, there are two percentages generated ---
 the percentage of A that is matched in B, and the percentage of B that is
-matched in A. These are referred to as the matching value and inverse matching
-value. There are two forms of output most commonly used by \textit{Checksims}:
-the HTML view and the threshold printer view. The HTML view depicts a matrix
-with the comparison percentages for every pair of assignments, excluding
-assignments compared with themselves. Each space in the matrix is also color
-coded from a faint yellow for low matching percentages to a bright red for high
-matching percentages. The threshold printer sorts each pair by the maximum of
-\{matching value, inverse matching value\}. Any pairs over a specified
-percentage will be reported, with the default limit being 70 percent.
+matched in A. These values are separate, as they may not be the same. If one
+assignment is a strict subset of the other, the percentages will be 100 percent
+on one side, and some value less than 100 percent on the other.  These are
+referred to as the matching value and inverse matching value. There are two
+forms of output most commonly used by \textit{Checksims}: the HTML view and the
+threshold printer view. The HTML view depicts a matrix with the comparison
+percentages for every pair of assignments, excluding assignments compared with
+themselves. Each space in the matrix is also color coded from a faint yellow
+for low matching percentages to a bright red for high matching percentages. The
+threshold printer sorts each pair by the maximum of \{matching value, inverse
+matching value\}. Any pairs over a specified percentage will be reported, with
+the default limit being 70 percent.
 
 \subsection{Environments and Corpora}
 \subsubsection{Testing Corpora}
@@ -74,7 +77,6 @@ corpus will be referenced in the results section by the name provided here.
         \bottomrule
     \end{tabular}
 \end{minipage}
-\newpage
 \subsubsection{Testing Environment}
 Checksims has been tested on many systems in order to measure the
 effectiveness in the runtime and memory usage for each corpus of data. The
