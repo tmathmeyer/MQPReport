@@ -99,14 +99,14 @@ parsers and interop layers up to date with the language specifications.
 \subsection{AST Interop Layer}
 \label{sec:interopLayer}
 The ANTLR parser generator creates structures called \textit{Parser Rule
-Contexts} \textit{(PRCs)} While these structures exist in a tree based form,
+Contexts} \textit{(PRCs)}. While these structures exist in a tree based form,
 they are hard to work with and contain extra metadata that must be removed in
-order to quickly and accurately perform some of our comparison techniques. To
-solve this problem, \textit{Checksims} uses a consistent and language
-independent AST representation with support for tagging and fingerprinting. To
-convert between a \textit{PRC} and a \textit{Checksims} AST, every parser must
-also come with a \textit{Treewalker} --- an object designed to examine every
-node of a \textit{PRC} tree and convert it to a \textit{Checksims} AST\@.
+order to quickly and accurately perform the comparison techniques. To solve
+this problem, \textit{Checksims} uses a consistent and language independent AST
+representation with support for tagging and fingerprinting. To convert between
+a \textit{PRC} and a \textit{Checksims} AST, every parser must also have an
+associated \textit{Treewalker} --- an object designed to examine every node of
+a \textit{PRC} tree and convert it to a \textit{Checksims} AST\@.
 
 \subsection{Comparison Techniques}
 \label{sec:comparisonTechniques}
@@ -119,32 +119,57 @@ which the \textit{Checksims} core will handle as it currently does.
 \subsubsection{AST Fingerprinting}
 ASTs are by definition abstract --- in their raw form they have very little
 contextual information, and as such many re-orderings and recombinations may
-have the same or similar meanings. A comprehensive way to compare nodes in
-an AST is through a method called fingerprinting. This method involves using
-one AST to build a ``dictionary'', or mapping, from every node to a fingerprint
-of that node. This allows fast lookup and comparison of every node in the
-AST\@. The fingerprint of each node may be calculated using heuristics and
-based on such features as child count, specialized type tags on tree nodes, and
-even the hash values of children. The selected technique involved XORing a
-cryptgraphic hash of the type of tree node together with the fingerprint of
-every child AST\@. This technique is called a ``rolling checksum'' as each
-fingerprint / checksum is calculated by recursing down the tree. The exact code
-used for generating fingerprints can be seen in Appendix A. An example of how
-rolling checksums work on a tree is shown:
+have the same or similar meanings. A comprehensive way to compare nodes in an
+AST is through a method called fingerprinting. This method involves using one
+AST to build a ``dictionary'', or mapping, from every node to a fingerprint of
+that node. Using the generated dictionary, it is possible to traverse any other
+AST, and search all nodes for similar counterparts efficiently. This method
+eliminates the need to compare conceptually different nodes, such as classes
+and control blocks. This method also ignores nodes that are otherwise
+dissimilar, such as functions with different argument counts. The fingerprint
+of each node may be calculated using heuristics and based on such features as
+child count, specialized type tags on tree nodes, and even the hash values of
+children. The selected technique involved XORing a cryptgraphic hash of the
+type of tree node together with the fingerprint of every child AST\@. This
+technique is called a ``rolling checksum'' as each fingerprint / checksum is
+calculated by recursing down the tree. The exact code used for generating
+fingerprints can be found in Appendix A. The following code is transformed into
+an AST, on which hash values are calculated in a rolling fasion. Both the code
+and the AST with hash values are shown below.
 
-AN IMAGE WILL BE PLACED HERE ONCE WE MAKE ONE
+\begin{figure}
+    \begin{lstlisting}
+x = 2
+y = 3
+if x<y:
+  print ``y is bigger than x''
+    \end{lstlisting}\label{fig:ast}
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/ast.png}
+    \caption{In this example, it is shown how a basic sample of code is
+    transformed, as well as showing the parent connections of nodes and their
+    names and fingerprints.}
+\end{figure}
 
-Using the generated dictionary, it is possible to traverse any other AST, and
-search all nodes for similar counterparts efficiently. This method eliminates
-the need to compare conceptually different nodes, such as classes and control
-blocks. This method also ignores nodes that are otherwise dissimilar, such as
-functions with different argument counts. 
+\begin{figure}\label{fig:ast_same}
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/ast_same.png}
+    \caption{In this example, it is shown how the rolling checksims affects
+        nodes with the same name. Note that the two lowest nodes, each named
+        ``SAME'' have the same fingerprint. The second node on the second row
+        and the first node on the first row also have the name ``SAME'',
+        however each of these have radically different fingerprints than the
+        two lowest nodes with whom they share a name. Fingerprints in both of
+        these examples are generated using code identical to that which is
+        contained in \textit{Checksims}.}
+\end{figure}
+\clearpage
 
+\paragraph{Fingerprint Collision}
 During the implementation and testing of the fingerprinting method, it was
 discovered that if two nodes in the AST had the same fingerprint (referred to
-as a hash collision), one of the mappings would be lost when stored in the
-fingerpring dictionary. An attempt at fixing this problem was made, however
-this caused the runtime to increase by more than one hundred fold. 
+as a hash collision or fingerprint collision), one of the mappings would be
+lost when stored in the fingerpring dictionary. An attempt at fixing this
+problem was made, however this caused the runtime to increase by more than one
+hundred fold, as truely similar nodes were being kept separately.
 
 After more extensive testing, it was discovered that almost all instances of
 hash collisions occured on truely identical nodes in the AST\@. This was
@@ -194,8 +219,15 @@ be valid directories or zip files on a users computer, therefore, users will be
 promped in the form of a file selection dialog.  Algorithms may only be
 selected from a set of valid algorithms implemented by \textit{Checksims},
 therefore, users will be promped in the form of a populated dropdown menu. A
-mockup of the \textit{Checksims} launcher GUI is shown below.  INSERT IMAGE
-HERE, TAG IT AS A FIGURE, ETC
+mockup of the \textit{Checksims} launcher GUI is shown below.
+\begin{figure}\label{fig:gui_mockup}
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/mockup.png}
+    \caption{This mockup uses the WPI Colors, as set forth in the WPI Logo
+    Usage Guite\cite{wpi_logo_guide}. It is intended that the comparison
+    process will be initiated when the user presses the ``Run Checksims''
+    button.}
+\end{figure}
+\newpage
 
 \subsection{Displaying Output in a GUI}
 After \textit{Checksims} has finished calculations, it must render the results

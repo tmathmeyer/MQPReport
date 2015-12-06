@@ -12,8 +12,8 @@ algorithm are brought to light. The goal of comparing Smith-Waterman to an AST
 comparison algorithm is to show the strengths and weaknesses of each when
 applied to real world examples. This includes metrics like runtime and memory
 consumption, in addition to false positive and missed instances of plagerism.
-The results measured from both of these algorithms are discussed later in the
-report.
+The results measured from both of these algorithms are discussed further on in
+this paper.
 
 \subsection{Time Complexity}
 \label{sec:comparison-timecomplex}
@@ -40,10 +40,10 @@ time consuming process, and because this step runs in $O(n^{2})$ time, it has a
 significant impact on the overall runtime of the \textit{Checksims} program.
 
 \subsubsection{AST Fingerprinting}
-The simple implementation of AST fingerprinting also consists of two parts,
-much like Smith-Waterman. The first step however is reletively time consuming,
-as a tree must be constructed from the submitted source code. This result is
-cached so that each assignment needs only to be parsed once. This overall has a
+The implementation of AST fingerprinting also consists of two parts, much like
+Smith-Waterman. The first step however is reletively time consuming, as a tree
+must be constructed from the submitted source code. This result is cached so
+that each assignment needs only to be parsed once. This overall has a
 reletively small impact on the overall performance because it is part of the
 $O(n)$ step of the process. Where AST Fingerprinting excels is in the
 comparison, which is simply a sequence of hashmap lookups and some arithmetic.
@@ -51,8 +51,7 @@ As this step is run $O(n^{2})$ times, its runtime is significant to the overall
 runtime. Because the AST fingerprinting algorithm does not do expensive
 calculations during the $O(n^{2})$ step, we can expect it to scale better than
 the Smith-Waterman algorithm; that is, for large assignments, we expect AST
-fingerprinting to be significantly faster than Smith-Waterman. This is shown
-to be true, as is discussed in the results section.
+fingerprinting to be significantly faster than Smith-Waterman.
 
 \subsection{Relationship to Manual inspection}
 Based on the previous experience of one of the authors (TJM) as a member of
@@ -63,7 +62,7 @@ indentation and spacing between lines of code, as well as the organisation of
 control-flow within the program. AST Fingerprinting is designed to detect
 similarities in control-flow organisation, but may not pick up the other main
 signal of unauthorized copying: typographical similarities such as the spelling
-of words and variable named. Smith-Waterman does exactly the opposite; it
+of words and identifier names. Smith-Waterman does exactly the opposite; it
 detects only similiarities in spelling and using tokenisation to completely
 ignore structural differences. Prior experience as teaching staff have shown
 that manually comparing structure yields a more accurate indication of
@@ -72,14 +71,20 @@ unauthorized copying when compared to typographical comparisons.
 \clearpage
 \subsection{Example of Plagerism}
 \input{codecompare.ltx}
-This code is a subset of the code submitted by students 16 and 64 for assignment five
-in A term 2015. While these snippets of code are not identical, upon examination it
-becomes apparent that the only difference between them is the names of functions and
-variables. The other four files in this submission are similar in this regard as well.
-When the Smith-Waterman algorithm is used to compare these two assignments, they have
-a reported similarity percentage of 32 and 34 percent. When the AST Comparison algorithm
-is used, the reported similarity is 100 percent in both directions. This ramifications
-of this results are discussed in the results section of the paper.
+This code is a subset of the code submitted by students 14 and 64 for
+assignment five in the Introduction to Computer Science for Non--Majors, taught
+in A term 2015 using python. While these snippets of code are not identical,
+upon examination it becomes apparent that the only difference between them is
+the names of functions and variables. The other four files in this submission
+are similar in this regard as well.  When the Smith-Waterman algorithm is used
+to compare these two assignments, they have a reported similarity percentage of
+32 and 34 percent. When the AST Comparison algorithm is used, the reported
+similarity is 100 percent in both directions. If this pair of students had been
+caught while the course was in session, they most certainly would have been
+asked to talk to the professor about the blatant attempt at not only copying
+code in an unauthorized manner, but attempting to hide the fact that they did
+so. This ramifications of this results are discussed in the results section of
+the paper.
 
 \section{Comparison to MOSS}
 The \textit{Measure of Software Similarity}\cite{MOSS}, often referred to as
