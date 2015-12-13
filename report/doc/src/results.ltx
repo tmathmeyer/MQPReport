@@ -1,6 +1,13 @@
 \section{Results}
 \subsection{AST Compare vs Smith Waterman}
 \subsubsection{Runtime}
+The time taken by \textit{Checksims} to identify similarities is heavily
+dependant apon the number of assignments being tested and by the algorithm used
+to do the comparison. The following graphs show that the AST comparison
+algorithm is significantly faster than Smith Waterman. While the amound of time
+taken is rather trivial for smaller assignments, it is plausible to assume that
+\textit{Checksims} may be run on a corpus with many hundreds of assignments; at
+such a scale, the runtime may be many orders of magnitude different.
 \input{runtime_plot_small.ltx}
 \\
 \\
@@ -8,7 +15,7 @@ This graph shows the number of seconds taken by both Smith Waterman and AST
 Comparison to compute a similarity matrix for corpora with fewer than 100
 assignments. A best fit line was constructed for each set of points, showing
 that AST Fingerprinting ranges anywhere from 33 percent to 75 faster than the
-Smith Waterman Algorithm. The raw data for this graph can be found in appendix
+Smith Waterman Algorithm. The raw data for this graph can be found in Appendix
 E.
 \\
 \\
@@ -42,7 +49,8 @@ Smith Waterman identified similarities between
     \item students 12 and 16
     \item students 10 and 53
 \end{itemize}
-All four of these pairs were found to have been most likely involved in unauthorized copying after manual inspection of their submissions.
+Manual inspection of these four pairs of assignments show that it is highly
+likely that the students in question were involved in unauthorized copying.
 
 In corpus 4.c15.4, Smith Waterman
 detected similarity between four pairs of students: 
@@ -63,14 +71,14 @@ following pairs of students:
     \item students 0 and 17
     \item students 83 and 79
 \end{itemize}
-Assignments 71 and 20 did not compile due to syntax errors created during the
+Students 71 and 20 did not compile due to syntax errors created during the
 anonymization process, as student names were included in parts of the code. AST
-Analysis was therefore not able to have been run on this pair. It is interesting
-that while Smith Waterman detected similarities between the pair (54 and 8) and
-the pair (54 and 4), it did not detect similarity between the pair (4 and 8),
-while AST Comparison did. Manual verification of these assignments shows that
-all of them were likely instances of unauthorized copying, though this was
-disputed for the pair of students 84 and 42.
+Analysis was therefore not able to have been run on this pair. It is
+interesting that while Smith Waterman detected similarities between the pair
+(54 and 8) and the pair (54 and 4), it did not detect similarity between the
+pair (4 and 8), while AST Comparison did. Manual verification of these
+assignments shows that all of them were likely instances of unauthorized
+copying, though this was disputed for the pair of students 84 and 42.
 \paragraph{In Java}
 The single Java corpus (!!TODO!!) was tested with both Smith Waterman and AST
 Comparison. Smith Waterman detected similarities between the following:

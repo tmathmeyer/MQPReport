@@ -35,8 +35,8 @@ comes directly from the code, and means any structure from which a percentage
 can be calculated.  Submission text can be transformed into different types of
 percentables and memoized\footnote{Memoization is a technique in programming
 where results of previous computations are cached so that they must not be
-calcualted multiple times} by their type. Algorithms are now based on the
-percentable type on which they operate, and are responsible for informing the
+calculated multiple times} by their type. Algorithms are now based on the
+percentable type on which they operate and are responsible for informing the
 \textit{Checksims} runner which type of percentable generator they would like
 to use. The new architecture should allow a significantly broader range of
 algorithms to be implemented against the underlying comparson mechanism. A
@@ -74,7 +74,7 @@ submissions are transformed into ASTs. Parsing is a very difficult task
 however, and writing an objectively and provably correct parser from scratch
 was not a feasable task for this project. Considering this restriction, the
 decision was made to use \textit{ANTLR}, a parser-generator created by
-Professor Terrence Parr of the University of San Francisco\cite{antlr-lang}.
+Professor Terrence Parr of the University of San Francisco~\cite{antlr-lang}.
 Parser generators work by allowing a grammar to be specified in the form of a
 file that specifies the constructs that are valid in the target language. ANTLR
 then takes a grammar and converts it into a parser written in either C\# or
@@ -84,17 +84,18 @@ grammar for a language is a difficult task. A grammar file for Java8 alone is
 upwards of 1500 lines long and is highly complex.
 
 So that AST analysis may be usable on the original target languages of Java, C,
-and Python, grammars for each of these languages must be created. To complicate
-matters further, language specifications are fluid; in 2014 the C and Java
-language specifications were updated, and Java is set to have another in
-September 2016.  Python is in somewhat of a civil war between versions 2.7 and
-3.4 (soon to be 3.5!), and the decision was made to target the newest version,
-as it is the version taught at WPI@. Changes to a language specification
-require significant overhauling of a grammar, parser, and parser-AST interop
-layer. With this concern in mind, the grammar and parser-AST interop layers are
-being designed to be as modular as possible. It is unavoidable therefore that
-there will need to be future work done on \textit{Checksims} to keep the
-parsers and interop layers up to date with the language specifications.
+C++, and Python, grammars for each of these languages must be created. To
+complicate matters further, language specifications are fluid; in 2014 the C
+and Java language specifications were updated, and Java is set to have another
+in September 2016.  Python is in somewhat of a civil war between versions 2.7
+and 3.4 (soon to be 3.5!), and the decision was made to target the newest
+version, as it is the version taught at WPI\@. Changes to a language
+specification require significant overhauling of a grammar, parser, and
+parser-AST interop layer. With this concern in mind, the grammar and parser-AST
+interop layers are being designed to be as modular as possible. It is
+unavoidable therefore that there will need to be future work done on
+\textit{Checksims} to keep the parsers and interop layers up to date with the
+language specifications.
 
 \subsection{AST Interop Layer}
 \label{sec:interopLayer}
@@ -176,7 +177,7 @@ hash collisions occured on truely identical nodes in the AST\@. This was
 considerable evidence that there is no need to worry about collisions.
 Mathematically, for any given tree with 10000 nodes, the chance of collision is
 1.16 percent\footnote{This is a variation on the Birthday Problem. The
-    probability of collision for n nodes can be found by
+    probability of collision for $n$ nodes can be found by
     $p(n)=1-\frac{I!}{I^n*(I-n)!}$ where $I$ is the number of values that a
 hash could be, in this case, $I = 2^{32} -1$}.\ For a tree with 20000 nodes,
 the chance is 4.55 percent. The average number of nodes per submission in the
@@ -204,10 +205,10 @@ foreseeable that less technical people may want to use \textit{Checksims}.
 
 \subsection{Mapping the CLI to a GUI}
 \textit{Checksims} has both optional and required flags, some of which take
-multiple arguments. To transform this into a user interface, the required flags
-will be central to the view of the user. Optional flags may be hidden under an
-``Advanced'' or other menu. In the current state, \textit{Checksims} requires
-only three flags:
+multiple arguments. To transform this into a graphical user interface, the
+required flags will be central to the view of the user. Optional flags may be
+hidden under an ``Advanced'' or other menu. In its current state,
+\textit{Checksims} requires only three flags:
 \begin{itemize}
     \item -s, --submissiondir [source,[sources]]: a list of directories
     \item -a, --algorithm [name]: a \textit{Checksims} algorithm
@@ -215,15 +216,15 @@ only three flags:
 \end{itemize}
 Since the GUI will be capturing the output, only the submissions and algorithm
 will have to be configurable through the interface. Submission directories must
-be valid directories or zip files on a users computer, therefore, users will be
-promped in the form of a file selection dialog.  Algorithms may only be
-selected from a set of valid algorithms implemented by \textit{Checksims},
-therefore, users will be promped in the form of a populated dropdown menu. A
-mockup of the \textit{Checksims} launcher GUI is shown below.
+be valid directories or zip files on a user's computer; users will be promped
+in the form of a file selection dialog.  Algorithms may only be selected from a
+set of valid algorithms implemented by \textit{Checksims}, therefore, users
+will be promped in the form of a populated dropdown menu. A mockup of the
+\textit{Checksims} launcher GUI is shown below.
 \begin{figure}\label{fig:gui_mockup}
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/mockup.png}
     \caption{This mockup uses the WPI Colors, as set forth in the WPI Logo
-    Usage Guite\cite{wpi_logo_guide}. It is intended that the comparison
+    Usage Guide~\cite{wpi_logo_guide}. It is intended that the comparison
     process will be initiated when the user presses the ``Run Checksims''
     button.}
 \end{figure}

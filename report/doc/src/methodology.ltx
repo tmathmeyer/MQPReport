@@ -9,15 +9,16 @@ challenges are more in the realm of ethics than technical difficulties.
 Allowing the research team access to student assignments may not only be
 considered improper for reasons of privacy, but are almost certainly in
 violation of university regulations. To mitigate the issues of testing
-\textit{Checksims} on a real corpus of data, such a corpus must be altered such
-that each assignment becomes anonymous, or testing must be done by course staff
-who are informed and capable of submitting bug reports and debug information.
+\textit{Checksims} on a real corpus of data, such a corpus must be altered to
+make each assignment anonymous, or testing must be done by a member of the
+course staff for the assignment being examined who is also capable of providing
+debugging information.
 
 \subsection{Anonymization}
 Three scripts were created to process assignments and strip from them all
 indication of student identity; each language requires its own method of
 stripping comments and names. Professors were asked to run these scripts on
-archived student submissions before making the anonymized version availible to
+archived student submissions before making the anonymized version available to
 the research team. A verification script was also provided in order to ensure
 that no student names or usernames remained after the anonymization script was
 run. Java and C share a common style of commenting, though C programs can also
@@ -35,17 +36,17 @@ scripts used for making assignments anonymous can be found in appendicies B and
 C. The validation script for checking anonymity can be found in appendix D.
 
 \subsection{Output of \textit{Checksims}}
-Between any two assignments A and B, there are two percentages generated ---
-the percentage of A that is matched in B, and the percentage of B that is
-matched in A. These values are separate, as they may not be the same. If one
-assignment is a strict subset of the other, the percentages will be 100 percent
-on one side, and some value less than 100 percent on the other.  These are
-referred to as the matching value and inverse matching value. There are two
-forms of output most commonly used by \textit{Checksims}: the HTML view and the
-threshold printer view. The HTML view depicts a matrix with the comparison
-percentages for every pair of assignments, excluding assignments compared with
-themselves. Each space in the matrix is also color coded from a faint yellow
-for low matching percentages to a bright red for high matching percentages. The
+Between any two assignments A and B, two percentages are generated --- the
+percentage of A that is matched in B, and the percentage of B that is matched
+in A. These values are separate, as they may not be the same. If one assignment
+is a strict subset of the other, the percentages will be 100 percent on one
+side, and some value less than 100 percent on the other.  These are referred to
+as the matching value and inverse matching value. There are two forms of output
+most commonly used by \textit{Checksims}: the HTML view and the threshold
+printer view. The HTML view depicts a matrix with the comparison percentages
+for every pair of assignments, excluding assignments compared with themselves.
+Each space in the matrix is also color coded from a faint yellow for low
+matching percentages to a bright red for high matching percentages. The
 threshold printer sorts each pair by the maximum of \{matching value, inverse
 matching value\}. Any pairs over a specified percentage will be reported, with
 the default limit being 70 percent.
@@ -54,6 +55,8 @@ the default limit being 70 percent.
 \subsubsection{Testing Corpora}
 Listed below is the set of corpora used for testing \textit{Checksims}. Each
 corpus will be referenced in the results section by the name provided here.
+Each corpus was taken from a course at WPI, and was anonymized before being
+given to the authors.
 \\
 \\
 \begin{minipage}{\linewidth}

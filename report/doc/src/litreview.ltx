@@ -26,7 +26,7 @@ Heon and Murvihill thoroughly reviewed a number of existing methods of
 identifying duplicate code. As \textit{Checksims} was originally intended to
 perform language independent identification, it did not use syntax tree based
 methods. Heon and Murvihill evaluated many methods for textual comparison and
-decided that the Smith-Waterman algorithm would be the best option.
+settled on the Smith-Waterman algorithm as the best option.
 
 \subsubsection{Detection of Dishonesty using Syntax Trees}
 The original \textit{Checksims} paper also mentioned that  detecting academic
@@ -38,14 +38,14 @@ for natural written languages.  LISP programming languages such as Guile,
 Scheme, and CommonLISP are all fairly popular in academic settings and in niche
 industrial settings. LISP was developed by John McCarthy at the Massachusetts
 Institute of Technology in 1958\cite{original-lisp}. Despite its continued use
-and popularity for over 50 years, the grammar for lisp is incredibly simple.
-The following is an example grammar for the lisp language, expressed as an
+and popularity for over 50 years, the grammar for LISP is incredibly simple.
+The following is an example grammar for the LISP language, expressed as an
 ANTLR\cite{antlr-lang} grammr. 
 
-\lstinputlisting{S-expr.g4} % SExpression (lisp) grammar file
+\lstinputlisting{S-expr.g4} % SExpression (LISP) grammar file
 
 This grammar definition shows that LISP languages are just textual
-representations of an N-dimensional tree, with IDs as leaf nodes and sExprs as
+representations of N-dimensional trees, with IDs as leaf nodes and sExprs as
 branches. The difficulty of detecting dishonesty by transforming text into an
 AST is that if the submitted text does not correctly implement the expected
 grammar, a tree cannot be generated and comparison cannot happen. This is
