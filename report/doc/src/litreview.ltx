@@ -37,10 +37,10 @@ computer programs called compilers, and are significantly simpler than grammars
 for natural written languages.  LISP programming languages such as Guile,
 Scheme, and CommonLISP are all fairly popular in academic settings and in niche
 industrial settings. LISP was developed by John McCarthy at the Massachusetts
-Institute of Technology in 1958\cite{original-lisp}. Despite its continued use
+Institute of Technology in 1958~\cite{original-lisp}. Despite its continued use
 and popularity for over 50 years, the grammar for LISP is incredibly simple.
 The following is an example grammar for the LISP language, expressed as an
-ANTLR\cite{antlr-lang} grammr. 
+ANTLR~\cite{antlr-lang} grammr. 
 
 \lstinputlisting{S-expr.g4} % SExpression (LISP) grammar file
 
@@ -55,13 +55,13 @@ valid for the language in which they are written.
 
 % Throw in methods here from various papers.
 \paragraph{Using the Vector Space Model on Syntax Trees}
-In the \textit{STVsm}\cite{STVsm} paper, Li, Shen, Li, Zhang, and Li posed an
+In the \textit{STVsm}~\cite{STVsm} paper, Li, Shen, Li, Zhang, and Li posed an
 interesting syntax tree based approach to similarity detection. The process
 begins by generating an AST from C code. This AST is then transformed into a
 string in the form of \textit{s-expressions}. To compare any two documents in
 this way, multiple string similarity techniques may be applied, including
 \textit{Levenshtein Distance}, \textit{Greedy String Tiling}, and the
-\textit{Vector Space Model Method}\cite{STVsm}.  This idea is novel for a
+\textit{Vector Space Model Method}~\cite{STVsm}.  This idea is novel for a
 number of reasons. It is based on the syntax tree of the associated language,
 but it does not directly rely on comparing the structure of the syntax trees.
 Instead, it generates a ``sanitized''  version of the document, and uses
@@ -71,7 +71,7 @@ improved results over plaintext comparison methods.
 
 \paragraph{Syntax Tree Fingerprinting}
 Syntax Tree Fingerprinting presents an efficient method of locating
-structurally similar portions of two syntax trees\cite{STFingerprinting}. The
+structurally similar portions of two syntax trees~\cite{STFingerprinting}. The
 fingerprinting technique stores each tree in two forms: an original AST
 structure and as a mapping from ``fingerprint'' to a node of the tree. A
 fingerprint is another name for a hash or checksum, and one example would be a
