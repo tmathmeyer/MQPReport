@@ -2,19 +2,19 @@
 Heon and Murvihill put together a large and comprehensive review of existing
 literature on similarity detection in their original \textit{Checksims}
 \cite{checksims1} paper. Many of the definitions and terms used herein are
-based on their work.  The original codebase they created has also been extended
-as part of this project.
+based on their work.  The original code base they created has also been
+extended as part of this project.
 
 \subsection{Academic Dishonesty}
 The Heon and Murvihill provided a comprehensive set of examples and scenarios
 where academic dishonesty is the hardest to distinguish. As they noted, an
-instance of ``100\% similarity was almost certainly indicitive of unauthorized
+instance of ``100\% similarity was almost certainly indicative of unauthorized
 copying''~\cite{checksims1}, but there are many scenarios where determining
 whether a submission constitutes dishonest behavior is not as simple.
 
 \subsection{Detecting Academic Dishonesty}
 Code similarity detection is a practice that is used for identifying academic
-dishonesty, duplicate code in large code bases for the purpose of optimisation
+dishonesty, duplicate code in large code bases for the purpose of optimization
 and cleaning, and for identifying instances of copyright infringement. While
 these goals differ in minor ways, they generally share the same base goal: to
 identify duplication despite intentional obfuscation or accidental duplication.
@@ -35,12 +35,12 @@ dishonesty in natural language. This is due to the fact that programming
 languages follow highly specific grammars that are designed to be understood by
 computer programs called compilers, and are significantly simpler than grammars
 for natural written languages.  LISP programming languages such as Guile,
-Scheme, and CommonLISP are all fairly popular in academic settings and in niche
-industrial settings. LISP was developed by John McCarthy at the Massachusetts
-Institute of Technology in 1958~\cite{original-lisp}. Despite its continued use
-and popularity for over 50 years, the grammar for LISP is incredibly simple.
-The following is an example grammar for the LISP language, expressed as an
-ANTLR~\cite{antlr-lang} grammr. 
+Scheme, and Common LISP are all fairly popular in academic settings and in
+niche industrial settings. LISP was developed by John McCarthy at the
+Massachusetts Institute of Technology in 1958~\cite{original-lisp}. Despite its
+continued use and popularity for over 50 years, the grammar for LISP is
+incredibly simple.  The following is an example grammar for the LISP language,
+expressed as an ANTLR~\cite{antlr-lang} grammar. 
 
 \lstinputlisting{S-expr.g4} % SExpression (LISP) grammar file
 
@@ -66,8 +66,8 @@ number of reasons. It is based on the syntax tree of the associated language,
 but it does not directly rely on comparing the structure of the syntax trees.
 Instead, it generates a ``sanitized''  version of the document, and uses
 generic text comparison methods to detect similarities. This allows the methods
-to ignore plaintext obfuscation that would not appear on the AST, and had
-improved results over plaintext comparison methods.
+to ignore plain text obfuscation that would not appear on the AST, and had
+improved results over plain text comparison methods.
 
 \paragraph{Syntax Tree Fingerprinting}
 Syntax Tree Fingerprinting presents an efficient method of locating

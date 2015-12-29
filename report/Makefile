@@ -10,6 +10,11 @@ BIBLIOGRAPHY=$(LXSRC)/bibliography.bib
 
 all: main
 
+publish: proofread main
+
+proofread:
+	./spellcheck.sh
+
 builddir:
 	mkdir -p $(LATEX_ROOT)/dist
 

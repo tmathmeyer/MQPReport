@@ -8,8 +8,7 @@ on structure rather than on content. There will also be significant work
 towards the goal of making \textit{Checksims} as usable as possible for course
 staff, including an archiving system for comparing previous year's submissions
 and a user interface to complement the command line. With these new goals in
-mind,
-a comprehensive set of goals has been created:
+mind, a comprehensive set of goals has been created:
 \begin{itemize}
     \item \textit{Checksims} should be usable by course staff with very little
         or no training, and should produce output in a form that can be easily
@@ -26,7 +25,7 @@ a comprehensive set of goals has been created:
 
 \section{Approach}
 \label{sec:approach}
-The additions to \textit{Checksims} required some rearchitecture. The previous
+The additions to \textit{Checksims} required some re-architecture. The previous
 \textit{Checksims} algorithm abstraction only allowed for tokenization-based
 algorithms. Since the structure comparison algorithms are based on trees rather
 than lists, the \textit{Checksims} architecture had to be redesigned.  In this
@@ -39,11 +38,11 @@ calculated multiple times} by their type. Algorithms are now based on the
 percentable type on which they operate and are responsible for informing the
 \textit{Checksims} runner which type of percentable generator they would like
 to use. The new architecture should allow a significantly broader range of
-algorithms to be implemented against the underlying comparson mechanism. A
+algorithms to be implemented against the underlying comparison mechanism. A
 description of the updated \textit{Checksims} pipeline is as follows:
 
 \begin{enumerate}
- \item Student submissions are read from the filesystem, and multi-file
+ \item Student submissions are read from the file system, and multi-file
      submissions are concatenated into a single string.
  \item Submissions are passed into a \textit{common code remover}, which
      removes code designated as ``common'' from all submissions to ensure that
@@ -72,7 +71,7 @@ and converting it into a structure that can be operated on more easily. This is
 key to performing AST analysis because it is the process by which student
 submissions are transformed into ASTs. Parsing is a very difficult task
 however, and writing an objectively and provably correct parser from scratch
-was not a feasable task for this project. Considering this restriction, the
+was not a feasible task for this project. Considering this restriction, the
 decision was made to use \textit{ANTLR}, a parser-generator created by
 Professor Terrence Parr of the University of San Francisco~\cite{antlr-lang}.
 Parser generators work by allowing a grammar to be specified in the form of a
@@ -91,23 +90,23 @@ in September 2016.  Python is in somewhat of a civil war between versions 2.7
 and 3.4 (soon to be 3.5!), and the decision was made to target the newest
 version, as it is the version taught at WPI\@. Changes to a language
 specification require significant overhauling of a grammar, parser, and
-parser-AST interop layer. With this concern in mind, the grammar and parser-AST
-interop layers are being designed to be as modular as possible. It is
-unavoidable therefore that there will need to be future work done on
-\textit{Checksims} to keep the parsers and interop layers up to date with the
-language specifications.
+parser-AST interoperability layer. With this concern in mind, the grammar and
+parser-AST interoperability layers are being designed to be as modular as
+possible. It is unavoidable therefore that there will need to be future work
+done on \textit{Checksims} to keep the parsers and interoperability layers up
+to date with the language specifications.
 
-\subsection{AST Interop Layer}
-\label{sec:interopLayer}
-The ANTLR parser generator creates structures called \textit{Parser Rule
-Contexts} \textit{(PRCs)}. While these structures exist in a tree based form,
-they are hard to work with and contain extra metadata that must be removed in
-order to quickly and accurately perform the comparison techniques. To solve
-this problem, \textit{Checksims} uses a consistent and language independent AST
-representation with support for tagging and fingerprinting. To convert between
-a \textit{PRC} and a \textit{Checksims} AST, every parser must also have an
-associated \textit{Treewalker} --- an object designed to examine every node of
-a \textit{PRC} tree and convert it to a \textit{Checksims} AST\@.
+\subsection{AST Interoperability Layer}
+\label{sec:interopLayer} The ANTLR parser generator creates structures called
+\textit{Parser Rule Contexts} \textit{(PRCs)}. While these structures exist in
+a tree based form, they are hard to work with and contain extra meta data that
+must be removed in order to quickly and accurately perform the comparison
+techniques. To solve this problem, \textit{Checksims} uses a consistent and
+language independent AST representation with support for tagging and
+fingerprinting. To convert between a \textit{PRC} and a \textit{Checksims} AST,
+every parser must also have an associated \textit{Treewalker} --- an object
+designed to examine every node of a \textit{PRC} tree and convert it to a
+\textit{Checksims} AST\@.
 
 \subsection{Comparison Techniques}
 \label{sec:comparisonTechniques}
@@ -119,24 +118,24 @@ which the \textit{Checksims} core will handle as it currently does.
 
 \subsubsection{AST Fingerprinting}
 ASTs are by definition abstract --- in their raw form they have very little
-contextual information, and as such many re-orderings and recombinations may
-have the same or similar meanings. A comprehensive way to compare nodes in an
-AST is through a method called fingerprinting. This method involves using one
-AST to build a ``dictionary'', or mapping, from every node to a fingerprint of
-that node. Using the generated dictionary, it is possible to traverse any other
-AST, and search all nodes for similar counterparts efficiently. This method
-eliminates the need to compare conceptually different nodes, such as classes
-and control blocks. This method also ignores nodes that are otherwise
-dissimilar, such as functions with different argument counts. The fingerprint
-of each node may be calculated using heuristics and based on such features as
-child count, specialized type tags on tree nodes, and even the hash values of
-children. The selected technique involved XORing a cryptgraphic hash of the
-type of tree node together with the fingerprint of every child AST\@. This
-technique is called a ``rolling checksum'' as each fingerprint / checksum is
-calculated by recursing down the tree. The exact code used for generating
-fingerprints can be found in Appendix A. The following code is transformed into
-an AST, on which hash values are calculated in a rolling fasion. Both the code
-and the AST with hash values are shown below.
+contextual information, and as such many re-orderings and different
+combinations may have the same or similar meanings. A comprehensive way to
+compare nodes in an AST is through a method called fingerprinting. This method
+involves using one AST to build a ``dictionary'', or mapping, from every node
+to a fingerprint of that node. Using the generated dictionary, it is possible
+to traverse any other AST, and search all nodes for similar counterparts
+efficiently. This method eliminates the need to compare conceptually different
+nodes, such as classes and control blocks. This method also ignores nodes that
+are otherwise dissimilar, such as functions with different argument counts. The
+fingerprint of each node may be calculated using heuristics and based on such
+features as child count, specialized type tags on tree nodes, and even the hash
+values of children. The selected technique involved XORing a cryptographic hash
+of the type of tree node together with the fingerprint of every child AST\@.
+This technique is called a ``rolling checksum'' as each fingerprint / checksum
+is calculated by recursively operating down the tree. The exact code used for
+generating fingerprints can be found in Appendix A. The following code is
+transformed into an AST, on which hash values are calculated in a rolling
+fashion. Both the code and the AST with hash values are shown below.
 
 \begin{figure}
     \begin{lstlisting}
@@ -153,7 +152,7 @@ if x<y:
 
 \begin{figure}\label{fig:ast_same}
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/ast_same.png}
-    \caption{In this example, it is shown how the rolling checksums affects
+    \caption{In this example, it is shown how the rolling checksum affects
         nodes with the same name. Note that the two lowest nodes, each named
         ``SAME'' have the same fingerprint. The second node on the second row
         and the first node on the first row also have the name ``SAME'',
@@ -168,12 +167,12 @@ if x<y:
 During the implementation and testing of the fingerprinting method, it was
 discovered that if two nodes in the AST had the same fingerprint (referred to
 as a hash collision or fingerprint collision), one of the mappings would be
-lost when stored in the fingerpring dictionary. An attempt at fixing this
-problem was made, however this caused the runtime to increase by more than one
-hundred fold, as truely similar nodes were being kept separately.
+lost when stored in the fingerprint dictionary. An attempt at fixing this
+problem was made, however this caused the execution time to increase by more than one
+hundred fold, as truly similar nodes were being kept separately.
 
 After more extensive testing, it was discovered that almost all instances of
-hash collisions occured on truely identical nodes in the AST\@. This was
+hash collisions occurred on truly identical nodes in the AST\@. This was
 considerable evidence that there is no need to worry about collisions.
 Mathematically, for any given tree with 10000 nodes, the chance of collision is
 1.16 percent\footnote{This is a variation on the Birthday Problem. The
@@ -217,14 +216,14 @@ hidden under an ``Advanced'' or other menu. In its current state,
 \end{itemize}
 Since the GUI will be capturing the output, only the submissions and algorithm
 will have to be configurable through the interface. Submission directories must
-be valid directories or zip files on a user's computer; users will be promped
+be valid directories or zip files on a user's computer; users will be prompted
 in the form of a file selection dialog.  Algorithms may only be selected from a
 set of valid algorithms implemented by \textit{Checksims}, therefore, users
-will be promped in the form of a populated dropdown menu. A mockup of the
+will be prompted in the form of a populated drop-down menu. A mock up of the
 \textit{Checksims} launcher GUI is shown below.
 \begin{figure}\label{fig:gui_mockup}
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/mockup.png}
-    \caption{This mockup uses the WPI Colors, as set forth in the WPI Logo
+    \caption{This mock up uses the WPI Colors, as set forth in the WPI Logo
     Usage Guide~\cite{wpi_logo_guide}. It is intended that the comparison
     process will be initiated when the user presses the ``Run Checksims''
     button.}

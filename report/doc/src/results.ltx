@@ -1,13 +1,13 @@
 \section{Results}
 \subsection{AST Compare vs Smith Waterman}
-\subsubsection{Runtime}
+\subsubsection{Execution time}
 The time taken by \textit{Checksims} to identify similarities is heavily
-dependant apon the number of assignments being tested and by the algorithm used
+dependent upon the number of assignments being tested and by the algorithm used
 to do the comparison. The following graphs show that the AST comparison
-algorithm is significantly faster than Smith Waterman. While the amound of time
+algorithm is significantly faster than Smith Waterman. While the amount of time
 taken is rather trivial for smaller assignments, it is plausible to assume that
 \textit{Checksims} may be run on a corpus with many hundreds of assignments; at
-such a scale, the runtime may be many orders of magnitude different.
+such a scale, the execution time may be many orders of magnitude different.
 \input{runtime_plot_small.ltx}
 \\
 \\
@@ -97,7 +97,7 @@ AST Comparison detected similarities between:
 Manual inspection of these six pairs of assignments shows that student 9 did
 not submit valid code, and could not be processed by AST Comparison, but was
 most likely involved in a case of unauthorized copying with student 45.
-Students 195 and 80 appeard to be very similar, but there were enough
+Students 195 and 80 appeared to be very similar, but there were enough
 differences to conclude that these two students did not engage in unauthorized
 copying. All other four pairs were inspected and were found to have almost
 certainly engaged in unauthorized copying.
@@ -105,13 +105,13 @@ certainly engaged in unauthorized copying.
 \paragraph{In C++11}
 
 \subsection{AST Comparison vs MOSS}
-\subsubsection{Runtime}
+\subsubsection{Execution Time}
 MOSS takes on average 14.5 seconds longer to run than the AST Comparison
-algorithm on machine S1. Closer inspection of runtime shows that this is almost
-entirely due to the process of uploading sometimes hundreds of files to the
-Stanford University server where MOSS is run. Subtracting the runtime of the
-upload step, the average runtime actually changes to 0.8 seconds in favor of
-MOSS\@.  MAKE A GRAPH AND PUT IT HERE!!!
+algorithm on machine S1. Closer inspection of execution time shows that this is
+almost entirely due to the process of uploading sometimes hundreds of files to
+the Stanford University server where MOSS is run. Subtracting the execution
+time of the upload step, the average execution time actually changes to 0.8
+seconds in favor of MOSS\@.  MAKE A GRAPH AND PUT IT HERE!!!
 
 \subsubsection{Identified Instances of Similarity}
 For corpora 3.a13.1, 3.a13.2, 3.a13.3, 3.a12.1, 3.a12.2, and 3.a12.3, MOSS and
