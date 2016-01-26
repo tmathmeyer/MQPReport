@@ -25,6 +25,7 @@ $(LATEX_DIST)/main.pdf: $(LXSRC)/main.ltx \
 						$(LXSRC)/litreview.ltx \
 	                    $(LXSRC)/approach.ltx \
 						$(LXSRC)/compare.ltx \
+						$(LXSRC)/*.ltx\
 						$(LXSRC)/methodology.ltx \
 						$(LXSRC)/runtime_plot_small.ltx \
 						$(LXSRC)/runtime_plot_large.ltx \
