@@ -31,14 +31,17 @@ Smith Waterman. Raw data for this graph can be found in Appendix E.
 \subsubsection{Identified Instances of Similarity}
 \paragraph{In Python 3}
 The five Python 3 corpora were each tested with both Smith Waterman and AST
-Comparison. In corpus 4.a15.6 and 4.c15.6, neither Smith Waterman nor AST
-Comparison identified any instances of similarity.
+Comparison.
+\subparagraph{Corpora 4.a15.6 and 4.c15.6}
+In these corpora, neither Smith Waterman nor AST Comparison identified any
+instances of similarity.
+\subparagraph{Corpus 5.a15.5}
+In this corpus, AST Comparison identified similarities between students 14 and
+64, which were verified by hand; Smith Waterman did not detect any similarity
+in this corpus.
 
-In corpus 4.a15.5, AST Comparison identified similarities between students 14
-and 64, which were verified by hand; Smith Waterman did not detect any
-similarity in this corpus.
-
-In corpus 4.c15.5, AST Comparison identified similarities between
+\subparagraph{Corpus 4.c15.5}
+AST Comparison identified similarities between
 \begin{itemize}
     \item students 12 and 16
     \item students 18 and 34
@@ -52,16 +55,15 @@ Smith Waterman identified similarities between
 Manual inspection of these four pairs of assignments show that it is highly
 likely that the students in question were involved in unauthorized copying.
 
-In corpus 4.c15.4, Smith Waterman
-detected similarity between four pairs of students: 
+\subparagraph{Corpus 4.c15.4}
+Smith Waterman detected similarity between four pairs of students:
 \begin{itemize}
     \item students 54 and 8
     \item students 54 and 4
     \item students 71 and 20
     \item students 41 and 18
 \end{itemize}
-On this same corpus, AST Comparison detected similarities between the
-following pairs of students:
+AST Comparison detected similarities between the following pairs of students:
 \begin{itemize}
     \item students 54 and 8
     \item students 54 and 4
@@ -79,6 +81,7 @@ interesting that while Smith Waterman detected similarities between the pair
 pair (4 and 8), while AST Comparison did. Manual verification of these
 assignments shows that all of them were likely instances of unauthorized
 copying, though this was disputed for the pair of students 84 and 42.
+
 \paragraph{In Java}
 The single Java corpus was tested with both Smith Waterman and AST
 Comparison. Smith Waterman detected similarities between the following:
@@ -101,12 +104,10 @@ Students 195 and 80 appeared to be very similar, but there were enough
 differences to conclude that these two students did not engage in unauthorized
 copying. All other four pairs were inspected and were found to have almost
 certainly engaged in unauthorized copying.
-\paragraph{In C89}
-Of the seventy four available C89 corpora, twenty three assignments were
-determined to be candidates for unauthorized copying detection. These twenty
-three corpora were tested with both Smith Waterman and AST comparison.
 
-In corpus 1.b12.2, AST comparison identified the following pair:
+\paragraph{In C89}
+\subparagraph{Corpus 1.b12.2}
+AST comparison identified the following pair:
 \begin{itemize}
     \item students 73 and 93
 \end{itemize}
@@ -117,15 +118,16 @@ Smith Waterman identified the following pairs:
 \end{itemize}
 Upon manual inspection, all were likely to be instances of unauthorized copying.
 
-
-In corpus 1.b12.3, Smith Waterman identified the following pair:
+\subparagraph{Corpus 1.b12.3}
+Smith Waterman identified the following pair:
 \begin{itemize}
     \item students 87 and 89
 \end{itemize}
 Upon manual inspection, this pair was likely to be an instance of unauthorized
 copying.
 
-In corpus 1.b12.4, AST comparison identified the following pair:
+\subparagraph{Corpus 1.b12.4 FIX ME}
+AST comparison identified the following pair:
 \begin{itemize}
     \item students 79 and 82
 \end{itemize}
@@ -138,7 +140,8 @@ Smith Waterman identified the following pairs:
 Upon manual inspection, only the mutually identified pair was likely an instance
 of unauthorized copying.
 
-In corpus 1.b12.5, AST comparison identified the following pairs:
+\subparagraph{Corpus 1.b12.5},
+AST comparison identified the following pairs:
 \begin{itemize}
     \item students 11 and 28
     \item students 11 and 84
@@ -154,11 +157,14 @@ Smith Waterman identified the following pairs:
     \item students 29 and 34
     \item students 74 and 89
 \end{itemize}
-The first triplet was likely unauthorized copying. The second triplet contained
-a syntax error, preventing the AST comparison method from parsing the
-submission. The final identified pair was not significant.
+The first triplet of assignments (11, 12, and 84), detected by both AST
+Comparison and Smith Waterman, is likely a case of unauthorized copying.  The
+second triplet of assignments (8, 29, and 34) was detected only by Smith
+Waterman, as they all contained syntax errors. The final pair of assignments,
+74 and 89, were most likely not an instance of unauthorized copying.
 
-In corpus 1.b12.6, AST comparison identified the following pairs:
+\subparagraph{Corpus 1.b12.6}
+AST comparison identified the following pairs:
 \begin{itemize}
     \item students 8 and 39
     \item students 12 and 45
@@ -170,19 +176,21 @@ Smith Waterman identified the following pair:
     \item students 74 and 89
 \end{itemize}
 The pairs identified by the AST comparison method were manually inspected and
-likely to be instances of unauthorized. The pair identified by the Smith
-Waterman method was not significant.
+likely to be instances of unauthorized copying. The pair identified by the
+Smith Waterman method was likely not an instance of unauthorized copying.
 
-In corpus 1.b13.2, AST comparison identified the following pairs:
+\subparagraph{Corpus 1.b13.2}
+AST comparison identified the following pairs:
 \begin{itemize}
     \item students 3 and 17
     \item students 57 and 76
 \end{itemize}
-Smith Waterman did not identify any submissions for review.
-The pairs identified by the AST comparison method were manually inspected and
-found to be very similar.
+Smith Waterman did not identify any submissions for review.  The pairs
+identified by the AST comparison method were manually inspected and found to be
+likely an instance of unidentified copying.
 
-In corpus 1.b13.3, AST comparison identified the following pair:
+\subparagraph{Corpus 1.b13.3}
+AST comparison identified the following pair:
 \begin{itemize}
     \item students 1 4
 \end{itemize}
@@ -190,9 +198,10 @@ Smith Waterman identified the following pair:
 \begin{itemize}
     \item students 18 49
 \end{itemize}
-Both pairs were inspected and were likely instances of unauthorized copying.
+Both pairs were inspected and are likely instances of unauthorized copying.
 
-In corpus 1.b13.4, AST comparison identified the following pair:
+\subparagraph{Corpus 1.b13.4}
+AST comparison identified the following pair:
 \begin{itemize}
     \item students 44 and 96
 \end{itemize}
@@ -204,7 +213,8 @@ Smith Waterman identified the following pairs:
 Both pairs were inspected, and it was determined that they were probably
 instances of unauthorized copying.
 
-In corpus 1.b13.6, AST comparison identified the following pairs:
+\subparagraph{Corpus 1.b13.6}
+AST comparison identified the following pairs:
 \begin{itemize}
     \item students 8 and 29
     \item students 32 and 45
@@ -220,9 +230,10 @@ Smith Waterman identified the following pairs:
     \item students 6 and 48
     \item students 9 and 99
 \end{itemize}
-All discovered pairs were determined to be very similar.
+WRITE DETAILS HERE, GIVE EXPLANATIONS
 
-In corpus 1.d11.2, AST comparison identified the following pairs:
+\subparagraph{Corpus 1.d11.2}
+AST comparison identified the following pairs:
 \begin{itemize}
     \item students 12 and 48
     \item students 15 and 40
@@ -237,10 +248,12 @@ Smith Waterman identified the following pairs:
     \item students 9 and 56
     \item students 35 and 56
 \end{itemize}
-All discovered pairs were determined to be very similar, with the exception of
-the final pair discovered by Smith Waterman.
+After manual inspection, students 35 and 56 were found to be unlikely to have
+engaged in unauthorized copying. The other 6 pairs however were found to be
+likely to have engaged in unauthorized copying.
 
-In corpus 1.d11.3, AST comparison identified the following pairs:
+\subparagraph{Corpus 1.d11.3 FIX ME}
+AST comparison identified the following pairs:
 \begin{itemize}
     \item students 18 and 22
     \item students 43 and 52
@@ -259,23 +272,28 @@ Smith Waterman identified the following pairs:
 \end{itemize}
 All pairs common to both methods were correctly identified as very similar,
 along with the submissions of students 4 and 43 and students 2 and 16.
+HOW CAN 4->43 4->30 BE GOOD, BUT 30->43 NOT BE
 
-In corpus 1.d11.4, AST comparison identified the following pair:
+\subparagraph{Corpus 1.d11.4}
+AST comparison identified the following pair:
 \begin{itemize}
     \item students 25 and 41
 \end{itemize}
-Smith Waterman reported no similarities for this corpus.
-The pair was inspected and found to be very similar.
+Smith Waterman reported no similarities for this corpus.  The pair detected by
+AST Comparison was inspected and found to be likely an instance of unauthorized
+copying.
 
-In corpus 1.d12.2, both AST and Smith Waterman comparison identified the
-following pairs:
+\subparagraph{Corpus 1.d12.2}
+AST and Smith Waterman comparison identified the following pairs:
 \begin{itemize}
     \item students 28 and 29
     \item students 19 and 44
 \end{itemize}
-They were determined to be very similar.
+Both pairs identified appear to be instances of unauthorized copying after
+manual inspection.
 
-In corpus 1.d12.3, AST comparison identified the following pairs:
+\subparagraph{Corpus 1.d12.3}
+AST comparison identified the following pairs:
 \begin{itemize}
     \item students 5 and 26
     \item students 11 and 52
@@ -287,9 +305,12 @@ Smith Waterman identified the following pairs:
     \item students 20 and 55
 \end{itemize}
 Upon manual inspection, the submissions from students 11 and 52 were determined
-to be free of unauthorized copying. The others were found to be very similar.
+to be unlikely to be instanced of unauthorized copying. The pairs of 5 and 25,
+as well as 20 and 55, were determined to be likely to be instanced of
+unauthorized copying.
 
-In corpus 1.d12.4, AST comparison identified the following pairs:
+\subparagraph{Corpus 1.d12.4}
+AST comparison identified the following pairs:
 \begin{itemize}
     \item students 26 and 36
     \item students 26 and 44
@@ -302,10 +323,10 @@ Smith Waterman identified the following pairs:
     \item students 36 and 44
     \item students 2 and 46
 \end{itemize}
-All pairs were determined to be potential instances of unauthorized copying.
+All pairs were determined to be likely instances of unauthorized copying.
 
-
-In corpus 1.d12.6, AST comparison identified the following pairs:
+\subparagraph{Corpus 1.d12.6}
+AST comparison identified the following pairs:
 \begin{itemize}
     \item students 26 and 27
     \item students 26 and 41
@@ -321,26 +342,37 @@ Smith Waterman identified the following pairs:
     \item students 34 and 45
     \item students 12 and 43
 \end{itemize}
-All pairs were manually inspected, and all but submissions 13 and 43 were
-found to be very similar.
+After manual inspection, students 13 and 43 were found to be unlikely instances
+of unauthorized coping. All other pairs flagged by both methods were found to
+be likely instances of unauthorized copying.
 
-Neither comparison method found similar submissions in the 1.d13.2 corpus.
+\subparagraph{Corpus 1.d13.2}
+Neither comparison method found similar submissions in this corpus.
 
-In corpora 1.d13.3, 1.d13.4, and 1.d13.6, both Smith Waterman and AST comparison
-identified a single similar pair. In 1.d13.3, the pair was:
+\subparagraph{Corpus 1.d13.3}
+AST Comparison and Smith Waterman both identified similarities between the
+following pair:
 \begin{itemize}
     \item students 45 and 62
 \end{itemize}
-In 1.d13.4, the following pair was found:
+This pair was found to be a likely instance of unauthorized copying after
+manual inspection.
+
+\subparagraph{Corpus 1.d13.4}
+AST Comparison and Smith Waterman both identified similarities between the following pair:
 \begin{itemize}
     \item students 11 and 60
 \end{itemize}
-In 1.d13.6, the following pair was identified:
+This pair was found to be a likely instance of unauthorized copying after
+manual inspection.
+
+\subparagraph{Corpus 1.d13.6}
+AST Comparison and Smith Waterman both identified similarities between the following pair:
 \begin{itemize}
-    \item students 37 and 58
+    \item students 37 and 50
 \end{itemize}
-In corpora 1.d13.3 and 1.d13.4, the pairs were found to be very similar. In
-corpus 1.d13.6, the pair was found to be sufficiently unique.
+This pair was found to be an unlikely instance of unauthorized copying after
+manual inspection.
 
 Over these twenty three corpora, there are cases where one algorithm
 identifies submissions not identified by the other, instances where both
