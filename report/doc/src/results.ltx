@@ -432,3 +432,54 @@ that these students would have been called in to discuss academic dishonesty
 with the Professor. That MOSS missed these assignments provides significant
 evidence to show that AST Comparison is at least as good, if not better, than
 the closed source algorithm that powers MOSS\@.
+
+\subsection{User Interface}
+The \textit{Checksims} user interface is designed to show the progress of the
+algorithm as well as the results that it produces. This includes individually
+inspecting pairs of submissions to view detailed information about them.
+\begin{figure}
+\label{fig:ui_1}
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/initial_run.png}
+    \caption{When running \textit{Checksims}, the user is initially prompted
+    with this screen, from which they can add assignment archives and select an
+    algorithm.}
+\end{figure}
+
+\begin{figure}
+\label{fig:ui_1}
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/demo_screen.png}
+    \caption{Once the selected algorithm has finished executing, a scrollable,
+    searchable matrix is presented to the user. Highly likely matches are
+    colored with a deep red, while unlikely matched are colored with a near white
+    color.}
+\end{figure}
+
+\begin{figure}
+\label{fig:ui_1}
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/single_filter.png}
+    \caption{When a user searches for only a single student, the matching
+    students are highlighted.}
+\end{figure}
+
+\begin{figure}
+\label{fig:ui_1}
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/double_filter.png}
+    \caption{When a user searches for two distinct names, only matches between
+    those two names are highlighted. }
+\end{figure}
+
+\begin{figure}
+\label{fig:ui_1}
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/comparison_low.png}
+    \caption{When a user selects a score by clicking on it, a window is shown
+    which gives detailed information about the two submissions in question. In
+    this example, the two submissions are unlikely to be copied, so the window
+    title appears blue.}
+\end{figure}
+
+\begin{figure}
+\label{fig:ui_1}
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/comparison_high.png}
+    \caption{In this example, the window title appears red, because the
+    submissions are very likely to be copied.}
+\end{figure}
