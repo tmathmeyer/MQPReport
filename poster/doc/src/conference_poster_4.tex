@@ -1,24 +1,24 @@
 \documentclass[landscape,a0paper,fontscale=0.285]{baposter}
 
-\usepackage{graphicx} 
+\usepackage{graphicx}
 \graphicspath{{figures/}}
 
-\usepackage{amsmath} 
+\usepackage{amsmath}
 \usepackage{amssymb}
 
-\usepackage{booktabs} 
-\usepackage{enumitem} 
-\usepackage{palatino} 
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{palatino}
 \usepackage[font=small,labelfont=bf]{caption}
 
-\usepackage{multicol} 
-\setlength{\columnsep}{1.5em} 
+\usepackage{multicol}
+\setlength{\columnsep}{1.5em}
 \setlength{\columnseprule}{0mm}
 
-\usepackage{tikz} 
+\usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
 
-\newcommand{\compresslist}{ 
+\newcommand{\compresslist}{
 \setlength{\itemsep}{1pt}
 \setlength{\parskip}{0pt}
 \setlength{\parsep}{0pt}
@@ -30,42 +30,42 @@
 
 \begin{poster}
 {
-headerborder=closed, 
-colspacing=1em, 
-bgColorOne=white, 
-bgColorTwo=white, 
-borderColor=lightblue, 
-headerColorOne=black, 
-headerColorTwo=lightblue, 
-headerFontColor=white, 
-boxColorOne=white, 
-textborder=roundedleft, 
-eyecatcher=true, 
-headerheight=0.1\textheight, 
-headershape=roundedright, 
-headerfont=\Large\bf\textsc, 
-linewidth=2pt 
+headerborder=closed,
+colspacing=1em,
+bgColorOne=white,
+bgColorTwo=white,
+borderColor=lightblue,
+headerColorOne=black,
+headerColorTwo=lightblue,
+headerFontColor=white,
+boxColorOne=white,
+textborder=roundedleft,
+eyecatcher=true,
+headerheight=0.1\textheight,
+headershape=roundedright,
+headerfont=\Large\bf\textsc,
+linewidth=2pt
 }
 
-{\includegraphics[height=4em]{logo.png}} 
-{\bf\textsc{Unnecessarily Complicated Research Title}\vspace{0.5em}} 
-{\textsc{\{ John Smith, James Smith and Jane Smith \} \hspace{12pt} University and Department Name}} 
+{\includegraphics[height=4em]{logo.png}}
+{\bf\textsc{Unnecessarily Complicated Research Title}\vspace{0.5em}}
+{\textsc{\{ John Smith, James Smith and Jane Smith \} \hspace{12pt} University and Department Name}}
 {\includegraphics[height=4em]{logo.png}}
 
 
 \headerbox{Objectives}{name=objectives,column=0,row=0}{
 
-Donec non nisl a \textbf{arcu consequat} varius. Sed suscipit cursus luctus. Nulla sit amet elit augue. Curabitur scelerisque mollis dolor, quis blandit lorem condimentum at. Pellentesque sed nibh vel \textbf{dolor} sagittis semper. 
+Donec non nisl a \textbf{arcu consequat} varius. Sed suscipit cursus luctus. Nulla sit amet elit augue. Curabitur scelerisque mollis dolor, quis blandit lorem condimentum at. Pellentesque sed nibh vel \textbf{dolor} sagittis semper.
 
 \begin{enumerate}\compresslist
 \item Feugiat vitae elit
 \item bibendum ante sed lacinia eros in
 \item Curabitur scelerisque arcu consequat varius
 \item Dapibus nulla id purus consectetur
-\item Fringilla integer 
+\item Fringilla integer
 \end{enumerate}
 
-\vspace{0.3em} 
+\vspace{0.3em}
 }
 
 
@@ -108,11 +108,11 @@ Sed fringilla tempus hendrerit. Vestibulum ante ipsum primis in faucibus orci lu
 
 \headerbox{References}{name=references,column=0,above=bottom}{
 
-\renewcommand{\section}[2]{\vskip 0.05em} 
-\nocite{*} 
-\small{ 
+\renewcommand{\section}[2]{\vskip 0.05em}
+\nocite{*}
+\small{
     \bibliographystyle{unsrt}
-\bibliography{sample} 
+\bibliography{sample}
 }}
 
 
