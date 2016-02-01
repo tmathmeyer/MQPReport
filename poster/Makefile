@@ -7,26 +7,18 @@ LXSRC=$(LATEX_ROOT)/src
 LATEX_BUILD=$(LATEX_ROOT)/build
 LATEX_BUILD_ARGS=-bibtex -pdf -outdir=$(LATEX_DIST) -cd
 BIBLIOGRAPHY=$(LXSRC)/bibliography.bib
+MAIN_FILE=conference_poster_4.tex
 
 all: main
-
-publish: proofread main
-
-proofread:
-	./spellcheck.sh
 
 builddir:
 	mkdir -p $(LATEX_ROOT)/dist
 
 main: builddir $(LATEX_DIST)/main.pdf
 
-$(LATEX_DIST)/main.pdf: $(LXSRC)/*.ltx
-	$(LATEX) $(LATEX_BUILD_ARGS) $(LXSRC)/main.ltx
-	cp $(LATEX_DIST)/main.bcf $(LXSRC)/main.ltx.bcf
-	biber $(LXSRC)/main.ltx
-	$(LATEX) $(LATEX_BUILD_ARGS) $(LXSRC)/main.ltx
-	$(LATEX) $(LATEX_BUILD_ARGS) $(LXSRC)/main.ltx
-	rm $(LXSRC)/main.ltx.*
+$(LATEX_DIST)/main.pdf: $(LXSRC)/*.tex
+	$(LATEX) $(LATEX_BUILD_ARGS) $(LXSRC)/$(MAIN_FILE)
+	cp $(LATEX_DIST)/*.aux $(LXSRC)/
 
 clean:
 	rm -rf $(LATEX_ROOT)/dist
