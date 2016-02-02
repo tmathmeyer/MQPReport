@@ -29,7 +29,7 @@
 \begin{poster}
 {
   %% View grid for debugging.
-  grid=true,
+  grid=false,
   %% Column specification.
   columns=3,
   colspacing=4em,
@@ -79,11 +79,22 @@
   and the ability to perform comparison against historical data.
 }
 
-\headerbox{Background}{name=background, column=0, row=0.25, span=1}{
-  Background: Lorem
+\headerbox{Background}{name=background, column=0, row=0.23, span=1}{
+  Academic dishonesty is often poorly defined. Different institutions,
+  departments, professors, and courses have differing definitions and
+  interpretations. \textit{Checksims} concerns itself with detecting instances
+  of potential `unauthorized copying', similar sections of code that may
+  constitute academic dishonesty.
+  Detecting similar sections of code is done in a number of ways. The two
+  primary types of detection are token based comparison, or finding similar
+  sections in a string of `tokens' representing the source file, and AST based
+  comparison methods, finding similar sections of the `Abstract Syntax Tree'
+  of a source file. Previous work has indicated that AST based methods are
+  often more robust than token based methods, but come with their own set of
+  limitations.
 }
 
-\headerbox{Objectives}{name=objectives, column=0, row=0.50, span=1}{
+\headerbox{Objectives}{name=objectives, column=0, row=0.620, span=1}{
   \begin{itemize}
   \item Design and implement an AST similarity detection algorithm, and then
     compare it to the Smith-Waterman in both accuracy and performance.
