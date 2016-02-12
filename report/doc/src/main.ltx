@@ -17,7 +17,7 @@
 \setlength{\parindent}{0pt}
 \titleformat{\subparagraph}
     {\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
-    \titlespacing*{\subparagraph}{\parindent}{3.25ex plus 1ex minus .2ex}{.75ex plus .1ex}
+    \titlespacing*{\subparagraph}{\parindent}{3.25ex plus 1ex minus 0.2ex}{0.75ex plus 0.1ex}
 
 
 
@@ -59,6 +59,8 @@
 
 \newcommand{\code}[1]{\texttt{#1}}
 
+\pagenumbering{Roman}
+
 % Load current version of Checksims
 \input{version.ltx}
 
@@ -74,6 +76,7 @@
 \let\snewpage\newpage
 \let\newpage \relax
 \maketitle
+\thispagestyle{empty}
 \textit{This report represents the work of WPI undergraduate students submitted
     to the faculty as evidence of completion of a degree requirement. WPI
     routinely publishes these reports on its website without editorial or peer
@@ -94,6 +97,9 @@
 % Insert table of concepts
 \tableofcontents
 \newpage
+\afterpage{\null\newpage}
+
+\pagenumbering{arabic}
 
 % Include introduction
 \input{intro.ltx}
