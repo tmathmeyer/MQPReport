@@ -1,43 +1,43 @@
 \section{Results}
-\subsection{AST Compare vs Smith Waterman}
+\subsection{AST Compare vs Smith-Waterman}
 \subsubsection{Execution time}
 The time taken by \textit{Checksims} to identify similarities is heavily
 dependent upon the number of assignments being tested and by the algorithm used
 to do the comparison. The following graphs show that the AST comparison
-algorithm is significantly faster than Smith Waterman. While the amount of time
+algorithm is significantly faster than Smith-Waterman. While the amount of time
 taken is rather trivial for smaller assignments, it is plausible to assume that
 \textit{Checksims} may be run on a corpus with many hundreds of assignments; at
 such a scale, the execution time may be many orders of magnitude different.
 \input{runtime_plot_small.ltx}
 \\
 \\
-This graph shows the number of seconds taken by both Smith Waterman and AST
+This graph shows the number of seconds taken by both Smith-Waterman and AST
 Comparison to compute a similarity matrix for corpora with fewer than 100
 assignments. A best fit line was constructed for each set of points, showing
 that AST Fingerprinting ranges anywhere from 33 percent to 75 faster than the
-Smith Waterman Algorithm. The raw data for this graph can be found in Appendix
+Smith-Waterman Algorithm. The raw data for this graph can be found in Appendix
 E.
 \\
 \\
 \input{runtime_plot_large.ltx}
 \\
 \\
-This graph shows the number of seconds taken by both Smith Waterman and AST
+This graph shows the number of seconds taken by both Smith-Waterman and AST
 Comparison to compute a similarity matrix for corpora with more than 100
 assignments. A best fit line was constructed for each set of points, showing
 that AST Fingerprinting ranges from 75 percent to 95 percent faster than
-Smith Waterman. Raw data for this graph can be found in Appendix E.
+Smith-Waterman. Raw data for this graph can be found in Appendix E.
 \clearpage
 \subsubsection{Identified Instances of Similarity}
 \paragraph{In Python 3}
-The five Python 3 corpora were each tested with both Smith Waterman and AST
+The five Python 3 corpora were each tested with both Smith-Waterman and AST
 Comparison.
 \subparagraph{Corpora 4.a15.6 and 4.c15.6}
-In these corpora, neither Smith Waterman nor AST Comparison identified any
+In these corpora, neither Smith-Waterman nor AST Comparison identified any
 instances of similarity.
 \subparagraph{Corpus 5.a15.5}
 In this corpus, AST Comparison identified similarities between students 14 and
-64, which were verified by hand; Smith Waterman did not detect any similarity
+64, which were verified by hand; Smith-Waterman did not detect any similarity
 in this corpus.
 
 \subparagraph{Corpus 4.c15.5}
@@ -47,7 +47,7 @@ AST Comparison identified similarities between
     \item students 18 and 34
     \item students 42 and 69
 \end{itemize}
-Smith Waterman identified similarities between
+Smith-Waterman identified similarities between
 \begin{itemize}
     \item students 12 and 16
     \item students 10 and 53
@@ -56,7 +56,7 @@ Manual inspection of these four pairs of assignments show that it is highly
 likely that the students in question were involved in unauthorized copying.
 
 \subparagraph{Corpus 4.c15.4}
-Smith Waterman detected similarity between four pairs of students:
+Smith-Waterman detected similarity between four pairs of students:
 \begin{itemize}
     \item students 54 and 8
     \item students 54 and 4
@@ -76,15 +76,15 @@ AST Comparison detected similarities between the following pairs of students:
 Students 71 and 20 did not compile due to syntax errors created during the
 anonymization process, as student names were included in parts of the code. AST
 Analysis was therefore not able to have been run on this pair. It is
-interesting that while Smith Waterman detected similarities between the pair
+interesting that while Smith-Waterman detected similarities between the pair
 (54 and 8) and the pair (54 and 4), it did not detect similarity between the
 pair (4 and 8), while AST Comparison did. Manual verification of these
 assignments shows that all of them were likely instances of unauthorized
 copying, though this was disputed for the pair of students 84 and 42.
 
 \paragraph{In Java}
-The single Java corpus was tested with both Smith Waterman and AST
-Comparison. Smith Waterman detected similarities between the following:
+The single Java corpus was tested with both Smith-Waterman and AST
+Comparison. Smith-Waterman detected similarities between the following:
 \begin{itemize}
     \item students 229 and 21
     \item students 9 and 45
@@ -111,7 +111,7 @@ AST comparison identified the following pair:
 \begin{itemize}
     \item students 73 and 93
 \end{itemize}
-Smith Waterman identified the following pairs:
+Smith-Waterman identified the following pairs:
 \begin{itemize}
     \item students 0 and 2
     \item students 85 and 91
@@ -119,7 +119,7 @@ Smith Waterman identified the following pairs:
 Upon manual inspection, all were likely to be instances of unauthorized copying.
 
 \subparagraph{Corpus 1.b12.3}
-Smith Waterman identified the following pair:
+Smith-Waterman identified the following pair:
 \begin{itemize}
     \item students 87 and 89
 \end{itemize}
@@ -131,7 +131,7 @@ AST comparison identified the following pair:
 \begin{itemize}
     \item students 79 and 82
 \end{itemize}
-Smith Waterman identified the following pairs:
+Smith-Waterman identified the following pairs:
 \begin{itemize}
     \item students 79 and 82
     \item students 9 and 58
@@ -148,7 +148,7 @@ AST comparison identified the following pairs:
     \item students 11 and 84
     \item students 28 and 84
 \end{itemize}
-Smith Waterman identified the following pairs:
+Smith-Waterman identified the following pairs:
 \begin{itemize}
     \item students 11 and 28
     \item students 11 and 84
@@ -159,7 +159,7 @@ Smith Waterman identified the following pairs:
     \item students 74 and 89
 \end{itemize}
 The first triplet of assignments (11, 12, and 84), detected by both AST
-Comparison and Smith Waterman, is likely a case of unauthorized copying.  The
+Comparison and Smith-Waterman, is likely a case of unauthorized copying.  The
 second triplet of assignments (8, 29, and 34) was detected only by Smith
 Waterman, as they all contained syntax errors. The final pair of assignments,
 74 and 89, were most likely not an instance of unauthorized copying.
@@ -172,13 +172,13 @@ AST comparison identified the following pairs:
     \item students 24 and 62
     \item students 11 and 85
 \end{itemize}
-Smith Waterman identified the following pair:
+Smith-Waterman identified the following pair:
 \begin{itemize}
     \item students 74 and 89
 \end{itemize}
 The pairs identified by the AST comparison method were manually inspected and
 likely to be instances of unauthorized copying. The pair identified by the
-Smith Waterman method was likely not an instance of unauthorized copying.
+Smith-Waterman method was likely not an instance of unauthorized copying.
 
 \subparagraph{Corpus 1.b13.2}
 AST comparison identified the following pairs:
@@ -186,7 +186,7 @@ AST comparison identified the following pairs:
     \item students 3 and 17
     \item students 57 and 76
 \end{itemize}
-Smith Waterman did not identify any submissions for review.  The pairs
+Smith-Waterman did not identify any submissions for review.  The pairs
 identified by the AST comparison method were manually inspected and found to be
 likely an instance of unidentified copying.
 
@@ -195,7 +195,7 @@ AST comparison identified the following pair:
 \begin{itemize}
     \item students 1 4
 \end{itemize}
-Smith Waterman identified the following pair:
+Smith-Waterman identified the following pair:
 \begin{itemize}
     \item students 18 49
 \end{itemize}
@@ -206,7 +206,7 @@ AST comparison identified the following pair:
 \begin{itemize}
     \item students 44 and 96
 \end{itemize}
-Smith Waterman identified the following pairs:
+Smith-Waterman identified the following pairs:
 \begin{itemize}
     \item students 44 and 96
     \item students 65 and 85
@@ -220,7 +220,7 @@ AST comparison identified the following pairs:
     \item students 8 and 29
     \item students 32 and 45
 \end{itemize}
-Smith Waterman identified the following pairs:
+Smith-Waterman identified the following pairs:
 \begin{itemize}
     \item students 16 and 70
     \item students 70 and 93
@@ -239,7 +239,7 @@ AST comparison identified the following pairs:
     \item students 12 and 48
     \item students 15 and 40
 \end{itemize}
-Smith Waterman identified the following pairs:
+Smith-Waterman identified the following pairs:
 \begin{itemize}
     \item students 12 and 48
     \item students 15 and 40
@@ -260,7 +260,7 @@ AST comparison identified the following pairs:
     \item students 43 and 52
     \item students 4 and 30
 \end{itemize}
-Smith Waterman identified the following pairs:
+Smith-Waterman identified the following pairs:
 \begin{itemize}
     \item students 18 and 22
     \item students 43 and 52
@@ -281,12 +281,12 @@ AST comparison identified the following pair:
 \begin{itemize}
     \item students 25 and 41
 \end{itemize}
-Smith Waterman reported no similarities for this corpus.  The pair detected by
+Smith-Waterman reported no similarities for this corpus.  The pair detected by
 AST Comparison was inspected and found to be likely an instance of unauthorized
 copying.
 
 \subparagraph{Corpus 1.d12.2}
-AST and Smith Waterman comparison identified the following pairs:
+AST and Smith-Waterman comparison identified the following pairs:
 \begin{itemize}
     \item students 28 and 29
     \item students 19 and 44
@@ -301,7 +301,7 @@ AST comparison identified the following pairs:
     \item students 11 and 52
     \item students 20 and 55
 \end{itemize}
-Smith Waterman identified the following pairs:
+Smith-Waterman identified the following pairs:
 \begin{itemize}
     \item students 11 and 52
     \item students 20 and 55
@@ -318,7 +318,7 @@ AST comparison identified the following pairs:
     \item students 26 and 44
     \item students 36 and 44
 \end{itemize}
-Smith Waterman identified the following pairs:
+Smith-Waterman identified the following pairs:
 \begin{itemize}
     \item students 26 and 36
     \item students 26 and 44
@@ -335,7 +335,7 @@ AST comparison identified the following pairs:
     \item students 27 and 41
     \item students 12 and 29
 \end{itemize}
-Smith Waterman identified the following pairs:
+Smith-Waterman identified the following pairs:
 \begin{itemize}
     \item students 26 and 27
     \item students 26 and 41
@@ -352,7 +352,7 @@ be likely instances of unauthorized copying.
 Neither comparison method found similar submissions in this corpus.
 
 \subparagraph{Corpus 1.d13.3}
-AST Comparison and Smith Waterman both identified similarities between the
+AST Comparison and Smith-Waterman both identified similarities between the
 following pair:
 \begin{itemize}
     \item students 45 and 62
@@ -361,7 +361,7 @@ This pair was found to be a likely instance of unauthorized copying after
 manual inspection.
 
 \subparagraph{Corpus 1.d13.4}
-AST Comparison and Smith Waterman both identified similarities between the following pair:
+AST Comparison and Smith-Waterman both identified similarities between the following pair:
 \begin{itemize}
     \item students 11 and 60
 \end{itemize}
@@ -369,7 +369,7 @@ This pair was found to be a likely instance of unauthorized copying after
 manual inspection.
 
 \subparagraph{Corpus 1.d13.6}
-AST Comparison and Smith Waterman both identified similarities between the following pair:
+AST Comparison and Smith-Waterman both identified similarities between the following pair:
 \begin{itemize}
     \item students 37 and 50
 \end{itemize}
@@ -380,14 +380,14 @@ Over these twenty three corpora, there are cases where one algorithm
 identifies submissions not identified by the other, instances where both
 algorithms agree that two mostly unique assignments warrant investigation, and
 unknown cases where neither method would report similar submissions. Of the
-submissions positively identified by the Smith Waterman comparison method but
+submissions positively identified by the Smith-Waterman comparison method but
 not by the AST comparison method, a number of causes have been discovered. The
 two primary problems are submissions containing syntax errors, which cannot be
 compared using the AST comparison method, and submissions with significantly
 altered top level expressions, such as changing a method's prototype, or
 converting between the different types of loop statements. Over the corpora,
 a number of reverse cases are discovered, where AST comparison discovers
-similar pairs that are missed by Smith Waterman.
+similar pairs that are missed by Smith-Waterman.
 
 
 \paragraph{In C++11}
@@ -441,8 +441,8 @@ inspecting pairs of submissions to view detailed information about them.
 \label{fig:ui_1}
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/initial_run.png}
     \caption{When running \textit{Checksims}, the user is initially prompted
-    with this screen, from which they can add assignment archives and select an
-    algorithm.}
+      with this screen, from which he or she can add assignment archives and
+      select an algorithm.}
 \end{figure}
 
 \begin{figure}
@@ -472,7 +472,7 @@ inspecting pairs of submissions to view detailed information about them.
 \label{fig:ui_1}
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/comparison_low.png}
     \caption{When a user selects a score by clicking on it, a window is shown
-    which gives detailed information about the two submissions in question. In
+    that gives detailed information about the two submissions in question. In
     this example, the two submissions are unlikely to be copied, so the window
     title appears blue.}
 \end{figure}
