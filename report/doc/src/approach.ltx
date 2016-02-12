@@ -172,10 +172,10 @@ problem was made, however this caused the execution time to increase by more tha
 hundred fold, as truly similar nodes were being kept separately.
 
 After more extensive testing, it was discovered that almost all instances of
-hash collisions occurred on truly identical nodes in the AST\@. This was
-considerable evidence that there is no need to worry about collisions.
-Mathematically, for any given tree with 10000 nodes, the chance of collision is
-1.16 percent\footnote{This is a variation on the Birthday Problem. The
+hash collisions occurred on identical nodes in the AST\@. This was considerable
+evidence that there is no need to worry about collisions. Mathematically, for
+any given tree with 10000 nodes, the chance of collision is 1.16 percent
+\footnote{This is a variation on the Birthday Problem. The
     probability of collision for $n$ nodes can be found by
     $p(n)=1-\frac{I!}{I^n*(I-n)!}$ where $I$ is the number of values that a
 hash could be, in this case, $I = 2^{32} -1$}.\ For a tree with 20000 nodes,

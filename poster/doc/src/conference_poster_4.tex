@@ -29,7 +29,7 @@
 \begin{poster}
 {
   %% View grid for debugging.
-  grid=true,
+  grid=false,
   %% Column specification.
   columns=3,
   colspacing=4em,
@@ -79,15 +79,22 @@
     and the ability to perform comparison against historical data.
 }
 
-\headerbox{Background}{name=background, column=0, row=0.25, span=1}{
-    \textit{Checksims} was originally created by Matt Heon and Dolan Murvihill
-    in 2014 in order to help Professor Lauer find unauthorized copying on his
-    assignments. We felt that the algorithms implemented by Matt and Dolan were
-    too simple to detect more disguised copying, and wanted to implement
-    advanced parsing techniques.
+\headerbox{Background}{name=background, column=0, row=0.23, span=1}{
+  Academic dishonesty is often poorly defined. Different institutions,
+  departments, professors, and courses have differing definitions and
+  interpretations. The goal of \textit{Checksims} is to detect instances of
+  potential unauthorized copying: similar sections of code that may constitute
+  academic dishonesty.  Detecting similar sections of code is done in a number
+  of ways. The two primary types of detection are token based comparison and
+  syntax based comparison.  Token based detection algorithms work by splitting
+  source text into smaller chunks and computing shortest modification distance.
+  Syntax based detection parse code based on a defined grammar and generate a
+  tree which an be operated on.  Our work on \textit{Checksims} has indicated
+  that AST based methods are often more accurate than token based methods, but
+  come with their own set of limitations.
 }
 
-\headerbox{Objectives}{name=objectives, column=0, row=0.50, span=1}{
+\headerbox{Objectives}{name=objectives, column=0, row=0.620, span=1}{
   \begin{itemize}
   \item Design and implement an AST similarity detection algorithm, and then
     compare it to the Smith-Waterman in both accuracy and performance.
