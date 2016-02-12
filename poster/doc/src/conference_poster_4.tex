@@ -50,8 +50,7 @@
   headershade=plain,
   headerfont=\huge\em, %Sans Serif
   textfont={\setlength{\parindent}{1.5em}},
-  boxshade=plain,
-  boxColorOne=white,
+  boxshade=shadetb,
   borderColor=white,
   background=shadetb,
   linewidth=2pt
@@ -79,7 +78,7 @@
     and the ability to perform comparison against historical data.
 }
 
-\headerbox{Background}{name=background, column=0, row=0.23, span=1}{
+\headerbox{Background}{name=background, column=0, row=0.22, span=1}{
   Academic dishonesty is often poorly defined. Different institutions,
   departments, professors, and courses have differing definitions and
   interpretations. The goal of \textit{Checksims} is to detect instances of
@@ -94,7 +93,7 @@
   come with their own set of limitations.
 }
 
-\headerbox{Objectives}{name=objectives, column=0, row=0.620, span=1}{
+\headerbox{Objectives}{name=objectives, column=0, row=0.645, span=1}{
   \begin{itemize}
   \item Design and implement an AST similarity detection algorithm, and then
     compare it to the Smith-Waterman in both accuracy and performance.
@@ -108,12 +107,19 @@
 }
 
 
-\headerbox{Parsing Process}{name=process, column=1, row=0.0, span=2}{
-    
+\headerbox{Approach}{name=process, column=1, row=0.0, span=1}{
+  \textit{Checksims'} existing token-based document representation was
+  supplemented with a language independent AST based representation. The
+  \textit{ANTLR} parser generation tool and existing grammars were used to
+  generate parsers for the C, C++, Python, and Java languages. AST
+  representations were compared by first generating a dictionary from heuristic
+  fingerprint to AST node in the first document, then by recursively rating node
+  similarity in the second document by measuring the number of identical
+  subtrees found in the first document.
 }
 
 
-\headerbox{Results}{name=results, column=1, row=0.25, span=1}{
+\headerbox{Results}{name=results, column=1, row=0.3, span=1}{
   Results
 }
 
@@ -126,7 +132,7 @@
 }
 
 \headerbox{References}{name=references, column=2, row=0.5, span=1}{
-  Background: Lorem
+  References
 }
 
 \end{poster}
