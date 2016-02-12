@@ -20,7 +20,7 @@ builddir:
 
 main: builddir $(LATEX_DIST)/main.pdf
 
-$(LATEX_DIST)/main.pdf: $(LXSRC)/*.ltx
+$(LATEX_DIST)/main.pdf: $(LXSRC)/*.ltx $(LXSRC)/*.bib
 	$(LATEX) $(LATEX_BUILD_ARGS) $(LXSRC)/main.ltx
 	cp $(LATEX_DIST)/main.bcf $(LXSRC)/main.ltx.bcf
 	biber $(LXSRC)/main.ltx
