@@ -1,0 +1,6 @@
+*.swp
+*.bak
+*.bcf
+*.blg
+
+doc/dist
