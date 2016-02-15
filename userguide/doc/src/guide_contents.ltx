@@ -86,7 +86,7 @@ included in the comparison. You must also select a comparison method. The UI
 includes a help mode, which can be activated by clicking on the `Enable Help'
 button.
 
-\subsection{Submissions}
+\subsubsection{Submissions}
 \textit{Checksims} supports a number of submission and archive formats. The
 primary format is an assignment directory. Every subdirectory is counted as an
 independent submission, and every file in the subdirectories are recursively
@@ -95,7 +95,7 @@ based comparison methods, only files with the appropriate source file extensions
 will be considered. Submissions may also be in the form of a \textit{Turnin}
 assignment archive. These are ZIP files with a particular directory structure.
 
-\subsection{Archives}
+\subsubsection{Archives}
 Archives are the same as submissions, but they are not checked for similarity.
 In other words, every submission will be compared to every other submission and
 every archive submission, but the archive submissions will not be compared to
@@ -103,14 +103,14 @@ each other. This is useful when testing if any students may have copied sections
 from a submission in a previous year. Archives take the same format as
 submissions, but are treated differently by \textit{Checksims}.
 
-\subsection{Common Code}
+\subsubsection{Common Code}
 Many assignments have starter code, or code that is common between all of the
 submissions. Removing common code is not necessary, but it can make the
 distinction between similar and dissimilar submissions more stark. To use common
 code removal, place all common code for an assignment into a single directory,
 and select that directory for common code removal in the main menu.
 
-\subsection{Comparison Methods}
+\subsubsection{Comparison Methods}
 \textit{Checksims} provides a number of methods for comparing assignments.
 There are two primary categories: token based and AST based comparison methods.
 Token based methods parse a submission into a sequence of tokens. Tokens may be
@@ -136,7 +136,7 @@ tree. If the submission uses invalid syntax, it may not be parsed correctly, and
 comparison will fail. The four methods are \textit{cparser}, \textit{cppparser},
 \textit{javaparser}, and \textit{pythonparser}.
 
-\section{Interpreting and Filtering Results}
+\subsection{Interpreting and Filtering Results}
 Once \textit{Checksims} has finished comparing the submissions, you will see a
 screen like the one below. This presents a similarity matrix and some controls.
 The controls on the left allow you to set a threshold similarity, search for
