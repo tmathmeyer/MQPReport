@@ -1,5 +1,46 @@
 \section{Results}
+\subsection{AST Comparison vs MOSS}
+\subsubsection{Execution Time}
+MOSS takes on average 14.5 seconds longer to run than the AST Comparison
+algorithm on machine S1. Closer inspection of execution time shows that this is
+almost entirely due to the process of uploading sometimes hundreds of files to
+the Stanford University server where MOSS is run. Subtracting the execution
+time of the upload step, the average execution time actually changes to 0.8
+seconds in favor of MOSS\@.
+
+\subsubsection{Identified Instances of Similarity}
+For corpora 3.a13.1, 3.a13.2, 3.a13.3, 3.a12.1, 3.a12.2, and 3.a12.3, MOSS and
+AST Compare reported the same set of pairs as being likely matches. When corpus
+2.b14.2 was provided to the AST Compare algorithm, 4 pairs of assignments were
+marked as being highly likely to contain instances of copying; that is, both
+the matching value and inverse matching value between both assignments were
+greater than 70 percent. MOSS only managed to catch a single pair of
+assignments however. The significant pairs, in which either assignment matches
+another greater than 69 percent are shown:
+\\
+\\
+\begin{minipage}{\linewidth}
+    \centering
+    \captionof{table}{MOSS vs AST Compare, Corpus 2.b14.2}\label{mossvast} 
+    \begin{tabular}{@{}lll@{}}
+        \toprule
+        Assignments          & AST Compare percentages & MOSS percentages  \\ \midrule
+        students 229 and 21  & 81 and 83 percent       & 60 and 60 percent \\
+        students 179 and 176 & 74 and 79 percent       & 17 and 17 percent \\
+        students 196 and 219 & 73 and 71 percent       & 23 and 17 percent \\
+        students 211 and 191 & 72 and 69 percent       & nothing reported  \\
+                             &                &      \\ \bottomrule
+    \end{tabular}
+\end{minipage}
+\\
+\\
+All four assignments have been manually reviewed as well, and it was determined
+that these students would have been called in to discuss academic dishonesty
+with the Professor. That MOSS missed these assignments provides significant
+evidence to show that AST Comparison is at least as good, if not better, than
+the closed source algorithm that powers MOSS\@.
 \subsection{AST Compare vs Smith-Waterman}
+
 \subsubsection{Execution time}
 The time taken by \textit{Checksims} to identify similarities is heavily
 dependent upon the number of assignments being tested and by the algorithm used
@@ -29,13 +70,26 @@ that AST Fingerprinting ranges from 75 percent to 95 percent faster than
 Smith-Waterman. Raw data for this graph can be found in Appendix E.
 \clearpage
 \subsubsection{Identified Instances of Similarity}
+Over these twenty three corpora, there are cases where one algorithm
+identifies submissions not identified by the other, instances where both
+algorithms agree that two mostly unique assignments warrant investigation, and
+unknown cases where neither method would report similar submissions. Of the
+submissions positively identified by the Smith-Waterman comparison method but
+not by the AST comparison method, a number of causes have been discovered. The
+two primary problems are submissions containing syntax errors, which cannot be
+compared using the AST comparison method, and submissions with significantly
+altered top level expressions, such as changing a method's prototype, or
+converting between the different types of loop statements. Over the corpora,
+a number of reverse cases are discovered, where AST comparison discovers
+similar pairs that are missed by Smith-Waterman.
+
 \paragraph{In Python 3}
 The five Python 3 corpora were each tested with both Smith-Waterman and AST
 Comparison.
 \subparagraph{Corpora 4.a15.6 and 4.c15.6}
 In these corpora, neither Smith-Waterman nor AST Comparison identified any
 instances of similarity.
-\subparagraph{Corpus 5.a15.5}
+\subparagraph{Corpus 4.a15.5}
 In this corpus, AST Comparison identified similarities between students 14 and
 64, which were verified by hand; Smith-Waterman did not detect any similarity
 in this corpus.
@@ -116,14 +170,14 @@ Smith-Waterman identified the following pairs:
     \item students 0 and 2
     \item students 85 and 91
 \end{itemize}
-Upon manual inspection, all were likely to be instances of unauthorized copying.
+Upon manual inspection, all were deemed to be instances of unauthorized copying.
 
 \subparagraph{Corpus 1.b12.3}
 Smith-Waterman identified the following pair:
 \begin{itemize}
     \item students 87 and 89
 \end{itemize}
-Upon manual inspection, this pair was likely to be an instance of unauthorized
+Upon manual inspection, this pair was deemed to be an instance of unauthorized
 copying.
 
 \subparagraph{Corpus 1.b12.4}
@@ -381,65 +435,11 @@ AST Comparison and Smith-Waterman both identified similarities between the follo
 This pair was found to be an unlikely instance of unauthorized copying after
 manual inspection.
 
-Over these twenty three corpora, there are cases where one algorithm
-identifies submissions not identified by the other, instances where both
-algorithms agree that two mostly unique assignments warrant investigation, and
-unknown cases where neither method would report similar submissions. Of the
-submissions positively identified by the Smith-Waterman comparison method but
-not by the AST comparison method, a number of causes have been discovered. The
-two primary problems are submissions containing syntax errors, which cannot be
-compared using the AST comparison method, and submissions with significantly
-altered top level expressions, such as changing a method's prototype, or
-converting between the different types of loop statements. Over the corpora,
-a number of reverse cases are discovered, where AST comparison discovers
-similar pairs that are missed by Smith-Waterman.
-
-
-\subsection{AST Comparison vs MOSS}
-\subsubsection{Execution Time}
-MOSS takes on average 14.5 seconds longer to run than the AST Comparison
-algorithm on machine S1. Closer inspection of execution time shows that this is
-almost entirely due to the process of uploading sometimes hundreds of files to
-the Stanford University server where MOSS is run. Subtracting the execution
-time of the upload step, the average execution time actually changes to 0.8
-seconds in favor of MOSS\@.
-
-\subsubsection{Identified Instances of Similarity}
-For corpora 3.a13.1, 3.a13.2, 3.a13.3, 3.a12.1, 3.a12.2, and 3.a12.3, MOSS and
-AST Compare reported the same set of pairs as being likely matches. When corpus
-2.b14.2 was provided to the AST Compare algorithm, 4 pairs of assignments were
-marked as being highly likely to contain instances of copying; that is, both
-the matching value and inverse matching value between both assignments were
-greater than 70 percent. MOSS only managed to catch a single pair of
-assignments however. The significant pairs, in which either assignment matches
-another greater than 69 percent are shown:
-\\
-\\
-\begin{minipage}{\linewidth}
-    \centering
-    \captionof{table}{MOSS vs AST Compare, Corpus 2.b14.2}\label{mossvast} 
-    \begin{tabular}{@{}lll@{}}
-        \toprule
-        Assignments          & AST Compare percentages & MOSS percentages  \\ \midrule
-        students 229 and 21  & 81 and 83 percent       & 60 and 60 percent \\
-        students 179 and 176 & 74 and 79 percent       & 17 and 17 percent \\
-        students 196 and 219 & 73 and 71 percent       & 23 and 17 percent \\
-        students 211 and 191 & 72 and 69 percent       & nothing reported  \\
-                             &                &      \\ \bottomrule
-    \end{tabular}
-\end{minipage}
-\\
-\\
-All four assignments have been manually reviewed as well, and it was determined
-that these students would have been called in to discuss academic dishonesty
-with the Professor. That MOSS missed these assignments provides significant
-evidence to show that AST Comparison is at least as good, if not better, than
-the closed source algorithm that powers MOSS\@.
-
 \subsection{User Interface}
 The \textit{Checksims} user interface is designed to show the progress of the
 algorithm as well as the results that it produces. This includes individually
 inspecting pairs of submissions to view detailed information about them.
+\\
 \begin{figure}
 \label{fig:ui_1}
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/initial_run.png}

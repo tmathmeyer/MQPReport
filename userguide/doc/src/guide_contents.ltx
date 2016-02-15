@@ -1,0 +1,75 @@
+\section{User Guide}
+\textit{Checksims} is a tool for detecting source code similarities in an
+arbitrary number of user-provided programming projects. Its primary purpose is
+to flag potential cases of academic dishonesty in programming assignments.
+\textit{Checksims} is not intended to detect academic dishonesty on its own,
+but rather to act as a tool to identify suspicious assignments for review by
+course staff.
+
+The \textit{Checksims} user interface was designed to allow course staff to
+use \textit{Checksims} without havving to memorize command line arguments.
+
+\subsection{Installing Checksims}
+\textit{Checksims} is distributed as an executable Java package (\texttt{.jar}
+file). As a Java application, \textit{Checksims} is cross-platform and should
+run on any system capable of running a Java virtual machine (JVM). The
+provided Jar file is completely self-contained and requires no installation,
+and should be named as follows:
+
+\begin{figure}[H]
+\centering
+\texttt{checksims-\checksimsver-jar-with-dependencies.jar}
+\end{figure}
+
+
+Note that \checksimsver~represents the current version of \textit{Checksims}
+at the time of this writing, and may be different for the version you receive.
+
+Note that \textit{Checksims} requires a Java 8 virtual machine. The
+latest version of the Oracle JVM is recommended, and can be found at the
+following URL:
+
+\begin{figure}[H]
+\centering
+\url{https://www.java.com/en/download/index.jsp}
+\end{figure}
+
+A 64-bit processor and JVM are strongly recommended.  Some \textit{Checksims}
+detectors can consume a substantial amount of memory, potentially more than the
+4GB maximum available to a 32-bit JVM\@. A 64-bit JVM can prevent a number of
+memory-related program crashes.
+
+
+\subsection{Running Checksims}
+
+\subsubsection{Window and OSX}
+Both Windows and OSX have the ability to run \textit{.jar} files when they are
+double clicked on. It is recommended to put the \textit{Checksims} executable
+in either the folder where assignments are kept, or on the desktop for easy
+access.
+
+\subsubsection{Linux / Advanced Usage}
+While some graphical environments for the linux based operating system have the
+ability to run \textit{.jar} files through a double click, the recommended way
+of running \textit{Checksims} is through a shell. To run a \textit{.jar} file
+from the command line, use the following command:
+
+\begin{figure}[H]
+    \centering
+    \texttt{java -jar PATH/TO/CHECKSIMS\_JAR.jar}
+\end{figure}
+
+This command can be put inside of a shell script for more convenient use.
+
+\newpage
+
+\subsection{Intacting with the Interface}
+When \textit{Checksims} runs, the user will be presented with a reletively small window
+bearing the \textit{Checksims} logo, shown below:
+
+\begin{figure}
+\label{fig:ui_splash}
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/initial_run.png}
+    \caption{Note that Java user interfaces are not consistent across operating
+    systems. Yours may look a bit different.}
+\end{figure}

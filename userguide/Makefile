@@ -8,9 +8,9 @@ LATEX_BUILD=$(LATEX_ROOT)/build
 LATEX_BUILD_ARGS=-bibtex -pdf -outdir=$(LATEX_DIST) -cd
 BIBLIOGRAPHY=$(LXSRC)/bibliography.bib
 
-all: main
+all: guide
 
-publish: proofread main
+publish: proofread guide
 
 proofread:
 	./spellcheck.sh
@@ -18,15 +18,11 @@ proofread:
 builddir:
 	mkdir -p $(LATEX_ROOT)/dist
 
-main: builddir $(LATEX_DIST)/main.pdf
+guide: builddir $(LATEX_DIST)/guide.pdf
 
-$(LATEX_DIST)/main.pdf: $(LXSRC)/*.ltx $(LXSRC)/*.bib
-	$(LATEX) $(LATEX_BUILD_ARGS) $(LXSRC)/main.ltx
-	cp $(LATEX_DIST)/main.bcf $(LXSRC)/main.ltx.bcf
-	biber $(LXSRC)/main.ltx
-	$(LATEX) $(LATEX_BUILD_ARGS) $(LXSRC)/main.ltx
-	$(LATEX) $(LATEX_BUILD_ARGS) $(LXSRC)/main.ltx
-	rm $(LXSRC)/main.ltx.*
+$(LATEX_DIST)/guide.pdf: $(LXSRC)/*.ltx
+	$(LATEX) $(LATEX_BUILD_ARGS) $(LXSRC)/guide.ltx
+	$(LATEX) $(LATEX_BUILD_ARGS) $(LXSRC)/guide.ltx
 
 clean:
 	rm -rf $(LATEX_ROOT)/dist
