@@ -219,20 +219,25 @@ AST comparison identified the following pairs:
 \begin{itemize}
     \item students 8 and 29
     \item students 32 and 45
-\end{itemize}
-Smith-Waterman identified the following pairs:
-\begin{itemize}
     \item students 16 and 70
     \item students 70 and 93
     \item students 16 and 93
+\end{itemize}
+Smith-Waterman identified the following pairs:
+\begin{itemize}
     \item students 8 and 29
     \item students 32 and 45
+    \item students 16 and 70
+    \item students 70 and 93
+    \item students 16 and 93
     \item students 13 and 62
     \item students 6 and 48
     \item students 9 and 99
 \end{itemize}
-WRITE DETAILS HERE, GIVE EXPLANATIONS
-
+Excluding the 6,48 pair, all pairs were manually inspected and found to be very
+similar. Both methods identified the first two pairs and the 13,70,93 triplet.
+Of the remaining pairs, both were identified by Smith-Waterman but not AST
+comparison.
 \subparagraph{Corpus 1.d11.2}
 AST comparison identified the following pairs:
 \begin{itemize}
@@ -389,8 +394,6 @@ converting between the different types of loop statements. Over the corpora,
 a number of reverse cases are discovered, where AST comparison discovers
 similar pairs that are missed by Smith-Waterman.
 
-
-\paragraph{In C++11}
 
 \subsection{AST Comparison vs MOSS}
 \subsubsection{Execution Time}
