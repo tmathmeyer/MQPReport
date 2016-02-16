@@ -12,7 +12,7 @@ use \textit{Checksims} without havving to memorize command line arguments.
 \subsection{Installing Checksims}
 \textit{Checksims} is distributed as an executable Java package (\texttt{.jar}
 file). As a Java application, \textit{Checksims} is cross-platform and should
-run on any system capable of running a Java virtual machine (JVM). The
+run on any system capable of running a Java Virtual Machine (JVM). The
 provided Jar file is completely self-contained and requires no installation,
 and should be named as follows:
 
@@ -61,11 +61,103 @@ from the command line, use the following command:
 
 This command can be put inside of a shell script for more convenient use.
 
+\subsection{Archive Formats}
+\textit{Checksims} uses what is called the \textit{Checksims/Turnin} format.
+There are two forms to this format: the archive and the directory. In the
+directory format, each student submission consists of all code inside a
+directory structure with the root directory having the students name or
+username. In the archive format, all student submissions are contained in a zip
+file within a directory named ``STUDENTS/studentname''.
+
+
+\begin{figure}[!htb]
+	\label{fig:chkturn_dir}
+	\begin{tikzpicture}[
+			grow via three points={
+				one child at (0.8,-0.7) and two children at (0.8,-0.7) and (0.8,-1.4)
+			},
+			edge from parent path={
+				($(\tikzparentnode\tikzparentanchor)+(.4cm,0pt)$) |- (\tikzchildnode\tikzchildanchor)
+			},
+			growth parent anchor=west,
+			parent anchor=south west,% = \tikzparentanchor
+			%   child anchor=west,%        = \tikzchildanchor
+			%   every child node/.style={anchor=west}% already in "every node"
+		]
+		\node{\textit{Student Name or Username}}
+			child{node[draw=none] {readme.txt}}
+            child{node[draw=none] {other files \ldots}}
+            child{node {directory}
+                child{node[draw=none] {Code.file}}
+                child{node[draw=none] {\ldots}}
+            }
+            child[missing] {}
+            child[missing] {}
+            child {node {\ldots}};
+	\end{tikzpicture}
+	\caption{The \textit{Checksims/Turnin} directory format}
+\end{figure}
+
+
+\begin{figure}[!htb]
+	\label{fig:chkturn_dir}
+	\begin{tikzpicture}[
+			grow via three points={
+				one child at (0.8,-0.7) and two children at (0.8,-0.7) and (0.8,-1.4)
+			},
+			edge from parent path={
+				($(\tikzparentnode\tikzparentanchor)+(.4cm,0pt)$) |- (\tikzchildnode\tikzchildanchor)
+			},
+			growth parent anchor=west,
+			parent anchor=south west,% = \tikzparentanchor
+			%   child anchor=west,%        = \tikzchildanchor
+			%   every child node/.style={anchor=west}% already in "every node"
+		]
+        \node[draw=none]{\textit{Submissions.zip}}
+            child{node {STUDENTS}
+                child{node {student1}
+                    child{node[draw=none] {readme.txt}}
+                    child{node[draw=none] {other files \ldots}}
+                    child{node {directory}
+                        child{node[draw=none] {Code.file}}
+                        child{node[draw=none] {\ldots}}
+                    }
+                    child[missing] {}
+                    child[missing] {}
+                }
+                child[missing] {}
+                child[missing] {}
+                child[missing] {}
+                child[missing] {}
+                child[missing] {}
+                child{node {student2}
+                    child{node[draw=none] {readme.txt}}
+                    child{node[draw=none] {other files \ldots}}
+                    child{node {directory}
+                        child{node[draw=none] {Code.file}}
+                        child{node[draw=none] {\ldots}}
+                    }
+                    child[missing] {}
+                    child[missing] {}
+                }
+                child[missing] {}
+                child[missing] {}
+                child[missing] {}
+                child[missing] {}
+                child[missing] {}
+                child{node[draw=none] {\ldots}}
+            };
+            
+	\end{tikzpicture}
+	\caption{The \textit{Checksims/Turnin} Archive format}
+\end{figure}
+
+
 \newpage
 
 \subsection{Intacting with the Interface}
-When \textit{Checksims} runs, the user will be presented with a reletively small window
-bearing the \textit{Checksims} logo, shown below:
+When \textit{Checksims} runs, the user will be presented with a reletively
+small window bearing the \textit{Checksims} logo, shown below:
 
 \begin{figure}[!htb]
 \label{fig:ui_splash}
@@ -74,4 +166,153 @@ bearing the \textit{Checksims} logo, shown below:
     systems. Yours may look a bit different.}
 \end{figure}
 
+There are three sections to the \textit{Checksims} main interface. On the left
+side is a panel for selecting the comparison algorithm. On the right side, there
+are buttons for selecting inputs. On the bottom of the screen are two buttons
+for running \textit{Checksims} and enabling help, respectively. 
 
+\subsubsection{Comparison Algorithm Selection}
+Only one comparison algorithm may be selected at a time. It is recomended to
+chose the algorithm that matches the language used, or ``smithwaterman'' if it
+is not on the list.  The language dependant algorithms are capable of filtering
+out files which do not have the proper extension. The Smith-Waterman and other
+algorithms examine all files.
+
+\subsubsection{File Selection}
+There are three buttons for selecting Assignments, Archives, and Common Code.
+Each button expands like an accordian for adding many selections. Common Code
+submissions should be single files, while Submissions and Archives are in the
+\textit{Checksims/Turnin} format described previously.
+
+\paragraph{Submissions}
+A submission, or set of submissions, are the assignments which are all compared
+against eachother. Many sets of submissions may be given to \textit{Checksims}
+and will be treated as one large set.
+
+\paragraph{Archives}
+Archives are generally older submissions, and they follow the same format as
+normal submissions. Many sets of archive submissions may be given for a single
+run of \textit{Checksims}. Archives are only compared against Submissions, not
+against other archives. 
+
+\subsubsection{Action Buttons}
+The \textit{Checksims} button will take the other information entered into the
+UI and run it through the \textit{Checksims} pipeline to generate results. The
+``Help'' button toggles help mode, in which every element becomed specially
+highlighted and help documentation is shown on click.
+
+\subsection{Progress Reporting Screen}
+The progress screen has two progress bars. The lower one is the overall
+progress bar, which includes steps including file reading and possible file
+extraction. The Upper progress bar shows the progress for assignment
+comparison. The percent finished, as well as estimated time remaining are also
+shown for convenience.
+
+\subsection{Results Inspector}
+Once the \textit{Checksims} algorithm has finished running, the results
+it generates are displayed in a grid. Some controls are provided for
+searching, filtering, and exporting the grid.
+
+
+
+
+>>>>>>>>>>>>> MIKES STUFF. TAKE FROM HERE THE GOOD PARTS <<<<<<<<<<<<<<
+
+To test assignments for similarities, you must first select all included
+submissions, common code, and submission archives. Once you have selected your
+archives and comparison method, you can begin the comparison. To add a
+submission directory, an archive directory, or a common code directory, click
+the associated button. A new box will appear where you may select a
+\textit{Turnin} zip file or directory for submissions or archives, or a
+directory for your common code. You may have an arbitrary number of each
+category. All listed submissions, archives, and common code directories will be
+included in the comparison. You must also select a comparison method. The UI
+includes a help mode, which can be activated by clicking on the `Enable Help'
+button.
+
+\subsection{Submissions}
+\textit{Checksims} supports a number of submission and archive formats. The
+primary format is an assignment directory. Every subdirectory is counted as an
+independent submission, and every file in the subdirectories are recursively
+concatenated together to form the submission. If you are using one of the AST
+based comparison methods, only files with the appropriate source file extensions
+will be considered. Submissions may also be in the form of a \textit{Turnin}
+assignment archive. These are ZIP files with a particular directory structure.
+
+\subsection{Archives}
+Archives are the same as submissions, but they are not checked for similarity.
+In other words, every submission will be compared to every other submission and
+every archive submission, but the archive submissions will not be compared to
+each other. This is useful when testing if any students may have copied sections
+from a submission in a previous year. Archives take the same format as
+submissions, but are treated differently by \textit{Checksims}.
+
+\subsection{Common Code}
+Many assignments have starter code, or code that is common between all of the
+submissions. Removing common code is not necessary, but it can make the
+distinction between similar and dissimilar submissions more stark. To use common
+code removal, place all common code for an assignment into a single directory,
+and select that directory for common code removal in the main menu.
+
+\subsection{Comparison Methods}
+\textit{Checksims} provides a number of methods for comparing assignments.
+There are two primary categories: token based and AST based comparison methods.
+Token based methods parse a submission into a sequence of tokens. Tokens may be
+the individual characters, whitespace separated words, or lines of a file. AST
+based methods parse each file into a an Abstract Syntax Tree before comparison.
+Because of this , token based methods do not depend on any particular language,
+while AST based methods must be used on their target languages. Token based
+methods are not be as capable in detecting language based obfuscation methods.
+AST methods are language specific, and will fail if given an invalid
+assignment. They are, however, much more capable in detecting language based
+obfuscation methods.
+
+There are two token based methods available in \textit{Checksims}. The first is
+\textit{linecompare}, which searches for identical lines in each file. This is
+the least robust method, but is extremely efficient. The next token based method
+is \textit{Smith-Waterman}, a sequence alignment algorithm typically used in
+analyzing genome data. This method has a high memory requirement, but is more
+robust than \textit{linecompare}.
+
+\textit{Checksims} provides four AST based comparison algorithms. All methods
+first parse the language dependent submission into a language independent syntax
+tree. If the submission uses invalid syntax, it may not be parsed correctly, and
+comparison will fail. The four methods are \textit{cparser}, \textit{cppparser},
+\textit{javaparser}, and \textit{pythonparser}.
+
+\section{Interpreting and Filtering Results}
+Once \textit{Checksims} has finished comparing the submissions, you will see a
+screen like the one below. This presents a similarity matrix and some controls.
+The controls on the left allow you to set a threshold similarity, search for
+students by name, and print the results in a number of formats.
+
+
+\begin{figure}
+  \label{fig:results}
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/results.png}
+  \caption{An example of the results screen. Shows the similarity matrix on the
+    right and controls on the left.}
+\end{figure}
+
+The region on the right shows a grid of similarity ratings. All numbers are the
+percent similarity score between two submissions. Each row and each column
+represents a single submission, and each box represents the score similarity
+score when comparing the row submission to the column submission. The main
+diagonal of the matrix is blank, as each submission need not be compared to
+itself. To inspect a pair in more detail, click on the box. You will see some
+basic information about the pair of submission, including the submission
+lengths, their similarity, and their cross similarity scores. If you do not see
+any submissions, there were either no valid submissions, or there were no scores
+above the threshold defined in the left panel.
+
+The left panel provides three controls. The threshold hides any submissions that
+have no similarity ratings above a certain number. This is useful when filtering
+out dissimilar submissions. The second control provides two textboxes. Each
+textbox takes a partial name and highlights any submissions under that name. For
+instance, if you want to compare Alice and Bob, you can type their names into
+the respective boxes. All students with the names Alice and Bob will be brought
+to the front and highlighted, so you may review their similarity scores. The
+third control allows you to export the results in a number of formats. You may
+export an HTML document with the entire similarity matrix and simple formatting,
+you may export the results as a CSV file, or you may export a text file
+naming all pairs with a score greater than 70\%.
