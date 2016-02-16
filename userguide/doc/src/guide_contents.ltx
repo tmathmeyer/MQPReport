@@ -84,16 +84,42 @@ file within a directory named ``STUDENTS/studentname''.
 			%   child anchor=west,%        = \tikzchildanchor
 			%   every child node/.style={anchor=west}% already in "every node"
 		]
-		\node{\textit{Student Name or Username}}
-			child{node[draw=none] {readme.txt}}
-            child{node[draw=none] {other files \ldots}}
-            child{node {directory}
-                child{node[draw=none] {Code.file}}
-                child{node[draw=none] {\ldots}}
+		\node{\textit{Directory of Students}}
+            child{node {Student name or username}
+                child{node[draw=none] {readme.txt}}
+                child{node[draw=none] {other files \ldots}}
+                child{node {directory}
+                    child{node[draw=none] {Code.file}}
+                    child{node[draw=none] {\ldots}}
+                }
+                child[missing] {}
+                child[missing] {}
+                child {node {\ldots}};
             }
             child[missing] {}
             child[missing] {}
-            child {node {\ldots}};
+            child[missing] {}
+            child[missing] {}
+            child[missing] {}
+            child[missing] {}
+            child{node {Student name or username}
+                child{node[draw=none] {readme.txt}}
+                child{node[draw=none] {other files \ldots}}
+                child{node {directory}
+                    child{node[draw=none] {Code.file}}
+                    child{node[draw=none] {\ldots}}
+                }
+                child[missing] {}
+                child[missing] {}
+                child {node {\ldots}};
+            }
+            child[missing] {}
+            child[missing] {}
+            child[missing] {}
+            child[missing] {}
+            child[missing] {}
+            child[missing] {}
+            child{node[draw=none] {\ldots}};
 	\end{tikzpicture}
 	\caption{The \textit{Checksims/Turnin} directory format}
 \end{figure}
@@ -182,7 +208,11 @@ algorithms examine all files.
 There are three buttons for selecting Assignments, Archives, and Common Code.
 Each button expands like an accordian for adding many selections. Common Code
 submissions should be single files, while Submissions and Archives are in the
-\textit{Checksims/Turnin} format described previously.
+\textit{Checksims/Turnin} format described previously. Many classes at
+Worcester Polytechnic Institute also use myWPI for assignment handling. The
+format used by myWPI is different than turnin, but a script has been provided
+for converting to the \textit{Checksims/Turnin} directory format. This script
+can be found in Appendix A.
 
 \paragraph{Submissions}
 A submission, or set of submissions, are the assignments which are all compared
@@ -193,7 +223,15 @@ and will be treated as one large set.
 Archives are generally older submissions, and they follow the same format as
 normal submissions. Many sets of archive submissions may be given for a single
 run of \textit{Checksims}. Archives are only compared against Submissions, not
-against other archives. 
+against other archives. Archives are useful when testing if any students may
+have copied sections from a submission in a previous year. 
+
+\subsection{Common Code}
+Many assignments have starter code, or code that is common between all of the
+submissions. Removing common code is not necessary, but it can make the
+distinction between similar and dissimilar submissions more stark. To use common
+code removal, place all common code for an assignment into a single directory,
+and select that directory for common code removal in the main menu.
 
 \subsubsection{Action Buttons}
 The \textit{Checksims} button will take the other information entered into the
@@ -211,108 +249,60 @@ shown for convenience.
 \subsection{Results Inspector}
 Once the \textit{Checksims} algorithm has finished running, the results
 it generates are displayed in a grid. Some controls are provided for
-searching, filtering, and exporting the grid.
+searching, filtering, and exporting the grid. The results inspector
+should look similar to the one shown below:
 
-
-
-
->>>>>>>>>>>>> MIKES STUFF. TAKE FROM HERE THE GOOD PARTS <<<<<<<<<<<<<<
-
-To test assignments for similarities, you must first select all included
-submissions, common code, and submission archives. Once you have selected your
-archives and comparison method, you can begin the comparison. To add a
-submission directory, an archive directory, or a common code directory, click
-the associated button. A new box will appear where you may select a
-\textit{Turnin} zip file or directory for submissions or archives, or a
-directory for your common code. You may have an arbitrary number of each
-category. All listed submissions, archives, and common code directories will be
-included in the comparison. You must also select a comparison method. The UI
-includes a help mode, which can be activated by clicking on the `Enable Help'
-button.
-
-\subsubsection{Submissions}
-\textit{Checksims} supports a number of submission and archive formats. The
-primary format is an assignment directory. Every subdirectory is counted as an
-independent submission, and every file in the subdirectories are recursively
-concatenated together to form the submission. If you are using one of the AST
-based comparison methods, only files with the appropriate source file extensions
-will be considered. Submissions may also be in the form of a \textit{Turnin}
-assignment archive. These are ZIP files with a particular directory structure.
-
-\subsubsection{Archives}
-Archives are the same as submissions, but they are not checked for similarity.
-In other words, every submission will be compared to every other submission and
-every archive submission, but the archive submissions will not be compared to
-each other. This is useful when testing if any students may have copied sections
-from a submission in a previous year. Archives take the same format as
-submissions, but are treated differently by \textit{Checksims}.
-
-\subsubsection{Common Code}
-Many assignments have starter code, or code that is common between all of the
-submissions. Removing common code is not necessary, but it can make the
-distinction between similar and dissimilar submissions more stark. To use common
-code removal, place all common code for an assignment into a single directory,
-and select that directory for common code removal in the main menu.
-
-\subsubsection{Comparison Methods}
-\textit{Checksims} provides a number of methods for comparing assignments.
-There are two primary categories: token based and AST based comparison methods.
-Token based methods parse a submission into a sequence of tokens. Tokens may be
-the individual characters, whitespace separated words, or lines of a file. AST
-based methods parse each file into a an Abstract Syntax Tree before comparison.
-Because of this , token based methods do not depend on any particular language,
-while AST based methods must be used on their target languages. Token based
-methods are not be as capable in detecting language based obfuscation methods.
-AST methods are language specific, and will fail if given an invalid
-assignment. They are, however, much more capable in detecting language based
-obfuscation methods.
-
-There are two token based methods available in \textit{Checksims}. The first is
-\textit{linecompare}, which searches for identical lines in each file. This is
-the least robust method, but is extremely efficient. The next token based method
-is \textit{Smith-Waterman}, a sequence alignment algorithm typically used in
-analyzing genome data. This method has a high memory requirement, but is more
-robust than \textit{linecompare}.
-
-\textit{Checksims} provides four AST based comparison algorithms. All methods
-first parse the language dependent submission into a language independent syntax
-tree. If the submission uses invalid syntax, it may not be parsed correctly, and
-comparison will fail. The four methods are \textit{cparser}, \textit{cppparser},
-\textit{javaparser}, and \textit{pythonparser}.
-
-\subsection{Interpreting and Filtering Results}
-Once \textit{Checksims} has finished comparing the submissions, you will see a
-screen like the one below. This presents a similarity matrix and some controls.
-The controls on the left allow you to set a threshold similarity, search for
-students by name, and print the results in a number of formats.
-
-
-\begin{figure}
+\begin{figure}[!htb]
   \label{fig:results}
   \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/demo_screen.png}
   \caption{An example of the results screen. Shows the similarity matrix on the
     right and controls on the left.}
 \end{figure}
 
-The region on the right shows a grid of similarity ratings. All numbers are the
-percent similarity score between two submissions. Each row and each column
-represents a single submission, and each box represents the score similarity
-score when comparing the row submission to the column submission. The main
-diagonal of the matrix is blank, as each submission need not be compared to
-itself. To inspect a pair in more detail, click on the box. You will see some
-basic information about the pair of submission, including the submission
-lengths, their similarity, and their cross similarity scores. If you do not see
-any submissions, there were either no valid submissions, or there were no scores
-above the threshold defined in the left panel.
+\subsubsection{Controls Section}
 
-The left panel provides three controls. The threshold hides any submissions that
-have no similarity ratings above a certain number. This is useful when filtering
-out dissimilar submissions. The second control provides two textboxes. Each
-textbox takes a partial name and highlights any submissions under that name. For
-instance, if you want to compare Alice and Bob, you can type their names into
-the respective boxes. All students with the names Alice and Bob will be brought
-to the front and highlighted, so you may review their similarity scores. The
-third control allows you to export the results in a number of formats. You may
-export an HTML document with the entire similarity matrix and simple formatting,
-you may export the results as a CSV file, or you may export a text file
-naming all pairs with a score greater than 70\%.
+\paragraph{Matching Threshold}
+The threshold selector allows filtering out students who have no similarity
+scores greater than a specified value. The default value of the threshold
+selector is set to 40, meaning that any student with a no submissions above a
+40 percent match will not be shown.
+
+\paragraph{Student Search}
+The student search area has two text boxes for searching for students, either
+can be used independantly, but when used simultaneously they have a different
+behavior.  When only a single search field is populated, all students who match
+the search are highlighted and brought to the upper leftmost corner of the
+grid. When two search field are used, all matching students are brought to the
+upper leftmost corner, but only pairs among the matched students are
+highlighted. Two images are shown demonstrating this behavior:
+
+\begin{figure}[!htb]
+  \label{fig:results}
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/single_filter.png}
+  \caption{The highlighting behavior when only a single student is matched by a
+  single search bar. This student is brought to the top of the grid and all
+  results highlighted.}
+\end{figure}
+
+\begin{figure}[!htb]
+  \label{fig:results}
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/double_filter.png}
+  \caption{The highlighting behavior when multiple  students are matched by
+  both search bars. The students are brought to the top of the grid and all
+  intersecting results highlighted.}
+\end{figure}
+
+\paragraph{Save Results}
+The third control exists in order to export results from the UI to other
+formats.  Supported output types are csv and html.
+
+\subsubsection{Interpreting the Grid of Results}
+There are two types of square on the results grid. The first type is a black
+square, indicating that no comparison is done between these two assignments.
+This could be either because the assignments are both archive assignments, or
+because an assignment cannot be compared to itself. The other squares are
+colored with a gradient from a bright red to a faded yellow-white. This
+gradient is based on similarity percentage, and allows the user a way to
+quickly scan results without reading the detailed numbers. You can also click
+on a square to get detailed information about the two individuals involved as
+well as about their submission.
