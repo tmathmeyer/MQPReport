@@ -156,8 +156,44 @@
 \subsection{Sed based comment matching script}
 \lstinputlisting[language=bash]{code/strip_comments.sed}
 \section{Raw Execution Time Data}
-Put Data Here!!
-
+\subsection{AST Comparison Time Data}
+\begin{center}
+    \leftskip-2cm
+    \rightskip-2cm
+    \noindent\begin{minipage}{.44\paperwidth}
+        \begin{tabular}{l|c}
+            \bfseries Corpus Size & \bfseries Execution Time
+            \csvreader[head to column names]{raw/ast1.csv}{}
+            {\\\hline\x & \y}
+        \end{tabular}
+    \end{minipage}
+    \begin{minipage}{.44\paperwidth}
+        \begin{tabular}{l|c}
+            \bfseries Corpus Size & \bfseries Execution Time
+            \csvreader[head to column names]{raw/ast2.csv}{}
+            {\\\hline\x & \y}
+        \end{tabular}
+    \end{minipage}
+\end{center}
+\subsection{Smith-Wateman Comparison Time Data}
+\begin{center}
+    \leftskip-2cm
+    \rightskip-2cm
+    \noindent\begin{minipage}{.44\paperwidth}
+        \begin{tabular}{l|c}
+            \bfseries Corpus Size & \bfseries Execution Time
+            \csvreader[head to column names]{raw/sw1.csv}{}
+            {\\\hline\x & \y}
+        \end{tabular}
+    \end{minipage}
+    \begin{minipage}{.44\paperwidth}
+        \begin{tabular}{l|c}
+            \bfseries Corpus Size & \bfseries Execution Time
+            \csvreader[head to column names]{raw/sw2.csv}{}
+            {\\\hline\x & \y}
+        \end{tabular}
+    \end{minipage}
+\end{center}
 \end{appendices}
 
 \end{document}
