@@ -57,7 +57,8 @@ Comparison to compute a similarity matrix for corpora with fewer than 100
 assignments. A best fit line was constructed for each set of points, showing
 that AST Fingerprinting ranges anywhere from 33 percent to 75 faster than the
 Smith-Waterman Algorithm. The raw data for this graph can be found in Appendix
-E.
+D. Notice too that the execution time of the AST Comparison algorithm is more
+consistently low than Smith-Waterman.
 \\
 \\
 \input{runtime_plot_large.ltx}
@@ -67,7 +68,10 @@ This graph shows the number of seconds taken by both Smith-Waterman and AST
 Comparison to compute a similarity matrix for corpora with more than 100
 assignments. A best fit line was constructed for each set of points, showing
 that AST Fingerprinting ranges from 75 percent to 95 percent faster than
-Smith-Waterman. Raw data for this graph can be found in Appendix E.
+Smith-Waterman. Even more so than in the previous graph, it is clear that AST
+Comparison is more consistent in its execution time than Smith-Waterman, in
+addition to being faster on average. Raw data for these graphs can be found in
+Appendix D.
 \clearpage
 \subsubsection{Identified Instances of Similarity}
 Over these twenty three corpora, there are cases where one algorithm
