@@ -7,7 +7,7 @@ but rather to act as a tool to identify suspicious assignments for review by
 course staff.
 
 The \textit{Checksims} user interface was designed to allow course staff to
-use \textit{Checksims} without havving to memorize command line arguments.
+use \textit{Checksims} without having to memorize command line arguments.
 
 \subsection{Installing Checksims}
 \textit{Checksims} is distributed as an executable Java package (\texttt{.jar}
@@ -44,7 +44,7 @@ memory-related program crashes.
 
 \subsubsection{Window and OSX}
 Both Windows and OSX have the ability to run \textit{.jar} files when they are
-double clicked on. It is recommended to put the \textit{Checksims} executable
+double clicked. It is recommended to put the \textit{Checksims} executable
 in either the folder where assignments are kept, or on the desktop for easy
 access.
 
@@ -61,15 +61,13 @@ from the command line, use the following command:
 
 This command can be put inside of a shell script for more convenient use.
 
-\subsection{Archive Formats}
+\subsection{\textit{Checksims/Turnin} Formats}
 \textit{Checksims} uses what is called the \textit{Checksims/Turnin} format.
-There are two forms to this format: the archive and the directory. In the
-directory format, each student submission consists of all code inside a
-directory structure with the root directory having the students name or
-username. In the archive format, all student submissions are contained in a zip
-file within a directory named ``STUDENTS/studentname''.
+There are two forms of the \textit{Checksims/Turnin} format: the archive and
+the directory. these forms are both shown below.
 
-
+\clearpage
+\subsubsection{Directory Format}
 \begin{figure}[!htb]
 	\label{fig:chkturn_dir}
 	\begin{tikzpicture}[
@@ -121,12 +119,14 @@ file within a directory named ``STUDENTS/studentname''.
             child[missing] {}
             child{node[draw=none] {\ldots}};
 	\end{tikzpicture}
-	\caption{The \textit{Checksims/Turnin} directory format}
+    \caption{The \textit{Checksims/Turnin} directory format. Note that boxed
+    names are directories and unboxed names are files.}
 \end{figure}
 
-
+\clearpage
+\subsubsection{Archive Format}
 \begin{figure}[!htb]
-	\label{fig:chkturn_dir}
+	\label{fig:chkturn_arch}
 	\begin{tikzpicture}[
 			grow via three points={
 				one child at (0.8,-0.7) and two children at (0.8,-0.7) and (0.8,-1.4)
@@ -175,7 +175,8 @@ file within a directory named ``STUDENTS/studentname''.
             };
             
 	\end{tikzpicture}
-	\caption{The \textit{Checksims/Turnin} Archive format}
+    \caption{The \textit{Checksims/Turnin} archive format. Note that boxed
+    names are directories and unboxed names are files.}
 \end{figure}
 
 
@@ -189,52 +190,53 @@ small window bearing the \textit{Checksims} logo, shown below:
 \label{fig:ui_splash}
     \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/initial_run.png}
     \caption{Note that Java user interfaces are not consistent across operating
-    systems. Yours may look a bit different.}
+    systems. Yours may look a bit different in terms of color scheme, but the
+    controls will be the same.}
 \end{figure}
 
 There are three sections to the \textit{Checksims} main interface. On the left
-side is a panel for selecting the comparison algorithm. On the right side, there
-are buttons for selecting inputs. On the bottom of the screen are two buttons
-for running \textit{Checksims} and enabling help, respectively. 
+side is a panel for selecting the comparison algorithm. On the right side,
+there are buttons for selecting inputs. On the bottom of the screen are two
+buttons for running \textit{Checksims} and enabling help, respectively. 
 
 \subsubsection{Comparison Algorithm Selection}
 Only one comparison algorithm may be selected at a time. It is recomended to
 chose the algorithm that matches the language used, or ``smithwaterman'' if it
-is not on the list.  The language dependant algorithms are capable of filtering
-out files which do not have the proper extension. The Smith-Waterman and other
-algorithms examine all files.
+is not on the list. The language--dependent algorithms are capable of
+filtering out files that do not have the proper extension. The Smith-Waterman
+and other algorithms examine all files.
 
 \subsubsection{File Selection}
 There are three buttons for selecting Assignments, Archives, and Common Code.
 Each button expands like an accordian for adding many selections. Common Code
 submissions should be single files, while Submissions and Archives are in the
 \textit{Checksims/Turnin} format described previously. Many classes at
-Worcester Polytechnic Institute also use myWPI for assignment handling. The
-format used by myWPI is different than turnin, but a script has been provided
-for converting to the \textit{Checksims/Turnin} directory format. This script
-can be found in Appendix A.
+Worcester Polytechnic Institute also use \textit{myWPI} for assignment
+handling. The format used by \textit{myWPI} is different than turnin, but a
+script has been provided for converting to the \textit{Checksims/Turnin}
+directory format. This script can be found in Appendix A.
 
 \paragraph{Submissions}
-A submission, or set of submissions, are the assignments which are all compared
-against eachother. Many sets of submissions may be given to \textit{Checksims}
+A submission, or set of submissions, are the assignments that are all compared
+against each other. Many sets of submissions may be given to \textit{Checksims}
 and will be treated as one large set.
 
 \paragraph{Archives}
-Archives are generally older submissions, and they follow the same format as
-normal submissions. Many sets of archive submissions may be given for a single
-run of \textit{Checksims}. Archives are only compared against Submissions, not
-against other archives. Archives are useful when testing if any students may
-have copied sections from a submission in a previous year. 
+Archives are useful when testing if any students may have copied sections from
+a submission in a previous year.  Archives are generally older submissions, and
+they follow the same format as normal submissions. Many sets of archive
+submissions may be given for a single run of \textit{Checksims}. Archives are
+only compared against Submissions, not against other archives. 
 
 \subsection{Common Code}
-Many assignments have starter code, or code that is common between all of the
+Many assignments have starter code, or code that is common among all of the
 submissions. Removing common code is not necessary, but it can make the
 distinction between similar and dissimilar submissions more stark. To use common
 code removal, place all common code for an assignment into a single directory,
 and select that directory for common code removal in the main menu.
 
 \subsubsection{Action Buttons}
-The \textit{Checksims} button will take the other information entered into the
+The ``Run Checksims'' button will take the other information entered into the
 UI and run it through the \textit{Checksims} pipeline to generate results. The
 ``Help'' button toggles help mode, in which every element becomed specially
 highlighted and help documentation is shown on click.
@@ -245,18 +247,25 @@ progress bar, which includes steps including file reading and possible file
 extraction. The Upper progress bar shows the progress for assignment
 comparison. The percent finished, as well as estimated time remaining are also
 shown for convenience.
+\begin{figure}[!htb]
+  \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/progress.png}
+  \caption{An example of the progress reporting screen. Computation did not
+  take 14 hours.}
+  \label{fig:progress}
+\end{figure}
 
+\clearpage
 \subsection{Results Inspector}
-Once the \textit{Checksims} algorithm has finished running, the results
-it generates are displayed in a grid. Some controls are provided for
-searching, filtering, and exporting the grid. The results inspector
-should look similar to the one shown below:
+Once the \textit{Checksims} algorithm has finished running, the generated
+results are displayed in a grid similar to Figure~\ref{fig:demo_screen}. Some
+controls are provided for searching, filtering, and exporting the grid. The
+results inspector should look similar to the one shown below:
 
 \begin{figure}[!htb]
-  \label{fig:results}
   \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/demo_screen.png}
   \caption{An example of the results screen. Shows the similarity matrix on the
     right and controls on the left.}
+  \label{fig:demo_screen}
 \end{figure}
 
 \subsubsection{Controls Section}
@@ -269,7 +278,7 @@ selector is set to 40, meaning that any student with a no submissions above a
 
 \paragraph{Student Search}
 The student search area has two text boxes for searching for students, either
-can be used independantly, but when used simultaneously they have a different
+can be used independently, but when used simultaneously they have a different
 behavior.  When only a single search field is populated, all students who match
 the search are highlighted and brought to the upper leftmost corner of the
 grid. When two search field are used, all matching students are brought to the
@@ -277,7 +286,7 @@ upper leftmost corner, but only pairs among the matched students are
 highlighted. Two images are shown demonstrating this behavior:
 
 \begin{figure}[!htb]
-  \label{fig:results}
+  \label{fig:single_filter}
   \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/single_filter.png}
   \caption{The highlighting behavior when only a single student is matched by a
   single search bar. This student is brought to the top of the grid and all
@@ -285,7 +294,7 @@ highlighted. Two images are shown demonstrating this behavior:
 \end{figure}
 
 \begin{figure}[!htb]
-  \label{fig:results}
+  \label{fig:double_filter}
   \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{./img/double_filter.png}
   \caption{The highlighting behavior when multiple  students are matched by
   both search bars. The students are brought to the top of the grid and all
@@ -294,7 +303,7 @@ highlighted. Two images are shown demonstrating this behavior:
 
 \paragraph{Save Results}
 The third control exists in order to export results from the UI to other
-formats.  Supported output types are csv and html.
+formats.  Supported output types are \textit{CSV} and \textit{HTML}.
 
 \subsubsection{Interpreting the Grid of Results}
 There are two types of square on the results grid. The first type is a black
