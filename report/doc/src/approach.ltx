@@ -33,7 +33,7 @@ redesign, an abstraction that we call a ``Percentable'' was used. This name
 comes directly from the code, and means any structure from which a percentage
 can be calculated.  Submission text can be transformed into different types of
 percentables and memoized\footnote{Memoization is a technique in programming
-where results of previous computations are cached so that they must not be
+where results of previous computations are cached so that they need not be
 calculated multiple times} by their type. Algorithms are now based on the
 percentable type on which they operate and are responsible for informing the
 \textit{Checksims} runner which type of percentable generator they would like
@@ -83,7 +83,7 @@ grammar for a language is a difficult task. A grammar file for Java8 alone is
 upwards of 1500 lines long and is highly complex.
 \\\\
 So that AST analysis may be usable on the original target languages of Java, C,
-C++, and Python, grammars for each of these languages must be created. To
+C++, and Python, grammars for each of these languages were created. To
 complicate matters further, language specifications are fluid; in 2014 the C
 and Java language specifications were updated, and Java is set to have another
 in September 2016.  Python is in somewhat of a civil war between versions 2.7

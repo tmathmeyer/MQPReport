@@ -1,7 +1,7 @@
 \section{Introduction}
 \label{sec:intro}
 \textit{Checksims} is a tool developed at WPI to help teaching staff combat
-academic dishonesty in the scope of programming assignments. The current
+academic dishonesty in the scope of programming assignments. The original
 implementation of \textit{Checksims} uses the Smith-Waterman sequence alignment
 algorithm~\cite{checksims1} to compare pairs of assignments within a corpora of
 assignments, usually one class’s worth. This algorithm assigns a percent score
@@ -13,13 +13,15 @@ so far, it is possible to subvert its functionality given knowledge of the
 Smith-Waterman algorithm. There are certain techniques, such as renaming
 variables, reordering order-independent statements, and generally shuffling
 parts of code within or between files, that the authors believe are sufficient
-enough to fool the Smith-Waterman algorithm.  Smith-Waterman was originally
-designed to compare sequences of genomes, which are one dimensional sequences
-of data.  Code is not a one dimensional sequence however; It can be represented
-as a tree that is tagged with names and identifiers. This sequence-tree duality
-of code allows individual submissions to be compared not only as a linear
-sequence analysis problem but also as a two dimensional structure, providing an
-interesting and not well studied field in which research can be done.
+enough to fool the Smith-Waterman algorithm.
+
+Smith-Waterman was originally designed to compare sequences of genomes, which
+are one dimensional sequences of data.  Code is not a one dimensional sequence
+however; It can be represented as a tree that is tagged with names and
+identifiers. This sequence-tree duality of code allows individual submissions
+to be compared not only as a linear sequence analysis problem but also as a two
+dimensional structure, providing an interesting and not well studied field in
+which research can be done.
 
 \subsection{Original Goals}
 \label{sec:mattdolangoals}
