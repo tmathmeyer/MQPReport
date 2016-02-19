@@ -36,9 +36,13 @@ another greater than 69 percent are shown:
 \\
 All four assignments have been manually reviewed as well, and it was determined
 that these students would have been called in to discuss academic dishonesty
-with the Professor. That MOSS missed these assignments provides significant
-evidence to show that AST Comparison is at least as good, if not better, than
-the closed source algorithm that powers MOSS\@.
+with the Professor.
+
+That MOSS missed these assignments provides significant evidence to show that
+AST Comparison is at least as good, if not better, than the closed source
+algorithm that powers MOSS\@. However, MOSS has the advantage of not failing to
+operate on syntactically incorrect assignments, showing that there are
+shortcomings and advantages to each system.
 \subsection{AST Compare vs Smith-Waterman}
 
 \subsubsection{Execution time}
@@ -58,7 +62,7 @@ assignments. A best fit line was constructed for each set of points, showing
 that AST Fingerprinting ranges anywhere from 33 percent to 75 faster than the
 Smith-Waterman Algorithm. The raw data for this graph can be found in Appendix
 D. Notice too that the execution time of the AST Comparison algorithm is more
-consistently low than Smith-Waterman.
+consistently lower than Smith-Waterman.
 \\
 \\
 \input{runtime_plot_large.ltx}
@@ -174,7 +178,9 @@ Smith-Waterman identified the following pairs:
     \item students 0 and 2
     \item students 85 and 91
 \end{itemize}
-Upon manual inspection, all were deemed to be instances of unauthorized copying.
+Upon manual inspection, all were deemed to be instances of unauthorized
+copying.  Students 0 and 91 did not submit syntactically valid code however,
+and AST Comparison was not able to accurately compare them.
 
 \subparagraph{Corpus 1.b12.3}
 Smith-Waterman identified the following pair:
@@ -199,7 +205,7 @@ Upon manual inspection, students 79 and 82 were identified as a likely instance
 of unauthorized copying. The pairs 9 and 58, and 58 and 72, were identified as
 being unlikely instances of unauthorized copying.
 
-\subparagraph{Corpus 1.b12.5},
+\subparagraph{Corpus 1.b12.5}
 AST comparison identified the following pairs:
 \begin{itemize}
     \item students 11 and 28
@@ -216,11 +222,13 @@ Smith-Waterman identified the following pairs:
     \item students 29 and 34
     \item students 74 and 89
 \end{itemize}
-The first triplet of assignments (11, 12, and 84), detected by both AST
-Comparison and Smith-Waterman, is likely a case of unauthorized copying.  The
+The first triplet of assignments (11, 28, and 84), detected by both AST
+Comparison and Smith-Waterman, is likely a case of unauthorized copying. The
 second triplet of assignments (8, 29, and 34) was detected only by Smith
 Waterman, as they all contained syntax errors. The final pair of assignments,
-74 and 89, were most likely not an instance of unauthorized copying.
+74 and 89, were most likely not an instance of unauthorized copying. False
+positives like this further demonstrate the need for manual inspection of
+\textit{Checksims} results.
 
 \subparagraph{Corpus 1.b12.6}
 AST comparison identified the following pairs:
@@ -246,7 +254,7 @@ AST comparison identified the following pairs:
 \end{itemize}
 Smith-Waterman did not identify any submissions for review.  The pairs
 identified by the AST comparison method were manually inspected and found to be
-likely an instance of unidentified copying.
+likely an instance of unauthorized copying.
 
 \subparagraph{Corpus 1.b13.3}
 AST comparison identified the following pair:
@@ -270,7 +278,8 @@ Smith-Waterman identified the following pairs:
     \item students 65 and 85
 \end{itemize}
 Both pairs were inspected, and it was determined that they were probably
-instances of unauthorized copying.
+instances of unauthorized copying. Student 65 did not submit syntactically
+correct code and was not flagged by AST Comparison.
 
 \subparagraph{Corpus 1.b13.6}
 AST comparison identified the following pairs:
@@ -292,8 +301,8 @@ Smith-Waterman identified the following pairs:
     \item students 6 and 48
     \item students 9 and 99
 \end{itemize}
-Excluding the 6,48 pair, all pairs were manually inspected and found to be very
-similar. Both methods identified the first two pairs and the 13,70,93 triplet.
+Excluding the (6, 48) pair, all pairs were manually inspected and found to be very
+similar. Both methods identified the first two pairs and the (13, 70, 93) triplet.
 Of the remaining pairs, both were identified by Smith-Waterman but not AST
 comparison.
 \subparagraph{Corpus 1.d11.2}

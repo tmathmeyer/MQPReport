@@ -140,7 +140,7 @@ the directory. these forms are both shown below.
 			%   every child node/.style={anchor=west}% already in "every node"
 		]
         \node[draw=none]{\textit{Submissions.zip}}
-            child{node {STUDENTS}
+        child{node [label={[xshift=6.0cm,yshift=-0.38cm,color=gray]must be named STUDENTS}] {STUDENTS}
                 child{node {student1}
                     child{node[draw=none] {readme.txt}}
                     child{node[draw=none] {other files \ldots}}
