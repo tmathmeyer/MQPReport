@@ -1,0 +1,23 @@
+AST = (String, [AST])
+Hash(a: AST) -> int{
+  a:(text, children) ->
+    hash(text) + 
+    fold(sum, map(Hash, children))
+}
+ToHashMap(a: AST) -> Dict<int,AST>{
+  a:(_, children) ->
+    combine({Hash(a): a}
+      map(combine,
+        map(toHashMap,
+          children)))
+}
+Comp(a: AST, b: AST) -> (int,int) {
+  size = map(weight, intersect(
+              toHashMap(a),
+              toHashMap(b)
+            ))
+  return (
+    weight(a) / size,
+    weight(b) / size
+  )
+}

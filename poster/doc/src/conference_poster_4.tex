@@ -25,6 +25,9 @@
 }
 
 \begin{document}
+\pretolerance=10000
+\tolerance=2000 
+\emergencystretch=10pt
 
 \begin{poster}
 {
@@ -34,24 +37,24 @@
   columns=3,
   colspacing=4em,
   %% Poster coloring, taken from WPI's poster template.
-  bgColorOne=black!60!white!80!blue!98!green,
-  bgColorTwo=black!95!white!95!blue!99!green,
+  bgColorOne=white!80!blue,
+  bgColorTwo=white!80!green,
   %% Border 
   borderColor=black,
   headerColorOne=white,
   headerColorTwo=white,
   headerFontColor=blue,
   boxColorOne=white,
-  textborder=rounded,
+  textborder=roundedsmall,
   eyecatcher=true,
-  headerborder=closed,
+  headerborder=open,
   headerheight=0.22\textheight,
-  headershape=rounded,
+  headershape=smallrounded,
   headershade=plain,
-  headerfont=\huge\em, %Sans Serif
+  headerfont=\Large\bf\textsc, %Sans Serif
   textfont={\setlength{\parindent}{1.5em}},
-  boxshade=shadetb,
-  borderColor=white,
+  boxshade=plain,
+  borderColor=black,
   background=shadetb,
   linewidth=2pt
 }
@@ -63,8 +66,7 @@
 {\huge Software Similarity Detection With \textit{Checksims}\\[0.15em]
   \large Improvements to Algorithmic Comparisons and Usability}
 % Authors
-  {\large Theodore Meyer and Michael Andrews\\[0.2em]
-  \{mandrews and tjmeyer\}@wpi.edu}
+  {\large Theodore Meyer and Michael Andrews}
 % Eye catcher
 {
   \includegraphics[width=0.2\linewidth]{checksims_logo.png}
@@ -107,7 +109,7 @@
 }
 
 
-\headerbox{Approach}{name=process, column=1, row=0.0, span=1}{
+\headerbox{Approach}{name=process, column=1, row=0.0, span=2}{
   \textit{Checksims'} existing token-based document representation was
   supplemented with a language independent AST based representation. The
   \textit{ANTLR} parser generation tool and existing grammars were used to
