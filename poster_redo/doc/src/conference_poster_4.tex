@@ -25,6 +25,9 @@
 \setlength{\parsep}{0pt}
 }
 
+\setlength\fboxsep{4.0pt}
+\setlength\fboxrule{1.0pt}
+
 \begin{document}
 \pretolerance=10000
 \tolerance=2000 
@@ -126,75 +129,42 @@
 }
 
 \headerbox{Future Work}{name=futurework, column=3, row=.64, span=1} {
-    Comparison images and whatnot
 
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
+  Future work for \textit{Checksims} might include:
+  \begin{itemize}
+  \item Support for more languages using the AST comparison algorithms.
+  \item Printable reports detailing the line-by-line similarities of documents.
+  \item Further integration with existing assignment submission systems.
+  \item Improvements to the GUI user experience.
+  \end{itemize}
 }
 
 \headerbox{GUI Approach}{name=approach2, column=2, span=2} {
-    Because \textit{CheckSims} is written in java, we chose to use Java Swing for developing the GUI. Some screenshots of the interface are provided:
-    
-    a
+    Because \textit{CheckSims} is written in java, we chose to use Java Swing for
+    developing the GUI. The GUI captures all of the core options provided by the
+    core \textit{Checksims} system.
+    The \textit{Checksims} GUI has the following significant features:
+    \begin{itemize}
+    \item A startup menu for selecting the files and comparision method to use.
+    \item A loading screen that displays useful information about the progress of
+      each run.
+    \item A results screen that allows users to search, sort, browse, and inspect
+      the similarity matrix.
+    \end{itemize}
+  
+    Given the steep learning curve for using the command line interface, this GUI
+    makes \textit{Checksims} significantly more available for use by academic
+    institutions.
 
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
-
-    a
+    \parbox[c][0.35\linewidth][b]{0.48\linewidth}{
+      \includegraphics[width=0.9\linewidth]{initial_run.png} \\
+      The lobby menu with all available options.
+    }
+    \parbox[c][0.35\linewidth][b]{0.48\linewidth}{
+      \includegraphics[width=0.9\linewidth]{demo_screen.png} \\
+      The similarity comparison matrix view \\
+      and results screen.
+    }
 }
 
 
