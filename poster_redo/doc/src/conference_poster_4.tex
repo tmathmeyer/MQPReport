@@ -79,24 +79,24 @@
 \headerbox{Motivation and Objectives}{name=M-and-O, column=0, row=0, span=1}{
     \noindent \textbf{Motivations:}
     \begin{itemize}
-        \item The Smith-Waterman algorithm is flawed in that it is not able to detect renaming variables and reordering code.
-        \item \textit{CheckSims} is difficult to use in its commandline only form for many course staff. 
+        \item The Smith-Waterman algorithm is flawed in that it is not able to identify renamed variables or reordered code.
+        \item \textit{CheckSims}'s commandline application is difficult to use for many course staff. 
     \end{itemize}
 
     \noindent \textbf{Objectives:}
     \begin{itemize}
         \item Design and implement an AST Similarity detection algorithm that is \textit{at least} as powerful as Smith-Waterman, and hopefully better.
-        \item Design an archive system for \textit{CheckSims} so that assignments can be bundled together in a single file
+        \item Design an archive system for \textit{CheckSims} so that assignments can be bundled together in a single file.
         \item Build an interoperability layer with \textit{Turnin} so that detection can be done more quickly.
-        \item Create a User Interface for \textit{CheckSims} so that course staff who are unable to use a command line have a way to use \textit{CheckSims}
+        \item Create a User Interface for \textit{CheckSims} so that course staff who are unable to use a command line have a way to use \textit{CheckSims}.
     \end{itemize}
 }
 
 \headerbox{AST Approach}{name=Approach, column=0, row=.65, span=1}{
-    \noindent \textbf{An AST (Abstract Syntax Tree) is a simple data structure for representing source code}
+    \noindent \textbf{An AST (Abstract Syntax Tree) is a simple data structure for representing source code.}
     \noindent \begin{itemize}
-        \item The \textit{ANTLR} parser generator was used to create parsers for C, C++, Java, and Python, all of which were translated into our universal AST representation.
-        \item ASTs are transformed into hashmaps so that intersecting keysets can be found; each hashmap is cached for better runtime.
+        \item The \textit{ANTLR} parser generator was used to create parsers for C, C++, Java, and Python, whose outputs are translated into our universal AST representation.
+        \item ASTs are used to generate a code fingerprint database; these are used to check for similar sections of code.
     \end{itemize}
 }
 

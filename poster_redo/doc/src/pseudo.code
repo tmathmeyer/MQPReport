@@ -1,7 +1,7 @@
 AST = (String, [AST])
 Hash(a: AST) -> int{
-  a:(text, children) ->
-    hash(text) + 
+  a:(typename, children) ->
+    hash(typename) + 
     fold(sum, map(Hash, children))
 }
 ToHashMap(a: AST) -> Dict<int,AST>{
