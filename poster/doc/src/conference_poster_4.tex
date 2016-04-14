@@ -1,6 +1,7 @@
 \documentclass[landscape,a0paper,fontscale=0.285]{baposter}
 
 \usepackage{graphicx}
+\usepackage{listings}
 \graphicspath{{figures/}}
 
 \usepackage{amsmath}
@@ -24,6 +25,9 @@
 \setlength{\parsep}{0pt}
 }
 
+\setlength\fboxsep{4.0pt}
+\setlength\fboxrule{1.0pt}
+
 \begin{document}
 \pretolerance=10000
 \tolerance=2000 
@@ -34,8 +38,8 @@
   %% View grid for debugging.
   grid=false,
   %% Column specification.
-  columns=3,
-  colspacing=4em,
+  columns=4,
+  colspacing=1em,
   %% Poster coloring, taken from WPI's poster template.
   bgColorOne=white!80!blue,
   bgColorTwo=white!80!green,
@@ -72,70 +76,84 @@
   \includegraphics[width=0.2\linewidth]{checksims_logo.png}
 }
 
-\headerbox{Abstract}{name=abstract, column=0, row=0, span=1}{
-    In order to improve the quality and usability of the \textit{Checksims}
-    software similarity detection tool, we present a series of modifications to
-    the original project; changes include Syntax Tree comparison algorithms,
-    integration with existing grading software, user interface improvements,
-    and the ability to perform comparison against historical data.
+\headerbox{Motivation and Objectives}{name=M-and-O, column=0, row=0, span=1}{
+    \noindent \textbf{Motivations:}
+    \begin{itemize}
+        \item The Smith-Waterman algorithm is flawed in that it is not able to identify renamed variables or reordered code.
+        \item \textit{CheckSims}'s commandline application is difficult to use for many course staff. 
+    \end{itemize}
+
+    \noindent \textbf{Objectives:}
+    \begin{itemize}
+        \item Design and implement an AST Similarity detection algorithm that is \textit{at least} as powerful as Smith-Waterman, and hopefully better.
+        \item Design an archive system for \textit{CheckSims} so that assignments can be bundled together in a single file.
+        \item Build an interoperability layer with \textit{Turnin} so that detection can be done more quickly.
+        \item Create a User Interface for \textit{CheckSims} so that course staff who are unable to use a command line have a way to use \textit{CheckSims}.
+    \end{itemize}
 }
 
-\headerbox{Background}{name=background, column=0, row=0.22, span=1}{
-  Academic dishonesty is often poorly defined. Different institutions,
-  departments, professors, and courses have differing definitions and
-  interpretations. The goal of \textit{Checksims} is to detect instances of
-  potential unauthorized copying: similar sections of code that may constitute
-  academic dishonesty.  Detecting similar sections of code is done in a number
-  of ways. The two primary types of detection are token based comparison and
-  syntax based comparison.  Token based detection algorithms work by splitting
-  source text into smaller chunks and computing shortest modification distance.
-  Syntax based detection parse code based on a defined grammar and generate a
-  tree which an be operated on.  Our work on \textit{Checksims} has indicated
-  that AST based methods are often more accurate than token based methods, but
-  come with their own set of limitations.
+\headerbox{AST Approach}{name=Approach, column=0, row=.65, span=1}{
+    \noindent \textbf{An AST (Abstract Syntax Tree) is a simple data structure for representing source code.}
+    \noindent \begin{itemize}
+        \item The \textit{ANTLR} parser generator was used to create parsers for C, C++, Java, and Python, whose outputs are translated into our universal AST representation.
+        \item ASTs are used to generate a code fingerprint database; these are used to check for similar sections of code.
+    \end{itemize}
 }
 
-\headerbox{Objectives}{name=objectives, column=0, row=0.645, span=1}{
+\headerbox{AST Comparison Algorithm}{name=ast-comparison, column=1, span=1}{
+    \lstinputlisting{./pseudo.code}
+}
+
+\headerbox{AST Comparison vs Smith-Waterman}{name=algocompare, column=1, row=.64, span=2} {
+  \parbox[c][0.28\linewidth][t]{0.60\linewidth}{
+    \fbox{
+      \includegraphics[width=0.9\linewidth]{ast.png}
+    }
+  }
+  \parbox[c][0.2\linewidth][t]{0.30\linewidth}{
+    AST versus Smith-Waterman comparison on variable renaming. AST based methods
+    identify a perfect match, while Smith-Waterman returns a weak similarity.
+  }
+}
+
+\headerbox{Future Work}{name=futurework, column=3, row=.64, span=1} {
+
+  Future work for \textit{Checksims} might include:
   \begin{itemize}
-  \item Design and implement an AST similarity detection algorithm, and then
-    compare it to the Smith-Waterman in both accuracy and performance.
-  \item Design a format and archiving system for comparing submissions not only
-    to one another, but to previous course submissions as well.
-  \item Integrate \textit{Checksims} with \textit{turnin}, the most commonly
-    used tool for computer science assignment submissions at WPI\@.
-  \item Create a graphical user interface for \textit{Checksims}, as currently
-    it requires use of a command line interface.
+  \item Support for more languages using the AST comparison algorithms.
+  \item Printable reports detailing the line-by-line similarities of documents.
+  \item Further integration with existing assignment submission systems.
+  \item Improvements to the GUI user experience.
   \end{itemize}
 }
 
+\headerbox{GUI Approach}{name=approach2, column=2, span=2} {
+    Because \textit{CheckSims} is written in java, we chose to use Java Swing for
+    developing the GUI. The GUI captures all of the core options provided by the
+    core \textit{Checksims} system.
+    The \textit{Checksims} GUI has the following significant features:
+    \begin{itemize}
+    \item A startup menu for selecting the files and comparision method to use.
+    \item A loading screen that displays useful information about the progress of
+      each run.
+    \item A results screen that allows users to search, sort, browse, and inspect
+      the similarity matrix.
+    \end{itemize}
+  
+    Given the steep learning curve for using the command line interface, this GUI
+    makes \textit{Checksims} significantly more usable.
 
-\headerbox{Approach}{name=process, column=1, row=0.0, span=2}{
-  \textit{Checksims'} existing token-based document representation was
-  supplemented with a language independent AST based representation. The
-  \textit{ANTLR} parser generation tool and existing grammars were used to
-  generate parsers for the C, C++, Python, and Java languages. AST
-  representations were compared by first generating a dictionary from heuristic
-  fingerprint to AST node in the first document, then by recursively rating node
-  similarity in the second document by measuring the number of identical
-  subtrees found in the first document.
+    \parbox[c][0.35\linewidth][b]{0.48\linewidth}{
+      \includegraphics[width=0.9\linewidth]{initial_run.png} \\
+      The lobby menu with all available options.
+    }
+    \parbox[c][0.35\linewidth][b]{0.48\linewidth}{
+      \includegraphics[width=0.9\linewidth]{demo_screen.png} \\
+      The similarity comparison matrix view \\
+      and results screen.
+    }
 }
 
-
-\headerbox{Results}{name=results, column=1, row=0.3, span=1}{
-  Results
-}
-
-\headerbox{Analyses}{name=analyses, column=1, row=0.50, span=1}{
-  Analyses
-}
-
-\headerbox{Acknowledgments}{name=acknowledgments, column=2, row=0.5, span=1}{
-  ACK
-}
-
-\headerbox{References}{name=references, column=2, row=0.5, span=1}{
-  References
-}
 
 \end{poster}
 
